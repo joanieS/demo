@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :installations
+
   # get 'welcome/index'
 
   resources :customers
