@@ -1,5 +1,5 @@
 class DropBeaconTable < ActiveRecord::Migration
-	def up
+  def up
     drop_table :beacons
   end
 
