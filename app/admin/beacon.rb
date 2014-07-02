@@ -4,8 +4,8 @@ ActiveAdmin.register Beacon do
                 :minor_id,
                 :content,
                 :content_type,
-                :audio
-
+                :audio,
+  photos_attributes: [:url, :caption]
 
   form do |f|
     f.inputs 'Details' do
@@ -15,8 +15,10 @@ ActiveAdmin.register Beacon do
       f.input :content_type, :label => 'Content Type', :as => :select, :collection => ["Web", "Image", "Web Video", "Local Video", "Photo Gallery"]
       f.input :content, :as => :string
       f.has_many :photos do |photo_form|
-        photo_form.input :url
-        photo_form.input :caption
+        photo_form.inputs "Photos" do
+          photo_form.input :url
+          photo_form.input :caption
+        end
       end
       f.input :content, :as => :file
     end
