@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
+  resources :photos
+
+  resources :beacons
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   resources :installations
 
   # get 'welcome/index'
 
   resources :customers
 
+  get 'installations/:name/:beacon_id', to: 'installations#show' 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -64,11 +64,16 @@ class InstallationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_installation
-      @installation = Installation.find(params[:id])
+      if params[:id]
+        @installation = Installation.find(params[:id])
+      end
+      if params[:name] && params[:beacon_id]
+        @installation = Installation.find_by_name_and_beacon_id(params[:name], params[:beacon_id])
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def installation_params
-      params.require(:installation).permit(:name, :group, :customer_id)
+      params.require(:installation).permit(:name, :customer_id)
     end
 end
