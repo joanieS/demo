@@ -13,7 +13,6 @@ $(document).ready(function() {
 		if(content_type === "Photo Gallery") {
 			$("#beacon_content_input.string").hide()
 			$("#beacon_content_input.file").hide()
-			$("#beacon_content_input").attr("class", "text input optional")
 			$(".photos").show()
 		}	
 		else if(content_type === "Image") {
