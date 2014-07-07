@@ -17,7 +17,7 @@
       <tr>
         <td><%= beacon.minor_id %></td>
         <td><%= beacon.content %></td>
-        <td><%= beacon.type %></td>
+        <td><%= beacon.content_type %></td>
         <td><%= beacon.audio %></td>
         <td><%= beacon.installation_id %></td>
         <td><%= link_to 'Show', beacon %></td>
@@ -31,3 +31,34 @@
 <br>
 
 <%= link_to 'New Beacon', new_beacon_path %>
+
+
+<button onclick="this.innerText = togglePlayback()">use demo audio</button>
+<button onclick="toggleLiveInput()">use live input</button>
+<button onclick="toggleOscillator()">use oscillator</button>
+<!--<button onclick="updatePitch(0);">sample</button>-->
+
+<div id="detector" class="vague">
+<div class="pitch"><span id="pitch">--</span>Hz</div>
+<div class="note"><span id="note">--</span></div>   
+<canvas id="output" width=300 height=42></canvas>
+<div id="detune"><span id="detune_amt">--</span><span id="flat">cents &#9837;</span><span id="sharp">cents &#9839;</span></div>
+</div>
+
+<!-- just used for debugging
+<canvas id="waveform" width="512" height="256"></canvas>
+-->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-35593052-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>

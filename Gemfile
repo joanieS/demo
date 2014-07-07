@@ -11,6 +11,16 @@ gem 'faker'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 
+#File storage gems
+gem 'paperclip'
+gem 'aws-sdk'
+gem 's3_direct_upload'
+
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+end
+
 #Active admin and dependencies
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'devise'
