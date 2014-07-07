@@ -1,4 +1,4 @@
 json.array!(@installations) do |installation|
-  json.extract! installation, :id, :name, :group, :customer_id
+  json.extract! installation, :id, :name, :beacons
   json.url installation_url(installation, format: :json)
 end
