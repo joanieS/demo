@@ -76,8 +76,6 @@ ActiveRecord::Schema.define(version: 20140703142459) do
     t.integer  "customer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "beacon_id"
-    t.text     "content"
   end
 
   add_index "installations", ["customer_id"], name: "index_installations_on_customer_id", using: :btree
