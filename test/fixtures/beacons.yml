@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  minor_id: 1
+  content: MyText
+  type: 
+  audio: MyString
+  installation_id: 1
+
+two:
+  minor_id: 1
+  content: MyText
+  type: 
+  audio: MyString
+  installation_id: 1

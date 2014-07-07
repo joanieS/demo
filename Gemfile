@@ -6,8 +6,25 @@ gem 'rails', '4.1.1'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 gem 'pg'
+
+gem 'faker'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
+
+#File storage gems
+gem 'paperclip'
+gem 'aws-sdk'
+gem 's3_direct_upload'
+
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+end
+
+#Active admin and dependencies
+gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'devise'
+gem 'cocoon'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views

@@ -15,5 +15,16 @@
   <%= @installation.customer %>
 </p>
 
+<p>
+  <strong>Beacon ID:</strong>
+  <%= @installation.beacon_id %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @installation.content %>
+</p>
+
+
 <%= link_to 'Edit', edit_installation_path(@installation) %> |
 <%= link_to 'Back', installations_path %>
