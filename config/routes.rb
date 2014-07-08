@@ -1,25 +1,15 @@
 Rails.application.routes.draw do
-  resources :photos
-
-  resources :beacons
-
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
   resources :installations
 
   # get 'welcome/index'
 
   resources :customers
 
-  get 'installations/:name/:beacon_id', to: 'installations#show' 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-
-  # root 'welcome#index'
-
-  root :to => redirect("http://www.lufthouse.com/")
+  root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

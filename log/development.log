@@ -37872,3 +37872,1381 @@ Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2014-07-07 17:46:3
 
 
 Started GET "/" for 127.0.0.1 at 2014-07-07 17:46:36 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-07 18:00:43 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/admin" for 127.0.0.1 at 2014-07-07 18:00:48 -0400
+Processing by Admin::DashboardController#index as HTML
+  [1m[35mAdminUser Load (1.1ms)[0m  SELECT  "admin_users".* FROM "admin_users"  WHERE "admin_users"."id" = 1  ORDER BY "admin_users"."id" ASC LIMIT 1
+  Rendered /Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/app/views/active_admin/page/index.html.arb (785.4ms)
+Completed 200 OK in 932ms (Views: 804.9ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2014-07-07 18:00:50 -0400
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2014-07-07 18:00:50 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-07 18:00:50 -0400
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2014-07-07 18:00:50 -0400
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2014-07-07 18:00:50 -0400
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 127.0.0.1 at 2014-07-07 18:00:50 -0400
+
+
+Started GET "/assets/jquery.ui.button.js?body=1" for 127.0.0.1 at 2014-07-07 18:00:50 -0400
+
+
+Started GET "/assets/jquery.ui.mouse.js?body=1" for 127.0.0.1 at 2014-07-07 18:00:50 -0400
+
+
+Started GET "/assets/jquery.ui.draggable.js?body=1" for 127.0.0.1 at 2014-07-07 18:00:50 -0400
+
+
+Started GET "/assets/jquery.ui.position.js?body=1" for 127.0.0.1 at 2014-07-07 18:00:50 -0400
+
+
+Started GET "/assets/jquery.ui.resizable.js?body=1" for 127.0.0.1 at 2014-07-07 18:00:50 -0400
+
+
+Started GET "/assets/jquery.ui.dialog.js?body=1" for 127.0.0.1 at 2014-07-07 18:00:50 -0400
+
+
+Started GET "/assets/jquery.ui.sortable.js?body=1" for 127.0.0.1 at 2014-07-07 18:00:50 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-07 18:00:50 -0400
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2014-07-07 18:00:50 -0400
+
+
+Started GET "/assets/active_admin/lib/batch_actions.js?body=1" for 127.0.0.1 at 2014-07-07 18:00:50 -0400
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler.js?body=1" for 127.0.0.1 at 2014-07-07 18:00:50 -0400
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu.js?body=1" for 127.0.0.1 at 2014-07-07 18:00:50 -0400
+
+
+Started GET "/assets/active_admin/lib/has_many.js?body=1" for 127.0.0.1 at 2014-07-07 18:00:50 -0400
+
+
+Started GET "/assets/active_admin/lib/modal_dialog.js?body=1" for 127.0.0.1 at 2014-07-07 18:00:50 -0400
+
+
+Started GET "/assets/active_admin/lib/popover.js?body=1" for 127.0.0.1 at 2014-07-07 18:00:50 -0400
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2014-07-07 18:00:50 -0400
+
+
+Started GET "/assets/active_admin/ext/jquery-ui.js?body=1" for 127.0.0.1 at 2014-07-07 18:00:50 -0400
+
+
+Started GET "/assets/active_admin/ext/jquery.js?body=1" for 127.0.0.1 at 2014-07-07 18:00:50 -0400
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2014-07-07 18:00:50 -0400
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2014-07-07 18:00:50 -0400
+
+
+Started GET "/admin/beacons" for 127.0.0.1 at 2014-07-07 18:09:52 -0400
+Processing by Admin::BeaconsController#index as HTML
+  [1m[36mAdminUser Load (0.6ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users"  WHERE "admin_users"."id" = 1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "beacons"  LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "beacons"  LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "beacons"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "beacons"  LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mBeacon Load (0.5ms)[0m  SELECT  "beacons".* FROM "beacons"   ORDER BY "beacons"."id" desc LIMIT 30 OFFSET 0
+  [1m[36mPhoto Load (0.6ms)[0m  [1mSELECT "photos".* FROM "photos"[0m
+  Rendered /Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/app/views/active_admin/resource/index.html.arb (266.1ms)
+Completed 200 OK in 283ms (Views: 265.5ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2014-07-07 18:09:53 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:53 -0400
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:53 -0400
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2014-07-07 18:09:53 -0400
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:53 -0400
+
+
+Started GET "/assets/jquery.ui.button.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:53 -0400
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:53 -0400
+
+
+Started GET "/assets/jquery.ui.mouse.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:53 -0400
+
+
+Started GET "/assets/jquery.ui.draggable.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:53 -0400
+
+
+Started GET "/assets/jquery.ui.position.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:53 -0400
+
+
+Started GET "/assets/jquery.ui.resizable.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:53 -0400
+
+
+Started GET "/assets/jquery.ui.dialog.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:53 -0400
+
+
+Started GET "/assets/jquery.ui.sortable.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:53 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:53 -0400
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:53 -0400
+
+
+Started GET "/assets/active_admin/lib/batch_actions.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:53 -0400
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:53 -0400
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:53 -0400
+
+
+Started GET "/assets/active_admin/lib/has_many.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:53 -0400
+
+
+Started GET "/assets/active_admin/lib/modal_dialog.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:53 -0400
+
+
+Started GET "/assets/active_admin/lib/popover.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:53 -0400
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:53 -0400
+
+
+Started GET "/assets/active_admin/ext/jquery-ui.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:53 -0400
+
+
+Started GET "/assets/active_admin/ext/jquery.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:53 -0400
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:53 -0400
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:53 -0400
+
+
+Started GET "/assets/active_admin/orderable.png" for 127.0.0.1 at 2014-07-07 18:09:53 -0400
+
+
+Started GET "/assets/active_admin/datepicker/datepicker-input-icon.png" for 127.0.0.1 at 2014-07-07 18:09:53 -0400
+
+
+Started GET "/admin/beacons/1/edit" for 127.0.0.1 at 2014-07-07 18:09:55 -0400
+Processing by Admin::BeaconsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mAdminUser Load (0.6ms)[0m  SELECT  "admin_users".* FROM "admin_users"  WHERE "admin_users"."id" = 1  ORDER BY "admin_users"."id" ASC LIMIT 1
+  [1m[36mBeacon Load (0.3ms)[0m  [1mSELECT  "beacons".* FROM "beacons"  WHERE "beacons"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mBeacon Load (0.4ms)[0m  SELECT  "beacons".* FROM "beacons"  WHERE "beacons"."id" = 1 LIMIT 1
+  [1m[36mInstallation Load (0.6ms)[0m  [1mSELECT "installations".* FROM "installations"[0m
+  [1m[35mPhoto Load (0.3ms)[0m  SELECT "photos".* FROM "photos"  WHERE "photos"."beacon_id" = $1  [["beacon_id", 1]]
+  Rendered /Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/app/views/active_admin/resource/edit.html.arb (288.2ms)
+Completed 200 OK in 304ms (Views: 295.8ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:56 -0400
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2014-07-07 18:09:56 -0400
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:56 -0400
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:56 -0400
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:56 -0400
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2014-07-07 18:09:56 -0400
+
+
+Started GET "/assets/jquery.ui.button.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:56 -0400
+
+
+Started GET "/assets/jquery.ui.mouse.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:56 -0400
+
+
+Started GET "/assets/jquery.ui.draggable.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:56 -0400
+
+
+Started GET "/assets/jquery.ui.position.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:56 -0400
+
+
+Started GET "/assets/jquery.ui.resizable.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:56 -0400
+
+
+Started GET "/assets/jquery.ui.dialog.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:56 -0400
+
+
+Started GET "/assets/jquery.ui.sortable.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:56 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:56 -0400
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:56 -0400
+
+
+Started GET "/assets/active_admin/lib/batch_actions.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:56 -0400
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:56 -0400
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:56 -0400
+
+
+Started GET "/assets/active_admin/lib/has_many.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:56 -0400
+
+
+Started GET "/assets/active_admin/lib/modal_dialog.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:56 -0400
+
+
+Started GET "/assets/active_admin/lib/popover.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:56 -0400
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:56 -0400
+
+
+Started GET "/assets/active_admin/ext/jquery-ui.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:56 -0400
+
+
+Started GET "/assets/active_admin/ext/jquery.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:56 -0400
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:56 -0400
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2014-07-07 18:09:56 -0400
+
+
+Started PATCH "/admin/beacons/1" for 127.0.0.1 at 2014-07-07 18:10:55 -0400
+Processing by Admin::BeaconsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8RTMs0Lzvu5AfkliA4E1kvOCJgb3qVWG68AeYjoXC9g=", "beacon"=>{"installation_id"=>"1", "minor_id"=>"47394", "audio"=>"", "content_type"=>"Image", "content"=>""}, "commit"=>"Update Beacon", "id"=>"1"}
+  [1m[36mAdminUser Load (1.3ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users"  WHERE "admin_users"."id" = 1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m
+  [1m[35mBeacon Load (0.8ms)[0m  SELECT  "beacons".* FROM "beacons"  WHERE "beacons"."id" = $1 LIMIT 1  [["id", 1]]
+Unpermitted parameters: utf8, _method, authenticity_token, commit, id
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "beacons" SET "installation_id" = $1, "updated_at" = $2 WHERE "beacons"."id" = 1  [["installation_id", 1], ["updated_at", "2014-07-07 22:10:55.504800"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/admin/beacons/1
+Completed 302 Found in 28ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/admin/beacons/1" for 127.0.0.1 at 2014-07-07 18:10:55 -0400
+Processing by Admin::BeaconsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mAdminUser Load (0.4ms)[0m  SELECT  "admin_users".* FROM "admin_users"  WHERE "admin_users"."id" = 1  ORDER BY "admin_users"."id" ASC LIMIT 1
+  [1m[36mBeacon Load (0.3ms)[0m  [1mSELECT  "beacons".* FROM "beacons"  WHERE "beacons"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (1.1ms)[0m  SELECT COUNT(*) FROM "active_admin_comments"  WHERE "active_admin_comments"."resource_type" = 'Beacon' AND "active_admin_comments"."resource_id" = '1' AND "active_admin_comments"."namespace" = 'admin'
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "active_admin_comments"  WHERE "active_admin_comments"."resource_type" = 'Beacon' AND "active_admin_comments"."resource_id" = '1' AND "active_admin_comments"."namespace" = 'admin'[0m
+  Rendered /Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/app/views/active_admin/resource/show.html.arb (148.1ms)
+Completed 200 OK in 155ms (Views: 148.5ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2014-07-07 18:10:55 -0400
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2014-07-07 18:10:55 -0400
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 127.0.0.1 at 2014-07-07 18:10:55 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-07 18:10:55 -0400
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2014-07-07 18:10:55 -0400
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2014-07-07 18:10:55 -0400
+
+
+Started GET "/assets/jquery.ui.button.js?body=1" for 127.0.0.1 at 2014-07-07 18:10:55 -0400
+
+
+Started GET "/assets/jquery.ui.mouse.js?body=1" for 127.0.0.1 at 2014-07-07 18:10:55 -0400
+
+
+Started GET "/assets/jquery.ui.draggable.js?body=1" for 127.0.0.1 at 2014-07-07 18:10:55 -0400
+
+
+Started GET "/assets/jquery.ui.position.js?body=1" for 127.0.0.1 at 2014-07-07 18:10:55 -0400
+
+
+Started GET "/assets/jquery.ui.resizable.js?body=1" for 127.0.0.1 at 2014-07-07 18:10:55 -0400
+
+
+Started GET "/assets/jquery.ui.dialog.js?body=1" for 127.0.0.1 at 2014-07-07 18:10:55 -0400
+
+
+Started GET "/assets/jquery.ui.sortable.js?body=1" for 127.0.0.1 at 2014-07-07 18:10:55 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-07 18:10:55 -0400
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2014-07-07 18:10:55 -0400
+
+
+Started GET "/assets/active_admin/lib/batch_actions.js?body=1" for 127.0.0.1 at 2014-07-07 18:10:55 -0400
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler.js?body=1" for 127.0.0.1 at 2014-07-07 18:10:55 -0400
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu.js?body=1" for 127.0.0.1 at 2014-07-07 18:10:55 -0400
+
+
+Started GET "/assets/active_admin/lib/has_many.js?body=1" for 127.0.0.1 at 2014-07-07 18:10:56 -0400
+
+
+Started GET "/assets/active_admin/lib/modal_dialog.js?body=1" for 127.0.0.1 at 2014-07-07 18:10:56 -0400
+
+
+Started GET "/assets/active_admin/lib/popover.js?body=1" for 127.0.0.1 at 2014-07-07 18:10:56 -0400
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2014-07-07 18:10:56 -0400
+
+
+Started GET "/assets/active_admin/ext/jquery-ui.js?body=1" for 127.0.0.1 at 2014-07-07 18:10:56 -0400
+
+
+Started GET "/assets/active_admin/ext/jquery.js?body=1" for 127.0.0.1 at 2014-07-07 18:10:56 -0400
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2014-07-07 18:10:56 -0400
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2014-07-07 18:10:56 -0400
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2014-07-07 18:11:17 -0400
+Processing by Admin::DashboardController#index as HTML
+  [1m[35mAdminUser Load (0.6ms)[0m  SELECT  "admin_users".* FROM "admin_users"  WHERE "admin_users"."id" = 1  ORDER BY "admin_users"."id" ASC LIMIT 1
+  Rendered /Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/app/views/active_admin/page/index.html.arb (22.4ms)
+Completed 200 OK in 36ms (Views: 31.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2014-07-07 18:11:17 -0400
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2014-07-07 18:11:17 -0400
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2014-07-07 18:11:17 -0400
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2014-07-07 18:11:17 -0400
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 127.0.0.1 at 2014-07-07 18:11:17 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-07 18:11:17 -0400
+
+
+Started GET "/assets/jquery.ui.button.js?body=1" for 127.0.0.1 at 2014-07-07 18:11:17 -0400
+
+
+Started GET "/assets/jquery.ui.mouse.js?body=1" for 127.0.0.1 at 2014-07-07 18:11:17 -0400
+
+
+Started GET "/assets/jquery.ui.draggable.js?body=1" for 127.0.0.1 at 2014-07-07 18:11:17 -0400
+
+
+Started GET "/assets/jquery.ui.position.js?body=1" for 127.0.0.1 at 2014-07-07 18:11:17 -0400
+
+
+Started GET "/assets/jquery.ui.resizable.js?body=1" for 127.0.0.1 at 2014-07-07 18:11:17 -0400
+
+
+Started GET "/assets/jquery.ui.dialog.js?body=1" for 127.0.0.1 at 2014-07-07 18:11:17 -0400
+
+
+Started GET "/assets/jquery.ui.sortable.js?body=1" for 127.0.0.1 at 2014-07-07 18:11:17 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-07 18:11:17 -0400
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2014-07-07 18:11:17 -0400
+
+
+Started GET "/assets/active_admin/lib/batch_actions.js?body=1" for 127.0.0.1 at 2014-07-07 18:11:17 -0400
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler.js?body=1" for 127.0.0.1 at 2014-07-07 18:11:17 -0400
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu.js?body=1" for 127.0.0.1 at 2014-07-07 18:11:17 -0400
+
+
+Started GET "/assets/active_admin/lib/has_many.js?body=1" for 127.0.0.1 at 2014-07-07 18:11:17 -0400
+
+
+Started GET "/assets/active_admin/lib/modal_dialog.js?body=1" for 127.0.0.1 at 2014-07-07 18:11:17 -0400
+
+
+Started GET "/assets/active_admin/lib/popover.js?body=1" for 127.0.0.1 at 2014-07-07 18:11:17 -0400
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2014-07-07 18:11:17 -0400
+
+
+Started GET "/assets/active_admin/ext/jquery-ui.js?body=1" for 127.0.0.1 at 2014-07-07 18:11:17 -0400
+
+
+Started GET "/assets/active_admin/ext/jquery.js?body=1" for 127.0.0.1 at 2014-07-07 18:11:17 -0400
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2014-07-07 18:11:17 -0400
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2014-07-07 18:11:17 -0400
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2014-07-07 18:11:40 -0400
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.3ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users"  WHERE "admin_users"."id" = 1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m
+  Rendered /Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/app/views/active_admin/page/index.html.arb (25.7ms)
+Completed 500 Internal Server Error in 63ms
+
+NameError - uninitialized constant Post:
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:518:in `load_missing_constant'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/dependencies.rb:180:in `const_missing'
+   () Users/joansoskin/Documents/flashstarts/development/demos/demo/app/admin/dashboard.rb:19:in `block (6 levels) in <top (required)>'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+  arbre (1.0.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:14:in `ul'
+   () Users/joansoskin/Documents/flashstarts/development/demos/demo/app/admin/dashboard.rb:18:in `block (5 levels) in <top (required)>'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+  arbre (1.0.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:14:in `panel'
+   () Users/joansoskin/Documents/flashstarts/development/demos/demo/app/admin/dashboard.rb:17:in `block (4 levels) in <top (required)>'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+  arbre (1.0.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/lib/active_admin/views/components/columns.rb:69:in `column'
+  arbre (1.0.1) lib/arbre/element.rb:171:in `method_missing'
+   () Users/joansoskin/Documents/flashstarts/development/demos/demo/app/admin/dashboard.rb:16:in `block (3 levels) in <top (required)>'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+  arbre (1.0.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:14:in `columns'
+   () Users/joansoskin/Documents/flashstarts/development/demos/demo/app/admin/dashboard.rb:15:in `block (2 levels) in <top (required)>'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/lib/active_admin/views/pages/page.rb:8:in `main_content'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/lib/active_admin/views/pages/base.rb:83:in `block (2 levels) in build_main_content_wrapper'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+  arbre (1.0.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:14:in `div'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/lib/active_admin/views/pages/base.rb:82:in `block in build_main_content_wrapper'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+  arbre (1.0.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:14:in `div'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/lib/active_admin/views/pages/base.rb:81:in `build_main_content_wrapper'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/lib/active_admin/views/pages/base.rb:65:in `block in build_page_content'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+  arbre (1.0.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:14:in `div'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/lib/active_admin/views/pages/base.rb:64:in `build_page_content'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/lib/active_admin/views/pages/base.rb:47:in `block (2 levels) in build_page'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+  arbre (1.0.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:14:in `div'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/lib/active_admin/views/pages/base.rb:44:in `block in build_page'
+  arbre (1.0.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/lib/active_admin/views/pages/base.rb:43:in `build_page'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/lib/active_admin/views/pages/base.rb:10:in `build'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:30:in `block in build_tag'
+  arbre (1.0.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/app/views/active_admin/page/index.html.arb:1:in `block in ___sers_joansoskin__rvm_gems_ruby_______p____bundler_gems_active_admin__e_b____bace_app_views_active_admin_page_index_html_arb__3109339574227996424_2161638560'
+  arbre (1.0.1) lib/arbre/context.rb:45:in `initialize'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/app/views/active_admin/page/index.html.arb:1:in `___sers_joansoskin__rvm_gems_ruby_______p____bundler_gems_active_admin__e_b____bace_app_views_active_admin_page_index_html_arb__3109339574227996424_2161638560'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionview-4.1.1/lib/action_view/template.rb:145:in `block in render'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/notifications.rb:161:in `instrument'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionview-4.1.1/lib/action_view/template.rb:339:in `instrument'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionview-4.1.1/lib/action_view/template.rb:143:in `render'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionview-4.1.1/lib/action_view/renderer/template_renderer.rb:55:in `block (2 levels) in render_template'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionview-4.1.1/lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/notifications.rb:159:in `block in instrument'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/notifications.rb:159:in `instrument'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionview-4.1.1/lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionview-4.1.1/lib/action_view/renderer/template_renderer.rb:54:in `block in render_template'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionview-4.1.1/lib/action_view/renderer/template_renderer.rb:62:in `render_with_layout'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionview-4.1.1/lib/action_view/renderer/template_renderer.rb:53:in `render_template'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionview-4.1.1/lib/action_view/renderer/template_renderer.rb:17:in `render'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionview-4.1.1/lib/action_view/renderer/renderer.rb:42:in `render_template'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionview-4.1.1/lib/action_view/renderer/renderer.rb:23:in `render'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionview-4.1.1/lib/action_view/rendering.rb:99:in `_render_template'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_controller/metal/streaming.rb:217:in `_render_template'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionview-4.1.1/lib/action_view/rendering.rb:82:in `render_to_body'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_controller/metal/renderers.rb:32:in `render_to_body'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/abstract_controller/rendering.rb:25:in `render'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_controller/metal/rendering.rb:16:in `render'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+   () Users/joansoskin/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activerecord-4.1.1/lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_controller/metal/instrumentation.rb:40:in `render'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/lib/active_admin/page_controller.rb:14:in `index'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/abstract_controller/base.rb:189:in `process_action'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_controller/metal/rendering.rb:10:in `process_action'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/callbacks.rb:113:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/callbacks.rb:166:in `block in halting'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/callbacks.rb:166:in `block in halting'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/callbacks.rb:166:in `block in halting'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/callbacks.rb:166:in `block in halting'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/callbacks.rb:229:in `block in halting'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/callbacks.rb:229:in `block in halting'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/callbacks.rb:166:in `block in halting'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/callbacks.rb:166:in `block in halting'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/callbacks.rb:166:in `block in halting'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/callbacks.rb:86:in `run_callbacks'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/abstract_controller/callbacks.rb:19:in `process_action'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_controller/metal/rescue.rb:29:in `process_action'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/notifications.rb:159:in `block in instrument'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/notifications.rb:159:in `instrument'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activerecord-4.1.1/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/abstract_controller/base.rb:136:in `process'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionview-4.1.1/lib/action_view/rendering.rb:30:in `process'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_controller/metal.rb:195:in `dispatch'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_controller/metal.rb:231:in `block in action'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_dispatch/routing/route_set.rb:48:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_dispatch/journey/router.rb:71:in `block in call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_dispatch/journey/router.rb:59:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_dispatch/routing/route_set.rb:676:in `call'
+  jquery-fileupload-rails (0.4.1) lib/jquery/fileupload/rails/middleware.rb:14:in `_call'
+  jquery-fileupload-rails (0.4.1) lib/jquery/fileupload/rails/middleware.rb:10:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/rack-1.5.2/lib/rack/etag.rb:23:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/rack-1.5.2/lib/rack/conditionalget.rb:25:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/rack-1.5.2/lib/rack/head.rb:11:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_dispatch/middleware/flash.rb:254:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:225:in `context'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:220:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_dispatch/middleware/cookies.rb:560:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activerecord-4.1.1/lib/active_record/query_cache.rb:36:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activerecord-4.1.1/lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activerecord-4.1.1/lib/active_record/migration.rb:380:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/callbacks.rb:82:in `run_callbacks'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_dispatch/middleware/reloader.rb:73:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/railties-4.1.1/lib/rails/rack/logger.rb:38:in `call_app'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/railties-4.1.1/lib/rails/rack/logger.rb:20:in `block in call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/tagged_logging.rb:68:in `block in tagged'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/tagged_logging.rb:26:in `tagged'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/tagged_logging.rb:68:in `tagged'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/railties-4.1.1/lib/rails/rack/logger.rb:20:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/rack-1.5.2/lib/rack/runtime.rb:17:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_dispatch/middleware/static.rb:64:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/rack-1.5.2/lib/rack/sendfile.rb:112:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/railties-4.1.1/lib/rails/engine.rb:514:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/railties-4.1.1/lib/rails/application.rb:144:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/rack-1.5.2/lib/rack/content_length.rb:14:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/rack-1.5.2/lib/rack/handler/webrick.rb:60:in `service'
+   () Users/joansoskin/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+   () Users/joansoskin/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+   () Users/joansoskin/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/2206081400/variables" for 127.0.0.1 at 2014-07-07 18:11:40 -0400
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2014-07-07 18:13:04 -0400
+Processing by Admin::DashboardController#index as HTML
+  [1m[35mAdminUser Load (0.5ms)[0m  SELECT  "admin_users".* FROM "admin_users"  WHERE "admin_users"."id" = 1  ORDER BY "admin_users"."id" ASC LIMIT 1
+  Rendered /Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/app/views/active_admin/page/index.html.arb (2756.1ms)
+Completed 500 Internal Server Error in 2784ms
+
+NoMethodError - undefined method `column' for #<ActiveAdmin::Views::Pages::Page:0x00000102344240>:
+  arbre (1.0.1) lib/arbre/element.rb:177:in `method_missing'
+   () Users/joansoskin/Documents/flashstarts/development/demos/demo/app/admin/dashboard.rb:26:in `block (2 levels) in <top (required)>'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/lib/active_admin/views/pages/page.rb:8:in `main_content'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/lib/active_admin/views/pages/base.rb:83:in `block (2 levels) in build_main_content_wrapper'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+  arbre (1.0.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:14:in `div'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/lib/active_admin/views/pages/base.rb:82:in `block in build_main_content_wrapper'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+  arbre (1.0.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:14:in `div'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/lib/active_admin/views/pages/base.rb:81:in `build_main_content_wrapper'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/lib/active_admin/views/pages/base.rb:65:in `block in build_page_content'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+  arbre (1.0.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:14:in `div'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/lib/active_admin/views/pages/base.rb:64:in `build_page_content'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/lib/active_admin/views/pages/base.rb:47:in `block (2 levels) in build_page'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+  arbre (1.0.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:14:in `div'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/lib/active_admin/views/pages/base.rb:44:in `block in build_page'
+  arbre (1.0.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/lib/active_admin/views/pages/base.rb:43:in `build_page'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/lib/active_admin/views/pages/base.rb:10:in `build'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:30:in `block in build_tag'
+  arbre (1.0.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+  arbre (1.0.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/app/views/active_admin/page/index.html.arb:1:in `block in ___sers_joansoskin__rvm_gems_ruby_______p____bundler_gems_active_admin__e_b____bace_app_views_active_admin_page_index_html_arb__3109339574227996424_2161638560'
+  arbre (1.0.1) lib/arbre/context.rb:45:in `initialize'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/app/views/active_admin/page/index.html.arb:1:in `___sers_joansoskin__rvm_gems_ruby_______p____bundler_gems_active_admin__e_b____bace_app_views_active_admin_page_index_html_arb__3109339574227996424_2161638560'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionview-4.1.1/lib/action_view/template.rb:145:in `block in render'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/notifications.rb:161:in `instrument'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionview-4.1.1/lib/action_view/template.rb:339:in `instrument'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionview-4.1.1/lib/action_view/template.rb:143:in `render'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionview-4.1.1/lib/action_view/renderer/template_renderer.rb:55:in `block (2 levels) in render_template'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionview-4.1.1/lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/notifications.rb:159:in `block in instrument'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/notifications.rb:159:in `instrument'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionview-4.1.1/lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionview-4.1.1/lib/action_view/renderer/template_renderer.rb:54:in `block in render_template'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionview-4.1.1/lib/action_view/renderer/template_renderer.rb:62:in `render_with_layout'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionview-4.1.1/lib/action_view/renderer/template_renderer.rb:53:in `render_template'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionview-4.1.1/lib/action_view/renderer/template_renderer.rb:17:in `render'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionview-4.1.1/lib/action_view/renderer/renderer.rb:42:in `render_template'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionview-4.1.1/lib/action_view/renderer/renderer.rb:23:in `render'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionview-4.1.1/lib/action_view/rendering.rb:99:in `_render_template'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_controller/metal/streaming.rb:217:in `_render_template'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionview-4.1.1/lib/action_view/rendering.rb:82:in `render_to_body'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_controller/metal/renderers.rb:32:in `render_to_body'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/abstract_controller/rendering.rb:25:in `render'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_controller/metal/rendering.rb:16:in `render'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+   () Users/joansoskin/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activerecord-4.1.1/lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_controller/metal/instrumentation.rb:40:in `render'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/lib/active_admin/page_controller.rb:14:in `index'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/abstract_controller/base.rb:189:in `process_action'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_controller/metal/rendering.rb:10:in `process_action'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/callbacks.rb:113:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/callbacks.rb:166:in `block in halting'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/callbacks.rb:166:in `block in halting'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/callbacks.rb:166:in `block in halting'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/callbacks.rb:166:in `block in halting'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/callbacks.rb:229:in `block in halting'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/callbacks.rb:229:in `block in halting'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/callbacks.rb:166:in `block in halting'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/callbacks.rb:166:in `block in halting'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/callbacks.rb:166:in `block in halting'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/callbacks.rb:86:in `run_callbacks'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/abstract_controller/callbacks.rb:19:in `process_action'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_controller/metal/rescue.rb:29:in `process_action'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/notifications.rb:159:in `block in instrument'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/notifications.rb:159:in `instrument'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activerecord-4.1.1/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/abstract_controller/base.rb:136:in `process'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionview-4.1.1/lib/action_view/rendering.rb:30:in `process'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_controller/metal.rb:195:in `dispatch'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_controller/metal.rb:231:in `block in action'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_dispatch/routing/route_set.rb:48:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_dispatch/journey/router.rb:71:in `block in call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_dispatch/journey/router.rb:59:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_dispatch/routing/route_set.rb:676:in `call'
+  jquery-fileupload-rails (0.4.1) lib/jquery/fileupload/rails/middleware.rb:14:in `_call'
+  jquery-fileupload-rails (0.4.1) lib/jquery/fileupload/rails/middleware.rb:10:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/rack-1.5.2/lib/rack/etag.rb:23:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/rack-1.5.2/lib/rack/conditionalget.rb:25:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/rack-1.5.2/lib/rack/head.rb:11:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_dispatch/middleware/flash.rb:254:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:225:in `context'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:220:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_dispatch/middleware/cookies.rb:560:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activerecord-4.1.1/lib/active_record/query_cache.rb:36:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activerecord-4.1.1/lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activerecord-4.1.1/lib/active_record/migration.rb:380:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/callbacks.rb:82:in `run_callbacks'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_dispatch/middleware/reloader.rb:73:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/railties-4.1.1/lib/rails/rack/logger.rb:38:in `call_app'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/railties-4.1.1/lib/rails/rack/logger.rb:20:in `block in call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/tagged_logging.rb:68:in `block in tagged'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/tagged_logging.rb:26:in `tagged'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/tagged_logging.rb:68:in `tagged'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/railties-4.1.1/lib/rails/rack/logger.rb:20:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/rack-1.5.2/lib/rack/runtime.rb:17:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/activesupport-4.1.1/lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/actionpack-4.1.1/lib/action_dispatch/middleware/static.rb:64:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/rack-1.5.2/lib/rack/sendfile.rb:112:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/railties-4.1.1/lib/rails/engine.rb:514:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/railties-4.1.1/lib/rails/application.rb:144:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/rack-1.5.2/lib/rack/content_length.rb:14:in `call'
+   () Users/joansoskin/.rvm/gems/ruby-2.0.0-p451@global/gems/rack-1.5.2/lib/rack/handler/webrick.rb:60:in `service'
+   () Users/joansoskin/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+   () Users/joansoskin/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+   () Users/joansoskin/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/2205371380/variables" for 127.0.0.1 at 2014-07-07 18:13:11 -0400
+
+
+Started GET "/admin" for 127.0.0.1 at 2014-07-08 10:31:06 -0400
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.3ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users"  WHERE "admin_users"."id" = 1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m
+  Rendered /Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/app/views/active_admin/page/index.html.arb (23.4ms)
+Completed 200 OK in 81ms (Views: 26.8ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2014-07-08 10:31:07 -0400
+Processing by Admin::DashboardController#index as HTML
+  [1m[35mAdminUser Load (0.4ms)[0m  SELECT  "admin_users".* FROM "admin_users"  WHERE "admin_users"."id" = 1  ORDER BY "admin_users"."id" ASC LIMIT 1
+  Rendered /Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/app/views/active_admin/page/index.html.arb (20.9ms)
+Completed 200 OK in 24ms (Views: 22.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2014-07-08 10:31:07 -0400
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2014-07-08 10:31:07 -0400
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:07 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:07 -0400
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:07 -0400
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:07 -0400
+
+
+Started GET "/assets/jquery.ui.button.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:07 -0400
+
+
+Started GET "/assets/jquery.ui.mouse.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:07 -0400
+
+
+Started GET "/assets/jquery.ui.draggable.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:07 -0400
+
+
+Started GET "/assets/jquery.ui.position.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:07 -0400
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:07 -0400
+
+
+Started GET "/assets/active_admin/lib/batch_actions.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:07 -0400
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:07 -0400
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:07 -0400
+
+
+Started GET "/assets/active_admin/lib/has_many.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:07 -0400
+
+
+Started GET "/assets/active_admin/lib/modal_dialog.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:07 -0400
+
+
+Started GET "/assets/active_admin/lib/popover.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:07 -0400
+
+
+Started GET "/assets/jquery.ui.resizable.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:07 -0400
+
+
+Started GET "/assets/jquery.ui.dialog.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:07 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:07 -0400
+
+
+Started GET "/assets/jquery.ui.sortable.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:07 -0400
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:07 -0400
+
+
+Started GET "/assets/active_admin/ext/jquery-ui.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:07 -0400
+
+
+Started GET "/assets/active_admin/ext/jquery.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:07 -0400
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:07 -0400
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:07 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-08 10:31:41 -0400
+
+
+Started GET "/admin" for 127.0.0.1 at 2014-07-08 10:31:43 -0400
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.4ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users"  WHERE "admin_users"."id" = 1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m
+  Rendered /Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/app/views/active_admin/page/index.html.arb (20.8ms)
+Completed 200 OK in 24ms (Views: 22.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2014-07-08 10:31:43 -0400
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2014-07-08 10:31:43 -0400
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:43 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:43 -0400
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:43 -0400
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:43 -0400
+
+
+Started GET "/assets/jquery.ui.button.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:43 -0400
+
+
+Started GET "/assets/jquery.ui.mouse.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:43 -0400
+
+
+Started GET "/assets/jquery.ui.draggable.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:43 -0400
+
+
+Started GET "/assets/jquery.ui.position.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:43 -0400
+
+
+Started GET "/assets/jquery.ui.resizable.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:43 -0400
+
+
+Started GET "/assets/jquery.ui.dialog.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:43 -0400
+
+
+Started GET "/assets/jquery.ui.sortable.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:43 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:43 -0400
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:43 -0400
+
+
+Started GET "/assets/active_admin/lib/batch_actions.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:43 -0400
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:43 -0400
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:43 -0400
+
+
+Started GET "/assets/active_admin/lib/has_many.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:43 -0400
+
+
+Started GET "/assets/active_admin/lib/modal_dialog.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:43 -0400
+
+
+Started GET "/assets/active_admin/lib/popover.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:43 -0400
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:43 -0400
+
+
+Started GET "/assets/active_admin/ext/jquery-ui.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:43 -0400
+
+
+Started GET "/assets/active_admin/ext/jquery.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:43 -0400
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:43 -0400
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:43 -0400
+
+
+Started GET "/admin/beacons" for 127.0.0.1 at 2014-07-08 10:31:51 -0400
+Processing by Admin::BeaconsController#index as HTML
+  [1m[35mAdminUser Load (0.6ms)[0m  SELECT  "admin_users".* FROM "admin_users"  WHERE "admin_users"."id" = 1  ORDER BY "admin_users"."id" ASC LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "beacons"  LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "beacons"  LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "beacons"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "beacons"  LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mBeacon Load (0.4ms)[0m  [1mSELECT  "beacons".* FROM "beacons"   ORDER BY "beacons"."id" desc LIMIT 30 OFFSET 0[0m
+  [1m[35mPhoto Load (0.3ms)[0m  SELECT "photos".* FROM "photos"
+  Rendered /Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/app/views/active_admin/resource/index.html.arb (100.6ms)
+Completed 200 OK in 113ms (Views: 101.6ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2014-07-08 10:31:51 -0400
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:51 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:51 -0400
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:51 -0400
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2014-07-08 10:31:51 -0400
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:51 -0400
+
+
+Started GET "/assets/jquery.ui.button.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:51 -0400
+
+
+Started GET "/assets/jquery.ui.mouse.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:51 -0400
+
+
+Started GET "/assets/jquery.ui.draggable.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:51 -0400
+
+
+Started GET "/assets/jquery.ui.position.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:51 -0400
+
+
+Started GET "/assets/jquery.ui.resizable.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:51 -0400
+
+
+Started GET "/assets/jquery.ui.dialog.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:51 -0400
+
+
+Started GET "/assets/jquery.ui.sortable.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:51 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:51 -0400
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:51 -0400
+
+
+Started GET "/assets/active_admin/lib/batch_actions.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:51 -0400
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:51 -0400
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:51 -0400
+
+
+Started GET "/assets/active_admin/lib/has_many.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:52 -0400
+
+
+Started GET "/assets/active_admin/lib/modal_dialog.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:52 -0400
+
+
+Started GET "/assets/active_admin/lib/popover.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:52 -0400
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:52 -0400
+
+
+Started GET "/assets/active_admin/ext/jquery-ui.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:52 -0400
+
+
+Started GET "/assets/active_admin/ext/jquery.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:52 -0400
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:52 -0400
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:52 -0400
+
+
+Started GET "/assets/active_admin/orderable.png" for 127.0.0.1 at 2014-07-08 10:31:52 -0400
+
+
+Started GET "/assets/active_admin/datepicker/datepicker-input-icon.png" for 127.0.0.1 at 2014-07-08 10:31:52 -0400
+
+
+Started GET "/admin/beacons/new" for 127.0.0.1 at 2014-07-08 10:31:56 -0400
+Processing by Admin::BeaconsController#new as HTML
+  [1m[36mAdminUser Load (0.4ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users"  WHERE "admin_users"."id" = 1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m
+  [1m[35mInstallation Load (0.4ms)[0m  SELECT "installations".* FROM "installations"
+  Rendered /Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/app/views/active_admin/resource/new.html.arb (202.3ms)
+Completed 200 OK in 217ms (Views: 212.0ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2014-07-08 10:31:56 -0400
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2014-07-08 10:31:56 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:56 -0400
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:56 -0400
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:56 -0400
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:56 -0400
+
+
+Started GET "/assets/jquery.ui.button.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:56 -0400
+
+
+Started GET "/assets/jquery.ui.mouse.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:56 -0400
+
+
+Started GET "/assets/jquery.ui.draggable.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:56 -0400
+
+
+Started GET "/assets/jquery.ui.position.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:56 -0400
+
+
+Started GET "/assets/jquery.ui.resizable.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:56 -0400
+
+
+Started GET "/assets/jquery.ui.dialog.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:56 -0400
+
+
+Started GET "/assets/jquery.ui.sortable.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:56 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:56 -0400
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:56 -0400
+
+
+Started GET "/assets/active_admin/lib/batch_actions.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:56 -0400
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:56 -0400
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:56 -0400
+
+
+Started GET "/assets/active_admin/lib/has_many.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:56 -0400
+
+
+Started GET "/assets/active_admin/lib/modal_dialog.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:56 -0400
+
+
+Started GET "/assets/active_admin/lib/popover.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:56 -0400
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:56 -0400
+
+
+Started GET "/assets/active_admin/ext/jquery-ui.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:56 -0400
+
+
+Started GET "/assets/active_admin/ext/jquery.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:56 -0400
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:56 -0400
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2014-07-08 10:31:56 -0400
+
+
+Started GET "/admin/beacons" for 127.0.0.1 at 2014-07-08 10:32:37 -0400
+Processing by Admin::BeaconsController#index as HTML
+  [1m[36mAdminUser Load (0.5ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users"  WHERE "admin_users"."id" = 1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "beacons"  LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "beacons"  LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "beacons"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "beacons"  LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mBeacon Load (0.4ms)[0m  SELECT  "beacons".* FROM "beacons"   ORDER BY "beacons"."id" desc LIMIT 30 OFFSET 0
+  [1m[36mPhoto Load (0.3ms)[0m  [1mSELECT "photos".* FROM "photos"[0m
+  Rendered /Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/app/views/active_admin/resource/index.html.arb (85.7ms)
+Completed 200 OK in 93ms (Views: 88.0ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:37 -0400
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:37 -0400
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2014-07-08 10:32:37 -0400
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:37 -0400
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:37 -0400
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2014-07-08 10:32:37 -0400
+
+
+Started GET "/assets/jquery.ui.button.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:37 -0400
+
+
+Started GET "/assets/jquery.ui.mouse.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:37 -0400
+
+
+Started GET "/assets/jquery.ui.draggable.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:37 -0400
+
+
+Started GET "/assets/jquery.ui.position.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:37 -0400
+
+
+Started GET "/assets/jquery.ui.resizable.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:37 -0400
+
+
+Started GET "/assets/jquery.ui.dialog.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:37 -0400
+
+
+Started GET "/assets/jquery.ui.sortable.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:37 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:37 -0400
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:37 -0400
+
+
+Started GET "/assets/active_admin/lib/batch_actions.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:37 -0400
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:37 -0400
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:37 -0400
+
+
+Started GET "/assets/active_admin/lib/has_many.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:37 -0400
+
+
+Started GET "/assets/active_admin/lib/modal_dialog.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:37 -0400
+
+
+Started GET "/assets/active_admin/lib/popover.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:37 -0400
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:37 -0400
+
+
+Started GET "/assets/active_admin/ext/jquery-ui.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:37 -0400
+
+
+Started GET "/assets/active_admin/ext/jquery.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:37 -0400
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:37 -0400
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:37 -0400
+
+
+Started GET "/admin/customers" for 127.0.0.1 at 2014-07-08 10:32:43 -0400
+Processing by Admin::CustomersController#index as HTML
+  [1m[35mAdminUser Load (0.4ms)[0m  SELECT  "admin_users".* FROM "admin_users"  WHERE "admin_users"."id" = 1  ORDER BY "admin_users"."id" ASC LIMIT 1
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "customers"  LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "customers"  LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "customers"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "customers"  LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mCustomer Load (0.4ms)[0m  [1mSELECT  "customers".* FROM "customers"   ORDER BY "customers"."id" desc LIMIT 30 OFFSET 0[0m
+  [1m[35mInstallation Load (0.3ms)[0m  SELECT "installations".* FROM "installations"
+  Rendered /Users/joansoskin/.rvm/gems/ruby-2.0.0-p451/bundler/gems/active_admin-0e0b3694bace/app/views/active_admin/resource/index.html.arb (131.7ms)
+Completed 200 OK in 144ms (Views: 133.3ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2014-07-08 10:32:43 -0400
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:43 -0400
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:43 -0400
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2014-07-08 10:32:43 -0400
+
+
+Started GET "/assets/jquery.ui.button.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:43 -0400
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:43 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:43 -0400
+
+
+Started GET "/assets/jquery.ui.mouse.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:43 -0400
+
+
+Started GET "/assets/jquery.ui.draggable.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:43 -0400
+
+
+Started GET "/assets/jquery.ui.position.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:43 -0400
+
+
+Started GET "/assets/jquery.ui.resizable.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:43 -0400
+
+
+Started GET "/assets/jquery.ui.dialog.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:43 -0400
+
+
+Started GET "/assets/jquery.ui.sortable.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:43 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:43 -0400
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:43 -0400
+
+
+Started GET "/assets/active_admin/lib/batch_actions.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:43 -0400
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:43 -0400
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:43 -0400
+
+
+Started GET "/assets/active_admin/lib/has_many.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:43 -0400
+
+
+Started GET "/assets/active_admin/lib/modal_dialog.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:43 -0400
+
+
+Started GET "/assets/active_admin/lib/popover.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:43 -0400
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:43 -0400
+
+
+Started GET "/assets/active_admin/ext/jquery-ui.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:43 -0400
+
+
+Started GET "/assets/active_admin/ext/jquery.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:43 -0400
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:43 -0400
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2014-07-08 10:32:43 -0400
