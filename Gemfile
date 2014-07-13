@@ -1,24 +1,24 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
-# Use sqlite3 as the database for Active Record
-# gem 'sqlite3'
+# Use postgresql as the database for Active Record
 gem 'pg'
 
 gem 'faker'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
-
-#File storage gems
+# File storage gems
 gem 'paperclip'
 gem 'aws-sdk'
 gem 's3_direct_upload'
 
 group :development do
-  gem "better_errors"
-  gem "binding_of_caller"
+  gem 'jazz_hands'
+  gem 'quiet_assets'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem
 end
 
 #Active admin and dependencies
@@ -40,7 +40,6 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
-
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
