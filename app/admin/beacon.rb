@@ -21,12 +21,17 @@ ActiveAdmin.register Beacon do
           photo_form.input :caption
         end
       end
+      f.has_many :audio_clips do |audio_form|
+        audio_form.inputs do
+          audio_form.input :audio_file
+        end
+      end
       f.input :content_image, :as => :file
     end
     f.actions
   end
 
-   index do
+  index do
     column :id
     column :minor_id
     column :content_type
@@ -34,7 +39,7 @@ ActiveAdmin.register Beacon do
     column :content_image
     column :audio
     actions
-   end
+  end
 
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

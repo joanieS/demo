@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :audio_clips
+
   resources :photos
 
   resources :beacons
