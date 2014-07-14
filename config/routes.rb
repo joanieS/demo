@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   # get 'welcome/index'
 
-  resources :users, only: [:new, :create, :edit, :update, :show, :delete]
+  resources :users, only: [:show, :delete]
   resources :beacons
   resources :installations
 
