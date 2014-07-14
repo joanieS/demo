@@ -6,18 +6,15 @@ Rails.application.routes.draw do
 
   # get 'welcome/index'
 
-  resources :users
-  resources :customers
+  resources :users, only: [:new, :create, :edit, :update, :show, :delete]
   resources :beacons
   resources :installations
-
-  get '/welcome/about' => 'welcome#about'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
+  root 'welcome#about'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
