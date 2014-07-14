@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :installations
 
   # get 'welcome/index'
 
   resources :customers
+  resources :beacons
+  resources :installations
 
   get '/welcome/about' => 'welcome#about'
 
