@@ -14,7 +14,7 @@
  *= require_self
  */
 
-nav  {
+nav {
 	margin: 0 auto;
 	ul { 
 		text-align: center;
@@ -24,5 +24,15 @@ nav  {
 			display: inline;
 			list-style: none;
 		}
+	}
+}
+
+#social-sidebar {
+	position: fixed;
+	top: 20px;
+	right: 0;
+	float: right;
+	ul li {
+		list-style: none;
 	}
 }
