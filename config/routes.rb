@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+
+  resources :audio_clips
+
+  resources :photos
+
+  resources :beacons
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
   resources :installations
 
   # get 'welcome/index'

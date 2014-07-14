@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Caption:</strong>
+  <%= @audio_clip.caption %>
+</p>
+
+<p>
+  <strong>Beacon:</strong>
+  <%= @audio_clip.beacon_id %>
+</p>
+
+<%= link_to 'Edit', edit_audio_clip_path(@audio_clip) %> |
+<%= link_to 'Back', audio_clips_path %>

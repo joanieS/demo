@@ -1,3 +1,6 @@
+#Routes lufthouse.com/installations/customer1/installation1 should output all beacons from customer1, installation1
+#Audio recording, record your voice, get it to lufthouse somehow
+
 class InstallationsController < ApplicationController
   before_action :set_installation, only: [:show, :edit, :update, :destroy]
 
@@ -71,6 +74,11 @@ class InstallationsController < ApplicationController
         @installation = Installation.find_by_name_and_beacon_id(params[:name], params[:beacon_id])
       end
     end
+
+    def format_json
+
+    end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def installation_params
