@@ -16,6 +16,8 @@ gem 'paperclip'
 gem 'aws-sdk'
 gem 's3_direct_upload'
 
+gem 'rails_12factor'
+
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
