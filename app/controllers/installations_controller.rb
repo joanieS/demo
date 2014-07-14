@@ -1,4 +1,5 @@
 class InstallationsController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_installation, only: [:show, :edit, :update, :destroy]
 
   # GET /installations

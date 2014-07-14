@@ -1,4 +1,5 @@
 class BeaconsController < InheritedResources::Base
+  before_filter :authenticate_user!
 
   def create
     @beacon = Beacon.new(beacon_params)
