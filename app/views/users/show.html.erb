@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Show:</strong>
+  <%= @user.show %>
+</p>
+
+<p>
+  <strong>New:</strong>
+  <%= @user.new %>
+</p>
+
+<p>
+  <strong>Create:</strong>
+  <%= @user.create %>
+</p>
+
+<p>
+  <strong>Edit:</strong>
+  <%= @user.edit %>
+</p>
+
+<p>
+  <strong>Update:</strong>
+  <%= @user.update %>
+</p>
+
+<p>
+  <strong>Destroy:</strong>
+  <%= @user.destroy %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
