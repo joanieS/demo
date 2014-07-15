@@ -7,7 +7,7 @@ class BeaconsController < InheritedResources::Base
     @installation = Installation.find(params[:installation_id])
     @beacon.installation_id = @installation.id
     if @beacon.save
-      # redirected to beacon show page on successful save
+      # redirect to beacon show page on successful save
       redirect_to installation_beacon_path(@installation, @beacon), notice: 'Beacon was successfully created.'
     else
       render action: 'new'
