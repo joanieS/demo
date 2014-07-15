@@ -63811,3 +63811,27 @@ PG::FeatureNotSupported: ERROR:  cached plan must not change result type
   Rendered application/_header.html.erb (1.0ms)
   Rendered application/_account_sidebar.html.erb (0.0ms)
 Completed 200 OK in 396ms (Views: 292.0ms | ActiveRecord: 79.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (13.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddMajorIdToBeacons (20140715153254)
+  [1m[35m (1.0ms)[0m  BEGIN
+  [1m[36m (1.0ms)[0m  [1mALTER TABLE "beacons" ADD COLUMN "major_id" integer[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140715153254"]]
+  [1m[36m (45.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/installations/3/beacons/6/edit" for 127.0.0.1 at 2014-07-15 17:35:15 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by BeaconsController#edit as HTML
+  Parameters: {"installation_id"=>"3", "id"=>"6"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mBeacon Load (1.0ms)[0m  [1mSELECT  "beacons".* FROM "beacons"  WHERE "beacons"."id" = $1 LIMIT 1[0m  [["id", 6]]
+PG::FeatureNotSupported: ERROR:  cached plan must not change result type
+: SELECT  "beacons".* FROM "beacons"  WHERE "beacons"."id" = $1 LIMIT 1
+  [1m[35mBeacon Load (2.0ms)[0m  SELECT  "beacons".* FROM "beacons"  WHERE "beacons"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mInstallation Load (1.0ms)[0m  [1mSELECT  "installations".* FROM "installations"  WHERE "installations"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered beacons/_form.html.erb (25.0ms)
+  Rendered beacons/edit.html.erb within layouts/application (28.0ms)
+  Rendered application/_header.html.erb (1.0ms)
+  Rendered application/_account_sidebar.html.erb (0.0ms)
+Completed 200 OK in 192ms (Views: 160.0ms | ActiveRecord: 14.0ms)
