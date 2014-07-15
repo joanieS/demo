@@ -5,11 +5,11 @@ class ApplicationController < ActionController::Base
 
   # user redirected to user show page after sign in
   def after_sign_in_path_for(resource)
-  	root
+  	root_path
   end
 
-  # add new strong parameters to devise sign up
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:first_name, :last_name, :username) }
+    devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:username) }
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:first_name, :last_name, :username) }
   end
 end
