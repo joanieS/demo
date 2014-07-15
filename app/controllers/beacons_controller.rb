@@ -1,10 +1,10 @@
 class BeaconsController < InheritedResources::Base
   before_filter :authenticate_user!
+  before_filter :set_installation
 
   def create
     @beacon = Beacon.new(beacon_params)
     # installation local variable is not set here. Following code pasted into _form view to make it work
-    @installation = Installation.find(params[:installation_id])
     @beacon.installation_id = @installation.id
     if @beacon.save
       # redirect to beacon show page on successful save
@@ -15,11 +15,13 @@ class BeaconsController < InheritedResources::Base
   end
 
   def show
-    @installation = Installation.find(params[:installation_id])
     @beacon = Beacon.find(params[:id])
   end
 
   private
+    def set_installation
+      @installation = Installation.find(params[:installation_id])
+    end
 
     def beacon_params
       params.require(:beacon).permit(:minor_id, :content, :content_type, :audio, :content_image)
