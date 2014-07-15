@@ -1,4 +1,4 @@
 class Installation < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :customer
   has_many :beacons
 end
