@@ -2,4 +2,32 @@
 
 <h1><%= @installation.name %></h1>
 
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Minor</th>
+      <th>Content</th>
+      <th>Type</th>
+      <th>Audio</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @installation.beacons.each.each do |beacon| %>
+      <tr>
+        <td><%= beacon.minor_id %></td>
+        <td><%= beacon.content %></td>
+        <td><%= beacon.content_type %></td>
+        <td><%= beacon.audio %></td>
+        <td><%= link_to 'Show', installation_beacon_path(@installation, beacon) %></td>
+        <td><%= link_to 'Edit', edit_installation_beacon_path(@installation, beacon) %></td>
+        <td><%= link_to 'Destroy', installation_beacon_path(@installation, beacon), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <%= link_to image_tag("add.png"), new_installation_beacon_path(@installation) %>
