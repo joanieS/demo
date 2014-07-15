@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   # user redirected to user show page after sign in
   def after_sign_in_path_for(resource)
-  	user_path(current_user)
+  	root
   end
 
   # add new strong parameters to devise sign up
