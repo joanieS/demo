@@ -63764,3 +63764,33 @@ Processing by BeaconsController#edit as HTML
   Rendered application/_header.html.erb (0.0ms)
   Rendered application/_account_sidebar.html.erb (0.0ms)
 Completed 200 OK in 171ms (Views: 158.0ms | ActiveRecord: 3.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateAudioClips (20140708165304)
+  [1m[35m (2.0ms)[0m  BEGIN
+  [1m[36m (240.0ms)[0m  [1mCREATE TABLE "audio_clips" ("id" serial primary key, "caption" character varying(255), "beacon_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140708165304"]]
+  [1m[36m (38.0ms)[0m  [1mCOMMIT[0m
+Migrating to AddFileToAudioClip (20140708165322)
+  [1m[35m (1.0ms)[0m  BEGIN
+  [1m[36m (12.0ms)[0m  [1mALTER TABLE "audio_clips" ADD COLUMN "audio_file_file_name" character varying(255)[0m
+  [1m[35m (1.0ms)[0m  ALTER TABLE "audio_clips" ADD COLUMN "audio_file_content_type" character varying(255)
+  [1m[36m (0.0ms)[0m  [1mALTER TABLE "audio_clips" ADD COLUMN "audio_file_file_size" integer[0m
+  [1m[35m (1.0ms)[0m  ALTER TABLE "audio_clips" ADD COLUMN "audio_file_updated_at" timestamp
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140708165322"]]
+  [1m[35m (1.0ms)[0m  COMMIT
+Migrating to ReplaceAudioClipAttachmentWithBlob (20140714192136)
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (64.0ms)[0m  ALTER TABLE "audio_clips" DROP "audio_file_file_name"
+  [1m[36m (1.0ms)[0m  [1mALTER TABLE "audio_clips" DROP "audio_file_content_type"[0m
+  [1m[35m (1.0ms)[0m  ALTER TABLE "audio_clips" DROP "audio_file_file_size"
+  [1m[36m (1.0ms)[0m  [1mALTER TABLE "audio_clips" DROP "audio_file_updated_at"[0m
+  [1m[35m (1.0ms)[0m  ALTER TABLE "audio_clips" ADD COLUMN "audio_file" bytea
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140714192136"]]
+  [1m[35m (1.0ms)[0m  COMMIT
+Migrating to AddCoordinatesToBeacons (20140715145521)
+  [1m[36m (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.0ms)[0m  ALTER TABLE "beacons" ADD COLUMN "latitude" float
+  [1m[36m (0.0ms)[0m  [1mALTER TABLE "beacons" ADD COLUMN "longitude" float[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140715145521"]]
+  [1m[36m (2.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (1.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
