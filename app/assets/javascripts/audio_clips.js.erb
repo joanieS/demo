@@ -14,7 +14,7 @@ $( document ).ready(function() {
 
   $('#record-audio').click(function() {
       if (!audioStream)
-          navigator.getUserMedia(audioConstraints, function(stream) {
+          navigator.webkitGetUserMedia(audioConstraints, function(stream) {
               if (window.IsChrome) stream = new window.MediaStream(stream.getAudioTracks());
               audioStream = stream;
 
