@@ -62044,3 +62044,123 @@ NoMethodError - undefined method `beacon_path' for #<#<Class:0x9ba0c00>:0x7c6a86
 
 Started POST "/__better_errors/82538316/variables" for 127.0.0.1 at 2014-07-15 14:23:56 +0200
   [1m[36mActiveRecord::SchemaMigration Load (11.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/installations/3" for 127.0.0.1 at 2014-07-15 14:38:03 +0200
+Processing by InstallationsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mInstallation Load (1.0ms)[0m  SELECT  "installations".* FROM "installations"  WHERE "installations"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mBeacon Load (0.0ms)[0m  [1mSELECT "beacons".* FROM "beacons"  WHERE "beacons"."installation_id" = $1[0m  [["installation_id", 3]]
+  Rendered installations/show.html.erb within layouts/application (25.0ms)
+  Rendered application/_header.html.erb (1.0ms)
+  Rendered application/_account_sidebar.html.erb (0.0ms)
+Completed 200 OK in 501ms (Views: 478.0ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/installations/3/beacons/new" for 127.0.0.1 at 2014-07-15 14:46:50 +0200
+Processing by BeaconsController#new as HTML
+  Parameters: {"installation_id"=>"3"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mInstallation Load (0.0ms)[0m  [1mSELECT  "installations".* FROM "installations"  WHERE "installations"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered beacons/_form.html.erb (7.0ms)
+  Rendered beacons/new.html.erb within layouts/application (9.0ms)
+  Rendered application/_header.html.erb (1.0ms)
+  Rendered application/_account_sidebar.html.erb (0.0ms)
+Completed 200 OK in 145ms (Views: 140.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/installations/3/beacons" for 127.0.0.1 at 2014-07-15 14:47:03 +0200
+Processing by BeaconsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"D0/g5TDyvmQcQht1W09rEVLM41Qf97Y2pQCaC3S6rBY=", "beacon"=>{"minor_id"=>"22222", "content"=>"ovnsdvjsv", "content_type"=>"ofndjdfjb", "audio"=>"vndjvn"}, "commit"=>"Create Beacon", "installation_id"=>"3"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mInstallation Load (0.0ms)[0m  [1mSELECT  "installations".* FROM "installations"  WHERE "installations"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35m (1.0ms)[0m  BEGIN
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "beacons" ("audio", "content", "content_type", "created_at", "installation_id", "minor_id", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["audio", "vndjvn"], ["content", "ovnsdvjsv"], ["content_type", "ofndjdfjb"], ["created_at", "2014-07-15 12:47:03.154308"], ["installation_id", 3], ["minor_id", 22222], ["updated_at", "2014-07-15 12:47:03.154308"]]
+  [1m[35m (0.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/installations/3/beacons/5
+Completed 302 Found in 10ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/installations/3/beacons/5" for 127.0.0.1 at 2014-07-15 14:47:03 +0200
+Processing by BeaconsController#show as HTML
+  Parameters: {"installation_id"=>"3", "id"=>"5"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mInstallation Load (0.0ms)[0m  SELECT  "installations".* FROM "installations"  WHERE "installations"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mBeacon Load (0.0ms)[0m  [1mSELECT  "beacons".* FROM "beacons"  WHERE "beacons"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  Rendered beacons/show.html.erb within layouts/application (1.0ms)
+  Rendered application/_header.html.erb (0.0ms)
+  Rendered application/_account_sidebar.html.erb (0.0ms)
+Completed 200 OK in 139ms (Views: 134.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/installations/3/beacons/5" for 127.0.0.1 at 2014-07-15 14:48:17 +0200
+Processing by BeaconsController#show as HTML
+  Parameters: {"installation_id"=>"3", "id"=>"5"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mInstallation Load (0.0ms)[0m  [1mSELECT  "installations".* FROM "installations"  WHERE "installations"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mBeacon Load (0.0ms)[0m  SELECT  "beacons".* FROM "beacons"  WHERE "beacons"."id" = $1 LIMIT 1  [["id", 5]]
+  Rendered beacons/show.html.erb within layouts/application (1.0ms)
+  Rendered application/_header.html.erb (1.0ms)
+  Rendered application/_account_sidebar.html.erb (0.0ms)
+Completed 200 OK in 139ms (Views: 133.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/installations/3/beacons/5" for 127.0.0.1 at 2014-07-15 14:50:50 +0200
+Processing by BeaconsController#show as HTML
+  Parameters: {"installation_id"=>"3", "id"=>"5"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mInstallation Load (1.0ms)[0m  SELECT  "installations".* FROM "installations"  WHERE "installations"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mBeacon Load (0.0ms)[0m  [1mSELECT  "beacons".* FROM "beacons"  WHERE "beacons"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  Rendered beacons/show.html.erb within layouts/application (1.0ms)
+  Rendered application/_header.html.erb (1.0ms)
+  Rendered application/_account_sidebar.html.erb (0.0ms)
+Completed 200 OK in 182ms (Views: 177.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/installations/3/beacons/5" for 127.0.0.1 at 2014-07-15 14:51:06 +0200
+Processing by BeaconsController#show as HTML
+  Parameters: {"installation_id"=>"3", "id"=>"5"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mInstallation Load (1.0ms)[0m  [1mSELECT  "installations".* FROM "installations"  WHERE "installations"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mBeacon Load (1.0ms)[0m  SELECT  "beacons".* FROM "beacons"  WHERE "beacons"."id" = $1 LIMIT 1  [["id", 5]]
+  Rendered beacons/show.html.erb within layouts/application (1.0ms)
+  Rendered application/_header.html.erb (0.0ms)
+  Rendered application/_account_sidebar.html.erb (0.0ms)
+Completed 200 OK in 205ms (Views: 194.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/installations/3/beacons/5" for 127.0.0.1 at 2014-07-15 14:51:22 +0200
+Processing by BeaconsController#show as HTML
+  Parameters: {"installation_id"=>"3", "id"=>"5"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mInstallation Load (0.0ms)[0m  SELECT  "installations".* FROM "installations"  WHERE "installations"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mBeacon Load (1.0ms)[0m  [1mSELECT  "beacons".* FROM "beacons"  WHERE "beacons"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  Rendered beacons/show.html.erb within layouts/application (2.0ms)
+  Rendered application/_header.html.erb (1.0ms)
+  Rendered application/_account_sidebar.html.erb (0.0ms)
+Completed 200 OK in 233ms (Views: 221.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/installations/3/beacons/5" for 127.0.0.1 at 2014-07-15 14:58:20 +0200
+Processing by BeaconsController#show as HTML
+  Parameters: {"installation_id"=>"3", "id"=>"5"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mInstallation Load (0.0ms)[0m  [1mSELECT  "installations".* FROM "installations"  WHERE "installations"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mBeacon Load (0.0ms)[0m  SELECT  "beacons".* FROM "beacons"  WHERE "beacons"."id" = $1 LIMIT 1  [["id", 5]]
+  Rendered beacons/show.html.erb within layouts/application (1.0ms)
+  Rendered application/_header.html.erb (0.0ms)
+  Rendered application/_account_sidebar.html.erb (1.0ms)
+Completed 200 OK in 141ms (Views: 135.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/installations/3" for 127.0.0.1 at 2014-07-15 14:58:26 +0200
+Processing by InstallationsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mInstallation Load (0.0ms)[0m  SELECT  "installations".* FROM "installations"  WHERE "installations"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mBeacon Load (1.0ms)[0m  [1mSELECT "beacons".* FROM "beacons"  WHERE "beacons"."installation_id" = $1[0m  [["installation_id", 3]]
+  Rendered installations/show.html.erb within layouts/application (4.0ms)
+  Rendered application/_header.html.erb (0.0ms)
+  Rendered application/_account_sidebar.html.erb (0.0ms)
+Completed 200 OK in 111ms (Views: 105.0ms | ActiveRecord: 2.0ms)

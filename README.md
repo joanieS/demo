@@ -18,7 +18,6 @@ You will then be able to access the admin console at [http://localhost:3000/admi
 
 I installed the devise gem which does User management for us so we can change this default admin user before the website gets posted up on Heroku.
 
+## Devise
 
-Resources
-
-User: people logging onto site
+Users are authenticated using the Devise gem.
