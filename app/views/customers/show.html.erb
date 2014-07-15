@@ -1,14 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @customer.name %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @customer.category %>
-</p>
-
-<%= link_to 'Edit', edit_customer_path(@customer) %> |
-<%= link_to 'Back', customers_path %>
+<h1>Account</h1>
+<h2><%= current_user.first_name%></h2>
+<p>Total installations: <%= beacon_count %></p>
+<p>Total beacons: <%= installation_count %></p>
+<p>Member since: <%= current_user.created_at.strftime("%B %Y")  %></p>
+<%= link_to "Edit", edit_user_path %>

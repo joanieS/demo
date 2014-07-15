@@ -1,11 +1,11 @@
 module CustomersHelper
 	# return customers's beacon count
-	def beacon_count
-		self.beacons.count
+	def beacon_count(customer)
+		customer.beacons.count
 	end
 
 	# return customers's installation count
-	def installation_count
-		self.installations.count
+	def installation_count(customer)
+		customer.installations.count
 	end
 end
