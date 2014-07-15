@@ -16,7 +16,7 @@ gem 'paperclip'
 gem 'aws-sdk'
 gem 's3_direct_upload'
 
-gem 'rails_12factor'
+gem 'rails_12factor', group: :production
 
 group :development do
   gem "better_errors"
