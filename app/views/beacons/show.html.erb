@@ -1,31 +1,11 @@
 <p id="notice"><%= notice %></p>
+<h1>Show Beacon</h1>
 
-<p>
-  <strong>Minor:</strong>
-  <%= @beacon.minor_id %>
-</p>
+Minor ID: <%= @beacon.minor_id %><br>
+Content: <%= @beacon.content %><br>
+Content type: <%= @beacon.content_type %><br>
+Audio: <%= @beacon.audio %><br>
 
-<p>
-  <strong>Content:</strong>
-  <%= @beacon.content %>
-</p>
-
-<p>
-  <strong>Type:</strong>
-  <%= @beacon.content_type %>
-</p>
-
-<p>
-  <strong>Audio:</strong>
-  <%= @beacon.audio %>
-</p>
-
-<p>
-  <strong>Installation:</strong>
-  <%= @beacon.installation_id %>
-</p>
-
-<%= link_to 'Edit', edit_beacon_path(@beacon) %> |
-<%= link_to 'Back', beacons_path %>
-
+<%= link_to 'Edit', edit_installation_beacon_path(@installation, @beacon) %> |
+<%= link_to 'Back to installation', installation_path(@installation) %>
 

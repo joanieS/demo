@@ -1,31 +1,14 @@
-<h1>Listing installations</h1>
+<h1>Installations</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Beacon ID</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<% @installations.each do |installation| %>
+	<%= link_to "/installations/#{installation.id}" do %>
+		<div class="installation-index-wrap">
+			<div class="installation-index-image">
+				<p>Add images here</p>
+			</div>
+			<%= installation.name %>
+		</div>
+	<% end %>
+<% end %><br>
 
-  <tbody>
-    <% @installations.each do |installation| %>
-      <tr>
-        <td><%= installation.id %></td>
-        <td><%= installation.name %></td>
-        <td><%= installation.beacon_id %></td>
-        <td><%= installation.content %></td>
-        <td><%= link_to 'Show', installation %></td>
-        <td><%= link_to 'Edit', edit_installation_path(installation) %></td>
-        <td><%= link_to 'Destroy', installation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Installation', new_installation_path %>
+<%= link_to image_tag("add.png"), new_installation_path %>

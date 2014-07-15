@@ -1,4 +1,5 @@
 class Beacon < ActiveRecord::Base
+	belongs_to :installation
 	has_many :photos
 	accepts_nested_attributes_for :photos
 

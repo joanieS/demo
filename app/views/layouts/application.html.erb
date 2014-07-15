@@ -6,13 +6,14 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <link href='http://fonts.googleapis.com/css?family=Alike' rel='stylesheet' type='text/css'>
-  
 </head>
 <body>
 
-<script src="//www.WebRTC-Experiment.com/RecordRTC.js"></script>
-
 <%= yield %>
+
+	<%= render "header" %>
+	<!-- only render account sidebar if a user is signed in -->
+	<%= render "account_sidebar" if current_user %>
 
 </body>
 </html>

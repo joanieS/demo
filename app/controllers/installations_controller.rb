@@ -2,33 +2,27 @@
 #Audio recording, record your voice, get it to lufthouse somehow
 
 class InstallationsController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_installation, only: [:show, :edit, :update, :destroy]
 
-  # GET /installations
-  # GET /installations.json
   def index
-    @installations = Installation.all
+    # only display installations belonging to current user
+    # N.B.: installation has attribute customer_id in place of user_id
+    @installations = Installation.where(user_id: current_user.id)
   end
 
-  # GET /installations/1
-  # GET /installations/1.json
   def show
   end
 
-  # GET /installations/new
   def new
     @installation = Installation.new
-  end
-
-  # GET /installations/1/edit
-  def edit
   end
 
   # POST /installations
   # POST /installations.json
   def create
     @installation = Installation.new(installation_params)
-
+    @installation.user_id = current_user.id
     respond_to do |format|
       if @installation.save
         format.html { redirect_to @installation, notice: 'Installation was successfully created.' }
@@ -38,6 +32,10 @@ class InstallationsController < ApplicationController
         format.json { render json: @installation.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  # GET /installations/1/edit
+  def edit
   end
 
   # PATCH/PUT /installations/1
@@ -82,6 +80,6 @@ class InstallationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def installation_params
-      params.require(:installation).permit(:name, :customer_id)
+      params.require(:installation).permit(:name)
     end
 end

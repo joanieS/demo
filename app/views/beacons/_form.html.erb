@@ -1,4 +1,5 @@
-<%= form_for(@beacon) do |f| %>
+<!-- for some reason I can't pass the installation local from the controller -->
+<%= form_for [Installation.find(params[:installation_id]), @beacon] do |f| %>
   <% if @beacon.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@beacon.errors.count, "error") %> prohibited this beacon from being saved:</h2>
@@ -10,28 +11,37 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :minor_id %><br>
-    <%= f.number_field :minor_id %>
-  </div>
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
-  </div>
-  <div class="field">
-    <%= f.label :content_type %><br>
-    <%= f.text_field :content_type %>
-  </div>
-  <div class="field">
-    <%= f.label :audio %><br>
-    <%= f.text_field :audio %>
-  </div>
-  <div class="field">
-    <%= f.label :installation_id %><br>
-    <%= f.number_field :installation_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <h2>Beacon Info</h2>
+    <div class="field">
+      <%= f.label :minor_id, "Minor ID" %><br>
+      <%= f.number_field :minor_id %>
+    </div>
+    <div class="field">
+      <%= f.label :major_id, "Major ID" %><br>
+      <%= f.number_field :major_id %>
+    </div>
+    <div class="field">
+      <%= f.label :latitude %><br>
+      <%= f.number_field :latitude , step: "any" %>
+    </div>
+    <div class="field">
+      <%= f.label :longitude %><br>
+      <%= f.number_field :longitude, step: "any" %>
+    </div>
+  <h2>Content Info</h2>
+    <div class="field">
+      <%= f.label :content %><br>
+      <%= f.text_area :content %>
+    </div>
+    <div class="field">
+      <%= f.label :content_type %><br>
+      <%= f.text_field :content_type %>
+    </div>
+    <div class="field">
+      <%= f.label :audio %><br>
+      <%= f.text_field :audio %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
 <% end %>
