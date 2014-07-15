@@ -17,6 +17,15 @@
       <%= f.number_field :minor_id %>
     </div>
     <div class="field">
+      <%= f.label :latitude %><br>
+      <%= f.number_field :latitude , step: "any" %>
+    </div>
+    <div class="field">
+      <%= f.label :longitude %><br>
+      <%= f.number_field :longitude, step: "any" %>
+    </div>
+  <h2>Content Info</h2>
+    <div class="field">
       <%= f.label :content %><br>
       <%= f.text_area :content %>
     </div>
