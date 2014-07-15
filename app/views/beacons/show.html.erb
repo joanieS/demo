@@ -1,32 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Minor:</strong>
-  <%= @beacon.minor_id %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @beacon.content %>
-</p>
-
-<p>
-  <strong>Type:</strong>
-  <%= @beacon.content_type %>
-</p>
-
-<p>
-  <strong>Audio:</strong>
-  <%= @beacon.audio %>
-</p>
-
-<p>
-  <strong>Installation:</strong>
-  <%= @beacon.installation_id %>
-</p>
-
-<%= link_to 'Edit', edit_beacon_path(@beacon) %> |
-<%= link_to 'Back', beacons_path %>
+<%= link_to 'Edit', edit_installation_beacon_path(@installation, @beacon) %> |
 
 <link href='http://fonts.googleapis.com/css?family=Alike' rel='stylesheet' type='text/css'>
 <style>

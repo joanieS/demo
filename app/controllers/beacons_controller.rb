@@ -5,10 +5,15 @@ class BeaconsController < InheritedResources::Base
     @beacon = Beacon.new(beacon_params)
     @installation = Installation.find(params[:installation_id])
     if @beacon.save
-      redirect_to @beacon, notice: 'Beacon was successfully created.'
+      redirect_to installation_beacon_path(@installation, @beacon), notice: 'Beacon was successfully created.'
     else
        render action: 'new'
     end
+  end
+
+  def show
+    @installation = Installation.find(params[:installation_id])
+    @beacon = Beacon.find(params[:id])
   end
 
   private
