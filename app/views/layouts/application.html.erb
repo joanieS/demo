@@ -5,12 +5,12 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-
   <link href='http://fonts.googleapis.com/css?family=Alike' rel='stylesheet' type='text/css'>
 </head>
 <body>
-<%= render "header" %>
-<%= yield %>
-
+	<%= render "header" %>
+	<!-- only render account sidebar if a user is signed in -->
+	<%= render "account_sidebar" if current_user %>
+	<%= yield %>
 </body>
 </html>
