@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
 
+  devise_for :users
+
   resources :audio_clips
 
   resources :photos
 
   devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
+    ActiveAdmin.routes(self)
 
-  resources :users, only: [:show, :delete]
+  resources :users
   # next beacons inside installations to gain access to installation_id in params
   resources :installations do 
     resources :beacons
