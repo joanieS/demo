@@ -62043,3 +62043,4 @@ NoMethodError - undefined method `beacon_path' for #<#<Class:0x9ba0c00>:0x7c6a86
 
 
 Started POST "/__better_errors/82538316/variables" for 127.0.0.1 at 2014-07-15 14:23:56 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (11.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
