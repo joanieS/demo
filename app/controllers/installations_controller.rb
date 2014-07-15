@@ -2,18 +2,15 @@ class InstallationsController < ApplicationController
   before_filter :authenticate_user!
   before_action :set_installation, only: [:show, :edit, :update, :destroy]
 
-  # GET /installations
-  # GET /installations.json
   def index
-    @installations = Installation.all
+    # only display installations belonging to current user
+    # N.B.: installation has attribute customer_id in place of user_id
+    @installations = Installation.where(user_id: current_user.id)
   end
 
-  # GET /installations/1
-  # GET /installations/1.json
   def show
   end
 
-  # GET /installations/new
   def new
     @installation = Installation.new
   end
@@ -75,6 +72,6 @@ class InstallationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def installation_params
-      params.require(:installation).permit(:name, :customer_id)
+      params.require(:installation).permit(:name, :user_id)
     end
 end

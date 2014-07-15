@@ -53738,3 +53738,20 @@ Processing by UsersController#show as HTML
   Rendered application/_header.html.erb (1.0ms)
   Rendered application/_account_sidebar.html.erb (0.0ms)
 Completed 200 OK in 136ms (Views: 133.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/installations" for 127.0.0.1 at 2014-07-15 12:00:45 +0200
+Processing by InstallationsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered installations/index.html.erb within layouts/application (0.0ms)
+  Rendered application/_header.html.erb (0.0ms)
+  Rendered application/_account_sidebar.html.erb (1.0ms)
+Completed 200 OK in 149ms (Views: 123.0ms | ActiveRecord: 3.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (3.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to RenameCustomerIdColumn (20140715102102)
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (93.0ms)[0m  [1mALTER TABLE "installations" RENAME COLUMN "customer_id" TO "user_id"[0m
+  [1m[35m (85.0ms)[0m  ALTER INDEX "index_installations_on_customer_id" RENAME TO "index_installations_on_user_id"
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140715102102"]]
+  [1m[35m (20.0ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
