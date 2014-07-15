@@ -8,5 +8,4 @@ module UsersHelper
 	def installation_count
 		current_user.installations.count
 	end
-
 end
