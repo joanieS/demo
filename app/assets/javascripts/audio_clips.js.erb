@@ -50,7 +50,6 @@ $( document ).ready(function() {
 
         if (recorder)
             recorder.stopRecording(function(url) {
-                debugger;
                 audio.src = url;
                 audio.muted = false;
                 audio.play();
