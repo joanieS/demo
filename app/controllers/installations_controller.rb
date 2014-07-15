@@ -15,15 +15,11 @@ class InstallationsController < ApplicationController
     @installation = Installation.new
   end
 
-  # GET /installations/1/edit
-  def edit
-  end
-
   # POST /installations
   # POST /installations.json
   def create
     @installation = Installation.new(installation_params)
-
+    @installation.user_id = current_user.id
     respond_to do |format|
       if @installation.save
         format.html { redirect_to @installation, notice: 'Installation was successfully created.' }
@@ -33,6 +29,10 @@ class InstallationsController < ApplicationController
         format.json { render json: @installation.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  # GET /installations/1/edit
+  def edit
   end
 
   # PATCH/PUT /installations/1
@@ -72,6 +72,6 @@ class InstallationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def installation_params
-      params.require(:installation).permit(:name, :user_id)
+      params.require(:installation).permit(:name)
     end
 end

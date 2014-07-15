@@ -1,3 +1,9 @@
-// Place all the styles related to the installations controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.installation-index-wrap {
+	padding: 10px;
+}
+
+.installation-index-image {
+	width: 200px;
+	height: 200px;
+	border: 1px solid gray;
+}
