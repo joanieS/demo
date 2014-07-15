@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   
   resources :installations
 
-  # get 'welcome/index'
-
   resources :users, only: [:show, :delete]
-  resources :beacons
-  resources :installations
+  # next beacons inside installations to gain access to installation_id in params
+  resources :installations do 
+    resources :beacons
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -3,17 +3,17 @@ class BeaconsController < InheritedResources::Base
 
   def create
     @beacon = Beacon.new(beacon_params)
-
+    @installation = Installation.find(params[:installation_id])
     if @beacon.save
       redirect_to @beacon, notice: 'Beacon was successfully created.'
-     else
+    else
        render action: 'new'
     end
   end
 
-   private
+  private
 
-  def friend_params
-    params.require(:friend).permit(:installation_id, :minor_id, :content, :content_type, :audio, :content_image)
+  def beacon_params
+    params.require(:beacon).permit(:minor_id, :content, :content_type, :audio, :content_image)
   end
 end
