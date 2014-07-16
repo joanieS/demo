@@ -19,7 +19,8 @@ class BeaconsController < InheritedResources::Base
   def destroy
     @beacon.destroy
     respond_to do |format|
-      format.html { redirect_to customers_url, notice: 'Customer was successfully destroyed.' }
+      format.html { redirect_to customers_url,
+        notice: 'Customer was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -36,6 +37,8 @@ class BeaconsController < InheritedResources::Base
   end
 
   def beacon_params
-    params.require(:beacon).permit(:minor_id, :major_id, :latitude, :longitude, :content, :content_type, :audio, :content_image)
+    params.require(:beacon).permit(
+      :minor_id, :major_id, :latitude, :longitude, :content, :content_type, :audio, :content_image
+    )
   end
 end
