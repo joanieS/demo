@@ -9,7 +9,7 @@ Content: <%= @beacon.content %><br>
 Content type: <%= @beacon.content_type %><br>
 Audio: <%= @beacon.audio %><br>
 
-<%= link_to "Edit", edit_customer_installation_beacon_path(@customer, @installation, @beacon) %> |
+<%= link_to "Edit", edit_customer_installation_beacon_path(@customer, @installation, @beacon) %><br>
 <%= link_to "Back to #{@installation.name.capitalize} installation", 
   customer_installation_path(@customer,@installation) %>
 

@@ -18,7 +18,7 @@ class BeaconsController < InheritedResources::Base
   def destroy
     @beacon.destroy
     respond_to do |format|
-      format.html { redirect_to customers_url,
+      format.html { redirect_to customer_installation_path(@customer, @installation),
         notice: 'Customer was successfully destroyed.' }
       format.json { head :no_content }
     end
