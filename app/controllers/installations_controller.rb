@@ -18,14 +18,12 @@ class InstallationsController < ApplicationController
     @installation = Installation.new
   end
 
-  # POST /installations
-  # POST /installations.json
   def create
     @installation = Installation.new(installation_params)
-    @installation.user_id = current_user.id
+    @installation.customer_id = current_user.customer_id
     respond_to do |format|
       if @installation.save
-        format.html { redirect_to @installation, notice: 'Installation was successfully created.' }
+        format.html { redirect_to customer_installation_path [@customer,@installation], notice: 'Installation was successfully created.' }
         format.json { render :show, status: :created, location: @installation }
       else
         format.html { render :new }
@@ -34,12 +32,9 @@ class InstallationsController < ApplicationController
     end
   end
 
-  # GET /installations/1/edit
   def edit
   end
 
-  # PATCH/PUT /installations/1
-  # PATCH/PUT /installations/1.json
   def update
     respond_to do |format|
       if @installation.update(installation_params)
@@ -52,8 +47,6 @@ class InstallationsController < ApplicationController
     end
   end
 
-  # DELETE /installations/1
-  # DELETE /installations/1.json
   def destroy
     @installation.destroy
     respond_to do |format|
