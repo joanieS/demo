@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
   # authenticate user with devise
   before_action :authenticate_user!
+  before_action :set_customer
 
+  # only index users for the current customer
   def index
-    @users = User.all
+    @users = User.where(customer_id: current_user.customer_id)
   end
 
   def show
@@ -52,6 +54,10 @@ class UsersController < ApplicationController
   end
 
   private
+  
+    def set_customer
+      @customer = Customer.find(current_user.customer_id)
+    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params

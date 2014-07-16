@@ -1,4 +1,6 @@
 <p id="notice"><%= notice %></p>
 <h1>Account</h1>
 <p>Member since: <%= current_user.created_at.strftime("%B %Y")  %></p>
-<%= link_to "Edit", edit_customer_path %>
+<%= link_to "Edit your account", edit_customer_path %><br>
+<%= link_to "Add an installation", new_customer_installation_path(@customer) %><br>
+<%= link_to "View all your users", users_path %>
