@@ -1,7 +1,7 @@
 <h1>Installations</h1>
 
 <% @installations.each do |installation| %>
-	<%= link_to "/installations/#{installation.id}" do %>
+	<%= link_to customer_installation_path(@customer,installation) do %>
 		<div class="installation-index-wrap">
 			<div class="installation-index-image">
 				<p>Add images here</p>

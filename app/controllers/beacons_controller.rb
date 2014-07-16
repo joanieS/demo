@@ -1,6 +1,6 @@
 class BeaconsController < InheritedResources::Base
   before_filter :authenticate_user!
-  before_filter :set_installation
+  before_filter :set_customer_installation
 
   def create
     @beacon = Beacon.new(beacon_params)
@@ -19,7 +19,8 @@ class BeaconsController < InheritedResources::Base
   end
 
   private
-    def set_installation
+    def set_customer_installation
+      @customer = Customer.find(params[:customer_id])
       @installation = Installation.find(params[:installation_id])
     end
 
