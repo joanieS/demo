@@ -1,4 +1,4 @@
-<%= form_for(@installation) do |f| %>
+<%= form_for [@customer, @installation] do |f| %>
   <% if @installation.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@installation.errors.count, "error") %> prohibited this installation from being saved:</h2>

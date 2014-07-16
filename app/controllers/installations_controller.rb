@@ -3,6 +3,7 @@
 
 class InstallationsController < ApplicationController
   before_filter :authenticate_user!
+  before_action :set_customer
   before_action :set_installation, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -75,7 +76,11 @@ class InstallationsController < ApplicationController
     def format_json
 
     end
-    
+
+    def set_customer
+      @customer = Customer.find(current_user.customer_id)
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def installation_params
       params.require(:installation).permit(:name)
