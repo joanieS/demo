@@ -10,7 +10,7 @@
   </thead>
 
   <tbody>
-    <% @customers.each do |customer| %>
+    <% @customers.find_each do |customer| %>
       <tr>
         <td><%= customer.name %></td>
         <td><%= customer.category %></td>

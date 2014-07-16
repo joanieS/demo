@@ -13,7 +13,7 @@
   </thead>
 
   <tbody>
-    <% @beacons.each do |beacon| %>
+    <% @beacons.find_each do |beacon| %>
       <tr>
         <td><%= beacon.minor_id %></td>
         <td><%= beacon.content %></td>

@@ -15,7 +15,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @installation.beacons.each.each do |beacon| %>
+      <% @installation.beacons.find_each do |beacon| %>
         <tr>
           <td><%= beacon.minor_id %></td>
           <td><%= beacon.major_id %></td>
