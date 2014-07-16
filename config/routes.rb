@@ -8,10 +8,9 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  # next beacons inside installations to gain access to installation_id in params
   resources :customers do
     resources :installations do 
-      resources :beacons
+      resources :beacons, only: [:show, :new, :create, :edit, :update, :destroy]
     end
   end
 

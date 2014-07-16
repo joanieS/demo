@@ -20,9 +20,9 @@
         <td><%= beacon.content %></td>
         <td><%= beacon.content_type %></td>
         <td><%= beacon.audio %></td>
-        <td><%= link_to 'Show', installation_beacon_path(@installation, beacon) %></td>
-        <td><%= link_to 'Edit', edit_installation_beacon_path(@installation, beacon) %></td>
-        <td><%= link_to 'Destroy', installation_beacon_path(@installation, beacon), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', customer_installation_beacon_path(@customer, @installation, beacon) %></td>
+        <td><%= link_to 'Edit', edit_customer_installation_beacon_path(@customer, @installation, beacon) %></td>
+        <td><%= link_to 'Destroy', customer_installation_beacon_path(@customer, @installation, beacon), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
