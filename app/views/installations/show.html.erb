@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Minor</th>
+      <th>Major</th>
       <th>Content</th>
       <th>Type</th>
       <th>Audio</th>
@@ -17,6 +18,7 @@
     <% @installation.beacons.each.each do |beacon| %>
       <tr>
         <td><%= beacon.minor_id %></td>
+        <td><%= beacon.major_id %></td>
         <td><%= beacon.content %></td>
         <td><%= beacon.content_type %></td>
         <td><%= beacon.audio %></td>
