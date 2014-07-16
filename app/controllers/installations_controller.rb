@@ -7,8 +7,7 @@ class InstallationsController < ApplicationController
 
   def index
     # only display installations belonging to current user
-    # N.B.: installation has attribute customer_id in place of user_id
-    @installations = Installation.where(user_id: current_user.id)
+    @installations = Installation.where(customer_id: current_user.id)
   end
 
   def show

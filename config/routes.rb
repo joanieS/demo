@@ -2,8 +2,6 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :customers
-
   # ensures user interracts with model when editing instead of devise
   resources :users, only: [:show, :edit]
 
@@ -11,8 +9,10 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   # next beacons inside installations to gain access to installation_id in params
-  resources :installations do 
-    resources :beacons
+  resources :customers do
+    resources :installations do 
+      resources :beacons
+    end
   end
 
   resources :audio_clips
