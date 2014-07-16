@@ -1,4 +1,4 @@
-<h1>Installations</h1>
+<h1>Your installations</h1>
 <ul>
   <% @installations.each do |installation| %>
     <li><%= link_to installation.name, customer_installation_path(@customer,installation) %></li>
