@@ -1,7 +1,11 @@
 <p id="notice"><%= notice %></p>
 <h1>Account</h1>
 <h2><%= @customer.name %></h2>
-<p>Member since: <%= current_user.created_at.strftime("%B %Y")  %></p>
+<ul>
+	<li>Member since: <%= current_user.created_at.strftime("%B %Y") %></li>
+	<li>Total installations: <%= installation_count(@customer) %></li>
+	<li>Total beacons: <%= beacon_count(@customer) %></li>
+</ul>
 <%= link_to "Edit your account", edit_customer_path %><br>
 <%= link_to "Add an installation", new_customer_installation_path(@customer) %><br>
 <%= link_to "View all your users", users_path %>

@@ -4,7 +4,7 @@ class BeaconsController < InheritedResources::Base
 
   before_action :set_customer_and_installation
 
-  before_action :set_beacon, only: [:show, :edit, :destroy]
+  before_action :set_beacon, only: [:show, :edit, :update, :destroy]
 
   def show; end
 
@@ -12,9 +12,21 @@ class BeaconsController < InheritedResources::Base
     @beacon = Beacon.new(beacon_params)
     set_beacon_installation_id
     if @beacon.save
-      redirect_to customer_installation_beacon_path(@customer,@installation, @beacon), notice: 'Beacon was successfully created.'
+      redirect_to beacon_path, notice: 'Beacon was successfully created.'
     else
       render action: 'new'
+    end
+  end
+
+  def update
+    respond_to do |format|
+      if @beacon.update(beacon_params)
+        format.html { redirect_to beacon_path, notice: 'Customer was successfully updated.' }
+        format.json { render :show, status: :ok, location: beacon_path }
+      else
+        format.html { render :edit }
+        format.json { render json: @customer.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -40,6 +52,10 @@ class BeaconsController < InheritedResources::Base
 
   def set_beacon_installation_id
     @beacon.installation_id = @installation.id
+  end
+
+  def beacon_path
+    customer_installation_beacon_path(@customer, @installation, @beacon)
   end
 
   def beacon_params
