@@ -1,19 +1,22 @@
 class BeaconsController < InheritedResources::Base
+  
   before_action :authenticate_user!
+
   before_action :set_customer_and_installation
-  before_action :set_beacon, only: [:show, :destroy]
+
+  before_action :set_beacon, only: [:show, :edit, :destroy]
+
+  def show; end
 
   def create
     @beacon = Beacon.new(beacon_params)
-    @beacon.installation_id = @installation.id
+    set_beacon_installation_id
     if @beacon.save
       redirect_to customer_installation_beacon_path(@customer,@installation, @beacon), notice: 'Beacon was successfully created.'
     else
       render action: 'new'
     end
   end
-
-  def show; end
 
   def destroy
     @beacon.destroy
@@ -33,6 +36,10 @@ class BeaconsController < InheritedResources::Base
 
   def set_beacon
     @beacon = Beacon.find(params[:id])
+  end
+
+  def set_beacon_installation_id
+    @beacon.installation_id = @installation.id
   end
 
   def beacon_params
