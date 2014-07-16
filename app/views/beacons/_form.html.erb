@@ -1,5 +1,4 @@
-<!-- for some reason I can't pass the installation local from the controller -->
-<%= form_for [@customer, Installation.find(params[:installation_id]), @beacon] do |f| %>
+<%= form_for [@customer, @installation, @beacon] do |f| %>
   <% if @beacon.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@beacon.errors.count, "error") %> prohibited this beacon from being saved:</h2>
