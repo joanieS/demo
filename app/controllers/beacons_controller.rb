@@ -5,7 +5,6 @@ class BeaconsController < InheritedResources::Base
 
   def create
     @beacon = Beacon.new(beacon_params)
-    # installation local variable is not set here. Following code pasted into _form view to make it work
     @beacon.installation_id = @installation.id
     if @beacon.save
       redirect_to customer_installation_beacon_path(@customer,@installation, @beacon), notice: 'Beacon was successfully created.'
