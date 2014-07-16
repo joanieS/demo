@@ -8,7 +8,7 @@ class InstallationsController < ApplicationController
 
   def index
     # only display installations belonging to current user
-    @installations = Installation.where(customer_id: current_user.id)
+    @installations = Installation.where(customer_id: @customer.id)
   end
 
   def show
@@ -23,7 +23,7 @@ class InstallationsController < ApplicationController
     @installation.customer_id = current_user.customer_id
     respond_to do |format|
       if @installation.save
-        format.html { redirect_to customer_installation_path [@customer,@installation], notice: 'Installation was successfully created.' }
+        format.html { redirect_to customer_installation_path(@customer,@installation), notice: 'Installation was successfully created.' }
         format.json { render :show, status: :created, location: @installation }
       else
         format.html { render :new }
