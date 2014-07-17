@@ -10,8 +10,6 @@ class UsersController < ApplicationController
     @users = User.where(customer_id: current_user.customer_id)
   end
 
-  def show; end
-
   def new
     @user = User.new
   end
