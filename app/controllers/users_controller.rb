@@ -56,11 +56,12 @@ class UsersController < ApplicationController
   private
   
     def set_customer
-      @customer = Customer.find(current_user.customer_id)
+      #@customer = Customer.find(current_user.customer_id)
+      @customer = Customer.find_by id: 2
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:show, :new, :create, :edit, :update, :destroy)
+      params.require(:user).permit(:first_name, :last_name, :username, :email, :password, :password_confirmation, :customer_id)
     end
 end
