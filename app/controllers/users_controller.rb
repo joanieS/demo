@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def edit
+  def edit; 
     @user = current_user
   end
 
@@ -58,6 +58,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:show, :new, :create, :edit, :update, :destroy)
+      params.require(:user).permit(:first_name, :last_name, :email)
     end
 end
