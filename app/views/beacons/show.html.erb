@@ -4,15 +4,34 @@
   <div id="beacon-map"></div>
 </div>
 <ul>
-	<li>Minor ID: <%= @beacon.minor_id %></li>
-	<li>Major ID: <%= @beacon.major_id %></li>
-	<li>Latitude: <%= @beacon.latitude %></li>
-	<li>Longitude: <%= @beacon.longitude %></li>
-	<li>Content: <%= @beacon.content %></li>
-	<li>Content type: <%= @beacon.content_type %></li>
-	<li>Audio: <%= @beacon.audio %></li>
+  <li>Minor ID: <%= @beacon.minor_id %></li>
+  <li>Major ID: <%= @beacon.major_id %></li>
+  <li>Latitude: <%= @beacon.latitude %></li>
+  <li>Longitude: <%= @beacon.longitude %></li>
+  <li>Content: <%= @beacon.content %></li>
+  <li>Content type: <%= @beacon.content_type %></li>
+  <li>Audio: <%= @beacon.audio %></li>
 </ul>
 <%= link_to "Edit", edit_customer_installation_beacon_path(@customer, @installation, @beacon) %><br>
 <%= link_to "Back to #{@installation.name.capitalize} installation", 
   customer_installation_path(@customer,@installation) %>
 
+<script type="text/javascript">
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers([
+      {
+        "lat": 0,
+        "lng": 0,
+        "picture": {
+          "url": "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
+          "width":  36,
+          "height": 36
+        },
+        "infowindow": "hello!"
+      }
+    ]);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
+</script>
