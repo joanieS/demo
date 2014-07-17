@@ -57,7 +57,7 @@ class InstallationsController < ApplicationController
   private
 
     def set_installation
-        @installation = Installation.find(params[:id])
+      @installation = Installation.find(params[:id])
     end
 
     def set_customer
