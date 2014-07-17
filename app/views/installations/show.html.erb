@@ -7,6 +7,7 @@
     <thead>
       <tr>
         <th>Beacon</th>
+        <th>Active</th>
         <th>Content</th>
         <th>Type</th>
         <th>Audio</th>
@@ -18,6 +19,7 @@
       <% @installation.beacons.find_each do |beacon| %>
         <tr>
           <td><%= link_to "Item #{n}", beacon_path(beacon) %></td>
+          <td></td>
           <td><%= beacon.content %></td>
           <td><%= beacon.content_type %></td>
           <td><%= beacon.audio %></td>
