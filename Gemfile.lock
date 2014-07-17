@@ -99,6 +99,7 @@ GEM
     formtastic (2.3.0.rc3)
       actionpack (>= 3.0)
     geocoder (1.2.3)
+    gmaps4rails (2.1.2)
     grit (2.5.0)
       diff-lcs (~> 1.1)
       mime-types (~> 1.15)
@@ -276,6 +277,7 @@ DEPENDENCIES
   devise
   faker
   geocoder
+  gmaps4rails
   jazz_hands
   jbuilder (~> 2.0)
   jquery-rails

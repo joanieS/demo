@@ -6,6 +6,7 @@ gem 'rails', '4.1.1'
 gem 'pg'
 
 gem 'geocoder'
+gem 'gmaps4rails'
 
 gem 'faker'
 # Use SCSS for stylesheets
