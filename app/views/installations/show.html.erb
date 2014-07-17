@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 <h1><%= @installation.name %></h1>
 <h2>Installation created: <%= creation_date(@installation) %></h2>
+<p>This installation is currently <%= current_state(@installation) %>.</p>
 <h2>Beacons</h2>
 <% if has_beacons?(@installation) %>
   <table>
