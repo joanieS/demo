@@ -2,6 +2,8 @@ class UsersController < ApplicationController
 
   before_action :authenticate_user!
 
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+
   before_action :set_customer
 
   def index
@@ -14,9 +16,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def edit; 
-    @user = current_user
-  end
+  def edit; end
 
   def create
     @user = User.new(user_params)
@@ -52,6 +52,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+    def set_user
+      @user = current_user
+    end
   
     def set_customer
       @customer = Customer.find(current_user.customer_id)
