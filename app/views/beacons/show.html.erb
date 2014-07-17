@@ -1,14 +1,17 @@
 <p id="notice"><%= notice %></p>
 <h1>Show Beacon</h1>
-
-Minor ID: <%= @beacon.minor_id %><br>
-Major ID: <%= @beacon.major_id %><br>
-Latitude: <%= @beacon.latitude %><br>
-Longitude: <%= @beacon.longitude %><br>
-Content: <%= @beacon.content %><br>
-Content type: <%= @beacon.content_type %><br>
-Audio: <%= @beacon.audio %><br>
-
+<div class="map-wrap">
+  <div id="beacon-map"></div>
+</div>
+<ul>
+	<li>Minor ID: <%= @beacon.minor_id %></li>
+	<li>Major ID: <%= @beacon.major_id %></li>
+	<li>Latitude: <%= @beacon.latitude %></li>
+	<li>Longitude: <%= @beacon.longitude %></li>
+	<li>Content: <%= @beacon.content %></li>
+	<li>Content type: <%= @beacon.content_type %></li>
+	<li>Audio: <%= @beacon.audio %></li>
+</ul>
 <%= link_to "Edit", edit_customer_installation_beacon_path(@customer, @installation, @beacon) %><br>
 <%= link_to "Back to #{@installation.name.capitalize} installation", 
   customer_installation_path(@customer,@installation) %>
