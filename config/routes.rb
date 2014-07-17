@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   # ensures user interracts with model when editing instead of devise
-  resources :users, only: [:index, :update, :edit]
+  resources :users, only: [:index, :update, :edit, :destroy]
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
