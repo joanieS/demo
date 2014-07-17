@@ -1,9 +1,7 @@
 <p id="notice"><%= notice %></p>
 <h1><%= @installation.name %></h1>
 <ul>
-  <% if has_beacons?(@installation) %>
-    <li>Total beacons: <%= beacon_count(@installation) %></li>
-  <% end %>
+  <% content_tag(:li, "Total beacons: #{beacon_count(@installation)}") if has_beacons?(@installation) %>
   <li>Created at: <%= creation_date(@installation) %></li>
 </ul>
 <% if has_beacons?(@installation) %>
