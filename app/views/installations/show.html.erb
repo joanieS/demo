@@ -4,6 +4,7 @@
   <% content_tag(:li, "Total beacons: #{beacon_count(@installation)}") if has_beacons?(@installation) %>
   <li>Created at: <%= creation_date(@installation) %></li>
 </ul>
+<h2>Beacons</h2>
 <% if has_beacons?(@installation) %>
   <table>
     <thead>

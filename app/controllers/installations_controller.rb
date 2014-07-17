@@ -7,12 +7,10 @@ class InstallationsController < ApplicationController
   before_action :set_installation, only: [:show, :edit, :update, :destroy]
 
   def index
-    # only display installations belonging to current user
     @installations = Installation.where(customer_id: @customer.id)
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @installation = Installation.new
