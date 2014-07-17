@@ -4,7 +4,7 @@
     <li><%= link_to installation.name, customer_installation_path(@customer, installation) %></li>
     <ul>
       <li><%= link_to "Edit", edit_customer_installation_path(@customer, installation) %></li>
-      <li><%= link_to "Delete", customer_installation_path(@customer, installation), method: :delete %></li>
+      <li><%= link_to "Delete", customer_installation_path(@customer, installation), method: :delete, data: { confirm: 'Are you sure?' } %></li>
     </ul>
   <% end %>
 </ul>

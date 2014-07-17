@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-  # authenticate user with devise
+
   before_action :authenticate_user!
+
   before_action :set_customer
 
-  # only index users for the current customer
   def index
     @users = User.where(customer_id: current_user.customer_id)
   end
