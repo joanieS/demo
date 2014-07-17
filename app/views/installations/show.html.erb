@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 <h1><%= @installation.name %></h1>
+<ul>
+  <li>Total beacons: <%= total_beacons(@installation) %></li>
+  <li>Created at: <%= @installation.created_at.strftime("%B %d,%Y") %></li>
+</ul>
 <% if has_beacons?(@installation) %>
   <table>
     <thead>
@@ -34,6 +38,5 @@
 <% else %>
   <p>This installation currently has no beacons.</p>
 <% end %>
-
 <%= link_to "Add a beacon", new_customer_installation_beacon_path(@customer,@installation) %><br>
 <%= link_to "Back to Installations", customer_installations_path(@customer) %>
