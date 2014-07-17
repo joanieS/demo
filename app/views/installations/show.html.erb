@@ -1,8 +1,10 @@
 <p id="notice"><%= notice %></p>
 <h1><%= @installation.name %></h1>
 <ul>
-  <li>Total beacons: <%= beacon_count(@installation) %></li>
-  <li>Created at: <%= @installation.created_at.strftime("%B %d,%Y") %></li>
+  <% if has_beacons?(@installation) %>
+    <li>Total beacons: <%= beacon_count(@installation) %></li>
+  <% end %>
+  <li>Created at: <%= creation_date(@installation) %></li>
 </ul>
 <% if has_beacons?(@installation) %>
   <table>
