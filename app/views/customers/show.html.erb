@@ -2,9 +2,9 @@
 <h1>Account</h1>
 <h2><%= @customer.name %></h2>
 <ul>
-	<li>Member since: <%= current_user.created_at.strftime("%B %Y") %></li>
-	<li>Total installations: <%= installation_count(@customer) %></li>
-	<li>Total beacons: <%= beacon_count(@customer) %></li>
+	<li>Member since: <%= customer_since(@customer) %></li>
+	<li>Total installations: <%= total_installations(@customer) %></li>
+	<li>Total beacons: <%= total_beacons(@customer) %></li>
 </ul>
 <%= link_to "Edit your account", edit_customer_path %><br>
 <%= link_to "Add an installation", new_customer_installation_path(@customer) %><br>

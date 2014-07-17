@@ -1,11 +1,11 @@
 module CustomersHelper
-	# return customers's beacon count
-	def beacon_count(customer)
+
+	def customer_since(customer)
+		current_user.created_at.strftime("%B %Y")
+	end
+
+	def total_beacons(customer)
 		customer.beacons.count
 	end
 
-	# return customers's installation count
-	def installation_count(customer)
-		customer.installations.count
-	end
 end
