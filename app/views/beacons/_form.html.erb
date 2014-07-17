@@ -26,6 +26,10 @@
       <%= f.label :longitude %><br>
       <%= f.number_field :longitude, step: "any", min: "-180", max: "180" %>
     </div>
+    <div class="field">
+      <%= f.label :uuid, "UUID" %><br>
+      <%= f.text_field :uuid, placeholder: "Do not enter a UUID unless explicitly instructed to do so." %>
+    </div>
   <h2>Content Info</h2>
     <div class="field">
       <%= f.label :content %><br>

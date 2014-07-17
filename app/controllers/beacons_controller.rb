@@ -15,7 +15,7 @@ class BeaconsController < InheritedResources::Base
 
   def create
     @beacon = Beacon.new(beacon_params)
-    set_beacon_installation_id
+    set_beacon_installation_id_and_uuid
     if @beacon.save
       redirect_to beacon_path, notice: 'Beacon was successfully created.'
     else
@@ -55,8 +55,9 @@ class BeaconsController < InheritedResources::Base
     @beacon = Beacon.find(params[:id])
   end
 
-  def set_beacon_installation_id
+  def set_beacon_installation_id_and_uuid
     @beacon.installation_id = @installation.id
+    @beacon.uuid = "B9407F30-F5F8-466E-AFF9-25556B57FE6D"
   end
 
   def beacon_path
@@ -65,7 +66,7 @@ class BeaconsController < InheritedResources::Base
 
   def beacon_params
     params.require(:beacon).permit(
-      :minor_id, :major_id, :latitude, :longitude, :content, :content_type, :audio, :content_image
+      :minor_id, :major_id, :latitude, :longitude, :content, :content_type, :audio, :content_image, :uuid
     )
   end
 end
