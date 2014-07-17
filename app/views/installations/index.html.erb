@@ -1,8 +1,5 @@
 <h1>Your installations</h1>
 <ul>
-	<li>Total installations: <%= total_installations(@customer) %></li>
-</ul>
-<ul>
   <% @installations.find_each do |installation| %>
     <li><%= link_to installation.name, customer_installation_path(@customer,installation) %></li>
   <% end %>
