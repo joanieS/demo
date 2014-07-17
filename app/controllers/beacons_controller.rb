@@ -6,7 +6,12 @@ class BeaconsController < InheritedResources::Base
 
   before_action :set_beacon, only: [:show, :edit, :update, :destroy]
 
-  def show; end
+  def show
+    @hash = Gmaps4rails.build_markers(@beacon) do |beacon, marker|
+      marker.lat beacon.latitude
+      marker.lng beacon.longitude
+    end
+  end
 
   def create
     @beacon = Beacon.new(beacon_params)
