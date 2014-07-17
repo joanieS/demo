@@ -32,8 +32,7 @@ class InstallationsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     respond_to do |format|
@@ -75,9 +74,6 @@ class InstallationsController < ApplicationController
 
     def installation_path
       customer_installation_path(@customer, @installation)
-    end
-
-    def format_json
     end
 
     def installation_params
