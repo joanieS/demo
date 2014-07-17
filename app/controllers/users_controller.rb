@@ -8,8 +8,7 @@ class UsersController < ApplicationController
     @users = User.where(customer_id: current_user.customer_id)
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @user = User.new
@@ -58,7 +57,6 @@ class UsersController < ApplicationController
       @customer = Customer.find(current_user.customer_id)
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:show, :new, :create, :edit, :update, :destroy)
     end
