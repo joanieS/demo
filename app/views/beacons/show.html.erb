@@ -1,14 +1,19 @@
 <p id="notice"><%= notice %></p>
-<h1>Show Beacon</h1>
+<h1>Your beacon</h1>
+<h2>Installation: <%= @installation.name %></h2>
 <div class="map-wrap">
   <div id="beacon-map"></div>
 </div>
+<h2>Beacon info</h2>
 <ul>
   <li>Minor ID: <%= @beacon.minor_id %></li>
   <li>Major ID: <%= @beacon.major_id %></li>
   <li>Latitude: <%= @beacon.latitude %></li>
   <li>Longitude: <%= @beacon.longitude %></li>
   <li>UUID: <%= @beacon.uuid %></li>
+</ul>
+<h2>Content info</h2>
+<ul>
   <li>Content: <%= @beacon.content %></li>
   <li>Content type: <%= @beacon.content_type %></li>
   <li>Audio: <%= @beacon.audio %></li>
