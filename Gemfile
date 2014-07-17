@@ -19,6 +19,7 @@ gem 's3_direct_upload'
 group :development do
   gem 'pry'
   gem 'pry-rails'
+  gem 'awesome_print'
   gem 'quiet_assets'
   gem 'better_errors'
   gem 'binding_of_caller'
