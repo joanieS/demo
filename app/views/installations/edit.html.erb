@@ -1,6 +1,6 @@
-<h1>Editing installation</h1>
+<h1>Edit installation</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @installation %><br>
-<%= link_to 'Back', installations_path %>
+<%= link_to 'Show', customer_installation_path(@customer, @installation) %><br>
+<%= link_to 'Back', customer_installations_path(@customer) %>
