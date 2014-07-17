@@ -5,7 +5,7 @@ module ApplicationHelper
 	end
 
   def current_state(object)
-    object.active ? "Active" : " Inactive"    
+    object.active ? "Active" : "Inactive"    
   end
 
 end
