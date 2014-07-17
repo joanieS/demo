@@ -17,7 +17,6 @@ gem 'aws-sdk'
 gem 's3_direct_upload'
 
 group :development do
-  gem 'jazz_hands'
   gem 'quiet_assets'
   gem 'better_errors'
   gem 'binding_of_caller'
