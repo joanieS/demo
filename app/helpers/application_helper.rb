@@ -13,10 +13,14 @@ module ApplicationHelper
   end
 
   # PATHS
-  
+
     # Installation paths
     def installation_path(installation)
       customer_installation_path(@customer, installation)
+    end
+
+    def new_installation
+      new_customer_installation_path(@customer)
     end
 
     def edit_installation_path(installation)
