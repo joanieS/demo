@@ -12,4 +12,8 @@ module ApplicationHelper
     object.active ? "active" : "inactive"    
   end
 
+  def installation_path(installation)
+    customer_installation_path(@customer, installation)
+  end
+
 end

@@ -8,10 +8,6 @@ module InstallationsHelper
 		!installation.beacons.empty?
 	end
 
-  def installation_path(installation)
-    customer_installation_path(@customer, installation)
-  end
-
   def edit_installation_path(installation)
     edit_customer_installation_path(@customer, installation)
   end
