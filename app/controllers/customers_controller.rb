@@ -2,6 +2,8 @@ class CustomersController < ApplicationController
   
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
+  class Forbidden < StandardError; end
+
   def show; end
 
   def new
@@ -24,18 +26,15 @@ class CustomersController < ApplicationController
   def edit; end
 
   def update
-    if current_user.customer_id == @customer_id
-      respond_to do |format|
-        if @customer.update(customer_params)
-          format.html { redirect_to @customer, notice: 'Customer was successfully updated.' }
-          format.json { render :show, status: :ok, location: @customer }
-        else
-          format.html { render :edit }
-          format.json { render json: @customer.errors, status: :unprocessable_entity }
-        end
+    raise "Forbidden" unless current_user.customer_id == @customer.id
+    respond_to do |format|
+      if @customer.update(customer_params)
+        format.html { redirect_to @customer, notice: 'Customer was successfully updated.' }
+        format.json { render :show, status: :ok, location: @customer }
+      else
+        format.html { render :edit }
+        format.json { render json: @customer.errors, status: :unprocessable_entity }
       end
-    else
-      raise "Permission error"
     end
   end
 
