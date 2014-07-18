@@ -67,7 +67,7 @@ class InstallationsController < ApplicationController
     end
 
     def installation_params
-      params.require(:installation).permit(:name, :group)
+      params.require(:installation).permit(:name, :group, :active)
     end
 
     # Paths
