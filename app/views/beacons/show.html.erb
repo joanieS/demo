@@ -33,9 +33,8 @@
       </tr>
   </tbody>
 </table>
-<%= link_to "Edit beacon", edit_customer_installation_beacon_path(@customer, @installation, @beacon) %><br>
-<%= link_to "Back to #{@installation.name.capitalize} installation", 
-  customer_installation_path(@customer,@installation) %>
+<%= link_to "Edit beacon", edit_beacon_path(@beacon) %><br>
+<%= link_to "Back to #{@installation.name.capitalize} installation", installation_path(@installation) %>
 
 <script type="text/javascript">
   handler = Gmaps.build('Google');
