@@ -1,5 +1,3 @@
-#Audio recording, record your voice, get it to lufthouse somehow
-
 class InstallationsController < ApplicationController
 
   before_filter :authenticate_user!
@@ -24,7 +22,7 @@ class InstallationsController < ApplicationController
     respond_to do |format|
       if @installation.save
         format.html { redirect_to installation_path, notice: "Installation was successfully created." }
-        format.json { render :show, status: :created, location: @installation }
+        format.json { render :show, status: :created, location: installation_path }
       else
         format.html { render :new }
         format.json { render json: @installation.errors, status: :unprocessable_entity }
@@ -38,7 +36,7 @@ class InstallationsController < ApplicationController
     respond_to do |format|
       if @installation.update(installation_params)
         format.html { redirect_to installation_path, notice: "Installation was successfully updated." }
-        format.json { render :show, status: :ok, location: @installation }
+        format.json { render :show, status: :ok, location: installation_path }
       else
         format.html { render :edit }
         format.json { render json: @installation.errors, status: :unprocessable_entity }
