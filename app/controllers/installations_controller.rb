@@ -66,15 +66,16 @@ class InstallationsController < ApplicationController
       @installation.customer_id = current_user.customer_id
     end
 
+    def installation_params
+      params.require(:installation).permit(:name, :group)
+    end
+
+    # Paths
     def installations_path
       customer_installations_path(@customer)
     end
 
     def installation_path
       customer_installation_path(@customer, @installation)
-    end
-
-    def installation_params
-      params.require(:installation).permit(:name, :group)
     end
 end
