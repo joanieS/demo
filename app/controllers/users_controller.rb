@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         format.html { redirect_to users_path, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
+        format.json { json_success_redirect }
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -31,11 +31,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    raise SecurityTransgression unless current_user == @user
+    validate_user_permission
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to users_path, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
+        format.json { json_success_redirect }
       else
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    raise SecurityTransgression unless current_user == @user
+    validate_user_permission
     @user.destroy
     respond_to do |format|
       format.html { redirect_to root_path, notice: 'User was successfully destroyed.' }
@@ -60,6 +60,14 @@ class UsersController < ApplicationController
   
     def set_customer
       @customer = Customer.find(current_user.customer_id)
+    end
+
+    def validate_user_permission
+      raise SecurityTransgression unless current_user == @user  
+    end
+
+    def json_success_redirect
+      render :index, status: :ok, location: users_path
     end
 
     def user_params
