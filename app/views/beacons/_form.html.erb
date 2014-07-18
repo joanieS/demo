@@ -28,7 +28,11 @@
     </div>
     <div class="field">
       <%= f.label :uuid, "UUID" %><br>
-      <%= f.text_field :uuid, placeholder: "Do not enter a UUID unless explicitly instructed to do so." %>
+      <%= f.check_box :uuid, placeholder: "Do not enter a UUID unless explicitly instructed to do so." %>
+    </div>
+    <div class="field">
+      <%= f.label :active, "Active" %><br>
+      <%= f.text_field :active %>
     </div>
   <h2>Content Info</h2>
     <div class="field">
