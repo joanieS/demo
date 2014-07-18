@@ -24,15 +24,18 @@ class CustomersController < ApplicationController
   def edit; end
 
   def update
-    raise SecurityTransgression unless current_user.customer_id == @customer_id
-    respond_to do |format|
-      if @customer.update(customer_params)
-        format.html { redirect_to @customer, notice: 'Customer was successfully updated.' }
-        format.json { render :show, status: :ok, location: @customer }
-      else
-        format.html { render :edit }
-        format.json { render json: @customer.errors, status: :unprocessable_entity }
+    if current_user.customer_id == @customer_id
+      respond_to do |format|
+        if @customer.update(customer_params)
+          format.html { redirect_to @customer, notice: 'Customer was successfully updated.' }
+          format.json { render :show, status: :ok, location: @customer }
+        else
+          format.html { render :edit }
+          format.json { render json: @customer.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      raise "Permission error"
     end
   end
 

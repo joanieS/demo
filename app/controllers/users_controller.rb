@@ -63,7 +63,9 @@ class UsersController < ApplicationController
     end
 
     def validate_user_permission
-      raise SecurityTransgression unless current_user == @user  
+      if current_user != @user 
+        raise "Permission error"
+      end 
     end
 
     def json_success_redirect
