@@ -3,6 +3,7 @@
 <h2><%= @customer.name %></h2>
 <ul>
 	<li>Member since: <%= customer_since(@customer) %></li>
+  <li>Category: <%= @customer.category ? @customer.category : "None" %> </li>
 	<li>Total installations: <%= total_installations(@customer) %></li>
 	<li>Total beacons: <%= total_beacons(@customer) %></li>
 </ul>
