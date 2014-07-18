@@ -1,6 +1,8 @@
 class Beacon < ActiveRecord::Base
 	belongs_to :installation
 
+  attr_accessible :minor_id, :major_id, :latitude, :longitude, :uuid, :active, :content, :content_type, :audio, :installation_id, :created_at, :updated_at, :content_image_file_name, :content_image_content_type, :content_image_file_name, :content_image_updated_at
+
 	has_many :photos
 	accepts_nested_attributes_for :photos
 
@@ -11,4 +13,3 @@ class Beacon < ActiveRecord::Base
 
 	validates_attachment_content_type :content_image, :content_type => /.+\/.*\Z/
 end
-
