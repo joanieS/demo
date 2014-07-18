@@ -16,21 +16,25 @@ class BeaconsController < InheritedResources::Base
   def create
     @beacon = Beacon.new(beacon_params)
     set_beacon_installation_id_and_uuid
-    if @beacon.save
-      redirect_to beacon_path, notice: 'Beacon was successfully created.'
-    else
-      render action: 'new'
+    respond_to do |format|
+      if @beacon.save
+        format.html { redirect_to beacon_path, notice: 'Beacon was successfully created.' }
+        format.json { render :show, status: :created, location: beacon_path }
+      else
+        format.html { render :new }
+        format.json { render json: @beacon.errors, status: :unprocessable_entity }
+      end
     end
   end
 
   def update
     respond_to do |format|
       if @beacon.update(beacon_params)
-        format.html { redirect_to beacon_path, notice: 'Customer was successfully updated.' }
+        format.html { redirect_to beacon_path, notice: 'Beacon was successfully updated.' }
         format.json { render :show, status: :ok, location: beacon_path }
       else
         format.html { render :edit }
-        format.json { render json: @customer.errors, status: :unprocessable_entity }
+        format.json { render json: @beacon.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -38,8 +42,7 @@ class BeaconsController < InheritedResources::Base
   def destroy
     @beacon.destroy
     respond_to do |format|
-      format.html { redirect_to customer_installation_path(@customer, @installation),
-        notice: 'Customer was successfully destroyed.' }
+      format.html { redirect_to installation_path, notice: 'Customer was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -60,13 +63,20 @@ class BeaconsController < InheritedResources::Base
     @beacon.uuid = "B9407F30-F5F8-466E-AFF9-25556B57FE6D"
   end
 
+  def beacon_params
+    params.require(:beacon).permit(
+      :minor_id, :major_id, :latitude, :longitude, :content, :content_type, 
+      :audio, :content_image, :uuid
+    )
+  end
+
+  # Path
+  def installation_path
+    customer_installation_path(@customer, @installation)
+  end
+
   def beacon_path
     customer_installation_beacon_path(@customer, @installation, @beacon)
   end
 
-  def beacon_params
-    params.require(:beacon).permit(
-      :minor_id, :major_id, :latitude, :longitude, :content, :content_type, :audio, :content_image, :uuid
-    )
-  end
 end
