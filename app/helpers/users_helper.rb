@@ -5,7 +5,7 @@ module UsersHelper
   end
 
   def edit_user_title
-    current_user.customer_id ? "Edit User" : "Add Account"
+    current_user.customer_id ? "Edit User" : "Add Company Account"
   end
   
 end

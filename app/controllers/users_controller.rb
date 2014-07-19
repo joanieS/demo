@@ -47,7 +47,7 @@ class UsersController < ApplicationController
       set_customer_with_activation_code
       respond_to do |format|
         if link_customer_account
-          format.html { redirect_to users_path, notice: "User account was successfully linked to company account." }
+          format.html { redirect_to root_path, notice: "User account was successfully linked to company account." }
           format.json { render :index, status: :ok, location: users_path }
         else
           format.html { render :edit }
