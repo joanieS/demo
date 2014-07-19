@@ -15,7 +15,7 @@ class CustomersController < ApplicationController
   def create
 
     if params[:customer][:activation_code].empty?
-      # New customer
+      # Activation code not provided, therefore new customer
       @customer = Customer.new(customer_params)
       # Generate a new activation code.
       @customer.activation_code = SecureRandom.hex
@@ -29,9 +29,14 @@ class CustomersController < ApplicationController
           format.json { render json: @customer.errors, status: :unprocessable_entity }
         end
       end
-    else
+    elsif !params[:customer][:activation_code].empty?
       # Existing customer
-      current_user.customer_id = Customer.where(activation_code: params[:customer][:activation_code]).id
+      @customer = Customer.where(activation_code: params[:customer][:activation_code])
+      if @customer.save
+        current_user.update(customer_id: @customer.id)
+        binding.pry
+        redirect_to @customer
+      end
     end
 
 
