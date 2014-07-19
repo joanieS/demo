@@ -5,21 +5,21 @@
   <% end %>
 <% end %>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div>
-    <%= f.label :email %><br />
+  <div class="field">
+    <%= f.label :email %><br>
     <%= f.email_field :email, autofocus: true %>
   </div>
-  <div>
-    <%= f.label :password %><br />
+  <div class="field">
+    <%= f.label :password %><br>
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
   <% if devise_mapping.rememberable? %>
-    <div>
+    <div class="field">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
     </div>
-  <% end -%>
-  <div>
+  <% end %>
+  <div class="field">
     <%= f.submit "Sign in" %>
   </div>
 <% end %>
