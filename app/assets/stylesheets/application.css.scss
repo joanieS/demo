@@ -24,6 +24,10 @@ body {
 	}
 	ul {
 		list-style: none;
+		margin: 5px 0 10px;
+	}
+	p {
+		margin-bottom: 10px;
 	}
 }
 
@@ -54,9 +58,12 @@ table {
 	right: 0;
 	float: right;
 	background-color: lightgrey;
-	ul li {
+	ul {
+		padding-right: 10px;
+		li {
 		list-style: none;
 		padding: 10px 0;
+		}
 	}
 }
 

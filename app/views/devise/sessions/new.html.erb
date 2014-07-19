@@ -1,4 +1,4 @@
-<h2>Sign in</h2>
+<h2>Sign In</h2>
 <% unless flash[:alert].nil? || flash[:alert].empty? %>
   <% flash.each do |name, msg| %>
     <%= content_tag :div, msg, class: "flash-error-message-wrapper container rounded" %>

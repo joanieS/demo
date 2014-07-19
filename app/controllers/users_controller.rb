@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         format.html { redirect_to users_path, notice: 'User was successfully created.' }
-        format.json { json_success_redirect }
+        format.json { render :index, status: :ok, location: users_path }
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -31,14 +31,28 @@ class UsersController < ApplicationController
   def edit; end
 
   def update
-    set_customer_with_activation_code
-    respond_to do |format|
-      if @user.update(user_params) && link_customer_account
-        format.html { redirect_to users_path, notice: 'User was successfully updated.' }
-        format.json { json_success_redirect }
-      else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+    @user = current_user
+    # Normal user account update.
+    if @user.customer_id
+      respond_to do |format|
+        if @user.update(user_params)
+          format.html { redirect_to users_path, notice: "User was successfully updated." }
+          format.json { render :index, status: :ok, location: users_path }
+        else
+          format.html { render :edit }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
+      end
+    else # Link user account with activation_code.
+      set_customer_with_activation_code
+      respond_to do |format|
+        if link_customer_account
+          format.html { redirect_to users_path, notice: "User account was successfully linked to company account." }
+          format.json { render :index, status: :ok, location: users_path }
+        else
+          format.html { render :edit }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -67,10 +81,6 @@ class UsersController < ApplicationController
 
     def link_customer_account
       @user.update(customer_id: @customer.id)
-    end
-
-    def json_success_redirect
-      render :index, status: :ok, location: users_path
     end
 
     def user_params

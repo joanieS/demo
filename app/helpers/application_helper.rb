@@ -12,7 +12,7 @@ module ApplicationHelper
     object.active ? "active" : "inactive"    
   end
 
-  # PATHS
+  # Paths
 
     # Installation paths
     def installation_path(installation)

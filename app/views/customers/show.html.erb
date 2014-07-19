@@ -2,11 +2,11 @@
 <h2>Account</h2>
 <ul>
 	<li><b>Member since:</b> <%= customer_since(@customer) %></li>
-  <li><b>Category:</b> <%= @customer.category ? @customer.category : "None" %> </li>
+  <li><b>Category:</b> <%= customer_category(@customer) %> </li>
   <li><b>Activation code:</b> <%= @customer.activation_code %></li>
 	<li><b>Total installations:</b> <%= total_installations(@customer) %></li>
 	<li><b>Total beacons:</b> <%= total_beacons(@customer) %></li>
 </ul>
-<%= link_to "Edit your account", edit_customer_path %><br>
-<%= link_to "Add an installation", new_installation %><br>
-<%= link_to "View all your users", users_path %>
+<%= link_to "Edit Account", edit_customer_path %><br>
+<%= link_to "Add New Installation", new_installation_path %><br>
+<%= link_to "View Account Users", users_path %>

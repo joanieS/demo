@@ -1,40 +1,30 @@
 <p id="notice"><%= notice %></p>
-<h2>Your beacon</h2>
-<h3>Installation: <%= @installation.name %></h3>
+<h2>Beacon</h2>
+<ul>
+  <li><b>Installation:</b> <%= @installation.name %></li>
+  <li><b>State:</b> <%= current_state(@beacon).capitalize %></li>
+</ul>
 <div class="map-wrap">
   <div id="beacon-map"></div>
 </div>
-<h3>Beacon info</h3>
-<table>
-  <thead>
-    <tr>
-      <th>Minor ID</th>
-      <th>Major ID</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th>UUID</th>
-      <th>State</th>
-      <th>Content</th>
-      <th>Type</th>
-      <th>Audio</th>
-    </tr>
-  </thead>
-  <tbody>
-      <tr>
-        <td><%= @beacon.minor_id %></td>
-        <td><%= @beacon.major_id %></td>
-        <td><%= @beacon.latitude %></td>
-        <td><%= @beacon.longitude %></td>
-        <td><%= @beacon.uuid %></td>
-        <td><%= current_state(@beacon).capitalize %></td>
-        <td><%= @beacon.content %></td>
-        <td><%= @beacon.content_type %></td>
-        <td><%= @beacon.audio %></td>
-      </tr>
-  </tbody>
-</table>
-<%= link_to "Edit beacon", edit_beacon_path(@beacon) %><br>
-<%= link_to "Back to #{@installation.name.capitalize} installation", installation_path(@installation) %>
+<ul>
+  <li><b>Latitude:</b> <%= cardinalized_latitude(@beacon) %></li>
+  <li><b>Longitude:</b> <%= cardinalized_longitude(@beacon) %></li>
+</ul>
+<h3>Beacon Info</h3>
+<ul>
+  <li><b>Minor ID:</b> <%= @beacon.minor_id %></li>
+  <li><b>Major ID:</b> <%= @beacon.major_id %></li>
+  <li><b>UUID:</b> <%= @beacon.uuid %></li>
+</ul>
+<h3>Content Info</h3>
+<ul>
+  <li><b>Content:</b> <%= @beacon.content %></li>
+  <li><b>Type:</b> <%= @beacon.content_type %></li>
+  <li><b>Audio:</b> <%= @beacon.audio %></li>
+</ul>
+<%= link_to "Edit Beacon", edit_beacon_path(@beacon) %><br>
+<%= link_to "Back to #{@installation.name.capitalize} Installation", installation_path(@installation) %>
 
 <script type="text/javascript">
   handler = Gmaps.build('Google');

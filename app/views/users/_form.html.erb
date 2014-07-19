@@ -9,23 +9,24 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
-  </div>
-  <div class="field">
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :username %><br>
-    <%= f.text_field :username %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.email_field :email %>
-  </div>
-  <% unless current_user.customer_id %>
+  <% if current_user.customer_id %>
+    <div class="field">
+      <%= f.label :first_name %><br>
+      <%= f.text_field :first_name %>
+    </div>
+    <div class="field">
+      <%= f.label :last_name %><br>
+      <%= f.text_field :last_name %>
+    </div>
+    <div class="field">
+      <%= f.label :username %><br>
+      <%= f.text_field :username %>
+    </div>
+    <div class="field">
+      <%= f.label :email %><br>
+      <%= f.email_field :email %>
+    </div>
+  <% else %>
     <div class="field">
       <%= label_tag :activation_code %><br>
       <%= text_field_tag :activation_code %>

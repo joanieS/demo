@@ -4,4 +4,8 @@ module CustomersHelper
 		current_user.created_at.strftime("%B %Y")
 	end
 
+  def customer_category(customer)
+    customer.category ? customer.category : "None"
+  end
+
 end
