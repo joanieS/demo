@@ -3,13 +3,29 @@
 @import "beacons";
 @import "audio_clips";
 
+body {
+	margin: 0 20%;
+	padding: 20px;
+	h1 {
+		margin: 10px 0 20px;
+		text-align: center;
+	}	
+	h2 {
+		margin: 10px 0;
+		text-align: left;
+	}
+}
+
 nav {
+	padding: 10px 0;
+	background-color: lightgrey;
 	margin: 0 auto;
 	ul { 
 		text-align: center;
 		padding: 0;
 		margin: 0;
 		li {
+			padding: 5px;
 			display: inline;
 			list-style: none;
 		}
@@ -46,13 +62,4 @@ nav {
 	width: 400px;
 	height: 200px;
 	border: 1px solid black;
-}
-
-.page-wrap {
-	padding: 20px;
-	margin: 0 15%;
-	h1 {
-		margin: 10px 0 20px;
-		text-align: center;
-	}	
 }
