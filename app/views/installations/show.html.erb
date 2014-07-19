@@ -20,7 +20,7 @@
       <% @installation.beacons.find_each do |beacon| %>
         <tr>
           <td><%= link_to "Item #{n}", beacon_path(beacon) %></td>
-          <td><%= current_state(beacon) %> </td>
+          <td><%= current_state(beacon).capitalize %> </td>
           <td><%= beacon.content %></td>
           <td><%= beacon.content_type %></td>
           <td><%= beacon.audio %></td>
