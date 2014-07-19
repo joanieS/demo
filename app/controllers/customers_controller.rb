@@ -13,17 +13,28 @@ class CustomersController < ApplicationController
   end
 
   def create
-    @customer = Customer.new(customer_params)
-    @customer.activation_code = SecureRandom.hex
-    respond_to do |format|
-      if @customer.save
-        format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
-        format.json { render :show, status: :created, location: @customer }
-      else
-        format.html { render :new }
-        format.json { render json: @customer.errors, status: :unprocessable_entity }
+
+    if params[:customer][:activation_code].empty?
+      # New customer
+      @customer = Customer.new(customer_params)
+      # Generate a new activation code.
+      @customer.activation_code = SecureRandom.hex
+      respond_to do |format|
+        if @customer.save
+          format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
+          format.json { render :show, status: :created, location: @customer }
+        else
+          format.html { render :new }
+          format.json { render json: @customer.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      # Existing customer
+      current_user.customer_id = Customer.where(activation_code: params[:customer][:activation_code]).id
     end
+
+
+
   end
 
   def edit; end
@@ -60,6 +71,6 @@ class CustomersController < ApplicationController
     end
 
     def customer_params
-      params.require(:customer).permit(:name, :category)
+      params.require(:customer).permit(:name, :category, :activation_code)
     end
 end
