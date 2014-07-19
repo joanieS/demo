@@ -1,3 +1,5 @@
+require 'securerandom'
+
 class CustomersController < ApplicationController
   
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
@@ -12,6 +14,7 @@ class CustomersController < ApplicationController
 
   def create
     @customer = Customer.new(customer_params)
+    @customer.activation_code = SecureRandom.hex
     respond_to do |format|
       if @customer.save
         format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
