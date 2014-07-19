@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 <h2>Account</h2>
 <ul>
-	<li>Member since: <%= customer_since(@customer) %></li>
-  <li>Category: <%= @customer.category ? @customer.category : "None" %> </li>
-  <li>Activation code: <%= @customer.activation_code %></li>
-	<li>Total installations: <%= total_installations(@customer) %></li>
-	<li>Total beacons: <%= total_beacons(@customer) %></li>
+	<li><b>Member since:</b> <%= customer_since(@customer) %></li>
+  <li><b>Category:</b> <%= @customer.category ? @customer.category : "None" %> </li>
+  <li><b>Activation code:</b> <%= @customer.activation_code %></li>
+	<li><b>Total installations:</b> <%= total_installations(@customer) %></li>
+	<li><b>Total beacons:</b> <%= total_beacons(@customer) %></li>
 </ul>
 <%= link_to "Edit your account", edit_customer_path %><br>
 <%= link_to "Add an installation", new_installation %><br>
