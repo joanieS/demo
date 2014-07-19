@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
-<h2><%= @installation.name %></h2>
+<h2><%= @installation.name %> Installation</h2>
 <ul>
-  <li>Installation created: <%= creation_date(@installation) %></li>
-  <li>This installation is currently <%= current_state(@installation) %>.</li>
+  <li><b>Installation created:</b> <%= creation_date(@installation) %></li>
+  <li><b>Status:</b> <%= current_state(@installation).capitalize %></li>
 </ul>
 <h3>Beacons</h3>
 <% if has_beacons?(@installation) %>
@@ -26,8 +26,8 @@
           <td><%= beacon.content %></td>
           <td><%= beacon.content_type %></td>
           <td><%= beacon.audio %></td>
-          <td><%= link_to 'Edit', edit_beacon_path(beacon) %></td>
-          <td><%= link_to 'Destroy', beacon_path(beacon), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to "Edit", edit_beacon_path(beacon) %></td>
+          <td><%= link_to "Destroy", beacon_path(beacon), method: :delete, data: { confirm: "Are you sure?" } %></td>
         </tr>
         <% n += 1 %>
       <% end %>
@@ -36,6 +36,6 @@
 <% else %>
   <p>This installation currently has no beacons.</p>
 <% end %>
-<%= link_to "Add a beacon", new_beacon_path %><br>
-<%= link_to "Edit installation", edit_installation_path(@installation) %><br>
-<%= link_to "Back to Installations", customer_installations_path(@customer) %>
+<%= link_to "Add a Beacon", new_beacon_path %><br>
+<%= link_to "Edit #{@installation.name.capitalize} Installation", edit_installation_path(@installation) %><br>
+<%= link_to "Back to Installations", installations_path(@customer) %>

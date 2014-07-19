@@ -17,6 +17,10 @@ body {
 	a {
 		font: 14pt 'Alike', sans-serif;
 		font-size: 14px;
+		color: #222;
+		&:hover {
+			color: #222;
+		}
 	}
 	ul {
 		list-style: none;
@@ -39,11 +43,17 @@ nav {
 	}
 }
 
+table {
+	border-bottom: solid 1px lightgrey;
+	margin-bottom: 10px;
+}
+
 #social-sidebar {
 	position: fixed;
-	top: 40%;
+	top: 30%;
 	right: 0;
 	float: right;
+	background-color: lightgrey;
 	ul li {
 		list-style: none;
 		padding: 10px 0;
@@ -52,7 +62,8 @@ nav {
 
 #account-sidebar-wrap {
 	position: fixed;
-	right: 0;
+	top: 30%;
+	left: 0;
 	width: 18%;
 	padding: 10px;
 	background-color: lightgrey;

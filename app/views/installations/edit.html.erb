@@ -1,4 +1,4 @@
-<h2>Edit your installation</h2>
+<h2>Edit Installation</h2>
 <%= render "form" %>
-<%= link_to "Cancel", installation_path(@installation) %><br>
-<%= link_to "Back to installations", customer_installations_path(@customer) %>
+<%= link_to "Back to #{@installation.name.capitalize} Installation", installation_path(@installation) %><br>
+<%= link_to "Back to Installations", installations_path(@customer) %>

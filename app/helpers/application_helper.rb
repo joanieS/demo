@@ -19,7 +19,11 @@ module ApplicationHelper
       customer_installation_path(@customer, installation)
     end
 
-    def new_installation
+    def installations_path(customer)
+      customer_installations_path(@customer)
+    end
+
+    def new_installation_path
       new_customer_installation_path(@customer)
     end
 
