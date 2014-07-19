@@ -4,6 +4,6 @@
   <% else %>
     <h3>You are currently not linked to a company account.</h2>
     <%= link_to "Create new company account", new_customer_path %><br>
-    <%= link_to "Existing company account" %>
+    <%= link_to "Existing company account", edit_user_path(current_user) %>
   <% end %>
 </div>

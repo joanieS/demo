@@ -25,6 +25,12 @@
     <%= f.label :email %><br>
     <%= f.email_field :email %>
   </div>
+  <% unless current_user.customer_id %>
+    <div class="field">
+      <%= label_tag :activation_code %><br>
+      <%= text_field_tag :activation_code %>
+    </div>
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>

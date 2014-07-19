@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-  before_action :set_customer
+  before_action :set_customer, only: [:index, :new, :create, :destroy]
 
   def index
     @user = current_user
@@ -14,8 +14,6 @@ class UsersController < ApplicationController
   def new
     @user = User.new
   end
-
-  def edit; end
 
   def create
     @user = User.new(user_params)
@@ -30,10 +28,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit; end
+
   def update
-    validate_user_permission
+    set_customer_with_activation_code
     respond_to do |format|
-      if @user.update(user_params)
+      if @user.update(user_params) && link_customer_account
         format.html { redirect_to users_path, notice: 'User was successfully updated.' }
         format.json { json_success_redirect }
       else
@@ -44,7 +44,6 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    validate_user_permission
     @user.destroy
     respond_to do |format|
       format.html { redirect_to root_path, notice: 'User was successfully destroyed.' }
@@ -62,10 +61,12 @@ class UsersController < ApplicationController
       @customer = Customer.find(current_user.customer_id)
     end
 
-    def validate_user_permission
-      if current_user != @user 
-        raise "Permission error"
-      end 
+    def set_customer_with_activation_code
+      @customer = Customer.where(activation_code: params[:activation_code]).take
+    end
+
+    def link_customer_account
+      @user.update(customer_id: @customer.id)
     end
 
     def json_success_redirect
@@ -73,6 +74,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :username, :email)
+      params.require(:user).permit(:first_name, :last_name, :username, :email, :customer_id)
     end
 end
