@@ -21,6 +21,7 @@ class CustomersController < ApplicationController
       @customer.activation_code = SecureRandom.hex
       respond_to do |format|
         if @customer.save
+          current_user.update(customer_id: @customer.id)
           format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
           format.json { render :show, status: :created, location: @customer }
         else
