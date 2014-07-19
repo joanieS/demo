@@ -10,13 +10,16 @@ body {
 		margin: 10px 0 20px;
 		text-align: center;
 	}	
-	h2 {
-		margin: 10px 0;
+	h2, h3, h4 {
+		margin: 5px 0 10px;
 		text-align: left;
 	}
 	a {
 		font: 14pt 'Alike', sans-serif;
 		font-size: 14px;
+	}
+	ul {
+		list-style: none;
 	}
 }
 
