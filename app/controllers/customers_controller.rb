@@ -13,34 +13,18 @@ class CustomersController < ApplicationController
   end
 
   def create
-
-    if params[:customer][:activation_code].empty?
-      # Activation code not provided, therefore new customer
-      @customer = Customer.new(customer_params)
-      # Generate a new activation code.
-      @customer.activation_code = SecureRandom.hex
-      respond_to do |format|
-        if @customer.save
-          current_user.update(customer_id: @customer.id)
-          format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
-          format.json { render :show, status: :created, location: @customer }
-        else
-          format.html { render :new }
-          format.json { render json: @customer.errors, status: :unprocessable_entity }
-        end
-      end
-    elsif !params[:customer][:activation_code].empty?
-      # Existing customer
-      @customer = Customer.where(activation_code: params[:customer][:activation_code])
+    @customer = Customer.new(customer_params)
+    @customer.activation_code = SecureRandom.hex
+    respond_to do |format|
       if @customer.save
         current_user.update(customer_id: @customer.id)
-        binding.pry
-        redirect_to @customer
+        format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
+        format.json { render :show, status: :created, location: @customer }
+      else
+        format.html { render :new }
+        format.json { render json: @customer.errors, status: :unprocessable_entity }
       end
     end
-
-
-
   end
 
   def edit; end
