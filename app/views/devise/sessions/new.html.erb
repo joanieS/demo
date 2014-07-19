@@ -1,5 +1,9 @@
 <h2>Sign in</h2>
-
+<% unless flash[:alert].nil? || flash[:alert].empty? %>
+  <%- flash.each do |name, msg| -%>
+    <%= content_tag :div, msg, class: "flash-error-message-wrapper container rounded" %>
+  <%- end -%>
+<% end %>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div><%= f.label :email %><br />
   <%= f.email_field :email, autofocus: true %></div>
