@@ -2,7 +2,7 @@ class InstallationsController < ApplicationController
 
   before_filter :authenticate_user!
 
-  before_action :current_customer
+  before_action :set_customer
 
   before_action :set_installation, only: [:show, :edit, :update, :destroy]
 
@@ -54,12 +54,12 @@ class InstallationsController < ApplicationController
 
   private
 
-    def set_installation
-      @installation = Installation.find(params[:id])
+    def set_customer
+      @customer = Customer.find(current_user.customer_id)
     end
 
-    def current_customer
-      @customer = Customer.find(current_user.customer_id)
+    def set_installation
+      @installation = @customer.installations.find(params[:id])
     end
 
     def set_customer_id
