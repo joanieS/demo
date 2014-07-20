@@ -51,11 +51,11 @@ class BeaconsController < InheritedResources::Base
 
   def set_customer_and_installation
     @customer = Customer.find(params[:customer_id])
-    @installation = Installation.find(params[:installation_id])
+    @installation = @customer.installations.find(params[:installation_id])
   end
 
   def set_beacon
-    @beacon = Beacon.find(params[:id])
+    @beacon = @installation.beacons.find(params[:id])
   end
 
   def set_beacon_installation_id_and_uuid
@@ -70,7 +70,8 @@ class BeaconsController < InheritedResources::Base
     )
   end
 
-  # Path
+  # Paths
+
   def installation_path
     customer_installation_path(@customer, @installation)
   end
