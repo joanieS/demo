@@ -1,6 +1,7 @@
 <div id="account-sidebar-wrap">
   <% if current_user.customer_id %>
     <h4>Welcome, <%= current_user.customer.name %>!</h4>
+    <p>You're currently signed in as: <b><%= current_user.email %></b></p>
   <% else %>
     <h4>You are currently not linked to a company account.</h4>
     <%= link_to "Create new company account", new_customer_path %><br>
