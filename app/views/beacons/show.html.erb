@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 <h2>Beacon</h2>
+<ul>
+  <li><b>Installation:</b> <%= @installation.name %></li>
+  <li><b>State:</b> <%= current_state(@beacon).capitalize %></li>
+</ul>
 <div class="beacon-page-column-wrap">
   <div class="map-wrap">
     <div id="beacon-map"></div>
@@ -10,10 +14,6 @@
   </ul>
 </div>
 <div class="beacon-page-column-wrap">
-  <ul>
-    <li><b>Installation:</b> <%= @installation.name %></li>
-    <li><b>State:</b> <%= current_state(@beacon).capitalize %></li>
-  </ul>
   <%= image_tag @beacon.content_image.url %>
   <h3>Beacon Info</h3>
   <ul>
