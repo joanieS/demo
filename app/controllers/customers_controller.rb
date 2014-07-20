@@ -53,7 +53,7 @@ class CustomersController < ApplicationController
   private
 
     def set_customer
-      @customer = current_user.customer.find(params[:id])
+      @customer = current_user.customer
     end
 
     def check_user_permission
