@@ -71,6 +71,7 @@ class InstallationsController < ApplicationController
     end
 
     # Paths
+    
     def installations_path
       customer_installations_path(@customer)
     end
