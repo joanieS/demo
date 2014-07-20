@@ -36,6 +36,10 @@
     </div>
   <h3>Content Info</h3>
     <div class="field">
+      <%= f.label :content_image %><br>
+      <%= f.file_field :content_image %>
+    </div>
+    <div class="field">
       <%= f.label :content, "Content description" %><br>
       <%= f.text_area :content %>
     </div>
