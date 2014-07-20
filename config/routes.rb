@@ -10,11 +10,11 @@ Rails.application.routes.draw do
 
   resources :customers, only: [:show, :new, :create, :edit, :update, :destroy] do
     resources :installations do 
-      resources :beacons, only: [:show, :new, :create, :edit, :update, :destroy]
+      resources :beacons, only: [:show, :new, :create, :edit, :update, :destroy] do
+        resources :audio_clips
+      end
     end
   end
-
-  resources :audio_clips
 
   resources :photos
 
