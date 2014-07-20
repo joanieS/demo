@@ -66,7 +66,7 @@ class BeaconsController < InheritedResources::Base
   def beacon_params
     params.require(:beacon).permit(
       :minor_id, :major_id, :latitude, :longitude, :content, :content_type, 
-      :audio, :content_image, :uuid, :active
+      :audio, :content_image, :uuid, :active, :image_content
     )
   end
 
