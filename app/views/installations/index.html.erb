@@ -17,7 +17,7 @@
           <td><%= current_state(installation).capitalize %></td>
           <td><%= link_to "Edit", edit_installation_path(installation) %></td>
           <td><%= link_to "Delete", installation_path(installation), 
-            method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            method: :destroy, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
