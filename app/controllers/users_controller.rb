@@ -31,7 +31,6 @@ class UsersController < ApplicationController
   def edit; end
 
   def update
-    @user = current_user
     # Normal user account update.
     if @user.customer_id
       respond_to do |format|
