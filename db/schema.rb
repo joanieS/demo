@@ -90,6 +90,10 @@ ActiveRecord::Schema.define(version: 20140719110523) do
     t.integer  "customer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "beacon_id"
+    t.text     "content"
+    t.float    "latitude"
+    t.float    "longitude"
     t.boolean  "active",      default: false
   end
 

@@ -12,6 +12,13 @@ class CustomersController < ApplicationController
     @customer = Customer.new
   end
 
+  def index
+    @customers = Customer.all
+    respond_to do |format|
+        format.json { render :index, status: :ok, location: @customer }
+      end
+  end
+
   def create
     @customer = Customer.new(customer_params)
     @customer.activation_code = SecureRandom.hex
