@@ -1,1 +1,1 @@
-json.extract! @installation, :id
+json.extract! @installation, :id, :name, :beacons
