@@ -5,13 +5,18 @@
   <li><b>State:</b> <%= current_state(@beacon).capitalize %></li>
 </ul>
 <div class="beacon-page-column-wrap">
-  <div class="map-wrap">
-    <div id="beacon-map"></div>
-  </div>
-  <ul>
-    <li><b>Latitude:</b> <%= cardinalized_latitude(@beacon) %></li>
-    <li><b>Longitude:</b> <%= cardinalized_longitude(@beacon) %></li>
-  </ul>
+  <% if !(@beacon.latitude.nil? || @beacon.longitude.nil?) %>
+    <div class="map-wrap">
+      <div id="beacon-map"></div>
+    </div>
+    <ul>
+      <li><b>Latitude:</b> <%= cardinalized_latitude(@beacon) %></li>
+      <li><b>Longitude:</b> <%= cardinalized_longitude(@beacon) %></li>
+    </ul>
+  <% else %>
+    <%= image_tag "missing.png" %>
+    <p>This beacon currently does not have any attached coordinates.</p>
+  <% end %>
 </div>
 <div class="beacon-page-column-wrap">
   <%= image_tag @beacon.content_image.url %>
