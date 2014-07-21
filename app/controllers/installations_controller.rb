@@ -12,7 +12,7 @@ class InstallationsController < ApplicationController
 
   def show
     if request.format.json?
-      render :show, location: installation_path
+      render :show, status: :ok, location: installation_path
     else
       render :show
     end
