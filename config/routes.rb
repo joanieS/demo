@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get "/location/:latitude/:longitude", :to => "customers#index"
+
   resources :photos
 
   root 'welcome#home'
