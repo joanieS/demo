@@ -67,7 +67,7 @@ class InstallationsController < ApplicationController
   private
 
     def set_customer
-      @customer = Customer.find(current_user.customer_id)
+      @customer = Customer.find_by id: params[:customer_id]
     end
 
     def set_installation
