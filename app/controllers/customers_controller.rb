@@ -15,8 +15,8 @@ class CustomersController < ApplicationController
   def index
     @customers = Customer.all
     respond_to do |format|
-        format.json { render :index, status: :ok, location: @customer }
-      end
+      format.json { render :index, status: :ok, location: @customer }
+    end
   end
 
   def create

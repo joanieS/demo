@@ -10,11 +10,17 @@ class InstallationsController < ApplicationController
     @installations = Installation.where(customer_id: @customer.id)
   end
 
+  #def show
+  #  if request.format.json?
+  #    render :show, status: :ok, location: installation_path
+  #  else
+  #    render :show
+  #  end
+  #end
   def show
-    if request.format.json?
-      render :show, status: :ok, location: installation_path
-    else
-      render :show
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render :show, status: :ok, location: installation_path }
     end
   end
 
