@@ -1,9 +1,14 @@
 <p id="notice"><%= notice %></p>
 <h2>Account</h2>
-<ul>
-  <li><b>Latitude:</b> <%= cardinalized_latitude(@customer) %></li>
-  <li><b>Longitude:</b> <%= cardinalized_longitude(@customer) %></li>
-</ul>
+<% if !(@customer.latitude.nil? || @customer.longitude.nil?) %>
+  <ul>
+    <li><b>Latitude:</b> <%= cardinalized_latitude(@customer) %></li>
+    <li><b>Longitude:</b> <%= cardinalized_longitude(@customer) %></li>
+  </ul>
+<% else %>
+  <%= image_tag "missing.png" %>
+  <p>Your account currently does not have any attached coordinates.</p>
+<% end %>
 <h3>Account Info</h3>
 <ul>
 	<li><b>Member since:</b> <%= customer_since(@customer) %></li>
