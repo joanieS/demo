@@ -43,4 +43,9 @@ module ApplicationHelper
     def edit_beacon_path(beacon)
       edit_customer_installation_beacon_path(@customer, @installation, beacon)
     end
+
+    # Audio clip paths
+    def audio_clip_path(audio_clip)
+      customer_installation_beacon_path(@customer, @installation, @beacon, audio_clip)
+    end
 end
