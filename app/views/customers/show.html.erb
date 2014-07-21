@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 <h2>Account</h2>
 <% if !(@customer.latitude.nil? || @customer.longitude.nil?) %>
+  <div class="map-wrap">
+      <div id="customer-map"></div>
+    </div>
   <ul>
     <li><b>Latitude:</b> <%= cardinalized_latitude(@customer) %></li>
     <li><b>Longitude:</b> <%= cardinalized_longitude(@customer) %></li>
@@ -20,3 +23,12 @@
 <%= link_to "Edit Account", edit_customer_path %><br>
 <%= link_to "Add New Installation", new_installation_path %><br>
 <%= link_to "View Account Users", users_path %>
+
+<script type="text/javascript">
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'customer-map'}}, function(){
+    markers = handler.addMarkers(<%=raw @hash.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
+</script>
