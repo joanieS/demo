@@ -12,12 +12,12 @@ module ApplicationHelper
     object.active ? "active" : "inactive"    
   end
 
-  def cardinalized_latitude(beacon)
-    beacon.latitude > 0 ? raw("#{beacon.latitude}&deg; N") : raw("#{beacon.latitude.abs}&deg; S")
+  def cardinalized_latitude(object)
+    object.latitude > 0 ? raw("#{object.latitude}&deg; N") : raw("#{object.latitude.abs}&deg; S")
   end
 
-  def cardinalized_longitude(beacon)
-    beacon.longitude > 0 ? raw("#{beacon.longitude}&deg; E") : raw("#{beacon.longitude.abs}&deg; W")
+  def cardinalized_longitude(object)
+    object.longitude > 0 ? raw("#{object.longitude}&deg; E") : raw("#{object.longitude.abs}&deg; W")
   end
 
   # Paths
