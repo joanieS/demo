@@ -12,7 +12,7 @@ gem 'faker'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # File storage gems
-gem 'paperclip'
+gem 'paperclip', '3.5.4'
 gem 'aws-sdk'
 gem 's3_direct_upload'
 
