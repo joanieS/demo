@@ -22,6 +22,10 @@ I installed the devise gem which does User management for us so we can change th
 
 Users are authenticated using the Devise gem.
 
+## Paperclip
+
+Had to downgrade to prevent spoofing.
+
 ## Gmaps4rails
 
 Instead of specifying an accompanying cardinal direction when defining latitude and longitude, this application uses negative values to define latitudes south of the equator and longitudes west of the Greenwich meridian. As such, the coordinates have the following accepted range (in degrees):
