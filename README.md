@@ -33,6 +33,10 @@ Instead of specifying an accompanying cardinal direction when defining latitude 
 * Latitude [-90,90]
 * Longitude [-180,180]
 
+## AWS S3
+
+All beacon images are stored remotely in AWS S3.
+
 ### Beacon UUID
 
 Beacon UUID is currently automatically set. Change this generic value in the beacon edit page.
