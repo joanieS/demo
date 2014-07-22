@@ -24,7 +24,7 @@ Users are authenticated using the Devise gem.
 
 ## Paperclip
 
-Had to downgrade to prevent spoofing.
+The Paperclip gem is used to handle content images. Had to downgrade to version 3.5.4 to prevent failure to store images due to spoofing.
 
 ## Gmaps4rails
 
