@@ -39,7 +39,6 @@ class CustomersController < ApplicationController
   def edit; end
 
   def update
-    check_user_permission
     respond_to do |format|
       if @customer.update(customer_params)
         format.html { redirect_to @customer, notice: 'Customer was successfully updated.' }
@@ -63,10 +62,6 @@ class CustomersController < ApplicationController
 
     def set_customer
       @customer = current_user.customer
-    end
-
-    def check_user_permission
-      raise "Forbidden" unless current_user.customer_id == @customer.id
     end
 
     def customer_params

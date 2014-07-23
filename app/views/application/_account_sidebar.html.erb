@@ -1,5 +1,5 @@
 <div id="account-sidebar-wrap">
-  <% if current_user.customer_id %>
+  <% if !current_user.customer_id.nil? %>
     <h4>Welcome, <%= current_user.customer.name %>!</h4>
     <p>You're currently signed in as: <b><%= current_user.email %></b></p>
   <% else %>
