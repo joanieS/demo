@@ -8,12 +8,12 @@ default: &default
   adapter: postgresql
   encoding: utf8
   pool: 5
-  timeout: 5000
-  username: postgres
-  password: #{ENV["PGPASSWORD"]}
 
 development:
   <<: *default
+  timeout: 5000
+  username: postgres
+  password: #{ENV["PGPASSWORD"]}
   database: demo_development
 
 
