@@ -2,11 +2,10 @@ class InstallationsController < ApplicationController
 
   before_filter :authenticate_user!
 
-  #before_action :set_customer, except: [:new, :create]
-
   before_action :set_installation, only: [:show, :edit, :update, :destroy]
 
   def index
+    @customer = Customer.find(params[:customer_id])
     @installations = Installation.where(customer_id: @customer.id)
   end
 
@@ -53,10 +52,6 @@ class InstallationsController < ApplicationController
   end
 
   private
-
-    def set_customer
-      @customer = Customer.find(current_user.customer_id)
-    end
 
     def set_installation
       @installation = @customer.installations.find(params[:id])
