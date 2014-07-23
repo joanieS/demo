@@ -16,7 +16,9 @@ gem 'paperclip', '3.5.4'
 gem 'aws-sdk'
 gem 's3_direct_upload'
 
-gem 'rails_12factor', group: :production
+group :production, :staging do
+  gem 'rails_12factor'
+end
 
 group :development do
   gem 'pry'
