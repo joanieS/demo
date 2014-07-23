@@ -7,9 +7,9 @@ class CustomersController < ApplicationController
   class Forbidden < StandardError; end
 
   def show
-    @hash = Gmaps4rails.build_markers(@beacon) do |beacon, marker|
-      marker.lat beacon.latitude
-      marker.lng beacon.longitude
+    @hash = Gmaps4rails.build_markers(@customer) do |customer, marker|
+      marker.lat customer.latitude
+      marker.lng customer.longitude
     end
   end
 
@@ -61,7 +61,7 @@ class CustomersController < ApplicationController
   private
 
     def set_customer
-      @customer = current_user.customer
+      @customer = Customer.find(params[:id])
     end
 
     def customer_params
