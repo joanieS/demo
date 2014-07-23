@@ -2,7 +2,7 @@ class InstallationsController < ApplicationController
 
   before_filter :authenticate_user!
 
-  before_action :set_customer
+  #before_action :set_customer, except: [:new, :create]
 
   before_action :set_installation, only: [:show, :edit, :update, :destroy]
 
@@ -67,7 +67,7 @@ class InstallationsController < ApplicationController
     end
 
     def installation_params
-      params.require(:installation).permit(:name, :group, :active)
+      params.require(:installation).permit(:name, :group, :customer_id, :active)
     end
 
     # Paths
@@ -79,4 +79,5 @@ class InstallationsController < ApplicationController
     def installation_path
       customer_installation_path(@customer, @installation)
     end
+
 end

@@ -32,6 +32,10 @@ class CustomersController < ApplicationController
     end
   end
 
+  def index
+    @customers = Customer.all
+  end
+
   def edit; end
 
   def update
