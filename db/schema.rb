@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140724102220) do
+ActiveRecord::Schema.define(version: 20140724214226) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,7 +61,6 @@ ActiveRecord::Schema.define(version: 20140724102220) do
     t.integer  "minor_id"
     t.text     "content"
     t.string   "content_type"
-    t.string   "audio"
     t.integer  "installation_id"
     t.datetime "created_at"
     t.datetime "updated_at"
