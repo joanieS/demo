@@ -15,3 +15,9 @@
 //= require underscore
 //= require gmaps/google
 //= require_tree .
+
+$(document).ready(function() {
+  $('#web').click(function(){
+    $('#content_url').toggle()
+  });
+});
