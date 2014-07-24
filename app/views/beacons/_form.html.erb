@@ -11,6 +11,10 @@
   <% end %>
   <h3>Beacon Info</h3>
     <div class="field">
+      <%= f.label :location %><br>
+      <%= f.text_area :location, placeholder: "e.g., By the Water Lillies." %>
+    </div>
+    <div class="field">
       <%= f.label :minor_id, "Minor ID" %><br>
       <%= f.number_field :minor_id %>
     </div>

@@ -3,6 +3,7 @@
 <ul>
   <li><b>Installation:</b> <%= @installation.name %></li>
   <li><b>State:</b> <%= current_state(@beacon).capitalize %></li>
+  <li><b>Location:</b> <%= @beacon.location %></li>
 </ul>
 <div class="beacon-page-column-wrap">
   <% if !(@beacon.latitude.nil? || @beacon.longitude.nil?) %>
