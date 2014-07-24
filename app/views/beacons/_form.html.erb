@@ -30,10 +30,17 @@
       <%= f.label :longitude %><br>
       <%= f.number_field :longitude, step: "any", min: "-180", max: "180" %>
     </div>
-    <div class="field">
-      <%= f.label :uuid, "UUID" %><br>
-      <%= f.text_field :uuid, placeholder: "Do not enter a UUID unless explicitly instructed to do so." %>
-    </div>
+    <% if params[:action] == "new" %>
+      <div class="field">
+        <%= f.label :uuid, "UUID" %><br>
+        <%= f.text_field :uuid, placeholder: "B9407F30-F5F8-466E-AFF9-25556B57FE6D", disabled: true %>
+      </div>
+    <% elsif params[:action] == "edit" %>
+      <div class="field">
+        <%= f.label :uuid, "UUID" %><br>
+        <%= f.text_field :uuid %>
+      </div>
+    <% end %>
     <div class="field">
       <%= f.label :active %><br>
       <%= f.check_box :active %>
