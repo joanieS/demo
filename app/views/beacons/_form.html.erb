@@ -51,8 +51,8 @@
       <%= f.text_field :content_type %>
     </div>
     <div class="field">
-      <%= f.label :content, "Content description" %><br>
-      <%= f.text_area :content %>
+      <%= f.label :content_type, "Content description" %><br>
+      <%= f.select :content_type, options_for_select([["Image","image"], ["Video","local-video"], ["Website", "web"], ["Online video","web-video"], ["Photo gallery","photo-gallery"]]) %>
     </div>
     <div class="field">
       <%= label_tag "Upload from Web" %><br>
