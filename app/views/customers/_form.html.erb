@@ -9,15 +9,17 @@
       </ul>
     </div>
   <% end %>
+  <% binding.pry %>
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
     <%= f.label :category %><br>
-    <%= f.select :category, options_for_select(["Food", "Museum"]) %>
+    <%= f.select :category, options_for_select(["Museum","Exhibit Design Firm","Corporation","Stadium","Walking Tour"]) %>
   </div>
-  <div class="field">
+  <% if params[:controller] == "edit" %>
+    <div class="field">
       <%= f.label :latitude %><br>
       <%= f.number_field :latitude , step: "any", min: "-90", max: "90" %>
     </div>
@@ -25,6 +27,7 @@
       <%= f.label :longitude %><br>
       <%= f.number_field :longitude, step: "any", min: "-180", max: "180" %>
     </div>
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>
