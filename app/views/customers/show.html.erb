@@ -7,6 +7,7 @@
   <ul>
     <li><b>Latitude:</b> <%= cardinalized_latitude(@customer) %></li>
     <li><b>Longitude:</b> <%= cardinalized_longitude(@customer) %></li>
+    <li><b>Address:</b> <%= @customer.address %></li>
   </ul>
 <% else %>
   <%= image_tag "map-missing.png" %>
