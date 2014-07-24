@@ -23,8 +23,8 @@
   <%= image_tag @beacon.content_image.url(:medium) %>
   <h3>Beacon Info</h3>
   <ul>
-    <li><b>Minor ID:</b> <%= @beacon.minor_id %></li>
-    <li><b>Major ID:</b> <%= @beacon.major_id %></li>
+    <li><b>Minor ID:</b> <%= @beacon.minor_id ? @beacon.minor_id : "No Minor ID provided." %></li>
+    <li><b>Major ID:</b> <%= @beacon.major_id ? @beacon.major_id : "No Major ID provided." %></li>
     <li><b>UUID:</b> <%= @beacon.uuid %></li>
   </ul>
   <h3>Content Info</h3>
