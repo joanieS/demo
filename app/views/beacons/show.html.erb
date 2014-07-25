@@ -31,7 +31,7 @@
   <ul>
     <li><b>Content:</b> <%= @beacon.content %></li>
     <li><b>Type:</b> <%= @beacon.content_type %></li>
-    <li><b>Audio:</b> <%= link_to @beacon.audio, root_path %></li>
+    <li><b>Audio:</b> <%= @beacon.audio_file_name ? @beacon.audio_file_name : "No audio file." %></li>
   </ul>
 </div>
 <div id="beacon-show-page-link-wrapper">
