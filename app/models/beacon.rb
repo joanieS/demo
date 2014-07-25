@@ -28,15 +28,13 @@ class Beacon < ActiveRecord::Base
   has_many :photos
   accepts_nested_attributes_for :photos, allow_destroy: true
 
-  has_many :audio_clips
-  accepts_nested_attributes_for :audio_clips, allow_destroy: true
-
   has_attached_file :content_image, default_url: "/assets/missing.png", 
     styles: {thumb: '100x100>', square: '200x200#', medium: '300x300>'}
 
   validates_attachment_content_type :content_image, :content_type => /.+\/.*\Z/
 
-  validates_attachment_content_type :audio, :content_type => [ 'application/mp3', 'application/x-mp3', 'audio/mpeg', 'audio/mp3','audio/mpg' ],
-                                    :message => 'file must be of filetype .mp3'
+  has_attached_file :audio
+  
+  validates_attachment_content_type :audio, :content_type => [ 'audio/mpeg', 'audio/x-mpeg', 'audio/mp3', 'audio/x-mp3', 'audio/mpeg3', 'audio/x-mpeg3', 'audio/mpg', 'audio/x-mpg', 'audio/x-mpegaudio' ]
 
 end
