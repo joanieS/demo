@@ -29,9 +29,9 @@
   </ul>
   <h3>Content Info</h3>
   <ul>
-    <li><b>Content:</b> <%= @beacon.content %></li>
-    <li><b>Type:</b> <%= @beacon.content_type %></li>
-    <li><b>Audio:</b> <%= @beacon.audio_file_name ? @beacon.audio_file_name : "No audio file." %></li>
+    <li><b>Content:</b> <%= @beacon.content_file_name ? @beacon.content_file_name : "No content." %></li>
+    <li><b>Content Type:</b> <%= @beacon.content_content_type ? @beacon.content_content_type : "No content." %></li>
+    <li><b>Audio:</b> <%= @beacon.audio_file_name ? @beacon_audio.file_name : "No audio file." %></li>
   </ul>
 </div>
 <div id="beacon-show-page-link-wrapper">
