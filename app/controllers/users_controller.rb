@@ -71,7 +71,8 @@ class UsersController < ApplicationController
     end
   
     def set_customer
-      @customer = Customer.find(current_user.customer_id)
+      #@customer = Customer.find(current_user.customer_id)
+      @customer = Customer.find_by id: 2
     end
 
     def set_customer_with_activation_code
@@ -83,6 +84,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :username, :email)
+      params.require(:user).permit(:first_name, :last_name, :username, :email, :password, :password_confirmation, :customer_id)
     end
 end

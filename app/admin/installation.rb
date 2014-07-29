@@ -5,7 +5,7 @@ ActiveAdmin.register Installation do
 
   form do |f|
     f.inputs 'Details' do
-      f.input :customer_id, :label => 'Customer', :as => :select, :collection => Customer.all
+      #f.input :customer_id, :label => 'Customer', :as => :select, :collection => Customer.all
       f.input :name
     end
     f.actions

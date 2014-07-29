@@ -1,5 +1,19 @@
 <p id="notice"><%= notice %></p>
 <h2>Account</h2>
+<% if !(@customer.latitude.nil? || @customer.longitude.nil?) %>
+  <div class="map-wrap">
+      <div id="customer-map"></div>
+    </div>
+  <ul>
+    <li><b>Latitude:</b> <%= cardinalized_latitude(@customer) %></li>
+    <li><b>Longitude:</b> <%= cardinalized_longitude(@customer) %></li>
+    <li><b>Address:</b> <%= @customer.address %></li>
+  </ul>
+<% else %>
+  <%= image_tag "map-missing.png" %>
+  <p>Your account currently does not have any attached coordinates.</p>
+<% end %>
+<h3>Account Info</h3>
 <ul>
 	<li><b>Member since:</b> <%= customer_since(@customer) %></li>
   <li><b>Category:</b> <%= customer_category(@customer) %> </li>
@@ -10,3 +24,12 @@
 <%= link_to "Edit Account", edit_customer_path %><br>
 <%= link_to "Add New Installation", new_installation_path %><br>
 <%= link_to "View Account Users", users_path %>
+
+<script type="text/javascript">
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'customer-map'}}, function(){
+    markers = handler.addMarkers(<%=raw @hash.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
+</script>

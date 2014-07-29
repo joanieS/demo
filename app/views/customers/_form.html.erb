@@ -14,8 +14,12 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
     <%= f.label :category %><br>
-    <%= f.text_field :category %>
+    <%= f.select :category, options_for_select(["Museum","Exhibit Design Firm","Corporation","Stadium","Walking Tour"]) %>
   </div>
   <div class="actions">
     <%= f.submit %>

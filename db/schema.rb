@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140719110523) do
+ActiveRecord::Schema.define(version: 20140724221449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,9 +59,7 @@ ActiveRecord::Schema.define(version: 20140719110523) do
 
   create_table "beacons", force: true do |t|
     t.integer  "minor_id"
-    t.text     "content"
     t.string   "content_type"
-    t.string   "audio"
     t.integer  "installation_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -74,6 +72,15 @@ ActiveRecord::Schema.define(version: 20140719110523) do
     t.integer  "major_id"
     t.string   "uuid"
     t.boolean  "active",                     default: false
+    t.text     "location"
+    t.string   "audio_file_name"
+    t.string   "audio_content_type"
+    t.integer  "audio_file_size"
+    t.datetime "audio_updated_at"
+    t.string   "content_file_name"
+    t.string   "content_content_type"
+    t.integer  "content_file_size"
+    t.datetime "content_updated_at"
   end
 
   create_table "customers", force: true do |t|
@@ -82,6 +89,9 @@ ActiveRecord::Schema.define(version: 20140719110523) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "activation_code", default: "", null: false
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "address"
   end
 
   create_table "installations", force: true do |t|

@@ -11,16 +11,17 @@ $( document ).ready(function() {
     audio: true,
     video: false
 };
-
   $('#record-audio').click(function() {
       if (!audioStream)
-          navigator.getUserMedia(audioConstraints, function(stream) {
+          navigator.webkitGetUserMedia(audioConstraints, function(stream) {
               if (window.IsChrome) stream = new window.MediaStream(stream.getAudioTracks());
               audioStream = stream;
 
               audio.src = URL.createObjectURL(audioStream);
               audio.muted = true;
               audio.play();
+
+              // window.recordRTC = RecordRTC(MediaStream);
 
               // "audio" is a default type
               recorder = window.RecordRTC(stream, {
@@ -50,7 +51,6 @@ $( document ).ready(function() {
 
         if (recorder)
             recorder.stopRecording(function(url) {
-                debugger;
                 audio.src = url;
                 audio.muted = false;
                 audio.play();

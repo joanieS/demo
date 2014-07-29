@@ -6,7 +6,12 @@ class CustomersController < ApplicationController
 
   class Forbidden < StandardError; end
 
-  def show; end
+  def show
+    @hash = Gmaps4rails.build_markers(@customer) do |customer, marker|
+      marker.lat customer.latitude
+      marker.lng customer.longitude
+    end
+  end
 
   def new
     @customer = Customer.new
@@ -36,10 +41,13 @@ class CustomersController < ApplicationController
     end
   end
 
+  def index
+    @customers = Customer.all
+  end
+
   def edit; end
 
   def update
-    check_user_permission
     respond_to do |format|
       if @customer.update(customer_params)
         format.html { redirect_to @customer, notice: 'Customer was successfully updated.' }
@@ -62,14 +70,10 @@ class CustomersController < ApplicationController
   private
 
     def set_customer
-      @customer = current_user.customer
-    end
-
-    def check_user_permission
-      raise "Forbidden" unless current_user.customer_id == @customer.id
+      @customer = Customer.find(params[:id])
     end
 
     def customer_params
-      params.require(:customer).permit(:name, :category, :activation_code)
+      params.require(:customer).permit(:name, :category, :activation_code, :latitude, :longitude, :address)
     end
 end

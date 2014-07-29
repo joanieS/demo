@@ -91,7 +91,7 @@ class InstallationsController < ApplicationController
     end
 
     def set_customer
-      @customer = Customer.find_by id: params[:customer_id]
+      @customer = Customer.find(params[:customer_id])
     end
 
     def set_installation
@@ -103,7 +103,7 @@ class InstallationsController < ApplicationController
     end
 
     def installation_params
-      params.require(:installation).permit(:name, :group, :active)
+      params.require(:installation).permit(:name, :group, :customer_id, :active)
     end
 
     # Paths
@@ -115,4 +115,5 @@ class InstallationsController < ApplicationController
     def installation_path
       customer_installation_path(@customer, @installation)
     end
+
 end

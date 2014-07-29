@@ -12,10 +12,14 @@ gem 'faker'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # File storage gems
-gem 'paperclip'
+gem 'paperclip', '3.5.4'
 gem 'aws-sdk'
 gem 's3_direct_upload'
 gem 'httparty'
+
+group :production, :staging do
+  gem 'rails_12factor'
+end
 
 group :development do
   gem 'pry'
@@ -24,6 +28,7 @@ group :development do
   gem 'quiet_assets'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'annotate', ">=2.6.0"
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   # gem 'spring'
 end

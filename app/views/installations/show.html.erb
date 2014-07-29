@@ -11,6 +11,7 @@
       <tr>
         <th>Beacon</th>
         <th>Active</th>
+        <th>Location</th>
         <th>Content</th>
         <th>Type</th>
         <th>Audio</th>
@@ -22,10 +23,11 @@
       <% @installation.beacons.find_each do |beacon| %>
         <tr>
           <td><%= link_to "Item #{n}", beacon_path(beacon) %></td>
-          <td><%= current_state(beacon).capitalize %> </td>
-          <td><%= beacon.content %></td>
-          <td><%= beacon.content_type %></td>
-          <td><%= beacon.audio %></td>
+          <td><%= current_state(beacon).capitalize %></td>
+          <td><%= beacon.location %></td>
+          <td><%= beacon.content_file_name ? beacon.content_file_name : "No content." %></td>
+          <td><%= beacon.content_type ? beacon.content_type : "No content." %></td>
+          <td><%= beacon.audio_file_name ? beacon.audio_file_name : "No audio." %></td>
           <td><%= link_to "Edit", edit_beacon_path(beacon) %></td>
           <td><%= link_to "Destroy", beacon_path(beacon), method: :destroy, data: { confirm: "Are you sure?" } %></td>
         </tr>

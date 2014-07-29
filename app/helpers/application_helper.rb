@@ -12,6 +12,14 @@ module ApplicationHelper
     object.active ? "active" : "inactive"    
   end
 
+  def cardinalized_latitude(object)
+    object.latitude > 0 ? raw("#{object.latitude}&deg; N") : raw("#{object.latitude.abs}&deg; S")
+  end
+
+  def cardinalized_longitude(object)
+    object.longitude > 0 ? raw("#{object.longitude}&deg; E") : raw("#{object.longitude.abs}&deg; W")
+  end
+
   # Paths
 
     # Installation paths
@@ -42,5 +50,10 @@ module ApplicationHelper
 
     def edit_beacon_path(beacon)
       edit_customer_installation_beacon_path(@customer, @installation, beacon)
+    end
+
+    # Audio clip paths
+    def audio_clip_path(audio_clip)
+      customer_installation_beacon_path(@customer, @installation, @beacon, audio_clip)
     end
 end

@@ -3,35 +3,42 @@
 <ul>
   <li><b>Installation:</b> <%= @installation.name %></li>
   <li><b>State:</b> <%= current_state(@beacon).capitalize %></li>
+  <li><b>Location:</b> <%= @beacon.location %></li>
 </ul>
 <div class="beacon-page-column-wrap">
-  <div class="map-wrap">
-    <div id="beacon-map"></div>
-  </div>
-  <ul>
-    <li><b>Latitude:</b> <%= cardinalized_latitude(@beacon) %></li>
-    <li><b>Longitude:</b> <%= cardinalized_longitude(@beacon) %></li>
-  </ul>
+  <% if !(@beacon.latitude.nil? || @beacon.longitude.nil?) %>
+    <div class="map-wrap">
+      <div id="beacon-map"></div>
+    </div>
+    <ul>
+      <li><b>Latitude:</b> <%= cardinalized_latitude(@beacon) %></li>
+      <li><b>Longitude:</b> <%= cardinalized_longitude(@beacon) %></li>
+    </ul>
+  <% else %>
+    <%= image_tag "map-missing.png" %>
+    <p>This beacon currently does not have any attached coordinates.</p>
+  <% end %>
 </div>
 <div class="beacon-page-column-wrap">
-  <%= image_tag @beacon.content_image.url %>
+  <%= image_tag @beacon.content_image.url(:medium) %>
   <h3>Beacon Info</h3>
   <ul>
-    <li><b>Minor ID:</b> <%= @beacon.minor_id %></li>
-    <li><b>Major ID:</b> <%= @beacon.major_id %></li>
+    <li><b>Minor ID:</b> <%= @beacon.minor_id ? @beacon.minor_id : "No Minor ID provided." %></li>
+    <li><b>Major ID:</b> <%= @beacon.major_id ? @beacon.major_id : "No Major ID provided." %></li>
     <li><b>UUID:</b> <%= @beacon.uuid %></li>
   </ul>
   <h3>Content Info</h3>
   <ul>
-    <li><b>Content:</b> <%= @beacon.content %></li>
-    <li><b>Type:</b> <%= @beacon.content_type %></li>
-    <li><b>Audio:</b> <%= @beacon.audio %></li>
+    <li><b>Content:</b> <%= @beacon.content_file_name ? @beacon.content_file_name : "No content." %></li>
+    <li><b>Content Type:</b> <%= @beacon.content_content_type ? @beacon.content_content_type : "No content." %></li>
+    <li><b>Audio:</b> <%= @beacon.audio_file_name ? @beacon_audio.file_name : "No audio file." %></li>
   </ul>
 </div>
 <div id="beacon-show-page-link-wrapper">
 <%= link_to "Edit Beacon", edit_beacon_path(@beacon) %><br>
 <%= link_to "Back to #{@installation.name.capitalize} Installation", installation_path(@installation) %>
 </div>
+
 <script type="text/javascript">
   handler = Gmaps.build('Google');
   handler.buildMap({ provider: {}, internal: {id: 'beacon-map'}}, function(){

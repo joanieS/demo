@@ -1,4 +1,6 @@
-@import "active_admin";
+// @import "active_admin";
+@import "active_admin/mixins";
+@import "active_admin/base";
 @import "scaffolds";
 @import "beacons";
 @import "audio_clips";
@@ -96,9 +98,18 @@ table {
 	height: 200px;
 }
 
+#customer-map {
+	width: 300px;
+	height: 200px;
+}
+
 #about-video-wrap {
 	margin: 0 auto 20px;
 	width: 400px;
 	height: 200px;
 	border: 1px solid black;
+}
+
+#content_url {
+	display: none;
 }
