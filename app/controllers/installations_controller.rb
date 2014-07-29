@@ -25,7 +25,7 @@ class InstallationsController < ApplicationController
           beacon.content = get_audio_clips
         end
       end
-      render :show, status: :ok, location: installation_path
+      render action: "show"
     else
       authenticate_user!
       render action: "show"
