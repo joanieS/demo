@@ -18,9 +18,17 @@ class InstallationsController < ApplicationController
   #  end
   #end
   def show
-    respond_to do |format|
-      format.html { render :show }
-      format.json { render :show, status: :ok, location: installation_path }
+    if request.format.json?
+      @installation = Installation.find_by id: params[:id]
+      @installation.beacons.each do |beacon|
+        if beacon.content_type == "memories"
+          beacon.content = get_audio_clips
+        end
+      end
+      render :show, status: :ok, location: installation_path
+    else
+      authenticate_user!
+      render action: "show"
     end
   end
 
@@ -65,6 +73,22 @@ class InstallationsController < ApplicationController
   end
 
   private
+
+    def get_audio_clips
+      s3 = AWS::S3.new(
+        :access_key_id => Rails.application.secrets.AWS_ACCESS_KEY_ID,
+        :secret_access_key => Rails.application.secrets.AWS_SECRET_ACCESS_KEY)
+        
+      audio_clips = s3.buckets['lufthouse-memories']
+
+      audio_clip_URLs = Array.new
+
+      audio_clips.objects.each do |f|
+        audio_clip_URLs << "https://s3.amazonaws.com/lufthouse-memories/" + f.key
+      end
+
+      return audio_clip_URLs
+    end
 
     def set_customer
       @customer = Customer.find_by id: params[:customer_id]

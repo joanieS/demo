@@ -13,6 +13,8 @@ class CustomersController < ApplicationController
   end
 
   def index
+    # Watch RailsCasts
+    # Function should be, increment by 1 mile until 5 results are shown
     @customers = Customer.all
     respond_to do |format|
       format.json { render :index, status: :ok, location: @customer }

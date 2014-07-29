@@ -7,6 +7,13 @@ class BeaconsController < InheritedResources::Base
   before_action :set_beacon, only: [:show, :edit, :update, :destroy]
 
   def show
+    if request.format.json?
+      @beacon = Beacon.find_by id: params[:id]
+      if @beacon.content_type == "memories"
+        @beacon.content = get_audio_clips
+      end
+      format.json { render :show, status: :ok, location: beacon_path }
+    end
     @hash = Gmaps4rails.build_markers(@beacon) do |beacon, marker|
       marker.lat beacon.latitude
       marker.lng beacon.longitude

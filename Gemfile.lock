@@ -94,6 +94,9 @@ GEM
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
     hike (1.2.3)
+    httparty (0.13.1)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.6.9)
     inherited_resources (1.4.1)
       has_scope (~> 0.6.0.rc)
@@ -121,6 +124,7 @@ GEM
     mini_portile (0.6.0)
     minitest (5.3.5)
     multi_json (1.10.1)
+    multi_xml (0.5.5)
     nokogiri (1.6.2.1)
       mini_portile (= 0.6.0)
     nokogiri (1.6.2.1-x86-mingw32)
@@ -237,6 +241,7 @@ DEPENDENCIES
   faker
   geocoder
   gmaps4rails
+  httparty
   jbuilder (~> 2.0)
   jquery-rails
   paperclip

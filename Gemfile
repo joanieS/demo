@@ -15,6 +15,7 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'paperclip'
 gem 'aws-sdk'
 gem 's3_direct_upload'
+gem 'httparty'
 
 group :development do
   gem 'pry'
