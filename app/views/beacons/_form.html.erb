@@ -47,28 +47,36 @@
     </div>
   <h3>Content Info</h3>
     <div class="field">
-      <%= f.label :content_type %><br>
-      <%= f.text_field :content_type %>
-    </div>
-    <div class="field">
-      <%= f.label :content_type, "Content description" %><br>
+      <%= f.label :content_type, "Content type" %><br>
       <%= f.select :content_type, options_for_select([["Image","image"], ["Video","local-video"], ["Website", "web"], ["Online video","web-video"], ["Photo gallery","photo-gallery"], ["Memories", "memories"]]) %>
     </div>
     <div class="field">
-      <%= label_tag "Upload from Web" %><br>
-      <%= check_box_tag :web %>
+      <%= f.label :content %><br>
+      <%= f.text_field :content %>
     </div>
     <div class="field">
-      <%= url_field_tag :content_url, nil, placeholder: "Enter content url here." %>
+      <%= f.label :audio_url %><br>
+      <%= f.text_field :audio_url %>
+    </div>
+    <!--div class="field">
+      <%# f.label :content_type %><br>
+      <%# f.text_field :content_type %>
     </div>
     <div class="field">
-      <%= f.label :content_image %><br>
-      <%= f.file_field :content_image %>
+      <%# label_tag "Upload from Web" %><br>
+      <%# check_box_tag :web %>
     </div>
     <div class="field">
-      <%= f.label :audio %><br>
-      <%= f.file_field :audio %>
+      <%# url_field_tag :content_url, nil, placeholder: "Enter content url here." %>
     </div>
+    <div class="field">
+      <%# f.label :content_image %><br>
+      <%# f.file_field :content_image %>
+    </div>
+    <div class="field">
+      <%# f.label :audio %><br>
+      <%# f.file_field :audio %>
+    </div-->
     <div class="actions">
       <%= f.submit %>
     </div>
