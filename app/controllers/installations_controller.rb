@@ -87,7 +87,7 @@ class InstallationsController < ApplicationController
         audio_clip_URLs << "https://s3.amazonaws.com/lufthouse-memories/" + f.key
       end
 
-      return audio_clip_URLs
+      return audio_clip_URLs.shuffle
     end
 
     def set_customer
