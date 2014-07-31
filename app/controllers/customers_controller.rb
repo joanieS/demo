@@ -20,12 +20,12 @@ class CustomersController < ApplicationController
   def index
     # Watch RailsCasts
     # Function should be, increment by 1 mile until 5 results are shown
-    #@customers = Customer.all
-    distance = 1
-    while @customers == nil or @customers.length < 2
-      @customers = Customer.near([params[:latitude], params[:longitude]], distance)
-      distance += 100
-    end  
+    @customers = Customer.all
+    # distance = 1
+    # while @customers == nil or @customers.length < 2
+    #   @customers = Customer.near([params[:latitude], params[:longitude]], distance)
+    #   distance += 100
+    # end  
     respond_to do |format|
       format.json { render :index, status: :ok, location: @customer }
     end
