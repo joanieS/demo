@@ -24,7 +24,7 @@ class CustomersController < ApplicationController
     distance = 1
     while @customers == nil or @customers.length < 2
       @customers = Customer.near([params[:latitude], params[:longitude]], distance)
-      distance += 1
+      distance += 100
     end  
     respond_to do |format|
       format.json { render :index, status: :ok, location: @customer }
