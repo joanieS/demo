@@ -26,4 +26,6 @@ test:
 
 production:
   <<: *default
+  username: twrhwdgoifosam
+  password: S_PAf3_zveDNpYUa6XnrHlXTfv
   database: demo_production
