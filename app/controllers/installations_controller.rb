@@ -24,6 +24,9 @@ class InstallationsController < ApplicationController
         if beacon.content_type == "memories"
           beacon.content = get_audio_clips
         end
+        if beacon.content_type == "photo-gallery"
+          beacon.content = get_photo_gallery(beacon.installation_id, beacon.minor_id)
+        end
       end
       render action: "show"
     else
@@ -88,6 +91,24 @@ class InstallationsController < ApplicationController
       end
 
       return audio_clip_URLs.shuffle
+    end
+
+    def get_photo_gallery(installation_id, minor_id)
+      s3 = AWS::S3.new(
+        :access_key_id => Rails.application.secrets.AWS_ACCESS_KEY_ID,
+        :secret_access_key => Rails.application.secrets.AWS_SECRET_ACCESS_KEY)
+        
+      bucket_name = "Photo-Gallery-" + installation_id.to_s + "-" + minor_id.to_s
+        
+      photo_gallery_images = s3.buckets[bucket_name]
+
+      photo_gallery_images_URLs = Array.new
+
+      photo_gallery_images.objects.each do |f|
+        photo_gallery_images_URLs << "https://s3.amazonaws.com/" + bucket_name + "/" + f.key
+      end
+
+      return photo_gallery_images_URLs
     end
 
     def set_customer
