@@ -12,8 +12,8 @@ default: &default
 development:
   <<: *default
   timeout: 5000
-  username: postgres
-  password: #{ENV["PGPASSWORD"]}
+  username: colinsoleim
+  password: 
   database: demo_development
 
 
