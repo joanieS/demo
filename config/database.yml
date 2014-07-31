@@ -12,7 +12,7 @@ default: &default
 development:
   <<: *default
   timeout: 5000
-  username: colinsoleim
+  username: joansoskin
   password: 
   database: demo_development
 
