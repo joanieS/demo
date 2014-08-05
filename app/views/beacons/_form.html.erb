@@ -3,9 +3,9 @@
     <div id="error_explanation">
       <h3><%= pluralize(@beacon.errors.count, "error") %> prohibited this beacon from being saved:</h3>
       <ul>
-      <% @beacon.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @beacon.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
@@ -50,17 +50,14 @@
       <%= f.label :content_type, "Content type" %><br>
       <%= f.select :content_type, options_for_select([["Image","image"], ["Video","local-video"], ["Website", "web"], ["Online video","web-video"], ["Photo gallery","photo-gallery"], ["Memories", "memories"]]) %>
     </div>
-    <!-- Form fields rendered according to content type selection -->
-      <!-- Images and videos -->
-      <div class="field content-type-field" id="content-file-field">
-        <%= f.label :content %><br>
-        <%= f.file_field :content %>
-      </div>
-      <!-- Websites and online videos -->
-      <div class="field content-type-field" id="content-url-field"> 
-        <%= f.label :content_url %><br>
-        <%= f.text_field :content_url %>
-      </div>
+    <div class="field content-type-field" id="content-file-field">
+      <%= f.label :content %><br>
+      <%= f.file_field :content %>
+    </div>
+    <div class="field content-type-field" id="content-url-field"> 
+      <%= f.label :content_url %><br>
+      <%= f.text_field :content_url %>
+    </div>
     <div class="field">
       <%= f.label :audio %><br>
       <%= f.file_field :audio %>
