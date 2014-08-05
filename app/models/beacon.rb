@@ -1,25 +1,30 @@
 # == Schema Information
 #
-# Table name: beacons
-#
-#  id                         :integer          not null, primary key
-#  minor_id                   :integer
-#  content                    :text
-#  content_type               :string(255)
-#  audio                      :string(255)
-#  installation_id            :integer
-#  created_at                 :datetime
-#  updated_at                 :datetime
-#  content_image_file_name    :string(255)
-#  content_image_content_type :string(255)
-#  content_image_file_size    :integer
-#  content_image_updated_at   :datetime
-#  latitude                   :float
-#  longitude                  :float
-#  major_id                   :integer
-#  uuid                       :string(255)
-#  active                     :boolean          default(FALSE)
-#
+# t.integer  "minor_id"
+# t.string   "content_type"
+# t.integer  "installation_id"
+# t.datetime "created_at"
+# t.datetime "updated_at"
+# t.string   "content_image_file_name"
+# t.string   "content_image_content_type"
+# t.integer  "content_image_file_size"
+# t.datetime "content_image_updated_at"
+# t.float    "latitude"
+# t.float    "longitude"
+# t.integer  "major_id"
+# t.string   "uuid"
+# t.boolean  "active",                     default: false
+# t.text     "location"
+# t.string   "audio_file_name"
+# t.string   "audio_content_type"
+# t.integer  "audio_file_size"
+# t.datetime "audio_updated_at"
+# t.string   "content_file_name"
+# t.string   "content_content_type"
+# t.integer  "content_file_size"
+# t.datetime "content_updated_at"
+# t.text     "content"
+# t.string   "audio_url"
 
 class Beacon < ActiveRecord::Base
 
@@ -40,7 +45,9 @@ class Beacon < ActiveRecord::Base
   validates_attachment_content_type :content_image, :content_type => /.+\/.*\Z/
 
   has_attached_file :audio
-  
+
   validates_attachment_content_type :audio, :content_type => [ 'audio/mpeg', 'audio/x-mpeg', 'audio/mp3', 'audio/x-mp3', 'audio/mpeg3', 'audio/x-mpeg3', 'audio/mpg', 'audio/x-mpg', 'audio/x-mpegaudio' ]
+
+  has_attached_file :content
 
 end
