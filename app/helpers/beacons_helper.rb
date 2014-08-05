@@ -8,4 +8,8 @@ module BeaconsHelper
     beacon_content ? beacon_content : "No content."
   end
 
+  def display_audio(beacon_audio)
+    beacon_audio ? beacon_audio : "No audio file."
+  end
+
 end

@@ -12,6 +12,12 @@ module ApplicationHelper
     object.active ? "active" : "inactive"    
   end
 
+  # Coordinates
+
+  def check_coordinates(object)
+    !(object.latitude.nil? || object.longitude.nil?)
+  end
+
   def cardinalized_latitude(object)
     object.latitude > 0 ? raw("#{object.latitude}&deg; N") : raw("#{object.latitude.abs}&deg; S")
   end

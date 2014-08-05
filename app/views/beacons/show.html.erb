@@ -6,7 +6,7 @@
   <li><b>Location:</b> <%= @beacon.location %></li>
 </ul>
 <div class="beacon-page-column-wrap">
-  <% if !(@beacon.latitude.nil? || @beacon.longitude.nil?) %>
+  <% if check_coordinates(@beacon) %>
     <div class="map-wrap">
       <div id="beacon-map"></div>
     </div>
@@ -30,7 +30,7 @@
   <ul>
     <li><b>Content:</b> <%= display_content(@beacon.content_file_name) %></li>
     <li><b>Content Type:</b> <%= display_content(@beacon.content_type) %></li>
-    <li><b>Audio:</b> <%= @beacon.audio_file_name ? @beacon_audio.file_name : "No audio file." %></li>
+    <li><b>Audio:</b> <%= display_audio(@beacon.audio_file_name) %></li>
   </ul>
 </div>
 <div id="beacon-show-page-link-wrapper">
