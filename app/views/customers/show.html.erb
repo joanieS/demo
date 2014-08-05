@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <h2>Account</h2>
-<% if !(@customer.latitude.nil? || @customer.longitude.nil?) %>
+<% if check_coordinates(@customer) %>
   <div class="map-wrap">
       <div id="customer-map"></div>
     </div>
