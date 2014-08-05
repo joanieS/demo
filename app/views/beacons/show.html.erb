@@ -28,8 +28,8 @@
   </ul>
   <h3>Content Info</h3>
   <ul>
-    <li><b>Content:</b> <%= @beacon.content_file_name ? @beacon.content_file_name : "No content." %></li>
-    <li><b>Content Type:</b> <%= @beacon.content_content_type ? @beacon.content_content_type : "No content." %></li>
+    <li><b>Content:</b> <%= display_content(@beacon.content_file_name) %></li>
+    <li><b>Content Type:</b> <%= display_content(@beacon.content_type) %></li>
     <li><b>Audio:</b> <%= @beacon.audio_file_name ? @beacon_audio.file_name : "No audio file." %></li>
   </ul>
 </div>
