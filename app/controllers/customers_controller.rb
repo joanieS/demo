@@ -4,8 +4,6 @@ class CustomersController < ApplicationController
   
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
-  class Forbidden < StandardError; end
-
   def show
     @hash = Gmaps4rails.build_markers(@customer) do |customer, marker|
       marker.lat customer.latitude

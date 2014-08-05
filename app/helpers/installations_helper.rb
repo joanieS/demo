@@ -8,4 +8,8 @@ module InstallationsHelper
 		!installation.beacons.empty?
 	end
 
+  def display_content(beacon)
+    beacon.content ? beacon.content : "No content description."
+  end
+
 end

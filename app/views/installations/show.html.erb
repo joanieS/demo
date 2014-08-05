@@ -21,7 +21,7 @@
         <tr>
           <td><%= link_to "Item #{n}", beacon_path(beacon) %></td>
           <td><%= current_state(beacon) %></td>
-          <td><%= beacon.content_file_name ? beacon.content_file_name : "No content." %></td>
+          <td><%= display_content(beacon) %></td>
           <td><%= link_to "Edit", edit_beacon_path(beacon) %></td>
           <td><%= link_to "Destroy", beacon_path(beacon), method: :destroy, data: { confirm: "Are you sure?" } %></td>
         </tr>
