@@ -14,7 +14,7 @@
       <% @installations.find_each do |installation| %>
         <tr>
           <td><%= link_to installation.name, installation_path(installation) %></td>
-          <td><%= current_state(installation).capitalize %></td>
+          <td><%= current_state(installation) %></td>
           <td><%= link_to "Edit", edit_installation_path(installation) %></td>
           <td><%= link_to "Delete", installation_path(installation), 
             method: :destroy, data: { confirm: 'Are you sure?' } %></td>

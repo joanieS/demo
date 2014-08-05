@@ -9,7 +9,7 @@ module ApplicationHelper
   end
 
   def current_state(object)
-    object.active ? "active" : "inactive"    
+    object.active ? "Active" : "Inactive"    
   end
 
   # Coordinates

@@ -2,7 +2,7 @@
 <h2><%= @installation.name %> Installation</h2>
 <ul>
   <li><b>Installation created:</b> <%= creation_date(@installation) %></li>
-  <li><b>Status:</b> <%= current_state(@installation).capitalize %></li>
+  <li><b>Status:</b> <%= current_state(@installation) %></li>
 </ul>
 <h3>Beacons</h3>
 <% if has_beacons?(@installation) %>
@@ -23,7 +23,7 @@
       <% @installation.beacons.find_each do |beacon| %>
         <tr>
           <td><%= link_to "Item #{n}", beacon_path(beacon) %></td>
-          <td><%= current_state(beacon).capitalize %></td>
+          <td><%= current_state(beacon) %></td>
           <td><%= beacon.location %></td>
           <td><%= beacon.content_file_name ? beacon.content_file_name : "No content." %></td>
           <td><%= beacon.content_type ? beacon.content_type : "No content." %></td>
