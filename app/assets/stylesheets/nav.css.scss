@@ -1,10 +1,10 @@
 #pre-navbar-header {
-  padding: 5px 10px;
+  padding: 5px 30px;
+  margin: 10px 0;
 }
 
 #bluebar {
   width: 100%;
-  clear: both;
   background-color: #0B588F;
 }
 
@@ -21,11 +21,16 @@ nav {
       text-decoration: none;
       display: inline;
       list-style: none;
-      a {
-        color: #5C94B6;
-        
-      }
     }
+  }
+}
+
+.nav-link {
+  text-transform: uppercase;
+  color: #5C94B6;
+  &:hover {
+    text-decoration: none;
+    color: #5C94B6;
   }
 }
 
@@ -34,6 +39,14 @@ nav {
 }
 
 #logout-btn {
+  padding: 6px 8px;
   float: right;
   text-transform: uppercase;
+  background-color: #5C94B6;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  a {
+      color: white;
+  }
 }
