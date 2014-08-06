@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 <h2><%= @installation.name %> Installation</h2>
+<%= image_tag @installation.image.url(:medium) %>
 <ul>
   <li><b>Installation created:</b> <%= creation_date(@installation) %></li>
   <li><b>Status:</b> <%= current_state(@installation) %></li>
