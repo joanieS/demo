@@ -11,10 +11,6 @@
   <% end %>
   <h3>Beacon Info</h3>
     <div class="field">
-      <%= f.label :location %><br>
-      <%= f.text_area :location, placeholder: "e.g., By the Water Lillies." %>
-    </div>
-    <div class="field">
       <%= f.label :minor_id, "Minor ID" %><br>
       <%= f.number_field :minor_id %>
     </div>
@@ -46,6 +42,10 @@
       <%= f.check_box :active %>
     </div>
   <h3>Content Info</h3>
+    <div class="field">
+      <%= f.label :description %><br>
+      <%= f.text_area :description %>
+    </div>
     <div class="field">
       <%= f.label :content_type, "Content type" %><br>
       <%= f.select :content_type, options_for_select([["Image","image"], ["Video","local-video"], ["Website", "web"], ["Online video","web-video"], ["Photo gallery","photo-gallery"], ["Memories", "memories"]]) %>
