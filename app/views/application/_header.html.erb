@@ -1,15 +1,26 @@
-<nav>
-	<ul>
-		<li><%= link_to "Home", root_path %></li>
-		<% if !current_user %>
-			<li><%= link_to "Sign in", new_user_session_path %></li>
-			<li><%= link_to "Sign up", new_user_registration_path %></li>
-		<% else %>
-			<% if current_user.customer_id %>
-				<li><%= link_to "Installations", customer_installations_path(current_user.customer_id) %> </li>
-				<li><%= link_to "Account", customer_path(current_user.customer_id) %> </li>
-			<% end %>
-			<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-		<% end %>	
-	</ul>
-</nav>
+<% if current_user %>
+	<% if !current_user.customer_id.nil? %>
+    <h4>Welcome, <%= current_user.customer.name %>!</h4>
+  <% else %>
+    <h4>You are currently not linked to a company account.</h4>
+    <%= link_to "Create new company account", new_customer_path %><br>
+    <%= link_to "Existing company account", edit_user_path(current_user) %>
+  <% end %>
+<% end %>
+<div id="bluebar">
+	<nav>
+		<ul>
+			<li><%= link_to "Home", root_path %></li>
+			<% if !current_user %>
+				<li><%= link_to "Sign in", new_user_session_path %></li>
+				<li><%= link_to "Sign up", new_user_registration_path %></li>
+			<% else %>
+				<% if current_user.customer_id %>
+					<li><%= link_to "Installations", customer_installations_path(current_user.customer_id) %> </li>
+					<li><%= link_to "Account", customer_path(current_user.customer_id) %> </li>
+				<% end %>
+				<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+			<% end %>	
+		</ul>
+	</nav>
+</div>

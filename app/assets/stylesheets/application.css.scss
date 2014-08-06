@@ -2,11 +2,10 @@
 @import "active_admin/base";
 @import "scaffolds";
 @import "beacons";
+@import "nav";
 @import "audio_clips";
 
 body {
-	margin: 0 20%;
-	padding: 20px;
 	h1 {
 		margin: 10px 0 20px;
 		text-align: center;
