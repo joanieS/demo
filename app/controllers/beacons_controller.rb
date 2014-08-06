@@ -103,7 +103,7 @@ class BeaconsController < InheritedResources::Base
     params.require(:beacon).permit(
       :minor_id, :major_id, :latitude, :longitude, :content, :content_type, 
       :audio, :content_image, :uuid, :active, :image_content, :location, :audio_url,
-      :content_url
+      :content_url, :description
     )
   end
 

@@ -3,7 +3,6 @@
 <ul>
   <li><b>Installation:</b> <%= @installation.name %></li>
   <li><b>State:</b> <%= current_state(@beacon) %></li>
-  <li><b>Location:</b> <%= @beacon.location %></li>
 </ul>
 <div class="beacon-page-column-wrap">
   <% if check_coordinates(@beacon) %>
@@ -28,6 +27,7 @@
   </ul>
   <h3>Content Info</h3>
   <ul>
+    <li><b>Description:</b> <%= display_beacon_description(@beacon) %></li>
     <li><b>File Type:</b> <%= display_beacon_content_type(@beacon.content_type) %></li>
     <li><b>File Name:</b> <%= display_beacon_content(@beacon) %></li>
     <li><b>Audio File:</b> <%= display_audio(@beacon.audio_file_name) %></li>

@@ -12,6 +12,10 @@ module ApplicationHelper
     object.active ? "Active" : "Inactive"    
   end
 
+  def display_beacon_description(beacon)
+    beacon.description ? beacon.description : "None."
+  end
+
   # Coordinates
 
   def check_coordinates(object)
