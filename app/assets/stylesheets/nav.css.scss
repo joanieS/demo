@@ -1,6 +1,11 @@
+#pre-navbar-header {
+  padding: 5px 10px;
+}
+
 #bluebar {
   width: 100%;
-  background-color: #00578D;
+  clear: both;
+  background-color: #0B588F;
 }
 
 nav {
@@ -22,4 +27,13 @@ nav {
       }
     }
   }
+}
+
+#nav-customer-welcome {
+  float: left;
+}
+
+#logout-btn {
+  float: right;
+  text-transform: uppercase;
 }

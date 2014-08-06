@@ -3,6 +3,7 @@
 @import "bootstrap";
 @import "beacons";
 @import "nav";
+@import "welcome";
 @import "audio_clips";
 
 body {
@@ -26,21 +27,6 @@ body {
 table {
 	border-bottom: solid 1px lightgrey;
 	margin-bottom: 10px;
-}
-
-#social-sidebar {
-	position: fixed;
-	top: 30%;
-	right: 0;
-	float: right;
-	background-color: lightgrey;
-	ul {
-		padding-right: 10px;
-		li {
-		list-style: none;
-		padding: 10px 0;
-		}
-	}
 }
 
 .beacon-page-column-wrap {
