@@ -1,6 +1,6 @@
 #bluebar {
   width: 100%;
-  background-color: blue;
+  background-color: #00578D;
 }
 
 nav {
@@ -11,9 +11,15 @@ nav {
     padding: 0;
     margin: 0;
     li {
+      font-size: 24px;
       padding: 5px;
+      text-decoration: none;
       display: inline;
       list-style: none;
+      a {
+        color: #5C94B6;
+        
+      }
     }
   }
 }

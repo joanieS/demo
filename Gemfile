@@ -8,6 +8,8 @@ gem 'pg'
 gem 'geocoder'
 gem 'gmaps4rails'
 
+gem 'bootstrap-sass'
+
 gem 'faker'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
