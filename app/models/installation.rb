@@ -16,6 +16,8 @@ class Installation < ActiveRecord::Base
   has_many :beacons, dependent: :destroy
 
   has_attached_file :image,
+    styles: { :medium => "300x300>", :thumb => "100x100>" },
+    default_url: "/images/:style/missing.png",
     bucket: ENV['S3_BUCKET_NAME'],
     s3_credentials: {
       access_key_id: ENV['AWS_ACCESS_KEY_ID'],
