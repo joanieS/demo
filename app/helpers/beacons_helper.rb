@@ -10,7 +10,7 @@ module BeaconsHelper
 
   def display_beacon_content(beacon)
     if beacon.content_type == "image" || beacon.content_type == "local-video"
-      beacon.content_file_name ? beacon.content_file_name : "No content."
+      beacon.content_image_file_name ? beacon.content_image_file_name : "No content."
     elsif beacon.content_type == "web" || beacon.content_type == "web-video"
       beacon.content_url ? beacon.content_url : "No content."
     end
