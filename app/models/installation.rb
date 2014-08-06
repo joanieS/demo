@@ -24,7 +24,7 @@ class Installation < ActiveRecord::Base
       secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
     }
 
-  validates_attachment_content_type :content_image, :content_type => [
+  validates_attachment_content_type :image, :content_type => [
     'image/png', 'image/jpeg', 'image/jpg', 'image/gif'
   ]
 end
