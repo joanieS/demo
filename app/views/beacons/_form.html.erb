@@ -51,8 +51,8 @@
       <%= f.select :content_type, options_for_select([["Image","image"], ["Video","local-video"], ["Website", "web"], ["Online video","web-video"], ["Photo gallery","photo-gallery"], ["Memories", "memories"]]) %>
     </div>
     <div class="field content-type-field" id="content-file-field">
-      <%= f.label :content %><br>
-      <%= f.file_field :content %>
+      <%= f.label :content_image %><br>
+      <%= f.file_field :content_image %>
     </div>
     <div class="field content-type-field" id="content-url-field"> 
       <%= f.label :content_url %><br>

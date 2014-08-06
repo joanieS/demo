@@ -10,16 +10,8 @@ class InstallationsController < ApplicationController
     @installations = Installation.where(customer_id: @customer.id)
   end
 
-  #def show
-  #  if request.format.json?
-  #    render :show, status: :ok, location: installation_path
-  #  else
-  #    render :show
-  #  end
-  #end
   def show
     if request.format.json?
-      @installation = Installation.find_by id: params[:id]
       @installation.beacons.each do |beacon|
         if beacon.content_type == "memories"
           beacon.content = get_audio_clips
@@ -128,7 +120,6 @@ class InstallationsController < ApplicationController
     end
 
     # Paths
-    
     def installations_path
       customer_installations_path(@customer)
     end
