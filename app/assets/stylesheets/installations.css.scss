@@ -5,11 +5,18 @@
   padding-bottom: 36px;
   margin: 0 24px 24px 0;
   text-align: center;
+  background: url(missing.png) no-repeat center center;
 }
 
 .installation-image-wrap {
   height: 182px;
-  border: solid 2px #5C94B6;
+  border: solid 4px #5C94B6;
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   &:hover {
     border-color: #0B588F;
   }
@@ -21,6 +28,7 @@
   text-transform: uppercase;
   font-family: 'Open Sans Condensed', sans-serif;
   font-size: 24px;
+  background-color: white;
   img {
     height: 80px;
   }
