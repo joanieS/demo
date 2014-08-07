@@ -5,7 +5,7 @@
         <h4>Welcome, <%= current_user.customer.name %>!</h4>
       <% end %>
     </div> 
-    <div id="logout-btn"><%= link_to "Logout", destroy_user_session_path, method: :delete %></div>
+    
     <div class="clearfix"></div>
   </div>
 <% end %>
@@ -17,7 +17,8 @@
 				<li><%= link_to "Sign up", new_user_registration_path, class: "nav-link" %></li>
 			<% else %>
 				<% if current_user.customer_id %>
-					<li><%= link_to "Installation", customer_installations_path(current_user.customer_id), class: "nav-link" %> </li>
+					<li><%= link_to "Installations", customer_installations_path(current_user.customer_id), class: "nav-link" %> </li>
+          <li><%= link_to "Metrics", "/", class: "nav-link" %> </li>  
 					<li><%= link_to "Account", customer_path(current_user.customer_id), class: "nav-link" %> </li>
 				<% end %>
 			<% end %>
@@ -30,4 +31,5 @@
       <li><%= link_to "About", root_path, class: "nav-link" %></li>
 		</ul>
 	</nav>
+  <div id="logout-btn"><%= link_to "Logout", destroy_user_session_path, method: :delete %></div>
 </div>
