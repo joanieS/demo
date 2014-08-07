@@ -80,6 +80,34 @@ p {
 	display: inline;
 }
 
+.info {
+  margin-top: 5px;
+  display: block;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 18px;
+}
+
+.button {
+  display: block;
+  padding: 3px 8px 2px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 18px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  color: #5C94B6;
+  border: solid 1px #5C94B6;
+  &:hover {
+    color: #0B588F;
+    border-color: #0B588F;
+    text-decoration: none;
+  }
+}
+
+.button+.button {
+  margin-top: 6px;
+}
+
 pre {
   background-color: #eee;
   padding: 10px;
@@ -123,7 +151,6 @@ pre {
 @import "font";
 @import "installations";
 @import "nav";
-@import "welcome";
 @import "audio_clips";
 @import "table";
 @import "footer";

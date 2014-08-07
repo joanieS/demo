@@ -7,3 +7,12 @@ footer {
   font-family: 'Open Sans Condensed', sans-serif;
   font-size: 18px;
 }
+
+#social-icons {
+  padding: 0;
+  text-align: center;
+  li {
+    display: inline;
+    padding: 10px 0;
+  }
+}
