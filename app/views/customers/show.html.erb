@@ -2,6 +2,8 @@
 <div class="row">
   <div class="col-md-4">
     <h2><%= @customer.name %></h2>
+    <%= link_to "Edit Account", edit_customer_path, class: "button" %>
+    <%= link_to "Add New Installation", new_installation_path, class: "button" %>
     <span class="info">Member since: <%= customer_since(@customer) %></span>
     <span class="info">Category: <%= customer_category(@customer) %></span>
     <span class="info">Activation code: <%= @customer.activation_code %></span>
@@ -49,8 +51,6 @@
     </table>
   </div>
 </div>
-<%= link_to "Edit Account", edit_customer_path %><br>
-<%= link_to "Add New Installation", new_installation_path %><br>
 
 <script type="text/javascript">
   handler = Gmaps.build('Google');

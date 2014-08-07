@@ -3,7 +3,7 @@
       <% if !current_user.customer_id.nil? %>
         <div id="pre-navbar-customer-profile"></div>
         <span id="pre-navbar-welcome">Welcome, <%= link_to current_user.customer.name, customer_path(current_user.customer_id) %>!</span>
-        <span id="pre-navbar-email">You're signed in as <%= link_to current_user.email, users_path, id: "current-user-email" %></span>
+        <span id="pre-navbar-email">You're signed in as <span id="current-user-email"><%= current_user.email %></span></span>
       <% end %>
     <div class="clearfix"></div>
   </div>
