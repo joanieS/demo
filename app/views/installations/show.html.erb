@@ -22,24 +22,24 @@
         </thead>
         <tbody>
           <tr>
-            <td>
+            <td colspan="5">
               <%= link_to "Add A New Beacon", new_beacon_path %>
             </td>
           </tr>
           <% if has_beacons?(@installation) %>
             <% n = 1 %>
             <% @installation.beacons.find_each do |beacon| %>
-              <tr>
-                <td><%= current_state(beacon) %></td>
-                <td><%= link_to "Item #{n}", beacon_path(beacon) %></td>
-                <td><%= display_beacon_description(beacon) %></td>
-                <td><%= link_to "Edit", edit_beacon_path(beacon) %></td>
-                <td><%= link_to "Destroy", beacon_path(beacon), method: :delete, data: { confirm: "Are you sure?" } %></td>
-              </tr>
+                <tr>
+                  <td><%= current_state(beacon) %></td>
+                  <td><%= link_to "Item ##{n}", beacon_path(beacon)%></td>
+                  <td><%= display_beacon_description(beacon) %></td>
+                  <td><%= link_to "Edit", edit_beacon_path(beacon) %></td>
+                  <td><%= link_to "Destroy", beacon_path(beacon), method: :delete, data: { confirm: "Are you sure?" } %></td>
+                </tr>
               <% n += 1 %>
             <% end %>
           <% else %>
-            <tr><td>No beacons</td></tr>
+            <tr><td colspan="5">No beacons</td></tr>
           <% end %>
         </tbody>
       </table>

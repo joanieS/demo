@@ -12,9 +12,9 @@ body {
 	h2, h3, h4 {
 		margin: 0 0 10px;
 		text-align: left;
+    font-family: 'Open Sans Condensed', sans-serif;
 	}
   h2 {
-    font-family: 'Open Sans Condensed', sans-serif;
     color: #333;
     font-size: 52px;
   }
@@ -24,7 +24,7 @@ body {
 }
 
 #page-content-wrap {
- margin: 40px 30px 30px; 
+ margin: 40px 30px; 
 }
 
 table {
@@ -34,16 +34,28 @@ table {
   font-size: 18px;
   border-bottom: solid 1px #5C94B6;
   th {
-    padding: 4px 5px;
+    padding: 4px 2px 4px 8px;
     font-weight: 400;
     background-color: #5C94B6;
+    text-transform: uppercase;
     color: white;
   }
   tr {
     margin: 2px 0;
+    &:hover {
+      background-color: #eee;
+    }
   }
   td {
-    padding: 2px 5px;
+    padding: 4px 2px 4px 8px;
+    color: #333;
+    a {
+      color: #333;
+      font-weight: 700;
+      &:hover {
+        color: #333;
+      }
+    }
   }
 }
 
