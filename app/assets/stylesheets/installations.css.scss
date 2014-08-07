@@ -1,13 +1,14 @@
 .installation-wrap {
   float: left;
-  width: 180px;
+  width: 182px;
   height: 200px;
-  margin-right: 20px;
+  padding-bottom: 36px;
+  margin: 0 24px 24px 0;
   text-align: center;
 }
 
 .installation-image-wrap {
-  height: 180px;
+  height: 182px;
   border: solid 2px #5C94B6;
   &:hover {
     border-color: #0B588F;
@@ -18,6 +19,28 @@
   vertical-align: bottom;
 }
 
+.installation-image-link {
+  float: right;
+  margin: 4px;
+}
+
+.installation-image-edit-link {
+  margin-right: 8px;
+  img {
+    height: 30px; 
+  }
+}
+
+.installation-image-delete-link img {
+  height: 30px;
+}
+
 .installation-image-title {
+  display: block;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 18px;
   color: #0B588F;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
