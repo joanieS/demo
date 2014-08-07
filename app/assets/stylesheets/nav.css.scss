@@ -1,7 +1,51 @@
+/************************************************
+PRE NAV HEADER
+************************************************/
+
 #pre-navbar-header {
-  padding: 0 30px;
+  width: 100%;
+  padding: 0 16px;
   margin: 5px 0;
+  font-size: 18px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  color: #0B588F;
 }
+
+#pre-navbar-customer-profile {
+  float: left;
+  margin-right: 5px;
+  box-sizing: border-box; 
+  display: inline;
+  height: 25px;
+  width: 25px;
+  border: solid 2px #0B588F;
+}
+
+#pre-navbar-welcome {
+  float: left;
+  a {
+    color: #0B588F;
+    font-weight: 700;
+    &:hover {
+      color: #0B588F
+    }
+  }
+}
+
+#pre-navbar-email {
+  float: right;
+  font-style: italic;
+}
+
+#current-user-email {
+  font-style: normal;
+}
+
+
+
+/************************************************
+NAV
+************************************************/
 
 #bluebar {
   width: 100%;
@@ -16,7 +60,7 @@ nav {
     margin: 0;
     li {
       font-size: 24px;
-      padding: 0 7px;
+      padding: 0 8px;
       text-decoration: none;
       display: inline;
       list-style: none;
@@ -33,10 +77,6 @@ nav {
     text-decoration: none;
     color: white;
   }
-}
-
-#nav-customer-welcome {
-  float: left;
 }
 
 #logout-btn {
@@ -62,6 +102,7 @@ nav {
   }
 }
 
+// Link corresponding to current page.
 .current {
   color: white;
 }
