@@ -28,6 +28,10 @@ module ApplicationHelper
     request.path_info == "/" ? "current" : ""
   end
 
+  def current_class_installations?(request)
+    request.path_info =~ /customers+\/[0-9]+\/installations(\/[A-Za-z0-9\/]+)?/ ? "current" : ""
+  end
+
   # Coordinates
 
   def check_coordinates(object)

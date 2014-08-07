@@ -16,7 +16,7 @@
 				<li><%= link_to "Sign up", new_user_registration_path, class: "nav-link #{current_class_sign_up?(request)}" %></li>
 			<% else %>
 				<% if current_user.customer_id %>
-					<li><%= link_to "Installations", customer_installations_path(current_user.customer_id), class: "nav-link" %> </li>
+					<li><%= link_to "Installations", customer_installations_path(current_user.customer_id), class: "nav-link #{current_class_installations?(request)}" %> </li>
           <li><%= link_to "Metrics", "/", class: "nav-link" %> </li>  
 					<li><%= link_to "Account", customer_path(current_user.customer_id), class: "nav-link" %> </li>
 				<% else %>
