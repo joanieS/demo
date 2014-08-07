@@ -24,7 +24,7 @@
           <td><%= current_state(beacon) %></td>
           <td><%= display_beacon_description(beacon) %></td>
           <td><%= link_to "Edit", edit_beacon_path(beacon) %></td>
-          <td><%= link_to "Destroy", beacon_path(beacon), method: :destroy, data: { confirm: "Are you sure?" } %></td>
+          <td><%= link_to "Destroy", beacon_path(beacon), method: :delete, data: { confirm: "Are you sure?" } %></td>
         </tr>
         <% n += 1 %>
       <% end %>
