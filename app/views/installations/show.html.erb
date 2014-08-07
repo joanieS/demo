@@ -1,38 +1,46 @@
 <p id="notice"><%= notice %></p>
-<h2><%= @installation.name %> Installation</h2>
-<%= image_tag @installation.image.url(:medium) %>
+<div class="row">
+  <div class="col-md-3">
+    <%= image_tag @installation.image.url(:medium) %>
+  </div>
+  <div class="col-md-9">
+    <h2><%= @installation.name %></h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Active</th>
+            <th>Beacon</th>
+            <th>Content</th>
+            <th colspan="2">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <%= link_to "Add A New Beacon", new_beacon_path %>
+            </td>
+          </tr>
+          <% if has_beacons?(@installation) %>
+            <% n = 1 %>
+            <% @installation.beacons.find_each do |beacon| %>
+              <tr>
+                <td><%= current_state(beacon) %></td>
+                <td><%= link_to "Item #{n}", beacon_path(beacon) %></td>
+                <td><%= display_beacon_description(beacon) %></td>
+                <td><%= link_to "Edit", edit_beacon_path(beacon) %></td>
+                <td><%= link_to "Destroy", beacon_path(beacon), method: :delete, data: { confirm: "Are you sure?" } %></td>
+              </tr>
+              <% n += 1 %>
+            <% end %>
+          <% else %>
+            <tr><td>No beacons</td></tr>
+          <% end %>
+        </tbody>
+      </table>
+  </div>
+</div>
 <ul>
-  <li><b>Installation created:</b> <%= creation_date(@installation) %></li>
+  <li><b>Created:</b> <%= creation_date(@installation) %></li>
   <li><b>Status:</b> <%= current_state(@installation) %></li>
 </ul>
-<h3>Beacons</h3>
-<% if has_beacons?(@installation) %>
-  <table>
-    <thead>
-      <tr>
-        <th>Beacon</th>
-        <th>Active</th>
-        <th>Content</th>
-        <th colspan="2">Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% n = 1 %>
-      <% @installation.beacons.find_each do |beacon| %>
-        <tr>
-          <td><%= link_to "Item #{n}", beacon_path(beacon) %></td>
-          <td><%= current_state(beacon) %></td>
-          <td><%= display_beacon_description(beacon) %></td>
-          <td><%= link_to "Edit", edit_beacon_path(beacon) %></td>
-          <td><%= link_to "Destroy", beacon_path(beacon), method: :delete, data: { confirm: "Are you sure?" } %></td>
-        </tr>
-        <% n += 1 %>
-      <% end %>
-    </tbody>
-  </table>
-<% else %>
-  <p>This installation currently has no beacons.</p>
-<% end %>
-<%= link_to "Add a Beacon", new_beacon_path %><br>
 <%= link_to "Edit #{@installation.name.capitalize} Installation", edit_installation_path(@installation) %><br>
-<%= link_to "Back to Installations", installations_path(@customer) %>
