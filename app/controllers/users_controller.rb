@@ -71,8 +71,7 @@ class UsersController < ApplicationController
     end
   
     def set_customer
-      #@customer = Customer.find(current_user.customer_id)
-      @customer = Customer.find_by id: 2
+      @customer = Customer.find(current_user.customer_id)
     end
 
     def set_customer_with_activation_code
