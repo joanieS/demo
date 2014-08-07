@@ -8,7 +8,7 @@ PRE NAV HEADER
   margin: 8px 0;
   font-size: 18px;
   font-family: 'Open Sans Condensed', sans-serif;
-  color: #0B588F;
+  color: #333;
 }
 
 #pre-navbar-customer-profile {
@@ -24,10 +24,10 @@ PRE NAV HEADER
 #pre-navbar-welcome {
   float: left;
   a {
-    color: #0B588F;
+    color: #333;
     font-weight: 700;
     &:hover {
-      color: #0B588F;
+      color: #333;
     }
   }
 }
@@ -38,9 +38,9 @@ PRE NAV HEADER
 
 #current-user-email {
   font-weight: 700;
-  color: #0B588F;
+  color: #333;
   &:hover {
-    color: #0B588F;
+    color: #333;
     text-decoration: underline;
   }
 }
