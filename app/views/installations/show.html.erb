@@ -1,7 +1,13 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
   <div class="col-md-3">
-    <%= image_tag @installation.image.url(:medium) %>
+    <div id="installation-show-image">
+      <style>
+        #installation-show-image { 
+          background-image: url(<%= @installation.image %>); 
+        }
+      </style>
+    </div>
   </div>
   <div class="col-md-9">
     <h2><%= @installation.name %></h2>

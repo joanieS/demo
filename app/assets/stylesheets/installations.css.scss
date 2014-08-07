@@ -1,3 +1,7 @@
+/************************************************
+INDEX PAGE
+************************************************/
+
 .installation-wrap {
   float: left;
   width: 182px;
@@ -63,4 +67,20 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+/************************************************
+SHOW PAGE
+************************************************/
+
+#installation-show-image {
+  height: 180px;
+  border: solid 4px #5C94B6;
+  box-sizing: border-box; 
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
