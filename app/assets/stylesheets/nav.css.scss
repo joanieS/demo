@@ -27,7 +27,7 @@ PRE NAV HEADER
     color: #0B588F;
     font-weight: 700;
     &:hover {
-      color: #0B588F
+      color: #0B588F;
     }
   }
 }
@@ -38,6 +38,11 @@ PRE NAV HEADER
 
 #current-user-email {
   font-weight: 700;
+  color: #0B588F;
+  &:hover {
+    color: #0B588F;
+    text-decoration: underline;
+  }
 }
 
 

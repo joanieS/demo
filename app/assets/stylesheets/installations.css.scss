@@ -16,7 +16,18 @@
 }
 
 #installation-image-new {
+  padding: 10px 0;
   vertical-align: bottom;
+  text-transform: uppercase;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 24px;
+  img {
+    height: 80px;
+  }
+  span {
+    padding-top: 5px;
+    display: block;
+  }
 }
 
 .installation-image-link {
