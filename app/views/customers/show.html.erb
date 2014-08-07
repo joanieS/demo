@@ -1,26 +1,56 @@
 <p id="notice"><%= notice %></p>
-<h2>Account</h2>
-<% if check_coordinates(@customer) %>
-  <div class="map-wrap">
-      <div id="customer-map"></div>
-    </div>
-  <ul>
-    <li><b>Latitude:</b> <%= cardinalized_latitude(@customer) %></li>
-    <li><b>Longitude:</b> <%= cardinalized_longitude(@customer) %></li>
-    <li><b>Address:</b> <%= @customer.address %></li>
-  </ul>
-<% else %>
-  <%= image_tag "map-missing.png" %>
-  <p>Your account currently does not have any attached coordinates.</p>
-<% end %>
-<h3>Account Info</h3>
-<ul>
-	<li><b>Member since:</b> <%= customer_since(@customer) %></li>
-  <li><b>Category:</b> <%= customer_category(@customer) %> </li>
-  <li><b>Activation code:</b> <%= @customer.activation_code %></li>
-	<li><b>Total installations:</b> <%= total_installations(@customer) %></li>
-	<li><b>Total beacons:</b> <%= total_beacons(@customer) %></li>
-</ul>
+<div class="row">
+  <div class="col-md-4">
+    <h2><%= @customer.name %></h2>
+    <span class="info">Member since: <%= customer_since(@customer) %></span>
+    <span class="info">Category: <%= customer_category(@customer) %></span>
+    <span class="info">Activation code: <%= @customer.activation_code %></span>
+    <span class="info">Total installations: <%= total_installations(@customer) %></span>
+    <span class="info">Total beacons: <%= total_beacons(@customer) %></span>
+  </div>
+  <div class="col-md-4">
+    <% if check_coordinates(@customer) %>
+      <div class="map-wrap">
+          <div id="customer-map"></div>
+        </div>
+      <ul>
+        <span class="info">Address: <%= @customer.address %></span>
+      </ul>
+    <% else %>
+      <%= image_tag "map-missing.png" %>
+      <p>Your account currently does not have any attached coordinates.</p>
+    <% end %>
+  </div>
+  <div class="col-md-4">
+    <table>
+      <thead>
+        <tr><th>Payments</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>No payments</td></tr>
+      </tbody>
+    </table>
+    <table>
+      <thead>
+        <tr>
+          <th colspan="2">Account Users</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.find_each do |user| %>
+          <tr>
+            <td><%= full_name(user) %></td>
+            <td><%= user.email %></td>
+            <% if user == @user %>
+              <td><%= link_to "Edit", edit_user_path(user) %></td>
+              <td><%= link_to "Destroy", user, method: :destroy, data: { confirm: "Are you sure?" } %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 <%= link_to "Edit Account", edit_customer_path %><br>
 <%= link_to "Add New Installation", new_installation_path %><br>
 <%= link_to "View Account Users", users_path %>

@@ -5,6 +5,7 @@ class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
   def show
+    @users = User.where(customer_id: current_user.customer_id)
     @hash = Gmaps4rails.build_markers(@customer) do |customer, marker|
       marker.lat customer.latitude
       marker.lng customer.longitude

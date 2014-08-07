@@ -47,20 +47,6 @@ p {
 	clear: both;
 }
 
-.map-wrap {
-	width: 300px;
-}
-
-#beacon-map {
-	width: 300px;
-	height: 200px;
-}
-
-#customer-map {
-	width: 300px;
-	height: 200px;
-}
-
 #about-video-wrap {
 	margin: 0 auto 20px;
 	width: 400px;
@@ -153,4 +139,5 @@ pre {
 @import "nav";
 @import "audio_clips";
 @import "table";
+@import "maps";
 @import "footer";
