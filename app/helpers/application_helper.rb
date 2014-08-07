@@ -16,6 +16,18 @@ module ApplicationHelper
     beacon.description ? beacon.description : "None."
   end
 
+  def current_class_sign_in?(request)
+    request.path_info == "/users/sign_in" ? "current" : ""
+  end
+
+  def current_class_sign_up?(request)
+    request.path_info == "/users/sign_up" ? "current" : ""
+  end
+
+  def current_class_about?(request)
+    request.path_info == "/" ? "current" : ""
+  end
+
   # Coordinates
 
   def check_coordinates(object)
