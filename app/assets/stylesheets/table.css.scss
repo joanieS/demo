@@ -1,0 +1,43 @@
+table {
+  width: 100%;
+  margin-bottom: 10px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 18px;
+  border-bottom: solid 1px #5C94B6;
+}  
+
+th {
+  padding: 4px 2px 4px 8px;
+  font-weight: 400;
+  background-color: #5C94B6;
+  text-transform: uppercase;
+  color: white;
+}
+
+tr {
+  margin: 2px 0;
+  &:hover {
+    background-color: #eee;
+  }
+}
+
+td {
+  padding: 4px 2px 4px 8px;
+  color: #333;
+  a {
+    color: #333;
+    font-weight: 700;
+    &:hover {
+      color: #333;
+    }
+  }
+}
+
+.td-action {
+  padding-left: 4px;
+  width: 40px;
+}
+
+.table-icon img {
+ height: 25px
+}
