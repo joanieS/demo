@@ -11,6 +11,11 @@
 </head>
 <body>
   <%= render "header" %>
-  <%= yield %>
+  <div class="row" id="page-content-wrap">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <%= yield %>
+    </div>
+  </div>
 </body>
 </html>
