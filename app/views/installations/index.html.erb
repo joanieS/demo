@@ -1,26 +1,39 @@
-<h2>Installations</h2>
 <% if @installations.empty? %>
   <p>You currently have no installations.</p>
 <% else %>
-  <table>
+<div class="installation-wrap">
+  <%= link_to new_installation_path do %>
+    <div class="installation-image-wrap" id="installation-image-new">Add New Installation</div>
+  <% end %>
+</div>
+<% @installations.find_each do |installation| %>
+  <div class="installation-wrap">
+    <%= link_to installation_path(installation) do %>
+      <div class="installation-image-wrap"></div>
+    <% end %>
+    <span class="installation-image-title"><%= installation.name %></span>
+  </div>
+<% end %>
+
+
+
+
+
+
+
     <thead>
       <tr>
-        <th>Installation</th>
-        <th>Active</th>
         <th colspan="2">Actions</th>
       </tr>
     </thead>
     <tbody>
       <% @installations.find_each do |installation| %>
         <tr>
-          <td><%= link_to installation.name, installation_path(installation) %></td>
-          <td><%= current_state(installation) %></td>
           <td><%= link_to "Edit", edit_installation_path(installation) %></td>
           <td><%= link_to "Delete", installation_path(installation), 
             method: :destroy, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
-  </table>
 <% end %>
-<%= link_to "Add New Installation", new_installation_path %>
+

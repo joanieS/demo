@@ -3,8 +3,10 @@
 
 body {
 	h1 {
-		margin: 10px 0 20px;
-		text-align: center;
+		margin: 0 0 20px;
+		text-align: left;
+    font-size: 48px;
+    font-family: 'Open Sans Condensed', sans-serif;
 	}	
 	h2, h3, h4 {
 		margin: 5px 0 10px;
@@ -16,7 +18,7 @@ body {
 }
 
 #page-content-wrap {
- margin: 20px; 
+ margin: 30px; 
 }
 
 table {
@@ -114,6 +116,7 @@ pre {
 @import "bootstrap";
 @import "font";
 @import "beacons";
+@import "installations";
 @import "nav";
 @import "welcome";
 @import "audio_clips";

@@ -1,0 +1,23 @@
+.installation-wrap {
+  float: left;
+  width: 180px;
+  height: 200px;
+  margin-right: 20px;
+  text-align: center;
+}
+
+.installation-image-wrap {
+  height: 180px;
+  border: solid 2px #5C94B6;
+  &:hover {
+    border-color: #0B588F;
+  }
+}
+
+#installation-image-new {
+  vertical-align: bottom;
+}
+
+.installation-image-title {
+  color: #0B588F;
+}
