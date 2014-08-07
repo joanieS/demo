@@ -45,8 +45,6 @@
       </table>
   </div>
 </div>
-<ul>
-  <li><b>Created:</b> <%= creation_date(@installation) %></li>
-  <li><b>Status:</b> <%= current_state(@installation) %></li>
-</ul>
+  <p>Created: <%= creation_date(@installation) %></p>
+  <p>Status: <%= current_state(@installation) %></p>
 <%= link_to "Edit #{@installation.name.capitalize} Installation", edit_installation_path(@installation) %><br>

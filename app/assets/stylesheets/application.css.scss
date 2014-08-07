@@ -18,9 +18,6 @@ body {
     color: #333;
     font-size: 52px;
   }
-  table {
-    width: 100%;
-  }
   &::-webkit-scrollbar { 
     display: none; 
   }
@@ -31,8 +28,23 @@ body {
 }
 
 table {
-	border-bottom: solid 1px lightgrey;
+  width: 100%;
 	margin-bottom: 10px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 18px;
+  border-bottom: solid 1px #5C94B6;
+  th {
+    padding: 4px 5px;
+    font-weight: 400;
+    background-color: #5C94B6;
+    color: white;
+  }
+  tr {
+    margin: 2px 0;
+  }
+  td {
+    padding: 2px 5px;
+  }
 }
 
 .clearfix {
