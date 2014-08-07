@@ -63,10 +63,14 @@ INDEX PAGE
   font-family: 'Open Sans Condensed', sans-serif;
   font-size: 18px;
   font-weight: 700;
-  color: #0B588F;
+  color: #333;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  &:hover {
+    text-decoration: underline;
+    color: #333;
+  }
 }
 
 /************************************************
