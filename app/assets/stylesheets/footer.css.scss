@@ -3,8 +3,9 @@ footer {
   right: 0;
   bottom: 0;
   left: 0;
-  height: 100px;
+  height: 8rem;
   width: 100%;
+  padding: 10px;
   text-align: center;
   border-top: solid 1px #5C94B6;
   color: #5C94B6;
@@ -18,5 +19,8 @@ footer {
   li {
     display: inline;
     padding: 10px 0;
+    img {
+      height: 25px;
+    }
   }
 }
