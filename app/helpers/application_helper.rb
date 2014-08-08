@@ -44,6 +44,10 @@ module ApplicationHelper
     request.path_info =~ /users\/[0-9]+\/edit$/ ? "current" : ""
   end
 
+  def current_page_installation?(request)
+    request.path_info =~ /customers+\/[0-9]+\/installations\/[0-9]+(edit)?$/ ? true : false    
+  end
+
   # Coordinates
 
   def check_coordinates(object)
