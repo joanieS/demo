@@ -77,7 +77,7 @@ p {
   display: block;
   width: 180px;
   padding: 3px 8px 2px;
-  margin-top: 3px;
+  margin-top: 7px;
   font-family: 'Open Sans Condensed', sans-serif;
   font-size: 18px;
   -moz-border-radius: 5px;
@@ -94,6 +94,16 @@ p {
 
 .button+.button {
   margin-top: 6px;
+}
+
+#account-installation-wrap {
+  margin: 30px 0;
+  border-top: solid 1px #5C94B6;
+}
+
+#account-installations-link {
+  color: #333;
+  font-weight: 700;
 }
 
 pre {

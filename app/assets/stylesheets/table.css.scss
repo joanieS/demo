@@ -4,10 +4,16 @@ table {
   font-family: 'Open Sans Condensed', sans-serif;
   font-size: 18px;
   border-bottom: solid 1px #5C94B6;
-}  
+}
 
-table+table {
-  margin-top: 30px;
+tbody {
+  border-top: solid 1px #5C94B6;
+}
+
+table+table,
+.button+table,
+.info+table {
+  margin-top: 20px;
 }
 
 th {
