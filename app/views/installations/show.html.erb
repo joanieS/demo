@@ -9,8 +9,16 @@
     </div>
     <%= link_to "Edit this Installation", edit_installation_path(@installation), class: "button" %>
     <%= link_to "Delete this Installation", installation_path(@installation), method: :delete, data: { confirm: 'Are you sure?' }, class: "button" %>
-    <span class="info">Created: <%= creation_date(@installation) %></span>
-    <span class="info">Status: <%= current_state(@installation) %></span>
+    <table>
+      <tbody>
+        <tr>
+          <td>Created: <%= creation_date(@installation) %></td>
+        </tr>
+        <tr>
+          <td>Status: <%= current_state(@installation) %></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
   <div class="col-md-9">
     <h2><%= @installation.name %></h2>

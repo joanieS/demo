@@ -1,5 +1,5 @@
-// @import "active_admin/mixins";
-// @import "active_admin/base";
+@import "bootstrap";
+@import "font";
 
 html {
   height: 100%;
@@ -14,29 +14,9 @@ body {
   margin: 0;
   padding-bottom: 100px;
   min-height: 100%;
-	h1 {
-		margin: 0 0 20px;
-		text-align: center;
-    font-size: 60px;
-    font-family: 'Open Sans Condensed', sans-serif;
-	}	
-	h2, h3, h4 {
-		margin: 0 0 10px;
-		text-align: left;
-    font-family: 'Open Sans Condensed', sans-serif;
-	}
-  h2 {
-    color: #333;
-    font-size: 52px;
-  }
   &::-webkit-scrollbar { 
     display: none; 
   }
-}
-
-p {
-  font-size: 24px;
-  font-family: 'Lora', serif;
 }
 
 #page-content-wrap {
@@ -45,6 +25,30 @@ p {
 
 .clearfix {
   clear: both;
+}
+
+
+
+/************************************************
+HEADINGS
+************************************************/
+
+h1 {
+  margin: 0 0 20px;
+  text-align: center;
+  font-size: 60px;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+h2, h3, h4 {
+  margin: 0 0 10px;
+  text-align: left;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+h2 {
+  color: #333;
+  font-size: 52px;
 }
 
 .beacon-page-column-wrap {
@@ -56,14 +60,6 @@ p {
 
 #beacon-show-page-link-wrapper {
 	clear: both;
-}
-
-#about-video-wrap {
-	margin: 0 auto 20px;
-  padding: 15px;
-	width: 430px;
-	height: 230px;
-	border: 2px solid #5C94B6;
 }
 
 #content_url {
@@ -118,14 +114,23 @@ p {
   font-weight: 700;
 }
 
-pre {
-  background-color: #eee;
-  padding: 10px;
-  font-size: 11px;
-}
+
+
+/************************************************
+NOTICES AND ERRORS
+************************************************/
 
 #notice {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 18px;
+  text-align: center;
   color: green;
+  margin-bottom: 5px;
+}
+
+#notice+h1,
+#notice+h2 {
+  margin-top: 10px;
 }
 
 .field_with_errors {
@@ -157,8 +162,7 @@ pre {
   }
 }
 
-@import "bootstrap";
-@import "font";
+@import "about";
 @import "installations";
 @import "nav";
 @import "audio_clips";
