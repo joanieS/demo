@@ -36,6 +36,14 @@ module ApplicationHelper
     request.path_info =~ /customers\/[0-9]+(\/edit)?$/ ? "current" : ""
   end
 
+  def current_class_new_customer?(request)
+    request.path_info =~ /customers\/new$/ ? "current" : ""
+  end
+
+  def current_class_existing_customer?(request)
+    request.path_info =~ /users\/[0-9]+\/edit$/ ? "current" : ""
+  end
+
   # Coordinates
 
   def check_coordinates(object)

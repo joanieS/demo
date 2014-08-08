@@ -3,6 +3,8 @@
       <% if !current_user.customer_id.nil? %>
         <div id="pre-navbar-customer-profile"></div>
         <span id="pre-navbar-welcome">Welcome, <%= link_to current_user.customer.name, customer_path(current_user.customer_id) %>!</span>
+      <% end %>
+      <% if current_user %>
         <span id="pre-navbar-email">You're signed in as <span id="current-user-email"><%= current_user.email %></span></span>
       <% end %>
     <div class="clearfix"></div>
@@ -20,8 +22,8 @@
           <li><%= link_to "Metrics", "/", class: "nav-link" %> </li>  
 					<li><%= link_to "Account", customer_path(current_user.customer_id), class: "nav-link #{current_class_account?(request)}" %> </li>
 				<% else %>
-          <li><%= link_to "Create new company account", new_customer_path, class: "nav-link" %></li>
-          <li><%= link_to "Existing company account", edit_user_path(current_user), class: "nav-link" %></li>
+          <li><%= link_to "Create new company account", new_customer_path, class: "nav-link #{current_class_new_customer?(request)}" %></li>
+          <li><%= link_to "Existing company account", edit_user_path(current_user), class: "nav-link #{current_class_existing_customer?(request)}" %></li>
         <% end %>
       <% end %>
       <li><%= link_to "About", root_path, class: "nav-link #{current_class_about?(request)}" %></li>
