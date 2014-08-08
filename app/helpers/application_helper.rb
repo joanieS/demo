@@ -49,7 +49,7 @@ module ApplicationHelper
   end
 
   def current_page_beacon?(request)
-    request.path_info =~ /customers+\/[0-9]+\/installations\/[0-9]+\/beacons\/[0-9]+$/ ? true : false    
+    request.path_info =~ /customers+\/[0-9]+\/installations\/[0-9]+\/beacons\/([0-9]+)|(new)$/ ? true : false    
   end
 
   def current_page_beacon_edit?(request)
