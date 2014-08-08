@@ -2,23 +2,23 @@
   <div class="col-md-4">
     <h2><%= @customer.name %></h2>
     <%= link_to "Edit Account", edit_customer_path, class: "button" %>
-    <%= link_to "Add New Installation", new_installation_path, class: "button" %>
     <span class="info">Member since: <%= customer_since(@customer) %></span>
     <span class="info">Category: <%= customer_category(@customer) %></span>
     <span class="info">Activation code: <%= @customer.activation_code %></span>
-    <span class="info">Total installations: <%= total_installations(@customer) %></span>
-    <span class="info">Total beacons: <%= total_beacons(@customer) %></span>
   </div>
   <div class="col-md-3">
     <% if check_coordinates(@customer) %>
       <div class="map-wrap">
-          <div id="customer-map"></div>
-        </div>
-        <span class="info">Address: <%= @customer.address %></span>
+        <div id="customer-map"></div>
+      </div>
     <% else %>
       <%= image_tag "map-missing.png" %>
       <p>Your account currently does not have any attached coordinates.</p>
     <% end %>
+    <span class="info"><%= @customer.address %></span>
+    <span class="info"><%= link_to "Total installations: #{total_installations(@customer)}", installations_path(@customer) %>  </span>
+    <span class="info">Total beacons: <%= total_beacons(@customer) %></span>
+    <%= link_to "Add New Installation", new_installation_path, class: "button" %>
   </div>
   <div class="col-md-5">
     <table>
