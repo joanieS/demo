@@ -36,7 +36,7 @@ body {
 
 p {
   font-size: 24px;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Lora', serif;
 }
 
 #page-content-wrap {
@@ -60,9 +60,10 @@ p {
 
 #about-video-wrap {
 	margin: 0 auto 20px;
-	width: 400px;
-	height: 200px;
-	border: 1px solid black;
+  padding: 15px;
+	width: 430px;
+	height: 230px;
+	border: 2px solid #5C94B6;
 }
 
 #content_url {
