@@ -1,68 +1,86 @@
-<%= form_for [@customer, @installation, @beacon] do |f| %>
-  <% if @beacon.errors.any? %>
-    <div id="error_explanation">
-      <h3><%= pluralize(@beacon.errors.count, "error") %> prohibited this beacon from being saved:</h3>
-      <ul>
-        <% @beacon.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <h3>Beacon Info</h3>
-    <div class="field">
-      <%= f.label :minor_id, "Minor ID" %><br>
-      <%= f.number_field :minor_id %>
-    </div>
-    <div class="field">
-      <%= f.label :major_id, "Major ID" %><br>
-      <%= f.number_field :major_id %>
-    </div>
-    </div>
-    <% if params[:action] == "new" %>
-      <div class="field">
-        <%= f.label :uuid, "UUID" %><br>
-        <%= f.text_field :uuid, placeholder: "B9407F30-F5F8-466E-AFF9-25556B57FE6D", disabled: true %>
+<div class="row form-container">
+  <div class="col-md-4">
+    <% if @beacon.minor_id != nil %>
+    <h2>Edit Beacon #<%= @beacon.minor_id %></h2>
+    <% else %>
+    <h2>Add New Beacon</h2>
+    <% end %>
+    <h3>Installation: <%= @installation.name %></h3>
+    <%= form_for [@customer, @installation, @beacon] do |f| %>
+      <div class="actions">
+        <%= f.submit %>
       </div>
-    <% elsif params[:action] == "edit" %>
-      <div class="field">
-        <%= f.label :latitude %><br>
-        <%= f.number_field :latitude , step: "any", min: "-90", max: "90" %>
-      </div>
-      <div class="field">
-        <%= f.label :longitude %><br>
-        <%= f.number_field :longitude, step: "any", min: "-180", max: "180" %>
-      <div class="field">
-        <%= f.label :uuid, "UUID" %><br>
-        <%= f.text_field :uuid %>
+      <%= button_to "Cancel", installation_path(@installation), :type => 'button', :method => :get %>
+      <%# link_to "Cancel", installation_path(@installation), {:style=>'-webkit-appearance:button; cursor:pointer; width:25rem; margin-top:10px; text-align:center; background-color: #0B588F; color:#fff; webkit-border-radius:5px; border-radius:5px; text-transform:uppercase; padding: 2px 8px; font-family: "Open Sans Condensed", sans-serif; border-radius: 10px;'} %>
+  </div>
+  <div class="col-md-offset-1 col-md-4">
+    <% if @beacon.errors.any? %>
+      <div id="error_explanation">
+        <h3><%= pluralize(@beacon.errors.count, "error") %> prohibited this beacon from being saved:</h3>
+        <ul>
+          <% @beacon.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
       </div>
     <% end %>
-    <div class="field">
-      <%= f.label :active %><br>
-      <%= f.check_box :active %>
-    </div>
-  <h3>Content Info</h3>
-    <div class="field">
-      <%= f.label :description %><br>
-      <%= f.text_area :description %>
-    </div>
-    <div class="field">
-      <%= f.label :content_type, "Content type" %><br>
-      <%= f.select :content_type, options_for_select([["Image","image"], ["Video","local-video"], ["Website", "web"], ["Online video","web-video"], ["Photo gallery","photo-gallery"], ["Memories", "memories"]]) %>
-    </div>
-    <div class="field content-type-field" id="content-file-field">
-      <%= f.label :content_image, "Content" %><br>
-      <%= f.file_field :content_image %>
-    </div>
-    <div class="field content-type-field" id="content-url-field"> 
-      <%= f.label :content_url %><br>
-      <%= f.text_field :content_url %>
-    </div>
-    <div class="field">
-      <%= f.label :audio %><br>
-      <%= f.file_field :audio %>
-    </div>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
-<% end %>
+    <h3 class="form-header">Beacon Info</h3>
+      <div class="field">
+        <%= f.label :minor_id, "Minor ID:"%>
+        <%= f.text_field :minor_id, :step => :disabled %>
+      </div>
+      <div class="field">
+        <%= f.label :major_id, "Major ID:" %>
+        <%= f.text_field :major_id %>
+      </div>
+      <%# if params[:action] == "new" %>
+        <!--div class="field">
+          <%= f.label :uuid, "UUID" %>
+          <%= f.text_field :uuid, placeholder: "B9407F30-F5F8-466E-AFF9-25556B57FE6D", disabled: true %>
+        </div-->
+      <%# elsif params[:action] == "edit" %>
+        <div class="field">
+          <%= f.label :latitude, "Latitude:" %>
+          <%= f.text_field :latitude , step: "any", min: "-90", max: "90" %>
+        </div>
+        <div class="field">
+          <%= f.label :longitude, "Longitude:" %>
+          <%= f.text_field :longitude, step: "any", min: "-180", max: "180" %>
+        </div>
+        <!--div class="field">
+          <%= f.label :uuid, "UUID" %><br>
+          <%= f.text_field :uuid %>
+        </div-->
+      <%# end %>
+      <!--div class="field">
+        <%= f.label :active %>
+        <%= f.check_box :active %>
+      </div-->
+    <h3 class="form-header">Content Info</h3>
+      <!--div class="field">
+        <%# f.label :description %>
+        <%# f.text_area :description %>
+      </div-->
+      <div class="field">
+        <%= f.label :content_type, "Content Type:" %>
+        <%= f.select :content_type, options_for_select([["Image","image"], ["Video","local-video"], ["Website", "web"], ["Online video","web-video"], ["Photo gallery","photo-gallery"], ["Memories", "memories"]]) %>
+      </div>
+      <!--div class="field content-type-field" id="content-file-field"-->
+      <div class="field">
+        <%= f.label :content_image, "Content:" %>
+        <%= f.file_field :content_image %>
+      </div>
+      <!--div class="field content-type-field" id="content-url-field"--> 
+      <div class="field">
+        <%= f.label :content_url, "Content URL: " %>
+        <%= f.text_field :content_url %>
+      </div>
+      <div class="field">
+        <%= f.label :audio, "Audio: " %>
+        <%= f.file_field :audio %>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-md-4">
+  </div>
+</div>
