@@ -1,4 +1,4 @@
-class BeaconsController < InheritedResources::Base
+class BeaconsController < ApplicationController
   
   before_action :authenticate_user!
 
