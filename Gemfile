@@ -36,7 +36,6 @@ group :development do
 end
 
 # Active admin and dependencies
-gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'devise'
 gem 'cocoon'
 # Use Uglifier as compressor for JavaScript assets
