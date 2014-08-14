@@ -16,6 +16,10 @@ class BeaconsController < ApplicationController
     end
   end
 
+  def new
+    @beacon = Beacon.new
+  end
+
   def create
     @beacon = Beacon.new(beacon_params)
     set_beacon_installation_id_and_uuid
