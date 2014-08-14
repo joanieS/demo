@@ -6,6 +6,8 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+
+
 module Demo
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -21,5 +23,6 @@ module Demo
     # config.i18n.default_locale = :de
 
     config.action_dispatch.rescue_responses["CustomersController::Forbidden"] = :forbidden
+    config.assets.initialize_on_precompile = false
   end
 end
