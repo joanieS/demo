@@ -7,6 +7,8 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+
+
 module Demo
   class Application < Rails::Application
 
@@ -24,5 +26,6 @@ module Demo
     # config.i18n.default_locale = :de
 
     config.action_dispatch.rescue_responses["CustomersController::Forbidden"] = :forbidden
+    config.assets.initialize_on_precompile = false
   end
 end
