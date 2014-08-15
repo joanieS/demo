@@ -56,6 +56,6 @@ class Beacon < ActiveRecord::Base
     'audio/mpg', 'audio/x-mpg', 'audio/x-mpegaudio' 
   ]
 
-  has_attached_file :content
+  #has_attached_file :content
 
 end
