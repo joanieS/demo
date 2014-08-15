@@ -10,7 +10,7 @@
       <div class="actions">
         <%= f.submit %>
       </div>
-      <%= button_to "Cancel", installation_path(@installation), :type => 'button', :method => :get %>
+
       <%# link_to "Cancel", installation_path(@installation), {:style=>'-webkit-appearance:button; cursor:pointer; width:25rem; margin-top:10px; text-align:center; background-color: #0B588F; color:#fff; webkit-border-radius:5px; border-radius:5px; text-transform:uppercase; padding: 2px 8px; font-family: "Open Sans Condensed", sans-serif; border-radius: 10px;'} %>
   </div>
   <div class="col-md-offset-1 col-md-4">
@@ -39,14 +39,14 @@
           <%= f.text_field :uuid, placeholder: "B9407F30-F5F8-466E-AFF9-25556B57FE6D", disabled: true %>
         </div-->
       <%# elsif params[:action] == "edit" %>
-        <div class="field">
+        <!--div class="field">
           <%= f.label :latitude, "Latitude:" %>
           <%= f.text_field :latitude , step: "any", min: "-90", max: "90" %>
         </div>
         <div class="field">
           <%= f.label :longitude, "Longitude:" %>
           <%= f.text_field :longitude, step: "any", min: "-180", max: "180" %>
-        </div>
+        </div-->
         <!--div class="field">
           <%= f.label :uuid, "UUID" %><br>
           <%= f.text_field :uuid %>
@@ -72,8 +72,8 @@
       </div>
       <!--div class="field content-type-field" id="content-url-field"--> 
       <div class="field">
-        <%= f.label :content_url, "Content URL: " %>
-        <%= f.text_field :content_url %>
+        <%= f.label :content, "Content URL: " %>
+        <%= f.text_field :content %>
       </div>
       <div class="field">
         <%= f.label :audio, "Audio: " %>
@@ -81,6 +81,7 @@
       </div>
     <% end %>
   </div>
-  <div class="col-md-4">
+  <div class="col-md-4" style="margin-top: -250px;">
+    <%= button_to "Cancel", installation_path(@installation), :name => 'button', :type => 'link', :method => :get %>
   </div>
 </div>
