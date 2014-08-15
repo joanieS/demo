@@ -52,10 +52,10 @@
           <%= f.text_field :uuid %>
         </div-->
       <%# end %>
-      <!--div class="field">
+      <div class="field">
         <%= f.label :active %>
         <%= f.check_box :active %>
-      </div-->
+      </div>
     <h3 class="form-header">Content Info</h3>
       <!--div class="field">
         <%# f.label :description %>
@@ -66,10 +66,10 @@
         <%= f.select :content_type, options_for_select([["Image","image"], ["Video","local-video"], ["Website", "web"], ["Online video","web-video"], ["Photo gallery","photo-gallery"], ["Memories", "memories"]]) %>
       </div>
       <!--div class="field content-type-field" id="content-file-field"-->
-      <div class="field">
+      <!--div class="field">
         <%= f.label :content_image, "Content:" %>
         <%= f.file_field :content_image %>
-      </div>
+      </div-->
       <!--div class="field content-type-field" id="content-url-field"--> 
       <div class="field">
         <%= f.label :content, "Content URL: " %>
