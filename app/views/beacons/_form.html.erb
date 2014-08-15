@@ -57,10 +57,10 @@
         <%= f.check_box :active %>
       </div>
     <h3 class="form-header">Content Info</h3>
-      <!--div class="field">
-        <%# f.label :description %>
-        <%# f.text_area :description %>
-      </div-->
+      <div class="field">
+        <%= f.label :description %>
+        <%= f.text_area :description %>
+      </div>
       <div class="field">
         <%= f.label :content_type, "Content Type:" %>
         <%= f.select :content_type, options_for_select([["Image","image"], ["Video","local-video"], ["Website", "web"], ["Online video","web-video"], ["Photo gallery","photo-gallery"], ["Memories", "memories"]]) %>
