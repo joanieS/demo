@@ -7,7 +7,7 @@ select,
 label {
   font-family: 'Open Sans Condensed', sans-serif;
   font-size: 18px;
-  width: 25rem;
+  width: 29rem;
 }
 
 input,
@@ -27,6 +27,7 @@ label {
 
 input[type="file"] {
   border: none;
+padding-left: 0;
   background-color: #f6f6f6;
 }
 
