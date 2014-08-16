@@ -1,11 +1,13 @@
 <div class="row">
   <div class="col-md-3">
-    <div id="installation-show-image">
-      <style>
-        #installation-show-image { 
-          background-image: url(<%= @installation.image %>); 
-        }
-      </style>
+    <div id="installation-show-image-wrap">
+      <div id="installation-show-image">
+        <style>
+          #installation-show-image { 
+            background-image: url(<%= @installation.image %>); 
+          }
+        </style>
+      </div>
     </div>
     <%= link_to "Edit this Installation", edit_installation_path(@installation), class: "button" %>
     <%= link_to "Delete this Installation", installation_path(@installation), method: :delete, data: { confirm: 'Are you sure?' }, class: "button" %>
