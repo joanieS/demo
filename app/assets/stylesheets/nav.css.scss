@@ -100,6 +100,8 @@ nav {
 // Nav link corresponding to current page.
 .current {
   color: white;
+  padding-bottom: 3px;
+  border-bottom: solid 3px #5C94B6;
 }
 
 .nav-back-link {

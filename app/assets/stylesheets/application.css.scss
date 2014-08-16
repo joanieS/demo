@@ -51,17 +51,6 @@ h2 {
   font-size: 52px;
 }
 
-.beacon-page-column-wrap {
-	padding: 5px;
-	width: 40%;
-	margin-right: 30px;
-	float: left;
-}
-
-#beacon-show-page-link-wrapper {
-	clear: both;
-}
-
 #content_url {
 	display: none;
 }
@@ -170,3 +159,4 @@ NOTICES AND ERRORS
 @import "maps";
 @import "forms";
 @import "footer";
+@import "beacons";
