@@ -52,39 +52,3 @@ div.vague {
 .form-container {
 	padding-top: 15px;
 }
-
-div.field input {
-	border: 2px solid #0B588F;
-	border-radius: 10px;
-	background-color: rgba(11,88,143,0);
-	display: inline;
-	padding: 3px 0px 3px 12px;
-	color: rgba(11,88,143,.7);
-	width: 50%
-}
-
-h3.form-header {
-	background-color: rgba(11,88,143,.7);
-	color: #fff;
-	padding: 15px;
-	margin-bottom: 0px;
-}
-
-div.field {
-	background-color: rgba(11,88,143,.15);
-	padding: 5px;
-	color: rgba(11,88,143,.7);
-	margin: 5px 0 5px 0;
-}
-
-div.field label {
-	width: 28%;
-	padding-left: 10px;
-}
-
-input:focus,
-select:focus,
-textarea:focus,
-button:focus {
-    outline: none;
-}
