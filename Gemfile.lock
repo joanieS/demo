@@ -256,6 +256,7 @@ DEPENDENCIES
   httparty
   jbuilder (~> 2.0)
   jquery-rails
+  jquery-ui-rails
   paperclip (= 3.5.4)
   pg
   pry

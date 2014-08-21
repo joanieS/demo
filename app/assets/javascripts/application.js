@@ -1,7 +1,9 @@
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
 //= require underscore
 //= require gmaps/google
+//= require jquery.ui.all
 //= require_tree .
 
 $(document).ready(function() {
@@ -16,5 +18,17 @@ $(document).ready(function() {
     } else if ( $content === "web" || $content === "web-video" ) {
       $('#content-url-field').show();
     }
+  });
+
+
+  $(".nav-btn").click( function() {
+    $(this).animate({
+          'background-color': 'green',
+          'border': 'none'
+      }, 'fast');
+      }, function() {
+      $(this).animate({
+          'color': '#001A34'
+      }, 'fast');
   });
 });
