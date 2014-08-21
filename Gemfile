@@ -7,6 +7,7 @@ gem 'pg'
 
 gem 'geocoder'
 gem 'gmaps4rails'
+gem 'railties'
 
 gem 'bootstrap-sass'
 

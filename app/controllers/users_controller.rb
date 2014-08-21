@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     if @user.customer_id
       respond_to do |format|
         if @user.update(user_params)
-          format.html { redirect_to users_path, notice: "User was successfully updated." }
+          format.html { redirect_to customer_path(current_user.customer_id), notice: "User was successfully updated." }
           format.json { render :index, status: :ok, location: users_path }
         else
           format.html { render :edit }
