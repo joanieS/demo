@@ -1,0 +1,27 @@
+/*
+* This stylesheet contains font options. 
+*/
+
+/*--------------------------------------
+HEADINGS
+--------------------------------------*/
+
+h1, h2, h3, h4 {
+  @extend .sans-serif;
+}
+
+h1 {
+  margin: 0 0 1.5rem;
+  text-align: center;
+  font-size: 60px;
+}
+
+h2, h3, h4 {
+  margin: 0 0 1rem;
+  text-align: left;
+}
+
+h2 {
+  color: #333;
+  font-size: 52px;
+}

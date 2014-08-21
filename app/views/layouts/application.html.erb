@@ -10,12 +10,11 @@
 </head>
 <body>
   <%= render "header" %>
-  <div class="row" id="page-content-wrap">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
-      <p id="notice"><%= notice %></p>
-      <%= yield %>
-    </div>
+  <div class="page-wrap">
+    <p class="notice">
+      <%= notice %>
+    </p>
+    <%= yield %>
   </div>
   <%= render "footer" %>
 </body>

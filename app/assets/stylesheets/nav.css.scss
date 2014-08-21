@@ -1,61 +1,79 @@
-/************************************************
-PRE NAV HEADER
-************************************************/
+/*
+* This stylesheet contains styling for the navigation bar.
+*/
 
-#pre-navbar-header {
+/*--------------------------------------
+PRE NAV
+--------------------------------------*/
+
+/*
+* Once a user has signed in, a "pre nav" is generated that displays user account
+* information.
+*/
+
+$pre-nav-color: $grey-dark;
+
+.pre-nav {
+  @extend .side-padding;
+  @extend .sans-serif;
   width: 100%;
-  padding: 0 16px;
-  margin: 8px 0;
-  font-size: 18px;
-  font-family: 'Open Sans Condensed', sans-serif;
-  color: #333;
+  padding: 0.4rem 0.5rem 0.5rem;
+  background-color: #CAD9E8;
+  font-size: 1.5rem;
+  color: $pre-nav-color;
 }
 
-#pre-navbar-customer-profile {
-  float: left;
-  margin-right: 5px;
-  box-sizing: border-box; 
-  display: inline;
-  height: 25px;
-  width: 25px;
-  border: solid 2px #0B588F;
-}
-
-#pre-navbar-welcome {
+.pre-nav-welcome {
   float: left;
   a {
-    color: #333;
+    color: $pre-nav-color;
     font-weight: 700;
     &:hover {
-      color: #333;
+      color: $pre-nav-color;
     }
   }
 }
 
-#pre-navbar-email {
+.pre-nav-email {
   float: right;
 }
 
 
 
-/************************************************
+/*--------------------------------------
 NAV
-************************************************/
+--------------------------------------*/
 
-#bluebar {
+/*
+* The navigation bar is composed of a background, i.e. bluebar, and content. The
+* content is further broken up into three main sections: nav (main site 
+* navigation links) in the center, back link (link to parent resorce) on the 
+* left, 
+*/
+
+.bluebar {
+  @extend .side-padding;
+  font-size: 1.5rem;
   width: 100%;
-  background-color: #0B588F;
+  height: 3.3rem;
+  padding-top: 0.2rem;
+  background-color: $blue;
+  margin-bottom: 4rem;
+  -webkit-box-shadow: 0 -1px 6px -2px $blue-dark;
+     -moz-box-shadow: 0 -1px 6px -2px $blue-dark;
+          box-shadow: 0 -1px 6px -2px $blue-dark;
 }
 
 nav {
-  padding: 3px 0;
+  position: absolute;
+  left: 10%;
+  right: 10%;
   ul {
     text-align: center;
     padding: 0;
     margin: 0;
     li {
-      font-size: 24px;
-      padding: 0 8px;
+      padding: 0 0.7rem;
       text-decoration: none;
       display: inline;
       list-style: none;
@@ -64,7 +82,7 @@ nav {
 }
 
 .nav-link {
-  font-size: 24px;
+  font-size: 2rem;
   font-family: 'Open Sans Condensed', sans-serif;
   text-transform: uppercase;
   color: #5C94B6;
@@ -74,22 +92,22 @@ nav {
   }
 }
 
-#logout-btn {
-  position: relative;
-  bottom: 39px;
-  padding: 3px 8px 2px;
-  margin: 2px 14px 0 0;
-  height: 32px;
-  float: right;
+.nav-btn {
+  width: 7rem;
+  display: inline-block;
+  padding: 0.1rem 0.4rem;
+  margin-top: 0.3rem;
   text-transform: uppercase;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  border: solid 1px #5C94B6;
+  background-color: #5C94B6;
+  border-bottom: 1px solid $blue-dark;
+  text-align: center;
   a {
-    font-size: 18px;
+    font-size: 1.5rem;
     font-family: 'Open Sans Condensed', sans-serif;
-    color: #5C94B6;
+    color: $blue-dark;
     &:hover {
       text-decoration: none;
       color: white;
@@ -97,19 +115,25 @@ nav {
   }
 }
 
+.nav-log-out-btn {
+  @extend .nav-btn;
+  float: right;
+}
+
+.nav-btn+.nav-btn {
+  margin-left: 0.7rem;
+}
+
 // Nav link corresponding to current page.
 .current {
   color: white;
-  padding-bottom: 3px;
-  border-bottom: solid 3px #5C94B6;
 }
 
 .nav-back-link {
+  font-size: 2rem;
   float: left;
-  margin-top: 2px;
-  padding: 0 0 0 14px;
+  padding: 0;
   a {
-    font-size: 24px;
     font-family: 'Open Sans Condensed', sans-serif;
     color: #5C94B6;
     &:hover {

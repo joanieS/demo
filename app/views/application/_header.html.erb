@@ -1,16 +1,15 @@
 <% if current_user %>
-  <div id="pre-navbar-header">
+  <div class="pre-nav">
       <% if !current_user.customer_id.nil? %>
-        <div id="pre-navbar-customer-profile"></div>
-        <span id="pre-navbar-welcome">Welcome, <%= link_to current_user.customer.name, customer_path(current_user.customer_id) %>!</span>
+        <span class="pre-nav-welcome">Welcome, <%= link_to current_user.customer.name, customer_path(current_user.customer_id) %>!</span>
       <% end %>
       <% if current_user %>
-        <span id="pre-navbar-email">You're signed in as <span id="current-user-email"><%= current_user.email %></span></span>
+        <span class="pre-nav-email">You're signed in as <span id="current-user-email"><%= current_user.email %></span></span>
       <% end %>
     <div class="clearfix"></div>
   </div>
 <% end %>
-<div id="bluebar">
+<div class="bluebar">
   <% if current_page_installation?(request) %>
     <div class="nav-back-link"><%= link_to "< Installations", installations_path(@customer) %> </div>
   <% end %>
@@ -23,10 +22,11 @@
 	<nav>
 		<ul>
 			<% if !current_user %>
-				<li><%= link_to "Sign in", new_user_session_path, class: "nav-link #{current_class_sign_in?(request)}" %></li>
-				<li><%= link_to "Sign up", new_user_registration_path, class: "nav-link #{current_class_sign_up?(request)}" %></li>
+				<div class="nav-btn"><%= link_to "Sign in", new_user_session_path, class: "#{current_class_sign_in?(request)}" %></div>
+				<div class="nav-btn"><%= link_to "Sign up", new_user_registration_path, class: "#{current_class_sign_up?(request)}" %></div>
 			<% else %>
 				<% if current_user.customer_id %>
+          <li><%= link_to "About", root_path, class: "nav-link #{current_class_about?(request)}" %></li>
 					<li><%= link_to "Installations", customer_installations_path(current_user.customer_id), class: "nav-link #{current_class_installations?(request)}" %> </li>
           <li><%= link_to "Metrics", "/", class: "nav-link" %> </li>  
 					<li><%= link_to "Account", customer_path(current_user.customer_id), class: "nav-link #{current_class_account?(request)}" %> </li>
@@ -35,10 +35,10 @@
           <li><%= link_to "Existing company account", edit_user_path(current_user), class: "nav-link #{current_class_existing_customer?(request)}" %></li>
         <% end %>
       <% end %>
-      <li><%= link_to "About", root_path, class: "nav-link #{current_class_about?(request)}" %></li>
 		</ul>
 	</nav>
   <% if current_user %>
-    <div id="logout-btn"><%= link_to "Logout", destroy_user_session_path, method: :delete %></div>
+    <div class="nav-log-out-btn"><%= link_to "Logout", destroy_user_session_path, method: :delete %></div>
   <% end %>
+  <div class="clearfix"></div>
 </div>

@@ -1,5 +1,38 @@
+/*
+* This stylesheet imports and compiles all other stylesheets as well as
+* including some application-wide styling and variables.
+*/
+
+/* 
+* The "bootstrap" and "font" stylesheets are imported first to ensure that their
+* properties are accesible by later stylesheets.
+*/
+
 @import "bootstrap";
-@import "font";
+@import "colors";
+@import "fonts";
+@import "font_options";
+@import "notices";
+@import "about";
+@import "installations";
+@import "nav";
+@import "audio_clips";
+@import "table";
+@import "maps";
+@import "forms";
+@import "footer";
+@import "beacons";
+
+
+/*--------------------------------------
+STICKY FOOTER
+--------------------------------------*/
+
+/* 
+* The following html and body styling is used to keep the footer at the base of
+* the application, irrespective of whether the content in question fills up the
+* full screen height or not.
+*/
 
 html {
   height: 100%;
@@ -10,46 +43,34 @@ html {
 body {
   min-height: 100%;
   min-width: 100%;
-  position:absolute;
+  position: absolute;
   margin: 0;
-  padding-bottom: 100px;
-  min-height: 100%;
-  &::-webkit-scrollbar { 
-    display: none; 
-  }
+  padding-bottom: 10rem;
 }
 
-#page-content-wrap {
- margin: 40px 30px; 
+// Removes the scrollbar for pages where the content height exceeds the window.
+body::-webkit-scrollbar {
+  display: none; 
 }
 
+.page-wrap {
+  margin-bottom: 6rem; 
+}
+
+.side-padding {
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+/*--------------------------------------
+USEFUL CLASSES
+--------------------------------------*/
+
+// Creates clearfix class to 
 .clearfix {
   clear: both;
 }
 
-
-
-/************************************************
-HEADINGS
-************************************************/
-
-h1 {
-  margin: 0 0 20px;
-  text-align: center;
-  font-size: 60px;
-  font-family: 'Open Sans Condensed', sans-serif;
-}
-
-h2, h3, h4 {
-  margin: 0 0 10px;
-  text-align: left;
-  font-family: 'Open Sans Condensed', sans-serif;
-}
-
-h2 {
-  color: #333;
-  font-size: 52px;
-}
 
 #content_url {
 	display: none;
@@ -64,18 +85,18 @@ h2 {
 }
 
 .info {
+  @extend .sans-serif;
   margin-top: 5px;
   display: block;
-  font-family: 'Open Sans Condensed', sans-serif;
   font-size: 18px;
 }
 
 .button {
+  @extend .sans-serif;
   display: block;
   width: 180px;
   padding: 3px 8px 2px;
   margin-top: 7px;
-  font-family: 'Open Sans Condensed', sans-serif;
   font-size: 18px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -102,61 +123,3 @@ h2 {
   color: #333;
   font-weight: 700;
 }
-
-
-
-/************************************************
-NOTICES AND ERRORS
-************************************************/
-
-#notice {
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-size: 18px;
-  text-align: center;
-  color: green;
-  margin-bottom: 5px;
-}
-
-#notice+h1,
-#notice+h2 {
-  margin-top: 10px;
-}
-
-.field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
-}
-
-#error_explanation {
-  width: 450px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 0;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-  h2 {
-    text-align: left;
-    font-weight: bold;
-    padding: 5px 5px 5px 15px;
-    font-size: 12px;
-    margin: -7px;
-    margin-bottom: 0px;
-    background-color: #c00;
-    color: #fff;
-  }
-  ul li {
-    font-size: 12px;
-    list-style: square;
-  }
-}
-
-@import "about";
-@import "installations";
-@import "nav";
-@import "audio_clips";
-@import "table";
-@import "maps";
-@import "forms";
-@import "footer";
-@import "beacons";
