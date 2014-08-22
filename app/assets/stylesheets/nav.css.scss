@@ -1,14 +1,13 @@
-/*
-* This stylesheet contains styling for the navigation bar.
-*/
+/* This stylesheet contains styling for the navigation bar. */
 
 /*--------------------------------------
 PRE NAV
 --------------------------------------*/
 
 /*
-* Once a user has signed in, a "pre nav" is generated that displays user account
-* information.
+* Once a user has signed in, a "pre nav" div is generated that displays user 
+* account information: on the left is a welcome message with the customer's 
+* name, on the right is a message displaying the current user's email.
 */
 
 $pre-nav-color: $grey-dark;
@@ -116,7 +115,6 @@ nav {
 }
 
 .nav-log-out-btn {
-  @extend .nav-btn;
   float: right;
 }
 

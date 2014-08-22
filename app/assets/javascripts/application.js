@@ -20,15 +20,11 @@ $(document).ready(function() {
     }
   });
 
-
-  $(".nav-btn").click( function() {
-    $(this).animate({
-          'background-color': 'green',
-          'border': 'none'
-      }, 'fast');
-      }, function() {
-      $(this).animate({
-          'color': '#001A34'
-      }, 'fast');
+  // This function adds styling when a nav btn is clicked.
+  $(".nav-btn").on('click', function() {
+    $(this).css('border', 'none');
+    $(this).animate({'marginTop': '+=1'}, '5');
+    $(this).children('a').animate({ 'color': 'green' }, 'fast');
   });
+
 });

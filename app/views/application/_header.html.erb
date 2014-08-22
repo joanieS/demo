@@ -1,24 +1,38 @@
+<!--The pre nav displays information about the user and the customer they are 
+    attached to. It is only displayed after a user has signed in.-->
 <% if current_user %>
   <div class="pre-nav">
       <% if !current_user.customer_id.nil? %>
-        <span class="pre-nav-welcome">Welcome, <%= link_to current_user.customer.name, customer_path(current_user.customer_id) %>!</span>
+        <span class="pre-nav-welcome">
+          Welcome, <%= link_to current_user.customer.name, customer_path(current_user.customer_id) %>!
+        </span>
       <% end %>
-      <% if current_user %>
-        <span class="pre-nav-email">You're signed in as <span id="current-user-email"><%= current_user.email %></span></span>
-      <% end %>
+      <span class="pre-nav-email">
+        You're signed in as <%= current_user.email %>
+      </span>
     <div class="clearfix"></div>
   </div>
 <% end %>
+<!--The bluebar encapsulates the nav bar and its sub-sections, while 
+    simultaneously providing a colored background for the nav.-->
 <div class="bluebar">
-  <% if current_page_installation?(request) %>
-    <div class="nav-back-link"><%= link_to "< Installations", installations_path(@customer) %> </div>
-  <% end %>
-  <% if current_page_beacon?(request) %>
-    <div class="nav-back-link"><%= link_to "< #{@installation.name}", installation_path(@installation) %></div>
-  <% end %>
-  <% if current_page_beacon_edit?(request) %>
-    <div class="nav-back-link"><%= link_to "< Beacon", beacon_path(@beacon) %></div>
-  <% end %>
+  <div class="nav-back-links-wrap">
+    <% if current_page_installation?(request) %>
+      <div class="nav-back-link">
+        <%= link_to "< Installations", installations_path(@customer) %>
+      </div>
+    <% end %>
+    <% if current_page_beacon?(request) %>
+      <div class="nav-back-link">
+        <%= link_to "< #{@installation.name}", installation_path(@installation) %>
+      </div>
+    <% end %>
+    <% if current_page_beacon_edit?(request) %>
+      <div class="nav-back-link">
+        <%= link_to "< Beacon", beacon_path(@beacon) %>
+      </div>
+    <% end %>
+  </div>
 	<nav>
 		<ul>
 			<% if !current_user %>
@@ -38,7 +52,7 @@
 		</ul>
 	</nav>
   <% if current_user %>
-    <div class="nav-log-out-btn"><%= link_to "Logout", destroy_user_session_path, method: :delete %></div>
+    <div class="nav-btn nav-log-out-btn"><%= link_to "Logout", destroy_user_session_path, method: :delete %></div>
   <% end %>
   <div class="clearfix"></div>
 </div>
