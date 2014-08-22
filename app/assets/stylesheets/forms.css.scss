@@ -1,5 +1,5 @@
 .field {
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 
 input,
@@ -7,7 +7,7 @@ select,
 label {
   font-family: 'Open Sans Condensed', sans-serif;
   font-size: 18px;
-  width: 25rem;
+  width: 29rem;
 }
 
 input,
@@ -27,6 +27,8 @@ label {
 
 input[type="file"] {
   border: none;
+padding-left: 0;
+  background-color: #f6f6f6;
 }
 
 input[type="checkbox"] {
@@ -45,4 +47,21 @@ input[type="submit"] {
   -webkit-border-radius: 5px;
   border-radius: 5px;
   text-transform: uppercase;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+form {
+  width: 50%;
+  padding: 20px 60px 40px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  border-bottom: solid 2px #ddd;
+  background-color: #f6f6f6;
 }
