@@ -13,46 +13,65 @@
     <div class="clearfix"></div>
   </div>
 <% end %>
-<!--The bluebar encapsulates the nav bar and its sub-sections, while 
+<!--The bluebar encapsulates the nav bar and its 3 subsections, while 
     simultaneously providing a colored background for the nav.-->
 <div class="bluebar">
+  <!--Subsection 1: Back links
+      When a user views a particular resource, a link is provided that returns 
+      the user to the parent resource (where applicable). Logic for this section
+      is contained in the application_helper.-->
   <div class="nav-back-links-wrap">
     <% if current_page_installation?(request) %>
       <div class="nav-back-link">
         <%= link_to "< Installations", installations_path(@customer) %>
       </div>
-    <% end %>
-    <% if current_page_beacon?(request) %>
+    <% elsif current_page_beacon?(request) %>
       <div class="nav-back-link">
         <%= link_to "< #{@installation.name}", installation_path(@installation) %>
       </div>
-    <% end %>
-    <% if current_page_beacon_edit?(request) %>
+    <% elsif current_page_beacon_edit?(request) %>
       <div class="nav-back-link">
         <%= link_to "< Beacon", beacon_path(@beacon) %>
       </div>
     <% end %>
   </div>
+  <!--Subsection 2: Nav
+      The navigation bar includes navigation links to major sections of the 
+      application.-->
 	<nav>
 		<ul>
 			<% if !current_user %>
-				<div class="nav-btn"><%= link_to "Sign in", new_user_session_path, class: "#{current_class_sign_in?(request)}" %></div>
-				<div class="nav-btn"><%= link_to "Sign up", new_user_registration_path, class: "#{current_class_sign_up?(request)}" %></div>
+        <%= link_to "Sign in", new_user_session_path, class: "nav-btn #{sign_in_page?(request)}" %>
+        <%= link_to "Sign up", new_user_registration_path, class: "nav-btn #{sign_up_page?(request)}" %>
 			<% else %>
 				<% if current_user.customer_id %>
-          <li><%= link_to "About", root_path, class: "nav-link #{current_class_about?(request)}" %></li>
-					<li><%= link_to "Installations", customer_installations_path(current_user.customer_id), class: "nav-link #{current_class_installations?(request)}" %> </li>
-          <li><%= link_to "Metrics", "/", class: "nav-link" %> </li>  
-					<li><%= link_to "Account", customer_path(current_user.customer_id), class: "nav-link #{current_class_account?(request)}" %> </li>
+          <li>
+            <%= link_to "About", root_path, class: "nav-link #{current_class_about?(request)}" %>
+          </li>
+					<li>
+            <%= link_to "Installations", customer_installations_path(current_user.customer_id), class: "nav-link #{current_class_installations?(request)}" %>
+          </li>
+          <li>
+            <%= link_to "Metrics", "/", class: "nav-link" %>
+          </li>  
+					<li>
+            <%= link_to "Account", customer_path(current_user.customer_id), class: "nav-link #{current_class_account?(request)}" %>
+          </li>
 				<% else %>
-          <li><%= link_to "Create new company account", new_customer_path, class: "nav-link #{current_class_new_customer?(request)}" %></li>
-          <li><%= link_to "Existing company account", edit_user_path(current_user), class: "nav-link #{current_class_existing_customer?(request)}" %></li>
+          <li>
+            <%= link_to "Create new company account", new_customer_path, class: "nav-link #{current_class_new_customer?(request)}" %>
+          </li>
+          <li>
+            <%= link_to "Existing company account", edit_user_path(current_user),class: "nav-link #{current_class_existing_customer?(request)}" %>
+          </li>
         <% end %>
       <% end %>
 		</ul>
 	</nav>
+  <!--Subsection 3: Log out
+      Render a log out button if a user is logged in.-->
   <% if current_user %>
-    <div class="nav-btn nav-log-out-btn"><%= link_to "Logout", destroy_user_session_path, method: :delete %></div>
+    <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-btn nav-log-out-btn" %>
   <% end %>
   <div class="clearfix"></div>
 </div>

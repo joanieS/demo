@@ -21,10 +21,8 @@ $(document).ready(function() {
   });
 
   // This function adds styling when a nav btn is clicked.
-  $(".nav-btn").on('click', function() {
-    $(this).css('border', 'none');
-    $(this).animate({'marginTop': '+=1'}, '5');
-    $(this).children('a').animate({ 'color': 'green' }, 'fast');
+  $('.nav-btn').on('click', function() {
+    $(this).addClass('nav-btn-clicked');
   });
 
 });

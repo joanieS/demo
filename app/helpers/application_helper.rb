@@ -16,12 +16,12 @@ module ApplicationHelper
     beacon.description ? beacon.description : "None."
   end
 
-  def current_class_sign_in?(request)
-    request.path_info == "/users/sign_in" ? "current" : ""
+  def sign_in_page?(request)
+    request.path_info == "/users/sign_in" ? " hide" : ""
   end
 
-  def current_class_sign_up?(request)
-    request.path_info == "/users/sign_up" ? "current" : ""
+  def sign_up_page?(request)
+    request.path_info == "/users/sign_up" ? " hide" : ""
   end
 
   def current_class_about?(request)

@@ -92,26 +92,31 @@ nav {
 }
 
 .nav-btn {
+  @extend .sans-serif;
   width: 7rem;
   display: inline-block;
   padding: 0.1rem 0.4rem;
   margin-top: 0.3rem;
   text-transform: uppercase;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  background-color: #5C94B6;
+  -moz-border-radius: 0.4rem;
+  -webkit-border-radius: 0.4rem;
+  border-radius: 0.4rem;
+  background-color: $blue-light;
   border-bottom: 1px solid $blue-dark;
   text-align: center;
-  a {
-    font-size: 1.5rem;
-    font-family: 'Open Sans Condensed', sans-serif;
-    color: $blue-dark;
-    &:hover {
-      text-decoration: none;
-      color: white;
-    }
+  font-size: 1.5rem;
+  color: $blue-dark;
+  &:hover {
+    text-decoration: none;
+    color: white;
   }
+}
+
+.nav-btn-clicked {
+  position: relative;
+  top: 1px;
+  border: none;
+  color: white;
 }
 
 .nav-log-out-btn {
