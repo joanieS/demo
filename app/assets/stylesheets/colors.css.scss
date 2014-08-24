@@ -1,10 +1,23 @@
+/*\
+|*| COLORS
+|*| This stylesheet contains the SASS color variables used throughout the
+|*| application.
+\*/
 
 /*--------------------------------------
-COLORS
+PRIMARY COLOR SCHEME
 --------------------------------------*/
 
+// Blue is the primary color scheme used throughout this application.
+
+$blue-pale: #CAD9E8;
 $blue-light: #5C94B6;
 $blue: #0B588F;
 $blue-dark: #001A34;
 
+$grey-pale: #f6f6f6;
+$grey-light: #eee;
+$grey: #ddd;
 $grey-dark: #333;
+
+$red-pink: #E6257B;

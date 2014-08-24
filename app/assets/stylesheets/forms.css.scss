@@ -1,20 +1,53 @@
+/*\ 
+|*| FORMS STYLESHEET
+|*| This stylesheet contains styling for forms in the application.
+\*/
+
+form {
+  width: 30%;
+  margin: 0 auto;
+}
+
+.external-form-element-margin {
+  margin-left: 0.4rem;
+}
+
+form h2 {
+  @extend .external-form-element-margin;
+}
+
+.form-contents-wrap {
+  @extend .border-radius-medium;
+  font-size: 2rem;
+  padding: 4.5rem 5rem;
+  background-color: $grey-pale;
+  border-bottom: solid 2px $grey;
+  border-left: solid 1px $grey-light;
+  border-right: solid 1px $grey-light;
+}
+
 .field {
-  margin-bottom: 8px;
+  margin-bottom: 0.8rem;
 }
 
 input,
 select,
 label {
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-size: 18px;
-  width: 29rem;
+  @extend .border-radius-small;
+  @extend .sans-serif;
+  font-size: 2rem;
+  width: 100%;
 }
 
 input,
 select {
-  padding: 2px 6px 2px;
-  border: solid 1px #5C94B6;
-  background-color: white; 
+  padding: 0.5rem 0.8rem;
+  border: solid 1px $blue-light;
+  background-color: $blue-pale; 
+}
+
+input:focus {
+  background-color: white;
 }
 
 select {
@@ -22,13 +55,13 @@ select {
 }
 
 label {
-  color: #0B588F;
+  color: $blue;
 }
 
 input[type="file"] {
   border: none;
-padding-left: 0;
-  background-color: #f6f6f6;
+  padding-left: 0;
+  background-color: $grey-pale;
 }
 
 input[type="checkbox"] {
@@ -38,15 +71,13 @@ input[type="checkbox"] {
 .actions input,
 input[type="submit"] {
   margin-top: 10px;
-  padding: 2px 8px;
+  padding: 0.5rem 0.8rem;
   border: none;
   text-align: center;
-  background-color: #0B588F;
+  background-color: $blue;
   color: white;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
   text-transform: uppercase;
+  border-bottom: solid 2px $blue-dark;
 }
 
 input:focus,
@@ -56,12 +87,28 @@ button:focus {
     outline: none;
 }
 
-form {
-  width: 50%;
-  padding: 20px 60px 40px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  border-bottom: solid 2px #ddd;
-  background-color: #f6f6f6;
+.remember-me {
+  display: inline;
+  color: $grey-dark;
+  font-weight: 400;
+}
+
+/*--------------------------------------
+DEVISE
+--------------------------------------*/
+
+.flash-error-message-wrapper {
+  @extend .border-radius-small;
+  @extend .sans-serif;
+  width: 100%;
+  margin: -1rem 0 2.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  border: solid 1px red;
+}
+
+.devise-shared-link {
+  @extend .sans-serif;
+  @extend .external-form-element-margin;
+  font-size: 2rem;
 }

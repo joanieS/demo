@@ -11,17 +11,6 @@
 @import "bootstrap";
 @import "colors";
 @import "fonts";
-@import "font_options";
-@import "notices";
-@import "about";
-@import "installations";
-@import "nav";
-@import "audio_clips";
-@import "table";
-@import "maps";
-@import "forms";
-@import "footer";
-@import "beacons";
 
 
 /*--------------------------------------
@@ -53,33 +42,72 @@ body::-webkit-scrollbar {
   display: none; 
 }
 
-.page-wrap {
-  margin-bottom: 6rem; 
-}
-
 .side-padding {
   padding-left: 5rem;
   padding-right: 5rem;
 }
 
+.page-wrap {
+  @extend .side-padding;
+  margin-bottom: 6rem; 
+}
+
 /*--------------------------------------
-USEFUL CLASSES
+LINKS
 --------------------------------------*/
+
+$link-color: $red-pink;
+
+/* 
+* This mixin sets a link and its hover pseudo class to the same specified color.
+*/
+@mixin link-color($color) {
+  color: $color;
+  &:hover {
+    color: $color;
+  }
+}
+
+/*--------------------------------------
+BORDER RADIUS
+--------------------------------------*/
+
+@mixin border-radius($radius) {
+     -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+          border-radius: $radius;
+}
+
+.border-radius-small {
+  @include border-radius(0.4rem)
+}
+
+.border-radius-medium {
+  @include border-radius(0.8rem)
+}
+
+
+
+/*--------------------------------------
+BOX SHADOW
+--------------------------------------*/
+
+// This mixin adds a small top border with the specified color.
+@mixin box-shadow-top-small($color) {
+  -webkit-box-shadow: 0 -1px 6px -2px $color;
+     -moz-box-shadow: 0 -1px 6px -2px $color;
+          box-shadow: 0 -1px 6px -2px $color;
+}
+
 
 // Creates clearfix class to 
 .clearfix {
   clear: both;
 }
 
-// Hides element
-.remove {
+.hidden {
   display: none;
 }
-
-.radius-small {
-  
-}
-
 
 #content_url {
 	display: none;
@@ -132,3 +160,15 @@ USEFUL CLASSES
   color: #333;
   font-weight: 700;
 }
+
+@import "font_options";
+@import "notices";
+@import "about";
+@import "installations";
+@import "header";
+@import "audio_clips";
+@import "table";
+@import "maps";
+@import "forms";
+@import "footer";
+@import "beacons";

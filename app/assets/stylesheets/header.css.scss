@@ -1,4 +1,8 @@
-/* This stylesheet contains styling for the navigation bar. */
+/*\ 
+|*| HEADER STYLESHEET
+|*| This stylesheet contains styling for the header, including the nav bar and 
+|*| its subsections.
+\*/
 
 /*--------------------------------------
 PRE NAV
@@ -10,14 +14,16 @@ PRE NAV
 * name, on the right is a message displaying the current user's email.
 */
 
+// The pre nav text color is defined in the following variable:
 $pre-nav-color: $grey-dark;
 
 .pre-nav {
   @extend .side-padding;
   @extend .sans-serif;
   width: 100%;
-  padding: 0.4rem 0.5rem 0.5rem;
-  background-color: #CAD9E8;
+  padding-top: 0.4rem;
+  padding-bottom: 0.5rem;
+  background-color: $blue-pale;
   font-size: 1.5rem;
   color: $pre-nav-color;
 }
@@ -25,11 +31,8 @@ $pre-nav-color: $grey-dark;
 .pre-nav-welcome {
   float: left;
   a {
-    color: $pre-nav-color;
+    @include link-color($link-color);
     font-weight: 700;
-    &:hover {
-      color: $pre-nav-color;
-    }
   }
 }
 
@@ -40,30 +43,38 @@ $pre-nav-color: $grey-dark;
 
 
 /*--------------------------------------
-NAV
+NAVIGATION BAR
 --------------------------------------*/
 
 /*
 * The navigation bar is composed of a background, i.e. bluebar, and content. The
 * content is further broken up into three main sections: nav (main site 
 * navigation links) in the center, back link (link to parent resorce) on the 
-* left, 
+* left, log out button on the right.
 */
+
+/* BLUEBAR */
 
 .bluebar {
   @extend .side-padding;
+  @include box-shadow-top-small($blue-dark);
   font-size: 1.5rem;
   width: 100%;
   height: 3.3rem;
   padding-top: 0.2rem;
   background-color: $blue;
+
+  // This margin seperates the header from the page content.
   margin-bottom: 4rem;
-  -webkit-box-shadow: 0 -1px 6px -2px $blue-dark;
-     -moz-box-shadow: 0 -1px 6px -2px $blue-dark;
-          box-shadow: 0 -1px 6px -2px $blue-dark;
 }
 
+/* NAV */
+
 nav {
+  /*
+  * The following three rules keep the nav centered irrespective of the nav back
+  * links and the logout button.
+  */
   position: absolute;
   left: 10%;
   right: 10%;
@@ -81,26 +92,29 @@ nav {
 }
 
 .nav-link {
+  @extend .sans-serif;
   font-size: 2rem;
-  font-family: 'Open Sans Condensed', sans-serif;
   text-transform: uppercase;
-  color: #5C94B6;
+  color: $blue-light;
   &:hover {
     text-decoration: none;
     color: white;
   }
 }
 
+// Nav links that correspond to the current page are given a white text color.
+.current {
+  color: white;
+}
+
 .nav-btn {
+  @extend .border-radius-small;
   @extend .sans-serif;
   width: 7rem;
   display: inline-block;
   padding: 0.1rem 0.4rem;
   margin-top: 0.3rem;
   text-transform: uppercase;
-  -moz-border-radius: 0.4rem;
-  -webkit-border-radius: 0.4rem;
-  border-radius: 0.4rem;
   background-color: $blue-light;
   border-bottom: 1px solid $blue-dark;
   text-align: center;
@@ -112,6 +126,7 @@ nav {
   }
 }
 
+// The following class is applied to a clicked nav button using js.
 .nav-btn-clicked {
   position: relative;
   top: 1px;
@@ -119,29 +134,24 @@ nav {
   color: white;
 }
 
-.nav-log-out-btn {
-  float: right;
-}
-
-.nav-btn+.nav-btn {
-  margin-left: 0.7rem;
-}
-
-// Nav link corresponding to current page.
-.current {
-  color: white;
-}
+/* NAV BACK LINK */
 
 .nav-back-link {
+  @extend .sans-serif;
   font-size: 2rem;
   float: left;
   padding: 0;
   a {
-    font-family: 'Open Sans Condensed', sans-serif;
-    color: #5C94B6;
+    color: $blue-light;
     &:hover {
       text-decoration: none;
       color: white;
     }
   }
+}
+
+/* LOG OUT BTN */
+
+.nav-log-out-btn {
+  float: right;
 }
