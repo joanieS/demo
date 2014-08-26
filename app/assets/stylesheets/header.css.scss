@@ -1,25 +1,30 @@
-/*\ 
-|*| HEADER STYLESHEET
-|*| This stylesheet contains styling for the header, including the nav bar and 
-|*| its subsections.
-\*/
-
-/*--------------------------------------
-PRE NAV
---------------------------------------*/
-
 /*
-* Once a user has signed in, a "pre nav" div is generated that displays user 
-* account information: on the left is a welcome message with the customer's 
-* name, on the right is a message displaying the current user's email.
+* This stylesheet contains styling for the header, including the nav bar and 
+* its subsections.
 */
 
-// The pre nav text color is defined in the following variable:
+/*\
+|*| PRE NAV
+|*| Once a user has signed in, a "pre nav" div is generated that displays user 
+|*| account information. The pre nav has three components: on the left is a 
+|*| welcome message with the customer's name, on the right is a message 
+|*| displaying the current user's email, and in the center are .
+\*/
+
+/*----------------------------
+VARIABLES
+----------------------------*/
+
+// The pre nav text color is defined using the following variable:
 $pre-nav-color: $grey-dark;
 
+
+/*----------------------------
+PRE NAV
+----------------------------*/
+
 .pre-nav {
-  @extend .side-padding;
-  @extend .sans-serif;
+  @extend .side-padding, .sans-serif, .font-small;
   width: 100%;
   padding-top: 0.4rem;
   padding-bottom: 0.5rem;
@@ -28,13 +33,36 @@ $pre-nav-color: $grey-dark;
   color: $pre-nav-color;
 }
 
+
+/*----------------------------
+PRE NAV WELCOME
+----------------------------*/
+
 .pre-nav-welcome {
   float: left;
   a {
-    @include link-color($link-color);
-    font-weight: 700;
+    @extend .link;
   }
 }
+
+
+/*--------------------------------------
+NOTICES
+--------------------------------------*/
+
+.notice {
+  @extend .sans-serif, .font-small;
+  position: absolute;
+  left: 15%;
+  right: 15%;
+  text-align: center;
+  color: $green;
+}
+
+
+/*----------------------------
+PRE NAV EMAIL
+----------------------------*/
 
 .pre-nav-email {
   float: right;
@@ -42,18 +70,17 @@ $pre-nav-color: $grey-dark;
 
 
 
-/*--------------------------------------
-NAVIGATION BAR
---------------------------------------*/
+/*\
+|*| NAVIGATION BAR
+|*| The navigation bar is composed of a background, i.e. bluebar, and content.
+|*| The content is further broken up into three main subsections: nav (main site 
+|*| navigation links) in the center, back link (link to parent resorce) on the 
+|*| left, log out button on the right.
+\*/
 
-/*
-* The navigation bar is composed of a background, i.e. bluebar, and content. The
-* content is further broken up into three main sections: nav (main site 
-* navigation links) in the center, back link (link to parent resorce) on the 
-* left, log out button on the right.
-*/
-
-/* BLUEBAR */
+/*----------------------------
+BLUEBAR
+----------------------------*/
 
 .bluebar {
   @extend .side-padding;
@@ -68,16 +95,19 @@ NAVIGATION BAR
   margin-bottom: 4rem;
 }
 
-/* NAV */
+
+/*----------------------------
+NAV
+----------------------------*/
 
 nav {
   /*
-  * The following three rules keep the nav centered irrespective of the nav back
-  * links and the logout button.
+  * The following three rules keep the nav centered irrespective of the length of the 
+  * nav back links and the logout button.
   */
   position: absolute;
-  left: 10%;
-  right: 10%;
+  left: 15%;
+  right: 15%;
   ul {
     text-align: center;
     padding: 0;
@@ -134,7 +164,10 @@ nav {
   color: white;
 }
 
-/* NAV BACK LINK */
+
+/*----------------------------
+NAV BACK LINKS
+----------------------------*/
 
 .nav-back-link {
   @extend .sans-serif;
@@ -150,7 +183,10 @@ nav {
   }
 }
 
-/* LOG OUT BTN */
+
+/*----------------------------
+LOG OUT BTN
+----------------------------*/
 
 .nav-log-out-btn {
   float: right;

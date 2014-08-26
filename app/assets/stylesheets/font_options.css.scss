@@ -2,9 +2,9 @@
 * This stylesheet contains font options. 
 */
 
-/*--------------------------------------
+/*----------------------------
 HEADINGS
---------------------------------------*/
+----------------------------*/
 
 h1, h2, h3, h4 {
   @extend .sans-serif;
@@ -17,11 +17,19 @@ h1 {
 }
 
 h2, h3, h4 {
-  margin: 0 0 1rem;
+  margin: 0;
   text-align: left;
 }
 
 h2 {
   color: #333;
   font-size: 52px;
+}
+
+.font-small {
+  font-size: 1.5rem;
+}
+
+.font-medium {
+  font-size: 2rem;
 }

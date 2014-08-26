@@ -1,44 +1,54 @@
-/************************************************
+/*\ 
+|*| INSTALLATIONS STYLESHEET
+|*| This stylesheet contains styling for installation pages.
+\*/
+
+/*--------------------------------------
 INDEX PAGE
-************************************************/
+--------------------------------------*/
+
+.installations-wrap {
+  margin: 0 auto;
+}
 
 .installation-wrap {
   float: left;
-  width: 182px;
-  height: 200px;
-  padding-bottom: 36px;
-  margin: 0 24px 24px 0;
+  width: 20rem;
+  height: 22rem;
+  margin-bottom: 2rem;
   text-align: center;
   background: url(missing.png) no-repeat center center;
-}
-
-.installation-image-wrap {
-  height: 182px;
-  border: solid 4px #5C94B6;
-  background-repeat: no-repeat;
-  background-position: center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  &:hover {
-    border-color: #0B588F;
+  span:hover {
+    text-decoration: none;
   }
 }
 
+.installation-wrap+.installation-wrap {
+  margin-left: 4rem;
+}
+
+.installation-image-wrap {
+  @extend .background-cover, .border-radius-medium;
+  height: 20rem;
+  background-color: $blue-pale;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
 #installation-image-new {
-  padding: 10px 0;
-  vertical-align: bottom;
+  @extend .sans-serif;
+  padding: 2.2rem 0 0;
   text-transform: uppercase;
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-size: 24px;
-  background-color: white;
+  font-size: 2.5rem;
+  background-color: $blue-pale;
   img {
     height: 80px;
   }
   span {
+    @extend .link;
+    width: 12rem;
     padding-top: 5px;
-    display: block;
+    display: inline-block;
   }
 }
 
@@ -59,39 +69,29 @@ INDEX PAGE
 }
 
 .installation-image-title {
-  display: block;
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  color: #333;
+  @extend .sans-serif, .link, .font-medium;
+  display: inline-block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  &:hover {
-    text-decoration: underline;
-    color: #333;
-  }
 }
 
 
 
-/************************************************
+/*--------------------------------------
 SHOW PAGE
-************************************************/
+--------------------------------------*/
 
 #installation-show-image-wrap {
   background: url(missing.png) no-repeat center center;
 }
 
 #installation-show-image {
+  @extend .background-cover;
   margin-bottom: 10px;
   height: 180px;
   border: solid 4px #5C94B6;
   box-sizing: border-box; 
   background-repeat: no-repeat;
   background-position: center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
 }

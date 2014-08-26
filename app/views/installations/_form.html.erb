@@ -1,27 +1,31 @@
-<%= form_for [@customer, @installation] do |f| %>
-  <% if @installation.errors.any? %>
-    <div id="error_explanation">
-      <h3><%= pluralize(@installation.errors.count, "error") %> prohibited this installation from being saved:</h3>
-      <ul>
-      <% @installation.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= form_for [@customer, @installation], html: {class: "form-resource"} do |f| %>
+  <h2><%= installation_form_title(request) %></h2>
+  <div class="form-contents-wrap">
+    <% if @installation.errors.any? %>
+      <div id="error_explanation">
+        <h3><%= pluralize(@installation.errors.count, "error") %> prohibited this installation from being saved:</h3>
+        <ul>
+        <% @installation.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
     </div>
-  <% end %>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+     <div class="field">
+      <%= f.label :image %>
+      <%= f.file_field :image %>
+    </div>
+    <div class="field">
+      <%= f.check_box :active %>
+      <%= f.label :active, class: "checkbox-label" %>
+    </div>
+    <div class="field">
+      <%= f.submit %>
+    </div>
   </div>
-   <div class="field">
-    <%= f.label :image %><br>
-    <%= f.file_field :image %>
-  </div>
-  <div class="field">
-    <%= f.label :active %><br>
-    <%= f.check_box :active %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <div class="form-right-buffer-resource"></div>
 <% end %>

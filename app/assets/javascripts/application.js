@@ -25,4 +25,8 @@ $(document).ready(function() {
     $(this).addClass('nav-btn-clicked');
   });
 
+  $('input[type="submit"]').on('click', function(){
+    $(this).attr('id', 'submit-clicked');
+  });
+
 });

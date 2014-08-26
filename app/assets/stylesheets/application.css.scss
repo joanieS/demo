@@ -42,31 +42,53 @@ body::-webkit-scrollbar {
   display: none; 
 }
 
-.side-padding {
-  padding-left: 5rem;
-  padding-right: 5rem;
-}
+
+/*--------------------------------------
+SIDE PADDING
+--------------------------------------*/
 
 .page-wrap {
-  @extend .side-padding;
-  margin-bottom: 6rem; 
+  padding-bottom: 5rem;
 }
+
+@media screen and (min-width: 500px) {
+  .side-padding {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .page-wrap {
+    margin: 0 2rem;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .side-padding {
+    padding-left: 10rem;
+    padding-right: 10rem;
+  }
+
+  .page-wrap {
+    margin: 0 10rem;
+  }
+}
+
 
 /*--------------------------------------
 LINKS
 --------------------------------------*/
 
-$link-color: $red-pink;
-
-/* 
-* This mixin sets a link and its hover pseudo class to the same specified color.
-*/
-@mixin link-color($color) {
-  color: $color;
+.link {
+  color: $blue;
+  text-decoration: none;
+  border-bottom: dotted 1px $blue;
   &:hover {
-    color: $color;
+    color: $blue-dark;
+    text-decoration: none;
+    border-bottom: solid 1px $blue-dark;
   }
 }
+
 
 /*--------------------------------------
 BORDER RADIUS
@@ -107,6 +129,13 @@ BOX SHADOW
 
 .hidden {
   display: none;
+}
+
+.background-cover {
+  -webkit-background-size: cover;
+     -moz-background-size: cover;
+       -o-background-size: cover;
+          background-size: cover;
 }
 
 #content_url {
@@ -162,7 +191,6 @@ BOX SHADOW
 }
 
 @import "font_options";
-@import "notices";
 @import "about";
 @import "installations";
 @import "header";

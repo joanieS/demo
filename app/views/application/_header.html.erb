@@ -2,14 +2,17 @@
     attached to. It is only displayed after a user has signed in.-->
 <% if current_user %>
   <div class="pre-nav">
-      <% if !current_user.customer_id.nil? %>
-        <span class="pre-nav-welcome">
-          Welcome, <%= link_to current_user.customer.name, customer_path(current_user.customer_id) %>!
-        </span>
-      <% end %>
-      <span class="pre-nav-email">
-        You're signed in as <%= current_user.email %>
+    <span class="notice">
+      <%= notice %>
+    </span>
+    <% if !current_user.customer_id.nil? %>
+      <span class="pre-nav-welcome">
+        Welcome, <%= link_to current_user.customer.name, customer_path(current_user.customer_id) %>!
       </span>
+    <% end %>
+    <span class="pre-nav-email">
+      You're signed in as <%= current_user.email %>
+    </span>
     <div class="clearfix"></div>
   </div>
 <% end %>
