@@ -1,9 +1,8 @@
 table {
+  @extend .sans-serif, .font-medium;
   width: 100%;
-  margin-bottom: 10px;
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-size: 18px;
-  border-bottom: solid 1px #5C94B6;
+  margin-bottom: 1rem;
+  border-bottom: solid 1px $blue-light;
 }
 
 table+table,
@@ -12,14 +11,10 @@ table+table,
   margin-top: 20px;
 }
 
-.button+table {
-  margin-top: 10px;
-}
-
 th {
   padding: 4px 2px 4px 8px;
   font-weight: 400;
-  background-color: #5C94B6;
+  background-color: $blue-light;
   text-transform: uppercase;
   color: white;
 }
@@ -27,7 +22,7 @@ th {
 tr {
   margin: 2px 0;
   &:hover {
-    background-color: #f6f6f6;
+    background-color: $grey-light;
   }
 }
 

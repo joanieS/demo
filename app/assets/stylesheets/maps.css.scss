@@ -1,14 +1,10 @@
-.map-wrap {
+#customer-map {
+  position: absolute;
   width: 100%;
-  border: solid 4px #5C94B6;
+  height: 100%;
 }
 
 #beacon-map {
   width: 100%;
   height: 200px;
-}
-
-#customer-map {
-  width: 100%;
-  height: 150px;
 }

@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-3">
-    <div id="installation-show-image-wrap">
-      <div id="installation-show-image">
+    <div class="image-wrap-main">
+      <div class="image-wrap" id="installation-show-image">
         <style>
           #installation-show-image { 
             background-image: url(<%= @installation.image %>); 
@@ -9,8 +9,11 @@
         </style>
       </div>
     </div>
-    <%= link_to "Edit this Installation", edit_installation_path(@installation), class: "button" %>
-    <%= link_to "Delete this Installation", installation_path(@installation), method: :delete, data: { confirm: 'Are you sure?' }, class: "button" %>
+    <div class="button-row">
+        <%= link_to "Edit Installation", edit_installation_path(@installation), class: "button" %>
+        <%= link_to "Delete Installation", installation_path(@installation), method: :delete, data: { confirm: 'Are you sure?' }, class: "button" %>
+        <div class="clearfix"></div>
+    </div>
     <table>
       <tbody>
         <tr>
@@ -36,7 +39,7 @@
         <tbody>
           <tr>
             <td colspan="5">
-              <%= link_to "Add A New Beacon", new_beacon_path %>
+              <%= link_to "Add A New Beacon", new_beacon_path, class: "link" %>
             </td>
           </tr>
           <% if has_beacons?(@installation) %>
@@ -44,7 +47,7 @@
             <% @installation.beacons.find_each do |beacon| %>
                 <tr>
                   <td><%= current_state(beacon) %></td>
-                  <td><%= link_to "Item ##{n}", beacon_path(beacon)%></td>
+                  <td><%= link_to "Item ##{n}", beacon_path(beacon), class: "link" %></td>
                   <td><%= display_beacon_description(beacon) %></td>
                   <td class="td-action"><%= link_to image_tag("table-edit-icon.png"), edit_beacon_path(beacon), class: "table-icon" %></td>
                   <td class="td-action"><%= link_to image_tag("table-delete-icon.png"), beacon_path(beacon), method: :delete, data: { confirm: "Are you sure?" }, class: "table-icon" %></td>

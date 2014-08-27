@@ -80,6 +80,7 @@ LINKS
 
 .link {
   color: $blue;
+  font-weight: 400;
   text-decoration: none;
   border-bottom: dotted 1px $blue;
   &:hover {
@@ -158,36 +159,38 @@ BOX SHADOW
 }
 
 .button {
-  @extend .sans-serif;
+  @extend .sans-serif, .font-small, .border-radius-small;
   display: block;
-  width: 180px;
+  text-align: center;
   padding: 3px 8px 2px;
-  margin-top: 7px;
-  font-size: 18px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  color: #5C94B6;
-  border: solid 1px #5C94B6;
+  background-color: $blue-light;
+  color: $blue-dark;
+  border-bottom: solid 1px $blue-dark;
   &:hover {
-    color: #0B588F;
-    border-color: #0B588F;
     text-decoration: none;
+    color: white;
   }
 }
 
-.button+.button {
-  margin-top: 6px;
+.button-clicked {
+  margin-top: 1px;
+  border: none;
+  color: white;
 }
 
-#account-installation-wrap {
-  margin: 30px 0;
-  border-top: solid 1px #5C94B6;
-}
-
-#account-installations-link {
-  color: #333;
-  font-weight: 700;
+.button-row {
+  width: 100%;
+  margin: 0.6rem 0 1rem;
+  .button {
+    display: inline-block;
+    width: 49%;
+  }
+  .button:first-of-type {
+    float: left;
+  }
+  .button:nth-of-type(2) {
+    float: right;
+  }
 }
 
 @import "font_options";

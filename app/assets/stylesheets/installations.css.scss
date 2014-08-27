@@ -27,7 +27,7 @@ INDEX PAGE
   margin-left: 4rem;
 }
 
-.installation-image-wrap {
+.image-wrap {
   @extend .background-cover, .border-radius-medium;
   height: 20rem;
   background-color: $blue-pale;
@@ -82,16 +82,19 @@ INDEX PAGE
 SHOW PAGE
 --------------------------------------*/
 
+.image-wrap-main {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+}
+
+
 #installation-show-image-wrap {
   background: url(missing.png) no-repeat center center;
 }
 
 #installation-show-image {
-  @extend .background-cover;
-  margin-bottom: 10px;
-  height: 180px;
-  border: solid 4px #5C94B6;
-  box-sizing: border-box; 
-  background-repeat: no-repeat;
-  background-position: center center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
