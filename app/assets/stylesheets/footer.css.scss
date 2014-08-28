@@ -1,4 +1,5 @@
 footer {
+  @extend .sans-serif, .font-small;
   position: absolute;
   right: 0;
   bottom: 0;
@@ -7,10 +8,8 @@ footer {
   width: 100%;
   padding: 10px;
   text-align: center;
-  border-top: solid 1px #5C94B6;
-  color: #5C94B6;
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-size: 18px;
+  border-top: solid 1px $blue-light;
+  color: $blue-light;
 }
 
 #social-icons {

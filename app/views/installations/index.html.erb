@@ -1,28 +1,25 @@
-<div class="installations-wrap">
+<div class="installation-wrap">
+  <%= link_to new_installation_path do %>
+    <div class="image-wrap" id="installation-image-new">
+      <%= image_tag "plus-icon.png" %>
+      <span>Add A New Installation</span>
+    </div>
+  <% end %>
+</div>
+<% n = 1 %>
+<% @installations.find_each do |installation| %>
   <div class="installation-wrap">
-    <%= link_to new_installation_path do %>
-      <div class="image-wrap" id="installation-image-new">
-        <%= image_tag "plus-icon.png" %>
-        <span>Add A New Installation</span>
-      </div>
+    <%= link_to image_tag("edit-icon.png"), edit_installation_path(installation), class: "installation-image-link installation-image-edit-link" %>
+    <%= link_to image_tag("delete-icon.png"), installation_path(installation), method: :delete, data: { confirm: 'Are you sure?' }, class: "installation-image-link installation-image-delete-link" %>
+    <%= link_to installation_path(installation) do %>
+      <div class="image-wrap" id=<%= "installation-image-#{n}" %> ></div>
+      <style>
+        #installation-image-<%= n %> { 
+          background-image: url(<%= installation.image %>); 
+        }
+      </style>
+      <span class="installation-image-title"><%= installation.name %></span>
     <% end %>
   </div>
-  <% n = 1 %>
-  <% @installations.find_each do |installation| %>
-    <div class="installation-wrap">
-      <%= link_to image_tag("edit-icon.png"), edit_installation_path(installation), class: "installation-image-link installation-image-edit-link" %>
-      <%= link_to image_tag("delete-icon.png"), installation_path(installation), method: :delete, data: { confirm: 'Are you sure?' }, class: "installation-image-link installation-image-delete-link" %>
-      <%= link_to installation_path(installation) do %>
-        <div class="image-wrap" id=<%= "installation-image-#{n}" %> ></div>
-        <style>
-          #installation-image-<%= n %> { 
-            background-image: url(<%= installation.image %>); 
-          }
-        </style>
-        <span class="installation-image-title"><%= installation.name %></span>
-      <% end %>
-    </div>
-    <% n += 1 %>
-  <% end %>
-  <div class="clearfix"></div>
-</div>
+  <% n += 1 %>
+<% end %>
