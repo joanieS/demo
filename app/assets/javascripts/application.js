@@ -63,9 +63,9 @@ $(document).ready(function() {
     return false;
   })
 
-  $(createBeacon).on("click", function(e) {
-    e.preventDefault();
-    console.log(photoGalleryContent);
-  });
+  // $(createBeacon).on("click", function(e) {
+  //   e.preventDefault();
+  //   console.log(photoGalleryContent);
+  // });
 
 });
