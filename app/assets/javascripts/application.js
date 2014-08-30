@@ -33,4 +33,6 @@ $(document).ready(function() {
     $(this).addClass('button-clicked');
   });
 
+  // Hides form label if field is empty
+
 });
