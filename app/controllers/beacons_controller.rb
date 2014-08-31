@@ -6,6 +6,8 @@ class BeaconsController < InheritedResources::Base
 
   before_action :set_beacon, only: [:show, :edit, :update, :destroy]
 
+
+
   def show
     if request.format.json?
       format.json { render :show, status: :ok, location: beacon_path }

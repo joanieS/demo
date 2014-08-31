@@ -47,7 +47,11 @@
     </div>
     <div class="field">
       <%= f.label :content_type, "Content type" %><br>
-      <%= f.select :content_type, options_for_select([["Image","image"], ["Video","local-video"], ["Website", "web"], ["Online video","web-video"], ["Photo gallery","photo-gallery"], ["Memories", "memories"]]) %>
+      <%= f.select :content_type, options_for_select([["Image","image"], ["Video","local-video"], ["Website", "web"], ["Online video","web-video"], ["Photo gallery","photo-gallery"], ["Memories", "memories"], ["Record a memory", "record-audio"]]) %>
+    </div>
+    <div class="content-type-field" id="InputsWrapper">
+      <input type="text" name="mytext[]" class="photo-gallery" id="photo_'+ FieldCount +'"/><a href="#" class="removeclass">&times;</a><a href="#" class="addclass"> + </a>
+      <%#= f.button "Add more", :class => "add-more-fields" %>
     </div>
     <div class="field content-type-field" id="content-file-field">
       <%= f.label :content_image, "Content" %><br>
@@ -57,11 +61,11 @@
       <%= f.label :content_url %><br>
       <%= f.text_field :content_url %>
     </div>
-    <div class="field">
+    <div class="field" id="audio-field">
       <%= f.label :audio %><br>
       <%= f.file_field :audio %>
     </div>
-    <div class="actions">
+    <div class="actions" id="createBeacon">
       <%= f.submit %>
     </div>
 <% end %>

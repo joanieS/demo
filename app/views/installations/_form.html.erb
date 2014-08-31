@@ -20,12 +20,15 @@
       <%= f.file_field :image %>
     </div>
     <div class="field">
+      <%= f.label :image_url %><br>
+      <%= f.text_field :image_url %>
+    </div>
+    <div class="field">
       <%= f.check_box :active %>
       <%= f.label :active, class: "checkbox-label" %>
     </div>
-    <div class="field">
+    <div class="actions">
       <%= f.submit %>
     </div>
-  </div>
   <div class="form-right-buffer-resource"></div>
 <% end %>
