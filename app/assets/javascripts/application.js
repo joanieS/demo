@@ -1,9 +1,9 @@
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
-//= require bootstrap
 //= require underscore
+//= require bootstrap
 //= require gmaps/google
-//= require jquery.ui.all
 //= require_tree .
 
 $(document).ready(function() {
