@@ -31,7 +31,7 @@ RESOURCE FORM WIDTH
 --------------------------------------*/
 
 .form-resource {
-  @extend .col-lg-5, .col-lg-offset-3, .col-md-6, .col-md-offset-2,.col-sm-7, .col-sm-offset-2;
+  @extend .col-lg-5, .col-lg-offset-3, .col-md-6, .col-md-offset-2, .col-sm-7, .col-sm-offset-2;
   @extend .col-xs-9, .col-xs-offset-1;
 }
 
@@ -40,12 +40,18 @@ RESOURCE FORM WIDTH
   height: 100%;
 }
 
+.form-beacon {
+  @extend .col-lg-7, .col-lg-offset-3, .col-md-7, .col-md-offset-2, .col-sm-8, .col.sm-offset-2;
+  @extend .col-xs-10, .col-xs-offset-1;
+}
+
 .external-form-element-margin {
   margin-left: 0.8rem;
 }
 
 .form,
-.form-resource {
+.form-resource,
+.form-beacon {
   h2 {
     @extend .external-form-element-margin;
     margin-bottom: -0.4rem;
@@ -70,25 +76,32 @@ RESOURCE FORM WIDTH
   padding-top: 3.5rem;
 }
 
+.form-beacon .col-md-6:nth-of-type(2) {
+  border-left: solid 1px $grey;
+}
+
 .field {
   margin-bottom: 0.8rem;
 }
 
 input,
 select,
-label {
+label,
+textarea {
   @extend .border-radius-small, .sans-serif, .font-medium;
   width: 100%;
 }
 
 input,
-select {
+select,
+textarea {
   padding: 0.5rem 0.8rem;
   border: solid 1px $blue-light;
   background-color: $blue-pale; 
 }
 
-input:focus {
+input:focus,
+textarea:focus {
   background-color: white;
 }
 
@@ -98,7 +111,12 @@ select {
 
 label {
   margin-bottom: 0.1rem;
+  font-weight: 400;
   color: $blue;
+}
+
+.checkbox-label {
+  font-style: normal;
 }
 
 input[type="file"] {
@@ -110,6 +128,16 @@ input[type="file"] {
 
 input[type="checkbox"] {
   width: 2rem;
+}
+
+input[type="button"], 
+input[type="reset"], 
+input[type="file"]::-webkit-file-upload-button, 
+button {
+  @extend .sans-serif, .font-medium, .border-radius-small;
+  padding: 0.5rem 0.8rem;
+  background-color: $blue-light;
+  border: none;
 }
 
 .actions input,

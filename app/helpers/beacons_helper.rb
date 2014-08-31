@@ -1,5 +1,13 @@
 module BeaconsHelper
 
+  def beacon_form_title(request)
+    if request.path_info =~ /edit/
+      "Edit Beacon"
+    elsif request.path_info =~ /new/
+      "Add New Beacon"
+    end
+  end
+
   def display_id(beacon_id)
     beacon_id ? beacon_id : "None."
   end
