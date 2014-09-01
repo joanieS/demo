@@ -14,19 +14,13 @@
         <%= link_to "Delete Installation", installation_path(@installation), method: :delete, data: { confirm: 'Are you sure?' }, class: "button" %>
         <div class="clearfix"></div>
     </div>
-    <table>
-      <tbody>
-        <tr>
-          <td>Created: <%= creation_date(@installation) %></td>
-        </tr>
-        <tr>
-          <td>Status: <%= current_state(@installation) %></td>
-        </tr>
-      </tbody>
-    </table>
+    <ul class="info">
+      <li>Created: <%= creation_date(@installation) %></li>
+      <li>Status: <%= current_state(@installation) %></li>
+    </ul>
   </div>
   <div class="col-md-9">
-    <h2><%= @installation.name %></h2>
+    <h2><%= "#{@installation.name} (#{count_beacons(@installation)})" %></h2>
       <table>
         <thead>
           <tr>
@@ -37,12 +31,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td colspan="5">
-              <%= link_to "Add A New Beacon", new_beacon_path, class: "link" %>
-            </td>
-          </tr>
           <% if has_beacons?(@installation) %>
+            <tr>
+              <td colspan="5">
+                <%= link_to "Add a new beacon.", new_beacon_path, class: "link" %>
+              </td>
+            </tr>
             <% n = 1 %>
             <% @installation.beacons.find_each do |beacon| %>
                 <tr>
@@ -55,7 +49,7 @@
               <% n += 1 %>
             <% end %>
           <% else %>
-            <tr><td colspan="5">No beacons</td></tr>
+            <tr><td colspan="5">This installation currently has no beacons. <%= link_to "Add your first beacon.", new_beacon_path, class: "link" %></td></tr>
           <% end %>
         </tbody>
       </table>

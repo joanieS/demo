@@ -1,5 +1,9 @@
 module InstallationsHelper
 
+  def count_beacons(installation)
+    installation.beacons.count
+  end
+
   def installation_form_title(request)
     if request.path_info =~ /edit/
       "Edit Installation"

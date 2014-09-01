@@ -5,9 +5,9 @@
 
 /*
 * The form's optimum aesthetic width is maintained by inheriting bootstrap
-* column classes. Two types of forms are specified in this application: 
-* resource forms, i.e. edit and new forms for beacons and installations, and the
-* rest.
+* column classes. Three types of forms are specified in this application: 
+* resource forms, i.e. edit and new forms for installations, beacon forms, and 
+* the rest, e.g. sign in etc.
 */
 
 /*--------------------------------------
@@ -40,11 +40,19 @@ RESOURCE FORM WIDTH
   height: 100%;
 }
 
+/* 
+* The beacon form has different dimensions due to its increased number of form
+* elements.
+*/ 
 .form-beacon {
   @extend .col-lg-7, .col-lg-offset-3, .col-md-7, .col-md-offset-2, .col-sm-8, .col.sm-offset-2;
   @extend .col-xs-10, .col-xs-offset-1;
 }
 
+/* 
+* External form content elements, e.g. form titles and bottom links, are given 
+* some left margin to account for the border radius of the form content div.
+*/
 .external-form-element-margin {
   margin-left: 0.8rem;
 }
@@ -61,6 +69,10 @@ RESOURCE FORM WIDTH
   }
 }
 
+/*
+* The form contents wrapper holds all form fields and actions.
+*/
+
 .form-contents-wrap {
   @extend .border-radius-medium;
   width: 100%;
@@ -72,12 +84,25 @@ RESOURCE FORM WIDTH
   border-right: solid 1px $grey-light;
 }
 
+
+// The form contents wrapper for a resource form is given less top padding.
 .form-resource .form-contents-wrap {
   padding-top: 3.5rem;
 }
 
-.form-beacon .col-md-6:nth-of-type(2) {
-  border-left: solid 1px $grey;
+/* 
+* A border is added to differentiate between the two form columns present in the
+* beacon form.
+*/
+.form-beacon {
+  .col-md-6:nth-of-type(2) { 
+    border-left: solid 1px $grey;
+  }
+}
+
+// Adds some space between the submit button and double-column layout.
+.form-beacon .row {
+  margin-bottom: 1rem;
 }
 
 .field {
@@ -130,6 +155,7 @@ input[type="checkbox"] {
   width: 2rem;
 }
 
+// The following styling applies to the file upload button.
 input[type="button"], 
 input[type="reset"], 
 input[type="file"]::-webkit-file-upload-button, 
@@ -149,15 +175,16 @@ input[type="submit"] {
   color: white;
   text-transform: uppercase;
 
-  // Removes border from previous class.
+  // Removes border from previous class inheritance.
   border: none;
   border-bottom: solid 0.2rem $blue-dark;
 }
 
+// This styling is added using js on click.
 #submit-clicked {
+  margin-top: 1rem;
   border: none;
   background-color: $green;
-  margin-top: 1rem;
 }
 
 input:focus,

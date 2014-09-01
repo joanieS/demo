@@ -34,6 +34,7 @@
           <div class="field">
             <%= f.label :longitude %><br>
             <%= f.number_field :longitude, step: "any", min: "-180", max: "180" %>
+          </div>
           <div class="field">
             <%= f.label :uuid, "UUID" %><br>
             <%= f.text_field :uuid %>
@@ -55,7 +56,6 @@
         </div>
         <div class="content-type-field" id="InputsWrapper">
           <input type="text" name="mytext[]" class="photo-gallery" id="photo_'+ FieldCount +'"/><a href="#" class="removeclass">&times;</a><a href="#" class="addclass"> + </a>
-          <%#= f.button "Add more", :class => "add-more-fields" %>
         </div>
         <div class="field content-type-field" id="content-file-field">
           <%= f.label :content_image, "Content" %><br>
