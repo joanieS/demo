@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-3">
+  <div class="col-lg-3 col-md-4 col-sm-5">
     <div class="image-wrap-main">
       <div class="image-wrap" id="installation-show-image">
         <style>
@@ -15,11 +15,11 @@
         <div class="clearfix"></div>
     </div>
     <ul class="info">
-      <li>Created: <%= creation_date(@installation) %></li>
-      <li>Status: <%= current_state(@installation) %></li>
+      <li><span class="info-label">Created:</span> <%= creation_date(@installation) %></li>
+      <li><span class="info-label">Status:</span> <%= current_state(@installation) %></li>
     </ul>
   </div>
-  <div class="col-md-9">
+  <div class="col-lg-9 col-md-8 col-sm-7">
     <h2><%= "#{@installation.name} (#{count_beacons(@installation)})" %></h2>
       <table>
         <thead>

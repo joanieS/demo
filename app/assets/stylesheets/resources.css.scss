@@ -1,10 +1,36 @@
 /*\ 
-|*| INSTALLATIONS STYLESHEET
-|*| This stylesheet contains styling for installation pages.
+|*| RESOURCES STYLESHEET
+|*| This stylesheet contains styling for installation and beacon pages.
 \*/
 
+// Show pages have single "main" images at the top right.
+.image-wrap-main {
+  // The following three lines are used to make the image square.
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+}
+
+.image-wrap {
+  @extend .background-cover, .border-radius-medium;
+  height: 20rem;
+  background-color: $blue-pale;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.info-label {
+  color: $blue;
+}
+
+.info {
+  @extend .font-medium, .sans-serif;
+  padding: 0;
+  list-style: none;
+}
+
 /*--------------------------------------
-INDEX PAGE
+INSTALLATION INDEX PAGE
 --------------------------------------*/
 
 .installation-wrap {
@@ -17,14 +43,6 @@ INDEX PAGE
   span:hover {
     text-decoration: none;
   }
-}
-
-.image-wrap {
-  @extend .background-cover, .border-radius-medium;
-  height: 20rem;
-  background-color: $blue-pale;
-  background-repeat: no-repeat;
-  background-position: center center;
 }
 
 #installation-image-new {
@@ -66,15 +84,8 @@ INDEX PAGE
 
 
 /*--------------------------------------
-SHOW PAGE
+INSTALLATION SHOW PAGE
 --------------------------------------*/
-
-// Show pages have single "main" images at the top right.
-.image-wrap-main {
-  position: relative;
-  width: 100%;
-  padding-bottom: 100%;
-}
 
 #installation-show-image-wrap {
   background: url(missing.png) no-repeat center center;
@@ -86,8 +97,13 @@ SHOW PAGE
   height: 100%;
 }
 
-.info {
-  @extend .font-medium, .sans-serif;
-  padding: 0;
-  list-style: none;
+
+/*--------------------------------------
+BEACON SHOW PAGE
+--------------------------------------*/
+
+#beacon-map {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
