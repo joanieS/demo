@@ -1,3 +1,8 @@
+/*\ 
+|*| TABLE STYLESHEET
+|*| This stylesheet contains styling for tables on resource pages.
+\*/
+
 table {
   @extend .sans-serif, .font-medium;
   width: 100%;
@@ -28,12 +33,12 @@ tr {
 
 td {
   padding: 4px 2px 4px 8px;
-  color: #333;
+  color: $grey-dark;
   a {
-    color: #333;
+    color: $grey-dark;
     font-weight: 700;
     &:hover {
-      color: #333;
+      color: $grey-dark;
     }
   }
 }

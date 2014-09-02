@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-lg-3 col-lg-offset-3 col-md-4 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-6 ">
     <div class="image-wrap-main">
-      <div class="image-wrap" id="beacon-map"></div>
+      <div class="image-wrap" id="resource-map"></div>
     </div>
     <div class="button-row">
       <%= link_to "Edit Beacon", edit_beacon_path(@beacon), class: "button" %>
@@ -35,7 +35,7 @@
 
 <script type="text/javascript">
   handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'beacon-map'}}, function(){
+  handler.buildMap({ provider: {}, internal: {id: 'resource-map'}}, function(){
     markers = handler.addMarkers(<%=raw @hash.to_json %>);
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();

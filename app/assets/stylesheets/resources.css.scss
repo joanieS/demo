@@ -1,6 +1,7 @@
 /*\ 
 |*| RESOURCES STYLESHEET
-|*| This stylesheet contains styling for installation and beacon pages.
+|*| This stylesheet contains styling for installation, beacon, and customer
+|*| pages.
 \*/
 
 // Show pages have single "main" images at the top right.
@@ -29,6 +30,25 @@
   list-style: none;
 }
 
+.extra-info {
+  @extend .font-small, .sans-serif, .border-radius-small;
+  padding: 0.5rem 0.8rem;
+  border: solid 1px $grey;
+  background-color: $grey-light;
+}
+
+.field .extra-info {
+  margin-top: 0.8rem;
+}
+
+// Styling for the beacon and account maps.
+#resource-map {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+
 /*--------------------------------------
 INSTALLATION INDEX PAGE
 --------------------------------------*/
@@ -46,10 +66,9 @@ INSTALLATION INDEX PAGE
 }
 
 #installation-image-new {
-  @extend .sans-serif;
+  @extend .sans-serif, .font-large;
   padding: 2.2rem 0 0;
   text-transform: uppercase;
-  font-size: 2.5rem;
   background-color: $blue-pale;
   img {
     height: 80px;
@@ -92,17 +111,6 @@ INSTALLATION SHOW PAGE
 }
 
 #installation-show-image {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-
-
-/*--------------------------------------
-BEACON SHOW PAGE
---------------------------------------*/
-
-#beacon-map {
   position: absolute;
   width: 100%;
   height: 100%;

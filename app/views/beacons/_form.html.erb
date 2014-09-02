@@ -14,6 +14,10 @@
     <div class="row">
       <div class="col-md-6">
         <div class="field">
+          <%= f.check_box :active %>
+          <%= f.label :active, class: "checkbox-label" %>
+        </div>
+        <div class="field">
           <%= f.label :minor_id, "Minor ID" %><br>
           <%= f.number_field :minor_id %>
         </div>
@@ -22,7 +26,7 @@
           <%= f.number_field :major_id %>
         </div>
         <% if params[:action] == "new" %>
-          <div class="field">
+          <div class="field hidden">
             <%= f.label :uuid, "UUID" %><br>
             <%= f.text_field :uuid, placeholder: "B9407F30-F5F8-466E-AFF9-25556B57FE6D", disabled: true %>
           </div>
@@ -38,12 +42,9 @@
           <div class="field">
             <%= f.label :uuid, "UUID" %><br>
             <%= f.text_field :uuid %>
+            <div class="extra-info"> Do not change your beacon UUID unless explicitly instructed to do so.</div>
           </div>
         <% end %>
-        <div class="field">
-          <%= f.check_box :active %>
-          <%= f.label :active, class: "checkbox-label" %>
-        </div>
       </div>
       <div class="col-md-6">
         <div class="field">

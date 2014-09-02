@@ -2,7 +2,7 @@
   <div class="col-md-3">
     <% if check_coordinates(@customer) %>
       <div class="image-wrap-main">
-        <div class="image-wrap" id="customer-map"></div>
+        <div class="image-wrap" id="resource-map"></div>
       </div>
     <% else %>
       <%= image_tag "map-missing.png" %>
@@ -11,10 +11,8 @@
     <div class="button-row">
       <%= link_to "Edit Account", edit_customer_path, class: "button" %>
       <%= link_to "Delete Account", customer_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "button" %>
+      <div class="clearfix"></div>
     </div>
-  </div>
-  <div class="col-md-4">
-    <h2><%= @customer.name %></h2>
     <ul class="info">
       <li>
         <span class="info-label">Member since:</span> <%= customer_since(@customer) %>
@@ -22,9 +20,11 @@
       <li>
         <span class="info-label">Category:</span> <%= customer_category(@customer) %>
       </li>
-      <li>
-        <span class="info-label">Activation code:</span> <%= @customer.activation_code %>
-      </li>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <h2><%= @customer.name %></h2>
+    <ul class="info">
       <li>
         <%= link_to "Total installations: #{total_installations(@customer)}", installations_path(@customer), id: "account-installations-link", class: "link" %>
       </li>
@@ -33,6 +33,12 @@
       </li>
       <li>
         <%= link_to "Add New Installation", new_installation_path, class: "link" %>
+      </li></br>
+      <li>
+        <span class="info-label">Activation code:</span> <%= @customer.activation_code %>
+      </li>
+      <li class="extra-info">
+        Want to give another user access to this company account? Send them this activation code and they'll be able to add your company to their profile.
       </li>
     </ul>
   </div>
@@ -69,7 +75,7 @@
 
 <script type="text/javascript">
   handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'customer-map'}}, function(){
+  handler.buildMap({ provider: {}, internal: {id: 'resource-map'}}, function(){
     markers = handler.addMarkers(<%=raw @hash.to_json %>);
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
