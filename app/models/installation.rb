@@ -17,7 +17,7 @@ class Installation < ActiveRecord::Base
 
   has_attached_file :image,
     styles: { :medium => "300x300>", :thumb => "100x100>" },
-    default_url: "missing.png",
+    default_url: ActionController::Base.helpers.asset_path('lighthouse.png'),
     bucket: ENV['S3_BUCKET_NAME'],
     s3_credentials: {
       access_key_id: ENV['AWS_ACCESS_KEY_ID'],
