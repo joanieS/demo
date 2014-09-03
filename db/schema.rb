@@ -104,6 +104,10 @@ ActiveRecord::Schema.define(version: 20140806172046) do
     t.integer  "customer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "beacon_id"
+    t.text     "content"
+    t.float    "latitude"
+    t.float    "longitude"
     t.boolean  "active",             default: false
     t.string   "image_url"
     t.string   "image_file_name"

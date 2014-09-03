@@ -1,4 +1,4 @@
-class BeaconsController < InheritedResources::Base
+class BeaconsController < ApplicationController
   
   before_action :authenticate_user!
 
@@ -16,6 +16,10 @@ class BeaconsController < InheritedResources::Base
       marker.lat beacon.latitude
       marker.lng beacon.longitude
     end
+  end
+
+  def new
+    @beacon = Beacon.new
   end
 
   def create

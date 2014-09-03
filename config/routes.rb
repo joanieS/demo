@@ -4,9 +4,8 @@ Rails.application.routes.draw do
 
   # Ensures user interracts with model as opposed to devise when editing.
   resources :users, only: [:index, :update, :edit, :destroy]
-
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
+  #ActiveAdmin::Devise.config
+  #ActiveAdmin.routes(self)
 
   resources :customers, only: [:show, :index, :new, :create, :edit, :update, :destroy] do
     resources :installations do 
