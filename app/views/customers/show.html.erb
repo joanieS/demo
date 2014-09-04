@@ -13,23 +13,21 @@
       <%= link_to "Delete Account", customer_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "button" %>
       <div class="clearfix"></div>
     </div>
+  </div>
+  <div class="col-md-4">
+    <h2 class="customer-show-page-name"><%= @customer.name %></h2>
     <ul class="info">
       <li>
         <span class="info-label">Member since:</span> <%= customer_since(@customer) %>
       </li>
       <li>
         <span class="info-label">Category:</span> <%= customer_category(@customer) %>
-      </li>
-    </ul>
-  </div>
-  <div class="col-md-4">
-    <h2><%= @customer.name %></h2>
-    <ul class="info">
+      </li></br>
       <li>
-        <%= link_to "Total installations: #{total_installations(@customer)}", installations_path(@customer), id: "account-installations-link", class: "link" %>
+        <%= link_to "Total Installations: #{total_installations(@customer)}", installations_path(@customer), id: "account-installations-link", class: "link" %>
       </li>
       <li>
-        <span class="info-label">Total beacons:</span> <%= total_beacons(@customer) %>
+        <span class="info-label">Total Beacons:</span> <%= total_beacons(@customer) %>
       </li>
       <li>
         <%= link_to "Add New Installation", new_installation_path, class: "link" %>
