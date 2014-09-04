@@ -4,7 +4,7 @@ module CustomersHelper
     if request.path_info =~ /edit/
       "Edit Account"
     elsif request.path_info =~ /new/
-      "Create New Company Account"
+      "New Company"
     end
   end
 
