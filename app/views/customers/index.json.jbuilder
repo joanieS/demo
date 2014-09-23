@@ -1,3 +1,7 @@
 json.array!(@customers) do |customer|
-	json.extract! customer, :id, :name, :category, :created_at, :updated_at, :installations
+	customer.installations.each do |installation|
+		if installation.active == true 
+			json.extract! customer, :id, :name, :category, :created_at, :updated_at, :installations
+		end
+	end
 end

@@ -6,7 +6,7 @@
 #about-video-wrap {
   margin: 0 auto 20px;
   padding: 15px;
-  width: 100%;
+  width: 70%;
   height: 400px;
   border: 2px solid #5C94B6;
   video {
@@ -28,4 +28,9 @@ p+p {
 
 #about-video-wrap+p {
   margin-top: 80px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 0.5em;
 }
