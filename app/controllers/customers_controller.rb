@@ -20,7 +20,7 @@ class CustomersController < ApplicationController
     # Watch RailsCasts
     # Function should be, increment by 1 mile until 5 results are shown
     @customers = Customer.all
-    @customers.reverse
+    @actives = Customer.joins(:installations).where(installations: { :active => true })
     respond_to do |format|
       format.json { render :index, status: :ok, location: @customer }
     end
@@ -72,4 +72,5 @@ class CustomersController < ApplicationController
     def customer_params
       params.require(:customer).permit(:name, :category, :activation_code, :latitude, :longitude, :address)
     end
+
 end
