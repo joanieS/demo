@@ -48,6 +48,10 @@ module ApplicationHelper
     request.path_info =~ /customers+\/[0-9]+\/installations\/([0-9]+(\/edit)?|new)$/ ? true : false    
   end
 
+  def current_page_metrics?(request)
+    request.path_info == "/metrics" ? "current" : ""
+  end
+
   def current_page_beacon?(request)
     if (request.path_info =~ /customers+\/[0-9]+\/installations\/[0-9]+\/beacons\/([0-9]+|new)$/) || (request.path_info =~ /customers+\/[0-9]+\/installations\/[0-9]+\/edit$/)
       true 

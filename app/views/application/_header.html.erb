@@ -56,7 +56,7 @@
             <%= link_to "Installations (#{total_installations(current_user.customer)})", customer_installations_path(current_user.customer_id), class: "nav-link #{current_class_installations?(request)}" %>
           </li>
           <li>
-            <%= link_to "Metrics", "/", class: "nav-link" %>
+            <%= link_to "Metrics", "/metrics", class: "nav-link #{current_page_metrics?(request)}" %>
           </li>  
 					<li>
             <%= link_to "Account", customer_path(current_user.customer_id), class: "nav-link #{current_class_account?(request)}" %>

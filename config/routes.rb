@@ -17,7 +17,11 @@ Rails.application.routes.draw do
 
   get "/location/:latitude/:longitude", :to => "customers#index"
 
+  get "/metrics", :to => 'welcome#metrics'
+
+  get "/metrics/:beacon_id", :to
+
   resources :photos
 
-  root 'welcome#home'
+  root :to => 'welcome#home'
 end
