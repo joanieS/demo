@@ -62,7 +62,7 @@ class BeaconsController < ApplicationController
     s3 = AWS::S3.new(
       :access_key_id => Rails.application.secrets.AWS_ACCESS_KEY_ID,
       :secret_access_key => Rails.application.secrets.AWS_SECRET_ACCESS_KEY)
-      
+     
     audio_clips = s3.buckets['lufthouse-memories']
 
     audio_clip_URLs = Array.new
