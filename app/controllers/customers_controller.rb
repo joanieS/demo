@@ -5,6 +5,7 @@ class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
   def show
+    @active_installations = Installation.where(:customer_id => @customer.id, :active => true)
     @users = User.where(customer_id: current_user.customer_id)
     @hash = Gmaps4rails.build_markers(@customer) do |customer, marker|
       marker.lat customer.latitude
@@ -17,7 +18,6 @@ class CustomersController < ApplicationController
   end
 
   def index
-    # Watch RailsCasts
     # Function should be, increment by 1 mile until 5 results are shown
     @customers = Customer.all
     @actives = Customer.joins(:installations).where(installations: { :active => true })
@@ -71,6 +71,10 @@ class CustomersController < ApplicationController
 
     def customer_params
       params.require(:customer).permit(:name, :category, :activation_code, :latitude, :longitude, :address)
+    end
+
+    def active_installations(customer)
+      @active_installations = Installation.where(:customer_id => customer.id, :active => true)
     end
 
 end
