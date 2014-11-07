@@ -1,7 +1,7 @@
 module ApplicationHelper
 
 	def total_installations(customer)
-		customer.installations.count
+		customer.installations.where(:active => true).count
 	end
 
   def total_beacons(customer)
