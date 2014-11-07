@@ -53,7 +53,7 @@
         </div>
         <div class="field">
           <%= f.label :content_type, "Content Type" %><br>
-          <%= f.select :content_type, options_for_select([["Image","image"], ["Video","local-video"], ["Website", "web"], ["Online video","web-video"], ["Photo gallery","photo-gallery"], ["Memories", "memories"], ["Record a memory", "record-audio"]]) %>
+          <%= f.select :content_type, options_for_select([["Image","image"], ["Video","local-video"], ["Website", "web"], ["Online video","web-video"], ["Photo gallery","photo-gallery"], ["Memories", "memories"], ["Record a memory", "record-audio"], ["Photo booth", "photobooth"]]) %>
         </div>
         <div class="content-type-field" id="InputsWrapper">
           <input type="text" name="mytext[]" class="photo-gallery" id="photo_'+ FieldCount +'"/><a href="#" class="removeclass">&times;</a><a href="#" class="addclass"> + </a>

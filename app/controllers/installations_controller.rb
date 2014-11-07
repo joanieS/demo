@@ -7,7 +7,7 @@ class InstallationsController < ApplicationController
   before_action :set_installation, only: [:show, :edit, :update, :destroy]
 
   def index
-    @installations = Installation.where(customer_id: @customer.id)
+    @installations = Installation.where(:customer_id => @customer.id, :active => true)
   end
 
   def show
