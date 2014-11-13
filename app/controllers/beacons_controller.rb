@@ -113,10 +113,6 @@ class BeaconsController < ApplicationController
   end
 
 
-  # def set_beacon_audio_url
-  #   @beacon.audio_url = @beacon.audio.url
-  # end
-
   def beacon_params
     params.require(:beacon).permit(
       :minor_id, :major_id, :latitude, :longitude, :content, :content_type, 
