@@ -20,6 +20,9 @@ class InstallationsController < ApplicationController
         if beacon.content_type == "photo-gallery"
           beacon.content = get_photo_gallery(beacon.installation_id, beacon.minor_id)
         end
+        if beacon.audio_file_name != nil && beacon.audio_file_name != "/audios/original/missing.png"
+          beacon.audio_url = beacon.audio.url
+        end
       end
       render action: "show"
     else
