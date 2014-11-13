@@ -14,12 +14,17 @@ class InstallationsController < ApplicationController
   def show
     if request.format.json?
       @installation.beacons.each do |beacon|
+
         if beacon.content_type == "memories"
           beacon.content = get_audio_clips
         end
         if beacon.content_type == "photo-gallery"
-          beacon.content = get_photo_gallery(beacon.installation_id, beacon.minor_id)
+          beacon.content = ["https://s3.amazonaws.com/lufthouseawsbucket/beacons/content_images/000/000/092/original/euclidave-1910.jpg", "https://s3.amazonaws.com/lufthouseawsbucket/beacons/content_images/000/000/092/original/1-ArcadeSuperior_Start_Here.jpg"]
         end
+        # if beacon.audio != nil
+        #   beacon.audio_url = get_audio_files
+        # end
+
       end
       render action: "show"
     else
@@ -69,6 +74,19 @@ class InstallationsController < ApplicationController
   end
 
   private
+
+  # def get_audio_files
+  #   s3 = AWS::S3.new(
+  #     :access_key_id => Rails.application.secrets.AWS_ACCESS_KEY_ID,
+  #     :secret_access_key => Rails.application.secrets.AWS_SECRET_ACCESS_KEY)
+
+
+    
+  #   audio_files = s3.buckets['lufthouseawsbucket'].objects.with_prefix(prefix).collect(&:key)
+
+
+
+  # end
 
     def get_audio_clips
       s3 = AWS::S3.new(

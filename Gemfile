@@ -23,6 +23,12 @@ gem 'aws-sdk'
 gem 's3_direct_upload'
 gem 'httparty'
 
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0'
+  gem 'rspec-collection_matchers'
+  gem 'factory_girl'
+end
+
 group :production, :staging do
   gem 'rails_12factor'
 end

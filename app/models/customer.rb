@@ -17,6 +17,8 @@ class Customer < ActiveRecord::Base
   has_many :installations, dependent: :destroy
   has_many :beacons, through: :installations
 
+  validates_presence_of :name
+
   geocoded_by :address
   after_validation :geocode, :if => :address_changed?
 end

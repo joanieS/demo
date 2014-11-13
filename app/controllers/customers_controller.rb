@@ -3,9 +3,14 @@ require 'securerandom'
 class CustomersController < ApplicationController
   
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
+  
+  # @active_installations = Installation.where(:customer_id => @customer.id, :active => true)  
+
+  # def self.active_installations
+  #   @active_installations
+  # end
 
   def show
-    @active_installations = Installation.where(:customer_id => @customer.id, :active => true)
     @users = User.where(customer_id: current_user.customer_id)
     @hash = Gmaps4rails.build_markers(@customer) do |customer, marker|
       marker.lat customer.latitude
@@ -23,6 +28,7 @@ class CustomersController < ApplicationController
     @actives = Customer.joins(:installations).where(installations: { :active => true })
     respond_to do |format|
       format.json { render :index, status: :ok, location: @customer }
+      format.html { render :index }
     end
   end
 
@@ -73,8 +79,10 @@ class CustomersController < ApplicationController
       params.require(:customer).permit(:name, :category, :activation_code, :latitude, :longitude, :address)
     end
 
-    def active_installations(customer)
-      @active_installations = Installation.where(:customer_id => customer.id, :active => true)
-    end
+
+
+    # def self.active_installations(id)
+    #   Installation.where(:customer_id => id, :active => true)
+    # end
 
 end

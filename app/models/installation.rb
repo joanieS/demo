@@ -14,6 +14,7 @@
 class Installation < ActiveRecord::Base
   belongs_to :customer
   has_many :beacons, dependent: :destroy
+  validates_presence_of :name
 
   has_attached_file :image,
     styles: { :medium => "300x300>", :thumb => "100x100>" },

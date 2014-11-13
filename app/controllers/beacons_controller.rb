@@ -58,21 +58,45 @@ class BeaconsController < ApplicationController
   end
 
   private
+
   def get_audio_clips
     s3 = AWS::S3.new(
       :access_key_id => Rails.application.secrets.AWS_ACCESS_KEY_ID,
       :secret_access_key => Rails.application.secrets.AWS_SECRET_ACCESS_KEY)
-     
-    audio_clips = s3.buckets['lufthouse-memories']
+
+    record_beacon_id = Beacon.where(:installation_id => @installation.id).where(:content_type => 'record-audio').first.id
+
+    prefix = "#{@customer.id}" + '/' + "#{@installation.id}" + '/' + "#{record_beacon_id}"
+
+    audio_clips = s3.buckets['lufthouse-memories'].objects.with_prefix(prefix).collect(&:key)
 
     audio_clip_URLs = Array.new
 
-    audio_clips.objects.each do |f|
-      audio_clip_URLs << "https://s3.amazonaws.com/lufthouse-memories/" + f.key
+    unless audio_clips == []
+      audio_clips.each do |f|
+        audio_clip_URLs << "https://s3.amazonaws.com/lufthouse-memories/" + f
+      end
     end
 
     return audio_clip_URLs.shuffle
+  
   end
+  
+  # def get_audio_clips
+  #   s3 = AWS::S3.new(
+  #     :access_key_id => Rails.application.secrets.AWS_ACCESS_KEY_ID,
+  #     :secret_access_key => Rails.application.secrets.AWS_SECRET_ACCESS_KEY)
+     
+  #   audio_clips = s3.buckets['lufthouse-memories']
+
+  #   audio_clip_URLs = Array.new
+
+  #   audio_clips.objects.each do |f|
+  #     audio_clip_URLs << "https://s3.amazonaws.com/lufthouse-memories/" + f.key
+  #   end
+
+  #   return audio_clip_URLs.shuffle
+  # end
 
   def get_photo_gallery(installation_id, minor_id)
     s3 = AWS::S3.new(
