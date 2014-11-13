@@ -114,7 +114,7 @@ class BeaconsController < ApplicationController
 
 
   def set_beacon_audio_url
-    @beacon.audio_url = @beacon.audio.url
+    @beacon.audio_url = @beacon.audio.url.gsub(/[?]\d*/, '')
   end
 
   def beacon_params
