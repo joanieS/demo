@@ -26,6 +26,8 @@ class BeaconsController < ApplicationController
     @beacon = Beacon.new(beacon_params)
     set_beacon_installation_id_and_uuid
     set_beacon_lat_and_long
+    binding.pry
+    set_beacon_audio_url
     respond_to do |format|
       if @beacon.save
         format.html { redirect_to beacon_path, notice: 'Beacon was successfully created.' }
@@ -109,6 +111,11 @@ class BeaconsController < ApplicationController
   def set_beacon_lat_and_long
     @beacon.latitude = @customer.latitude
     @beacon.longitude = @customer.longitude
+  end
+
+
+  def set_beacon_audio_url
+    @beacon.audio_url = @beacon.audio.url
   end
 
   def beacon_params
