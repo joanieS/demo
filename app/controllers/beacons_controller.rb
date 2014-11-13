@@ -26,7 +26,6 @@ class BeaconsController < ApplicationController
     @beacon = Beacon.new(beacon_params)
     set_beacon_installation_id_and_uuid
     set_beacon_lat_and_long
-    binding.pry
     set_beacon_audio_url
     respond_to do |format|
       if @beacon.save
