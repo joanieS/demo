@@ -1,0 +1,81 @@
+<div class="row">
+  <div class="col-md-3">
+    <% if check_coordinates(@customer) %>
+      <div class="image-wrap-main">
+        <div class="image-wrap" id="resource-map"></div>
+      </div>
+    <% else %>
+      <%= image_tag "map-missing.png" %>
+      <p>Your account currently does not have any attached coordinates.</p>
+    <% end %>
+    <div class="button-row">
+      <%= link_to "Edit Account", edit_customer_path, class: "button" %>
+      <%= link_to "Delete Account", customer_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "button" %>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <h2 class="customer-show-page-name"><%= @customer.name %></h2>
+    <ul class="info">
+      <li>
+        <span class="info-label">Member since:</span> <%= customer_since(@customer) %>
+      </li>
+      <li>
+        <span class="info-label">Category:</span> <%= customer_category(@customer) %>
+      </li></br>
+      <li>
+        <%= link_to "Total Installations: #{total_installations(@customer)}", installations_path(@customer), id: "account-installations-link", class: "link" %>
+      </li>
+      <li>
+        <span class="info-label">Total Beacons:</span> <%= total_beacons(@customer) %>
+      </li>
+      <li>
+        <%= link_to "Add New Installation", new_installation_path, class: "link" %>
+      </li></br>
+      <li>
+        <span class="info-label">Activation code:</span> <%= @customer.activation_code %>
+      </li>
+      <li class="extra-info">
+        Want to give another user access to this company account? Send them this activation code and they'll be able to add your company to their profile.
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-5">
+    <table>
+      <thead>
+        <tr><th>Payments</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>No payments</td></tr>
+      </tbody>
+    </table>
+    <table>
+      <thead>
+        <tr>
+          <th colspan="4">Account Users</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.find_each do |user| %>
+          <tr>
+            <td><%= full_name(user) %></td>
+            <td><%= user.email %></td>
+            <% if user == current_user %>
+              <td class="td-action"><%= link_to image_tag("table-edit-icon.png"), edit_user_path(user), class: "table-icon" %></td>
+              <td class="td-action"><%= link_to image_tag("table-delete-icon.png"), user, method: :destroy, data: { confirm: "Are you sure?" }, class: "table-icon" %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script type="text/javascript">
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'resource-map'}}, function(){
+    markers = handler.addMarkers(<%=raw @hash.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
+</script>

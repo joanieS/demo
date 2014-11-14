@@ -1,0 +1,79 @@
+<%= form_for [@customer, @installation, @beacon], html: {class: "form-beacon"} do |f| %>
+  <h2><%= beacon_form_title(request) %></h2>
+  <div class="form-contents-wrap">
+    <% if @beacon.errors.any? %>
+      <div id="error_explanation">
+        <h3><%= pluralize(@beacon.errors.count, "error") %> prohibited this beacon from being saved:</h3>
+        <ul>
+          <% @beacon.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="field">
+          <%= f.check_box :active %>
+          <%= f.label :active, class: "checkbox-label" %>
+        </div>
+        <div class="field">
+          <%= f.label :minor_id, "Minor ID" %><br>
+          <%= f.number_field :minor_id %>
+        </div>
+        <div class="field">
+          <%= f.label :major_id, "Major ID" %><br>
+          <%= f.number_field :major_id %>
+        </div>
+        <% if params[:action] == "new" %>
+          <div class="field hidden">
+            <%= f.label :uuid, "UUID" %><br>
+            <%= f.text_field :uuid, placeholder: "B9407F30-F5F8-466E-AFF9-25556B57FE6D", disabled: true %>
+          </div>
+        <% elsif params[:action] == "edit" %>
+          <div class="field">
+            <%= f.label :latitude %><br>
+            <%= f.number_field :latitude , step: "any", min: "-90", max: "90" %>
+          </div>
+          <div class="field">
+            <%= f.label :longitude %><br>
+            <%= f.number_field :longitude, step: "any", min: "-180", max: "180" %>
+          </div>
+          <div class="field">
+            <%= f.label :uuid, "UUID" %><br>
+            <%= f.text_field :uuid %>
+            <div class="extra-info"> Do not change your beacon UUID unless explicitly instructed to do so.</div>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-md-6">
+        <div class="field">
+          <%= f.label :description, "Content Description" %><br>
+          <%= f.text_area :description %>
+        </div>
+        <div class="field">
+          <%= f.label :content_type, "Content Type" %><br>
+          <%= f.select :content_type, options_for_select([["Image","image"], ["Video","local-video"], ["Website", "web"], ["Online video","web-video"], ["Photo gallery","photo-gallery"], ["Memories", "memories"], ["Record a memory", "record-audio"], ["Photo booth", "photobooth"]]) %>
+        </div>
+        <div class="content-type-field" id="InputsWrapper">
+          <input type="text" name="mytext[]" class="photo-gallery" id="photo_'+ FieldCount +'"/><a href="#" class="removeclass">&times;</a><a href="#" class="addclass"> + </a>
+        </div>
+        <div class="field content-type-field" id="content-file-field">
+          <%= f.label :content_image, "Content" %><br>
+          <%= f.file_field :content_image %>
+        </div>
+        <div class="field content-type-field" id="content-url-field"> 
+          <%= f.label :content, "Content" %><br>
+          <%= f.text_field :content %>
+        </div>
+        <div class="field" id="audio-field">
+          <%= f.label :audio %><br>
+          <%= f.file_field :audio %>
+        </div>
+      </div>
+    </div>
+    <div class="actions" id="createBeacon">
+      <%= f.submit %>
+    </div>
+  </div>
+<% end %>
