@@ -22,4 +22,10 @@ RSpec.describe Installation, :type => :model do
   	expect(Installation.new(name: nil)).to have(1).errors_on(:name)
   end
 
+  it "adds a default image if missing" do
+    customer = Customer.create
+    installation = Installation.create(name: 'Example', customer_id: "#{customer.id}")
+    expect(installation.image.url).to eq("/assets/logo_white.png")
+  end
+
 end
