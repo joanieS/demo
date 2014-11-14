@@ -21,10 +21,9 @@ class InstallationsController < ApplicationController
         if beacon.content_type == "photo-gallery"
           beacon.content = ["https://s3.amazonaws.com/lufthouseawsbucket/beacons/content_images/000/000/092/original/euclidave-1910.jpg", "https://s3.amazonaws.com/lufthouseawsbucket/beacons/content_images/000/000/092/original/1-ArcadeSuperior_Start_Here.jpg"]
         end
-        # if beacon.audio != nil
-        #   beacon.audio_url = get_audio_files
-        # end
-
+        if beacon.audio_file_name != nil && beacon.audio_file_name != "/audios/original/missing.png"
+          beacon.audio_url = beacon.audio.url
+        end
       end
       render action: "show"
     else

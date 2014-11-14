@@ -135,6 +135,7 @@ class BeaconsController < ApplicationController
     @beacon.longitude = @customer.longitude
   end
 
+
   def beacon_params
     params.require(:beacon).permit(
       :minor_id, :major_id, :latitude, :longitude, :content, :content_type, 
