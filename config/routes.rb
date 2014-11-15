@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
 
@@ -8,6 +10,7 @@ Rails.application.routes.draw do
       resources :users, only: [:index, :update, :edit, :destroy]
       #ActiveAdmin::Devise.config
       #ActiveAdmin.routes(self)
+      resources :devices
 
       resources :customers, only: [:show, :index, :new, :create, :edit, :update, :destroy] do
         resources :installations do 
@@ -36,6 +39,8 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :update, :edit, :destroy]
   #ActiveAdmin::Devise.config
   #ActiveAdmin.routes(self)
+
+  resources :devices
 
   resources :customers, only: [:show, :index, :new, :create, :edit, :update, :destroy] do
     resources :installations do 

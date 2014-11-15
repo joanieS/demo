@@ -9,6 +9,7 @@ module Api
 
       def show
         @users = User.where(customer_id: current_user.customer_id)
+        @customer = Customer.find(params[:id])
         @hash = Gmaps4rails.build_markers(@customer) do |customer, marker|
           marker.lat customer.latitude
           marker.lng customer.longitude
@@ -85,4 +86,11 @@ module Api
 
     end
   end
-end 
+end
+
+#   class Api::V1::CustomersController < ApplicationController
+#     def show
+#       @customer = Customer.find(params[:id])
+#     end
+#   end
+# end 
