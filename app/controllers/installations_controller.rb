@@ -143,7 +143,7 @@ class InstallationsController < ApplicationController
     end
 
     def set_image_url
-      if @installation.image_url == "" && @installation.image.url != nil
+      if @installation.image_file_name != nil
         @installation.image_url = @installation.image.url
       end
     end

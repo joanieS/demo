@@ -41,6 +41,7 @@ module Api
       def create
         @installation = Installation.new(installation_params)
         set_customer_id
+        set_image_url
         respond_to do |format|
           if @installation.save
             format.html { redirect_to installation_path, notice: "Installation was successfully created." }
