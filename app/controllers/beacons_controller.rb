@@ -9,6 +9,7 @@ class BeaconsController < ApplicationController
 
 
   def show
+    set_beacon_audio
     if request.format.json?
       format.json { render :show, status: :ok, location: beacon_path }
     end
@@ -97,6 +98,10 @@ class BeaconsController < ApplicationController
 
   #   return audio_clip_URLs.shuffle
   # end
+
+  def set_beacon_audio
+    @beacon.audio_url = @beacon.audio.url
+  end
 
   def get_photo_gallery(installation_id, minor_id)
     s3 = AWS::S3.new(

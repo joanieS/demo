@@ -88,6 +88,7 @@ class InstallationsController < ApplicationController
 
   # end
 
+
     def get_audio_clips
       s3 = AWS::S3.new(
         :access_key_id => Rails.application.secrets.AWS_ACCESS_KEY_ID,
