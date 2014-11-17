@@ -2,7 +2,7 @@ require 'securerandom'
 module Api
   module V1
 
-    class CustomersController < ApplicationController
+    class CustomersController < ApiController
       
       respond_to :json
       before_action :set_customer, only: [:show, :edit, :update, :destroy]

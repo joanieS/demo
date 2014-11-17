@@ -7,7 +7,7 @@ RSpec.describe "customer" do
 		it 'returns a customer by :id' do
 			customer = create(:customer)
 			installation = create(:installation, customer_id: customer.id)
-			
+
 			get 'api/v1/customers.json', id: customer.id
 
 			expect(response.status).to eq 200
@@ -40,4 +40,5 @@ RSpec.describe "customer" do
 
 		end
 	end
+
 end 

@@ -29,6 +29,8 @@
 class Beacon < ActiveRecord::Base
 
 	belongs_to :installation
+  has_many :events
+  has_many :devices, :through => :events
 
   has_many :photos
   accepts_nested_attributes_for :photos, allow_destroy: true
