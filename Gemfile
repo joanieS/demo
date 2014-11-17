@@ -23,6 +23,9 @@ gem 'aws-sdk'
 gem 's3_direct_upload'
 gem 'httparty'
 
+# Documentation for API
+gem 'fdoc'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'rspec-collection_matchers'

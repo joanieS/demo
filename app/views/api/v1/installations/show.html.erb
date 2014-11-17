@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-lg-3 col-md-4 col-sm-5">
+    <div class="image-wrap-main">
+      <div class="image-wrap" id="installation-show-image">
+        <style>
+          #installation-show-image { 
+            background-image: url(<%= @installation.image_url || @installation.image %>);
+          }        
+        </style>
+      </div>
+    </div>
+    <div class="button-row">
+        <%= link_to "Edit Installation", edit_installation_path(@installation), class: "button" %>
+        <%= link_to "Delete Installation", installation_path(@installation), method: :delete, data: { confirm: 'Are you sure?' }, class: "button" %>
+        <div class="clearfix"></div>
+    </div>
+    <ul class="info">
+      <li><span class="info-label">Created:</span> <%= creation_date(@installation) %></li>
+      <li><span class="info-label">Status:</span> <%= current_state(@installation) %></li>
+    </ul>
+  </div>
+  <div class="col-lg-9 col-md-8 col-sm-7">
+    <h2><%= "#{@installation.name} (#{count_beacons(@installation)})" %></h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Active</th>
+            <th>Beacon</th>
+            <th>Content</th>
+            <th colspan="2">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if has_beacons?(@installation) %>
+            <tr>
+              <td colspan="5">
+                <%= link_to "Add a new beacon.", new_beacon_path, class: "link" %>
+              </td>
+            </tr>
+            <% n = 1 %>
+            <% @installation.beacons.find_each do |beacon| %>
+                <tr>
+                  <td><%= current_state(beacon) %></td>
+                  <td><%= link_to "Item ##{n}", beacon_path(beacon), class: "link" %></td>
+                  <td><%= display_beacon_description(beacon) %></td>
+                  <td class="td-action"><%= link_to image_tag("table-edit-icon.png"), edit_beacon_path(beacon), class: "table-icon" %></td>
+                  <td class="td-action"><%= link_to image_tag("table-delete-icon.png"), beacon_path(beacon), method: :delete, data: { confirm: "Are you sure?" }, class: "table-icon" %></td>
+                </tr>
+              <% n += 1 %>
+            <% end %>
+          <% else %>
+            <tr><td colspan="5">This installation currently has no beacons. <%= link_to "Add your first beacon.", new_beacon_path, class: "link" %></td></tr>
+          <% end %>
+        </tbody>
+      </table>
+  </div>
+</div>

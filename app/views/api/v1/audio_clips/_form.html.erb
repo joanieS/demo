@@ -1,0 +1,25 @@
+<%= form_for(@audio_clip) do |f| %>
+  <% if @audio_clip.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@audio_clip.errors.count, "error") %> prohibited this audio_clip from being saved:</h2>
+
+      <ul>
+      <% @audio_clip.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :caption %><br>
+    <%= f.text_field :caption %>
+  </div>
+  <div class="field">
+    <%= f.label :beacon_id %><br>
+    <%= f.number_field :beacon_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
