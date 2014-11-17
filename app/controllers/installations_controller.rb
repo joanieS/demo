@@ -39,6 +39,7 @@ class InstallationsController < ApplicationController
   def create
     @installation = Installation.new(installation_params)
     set_customer_id
+    set_image_url
     respond_to do |format|
       if @installation.save
         format.html { redirect_to installation_path, notice: "Installation was successfully created." }
@@ -138,6 +139,12 @@ class InstallationsController < ApplicationController
 
     def set_customer_id
       @installation.customer_id = current_user.customer_id
+    end
+
+    def set_image_url
+      if @installation.image_url == "" && @installation.image.url != nil
+        @installation.image_url = @installation.image.url
+      end
     end
 
     def installation_params
