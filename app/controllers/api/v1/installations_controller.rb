@@ -14,6 +14,7 @@ module Api
       end
 
       def show
+        set_image_url
         if request.format.json?
           @installation.beacons.each do |beacon|
 
@@ -147,6 +148,12 @@ module Api
           params.require(:installation).permit(
             :name, :group, :customer_id, :active, :image_url, :image
             )
+        end
+
+        def set_image_url
+          if @installation.image_file_name != nil
+            @installation.image_url = @installation.image.url
+          end
         end
 
         # Paths
