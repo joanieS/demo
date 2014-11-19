@@ -20,6 +20,9 @@
       <%= f.file_field :image %>
     </div>
     <div class="field">
+      <% if @installation.image.exists? %>
+        <%= image_tag @installation.image.url(:thumb) %><br/>
+      <% end %>
       <%= f.label :image_url, "Image URL" %><br>
       <%= f.text_field :image_url %>
     </div>
