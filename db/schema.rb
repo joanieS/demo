@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141115213012) do
+ActiveRecord::Schema.define(version: 20141119180859) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(version: 20141115213012) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "device_id"
+    t.integer  "beacon_id"
   end
 
   create_table "installations", force: true do |t|
