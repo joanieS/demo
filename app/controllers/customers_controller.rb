@@ -25,7 +25,7 @@ class CustomersController < ApplicationController
   def index
     # Function should be, increment by 1 mile until 5 results are shown
     @customers = Customer.all
-    # @actives = Installation.joins(:customer).where(installations: { :active => true }).uniq
+    @actives = Installation.joins(:customer).where(installations: { :active => true }).uniq
     respond_to do |format|
       format.json { render :index, status: :ok, location: @customer }
       format.html { render :index }
