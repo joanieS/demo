@@ -21,16 +21,16 @@
           <%= f.label :minor_id, "Beacon ID #" %><br>
           <%= f.number_field :minor_id %>
         </div>
-<!--         <div class="field">
-          <%#= f.label :major_id, "Major ID" %><br>
-          <%#= f.number_field :major_id %>
-        </div> -->
+      <div class="field">
+          <%= f.label :major_id, "Major ID" %><br>
+          <%= f.number_field :major_id %>
+        </div>
         <% if params[:action] == "new" %>
           <div class="field hidden">
             <%= f.label :uuid, "UUID" %><br>
             <%= f.text_field :uuid, placeholder: "B9407F30-F5F8-466E-AFF9-25556B57FE6D", disabled: true %>
-<!--           </div>
-        <%# elsif params[:action] == "edit" %>
+          </div>
+<!--         <%# elsif params[:action] == "edit" %>
           <div class="field">
             <%#= f.label :latitude %><br>
             <%#= f.number_field :latitude , step: "any", min: "-90", max: "90" %>
@@ -69,6 +69,7 @@
         <div class="field" id="audio-field">
           <%= f.label :audio %><br>
           <%= f.file_field :audio %>
+          <%= f.text_area :audio %>
         </div>
       </div>
     </div>

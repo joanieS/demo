@@ -28,4 +28,9 @@ class Installation < ActiveRecord::Base
   validates_attachment_content_type :image, :content_type => [
     'image/png', 'image/jpeg', 'image/jpg', 'image/gif'
   ]
+
+  def self.actives
+    joins(:customer).where(installations: { :active => true }).uniq
+  end
+
 end

@@ -22,4 +22,9 @@ class Customer < ActiveRecord::Base
 
   geocoded_by :address
   after_validation :geocode, :if => :address_changed?
+
+  def actives_count
+    installations.actives.count
+  end
+
 end
