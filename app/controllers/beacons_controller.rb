@@ -115,10 +115,12 @@ class BeaconsController < ApplicationController
     photo_gallery_images_URLs = Array.new
 
     photo_gallery_images.objects.each do |f|
+      binding.pry
       photo_gallery_images_URLs << "https://s3.amazonaws.com/" + bucket_name + "/" + f.key
     end
 
-    return audio_clip_URLs.shuffle
+    binding.pry
+    return photo_gallery_images_URLs
   end
 
   def set_customer_and_installation
