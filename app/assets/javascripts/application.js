@@ -22,33 +22,43 @@ $(document).ready(function() {
 
   // Reveal beacon content form fields based on content type selection.
 
+  $('#content-url-field, #content-file-field, #audio-field').show();
+  $('#content-file-field-multiple').hide();
 
   $("#beacon_content_type").change( function() {
     var $content = $("#beacon_content_type option:selected").val();
-    $('.content-type-field').hide();
+    $('.content-type-field, #content-file-field-multiple').hide();
 
-    if ( $content === "image" ) {
+    if ( $content === "image") {
       $('#content-url-field, #content-file-field, #audio-field').show();
-    } else if ( $content === "local-video" )
+      $('#content-file-field-multiple').hide();
+    } else if ( $content === "local-video" ) {
       $('#content-file-field').show();
-    else if ( $content === "web" || $content === "web-video" ) {
+      $('#audio-field').hide();
+    } else if ( $content === "web-video" ) {
       $('#content-url-field').show();
+      $('#content-file-field, #audio-field').hide();
+    }
+      else if ( $content === "web" ) {
+      $('#content-url-field, #audio-field').show();
       $('#content-file-field').hide();
     } else if ( $content === "photo-gallery" ) {
-      $('#InputsWrapper').show();
-    } 
+      $('#content-file-field-multiple, #audio-field').show();
+    } else if ( $content === "photobooth" || $content === "memories" || $content === "record-audio" ) {
+      $('#audio-field').hide();
+    }
   });
 
-  $(AddButton).click(function (e)
-  {
-    e.preventDefault();
-    console.log(FieldCount);
+  // $(AddButton).click(function (e)
+  // {
+  //   e.preventDefault();
+  //   console.log(FieldCount);
     
-    $(InputsWrapper).append('<div><input type="text" name="mytext[]" class="photo-gallery" id="photo_'+ FieldCount +'"/><a href="#" class="removeclass">&times;</a><a href="#" class="addclass"> + </a></div>');
-    FieldCount++;
-    x++;
+  //   $(InputsWrapper).append('<div><input type="text" name="mytext[]" class="photo-gallery" id="photo_'+ FieldCount +'"/><a href="#" class="removeclass">&times;</a><a href="#" class="addclass"> + </a></div>');
+  //   FieldCount++;
+  //   x++;
 
-  });
+  // });
 
   $("body").on("click",".removeclass", function(e) {
     if( x > 1 ) {
