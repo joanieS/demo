@@ -56,6 +56,10 @@ class Beacon < ActiveRecord::Base
     'audio/mpg', 'audio/x-mpg', 'audio/x-mpegaudio', 'audio/wav'
   ]
 
+  def content_images=(files = [])
+    files.each{|f| (@content_images ||= []) << photos.create(content_image: f) }
+  end
+
   #has_attached_file :content
 
 end

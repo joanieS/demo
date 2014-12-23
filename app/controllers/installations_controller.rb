@@ -20,6 +20,7 @@ class InstallationsController < ApplicationController
           beacon.content = get_audio_clips
         end
         if beacon.content_type == "photo-gallery"
+          @current_beacon_id = "%03d" % beacon.id
           beacon.content = get_photo_gallery
         end
         if beacon.audio_file_name != nil && beacon.audio_file_name != "/audios/original/missing.png"
@@ -73,62 +74,62 @@ class InstallationsController < ApplicationController
     end
   end
 
+
+
   private
 
-  # def get_audio_files
-  #   s3 = AWS::S3.new(
-  #     :access_key_id => Rails.application.secrets.AWS_ACCESS_KEY_ID,
-  #     :secret_access_key => Rails.application.secrets.AWS_SECRET_ACCESS_KEY)
+  def get_audio_clips
+    s3 = AWS::S3.new(
+      :access_key_id => Rails.application.secrets.AWS_ACCESS_KEY_ID,
+      :secret_access_key => Rails.application.secrets.AWS_SECRET_ACCESS_KEY)
+
+    record_beacon_id = Beacon.where(:installation_id => @installation.id).where(:content_type => 'record-audio').first.id
+
+    prefix = "#{@customer.id}" + '/' + "#{@installation.id}" + '/' + "#{record_beacon_id}"
+
+    audio_clips = s3.buckets['lufthouse-memories'].objects.with_prefix(prefix).collect(&:key)
+
+    audio_clip_URLs = Array.new
+
+    unless audio_clips == []
+      audio_clips.each do |f|
+        audio_clip_URLs << "https://s3.amazonaws.com/lufthouse-memories/" + f
+      end
+    end
+
+    return audio_clip_URLs.shuffle
+
+  end
+
+  def get_photo_gallery
+    s3 = AWS::S3.new(
+      :access_key_id => Rails.application.secrets.AWS_ACCESS_KEY_ID,
+      :secret_access_key => Rails.application.secrets.AWS_SECRET_ACCESS_KEY)
+    aws_installation_id = "%03d" % @installation.id
+    prefix = "beacons/content_images/000/000/" + "#{@current_beacon_id}" + "/original"
+    default_prefix = "installations/images/000/000/" + "#{aws_installation_id}" + "/original/"
 
 
+    photo_gallery_images = s3.buckets['lufthouseawsbucket'].objects.with_prefix(prefix).collect(&:key)
+
+    if photo_gallery_images == []
+      binding.pry
+      photo_gallery_images = s3.buckets['lufthouseawsbucket'].objects.with_prefix(default_prefix).collect(&:key)
+    end
     
-  #   audio_files = s3.buckets['lufthouseawsbucket'].objects.with_prefix(prefix).collect(&:key)
+    photo_gallery_images_URLs = Array.new
 
-
-
-  # end
-
-
-    def get_audio_clips
-      s3 = AWS::S3.new(
-        :access_key_id => Rails.application.secrets.AWS_ACCESS_KEY_ID,
-        :secret_access_key => Rails.application.secrets.AWS_SECRET_ACCESS_KEY)
-
-      record_beacon_id = Beacon.where(:installation_id => @installation.id).where(:content_type => 'record-audio').first.id
-
-      prefix = "#{@customer.id}" + '/' + "#{@installation.id}" + '/' + "#{record_beacon_id}"
-
-      audio_clips = s3.buckets['lufthouse-memories'].objects.with_prefix(prefix).collect(&:key)
-
-      audio_clip_URLs = Array.new
-
-      unless audio_clips == []
-        audio_clips.each do |f|
-          audio_clip_URLs << "https://s3.amazonaws.com/lufthouse-memories/" + f
-        end
+      photo_gallery_images.each do |f|
+        photo_gallery_images_URLs << "https://s3.amazonaws.com/lufthouseawsbucket/" + f
       end
 
-      return audio_clip_URLs.shuffle
-   
-    end
-
-    def get_photo_gallery(installation_id, minor_id)
-      s3 = AWS::S3.new(
-        :access_key_id => Rails.application.secrets.AWS_ACCESS_KEY_ID,
-        :secret_access_key => Rails.application.secrets.AWS_SECRET_ACCESS_KEY)
-        
-      bucket_name = "Photo-Gallery-" + installation_id.to_s + "-" + minor_id.to_s
-        
-      photo_gallery_images = s3.buckets[bucket_name]
-
-      photo_gallery_images_URLs = Array.new
-
-      photo_gallery_images.objects.each do |f|
-        photo_gallery_images_URLs << "https://s3.amazonaws.com/" + bucket_name + "/" + f.key
+      if photo_gallery_images_URLs == []
+        photo_gallery_images_URLs = ["#{@installation.image_url}"]
       end
-
+      
       return photo_gallery_images_URLs
-    end
+
+  end
 
     def set_customer
       @customer = Customer.find(params[:customer_id])

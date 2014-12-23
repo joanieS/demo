@@ -63,8 +63,9 @@
           <%= f.file_field :content_image %>
         </div>
         <div class="field content-type-field" id="content-file-field-multiple">
-          <%= f.label :content, "Gallery images" %><br>
-          <%= file_field_tag "images[]", type: :file, multiple: true %>
+          <%= f.label :content_image, "Gallery images" %><br>
+<!--           <%= f.file_field :content_image %>
+ -->          <%= f.file_field :content_image, multiple: true %>
         </div>
         <div class="field content-type-field" id="content-url-field"> 
           <%= f.label :content, "Link" %><br>

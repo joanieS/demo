@@ -27,6 +27,7 @@ class BeaconsController < ApplicationController
     @beacon = Beacon.new(beacon_params)
     set_beacon_installation_id_and_uuid
     set_beacon_lat_and_long
+
     respond_to do |format|
       if @beacon.save
         format.html { redirect_to beacon_path, notice: 'Beacon was successfully created.' }
@@ -103,23 +104,23 @@ class BeaconsController < ApplicationController
     @beacon.audio_url = @beacon.audio.url
   end
 
-  def get_photo_gallery(installation_id, minor_id)
+  def get_photo_gallery
     s3 = AWS::S3.new(
       :access_key_id => Rails.application.secrets.AWS_ACCESS_KEY_ID,
       :secret_access_key => Rails.application.secrets.AWS_SECRET_ACCESS_KEY)
       
-    bucket_name = "Photo-Gallery-" + installation_id.to_s + "-" + minor_id.to_s
-      
-    photo_gallery_images = s3.buckets[bucket_name]
+    # bucket_name = "Photo-Gallery-" + installation_id.to_s + "-" + minor_id.to_s
+    
+    prefix = "beacons/content_images/000/000/" + "#{@beacon.id}" + '/' + "original"
+
+    photo_gallery_images = s3.buckets['lufthouseawsbucket'].objects.with_prefix(prefix).collect(&:key)
 
     photo_gallery_images_URLs = Array.new
 
     photo_gallery_images.objects.each do |f|
-      binding.pry
-      photo_gallery_images_URLs << "https://s3.amazonaws.com/" + bucket_name + "/" + f.key
+      photo_gallery_images_URLs << "https://s3.amazonaws.com/lufthouseawsbucket" + f
     end
 
-    binding.pry
     return photo_gallery_images_URLs
   end
 
@@ -147,7 +148,7 @@ class BeaconsController < ApplicationController
     params.require(:beacon).permit(
       :minor_id, :major_id, :latitude, :longitude, :content, :content_type, 
       :audio, :content_image, :uuid, :active, :image_content, :location, :audio_url,
-      :content_url, :description
+      :content_url, :description, photos: []
     )
   end
 

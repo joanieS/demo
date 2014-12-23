@@ -114,7 +114,7 @@ module Api
        
         end
 
-        def get_photo_gallery(installation_id, minor_id)
+        def get_photo_gallery
           s3 = AWS::S3.new(
             :access_key_id => Rails.application.secrets.AWS_ACCESS_KEY_ID,
             :secret_access_key => Rails.application.secrets.AWS_SECRET_ACCESS_KEY)
