@@ -38,7 +38,7 @@ class Beacon < ActiveRecord::Base
     s3_credentials: {
       access_key_id: ENV['AWS_ACCESS_KEY_ID'],
       secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
-    }
+    }, keep_old_files: true
 
   validates_attachment_content_type :content_image, :content_type => [
     'video/mp4', 'image/png', 'image/jpeg', 'image/jpg', 'image/gif'

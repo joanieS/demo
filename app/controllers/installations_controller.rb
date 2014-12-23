@@ -113,7 +113,7 @@ class InstallationsController < ApplicationController
     photo_gallery_images = s3.buckets['lufthouseawsbucket'].objects.with_prefix(prefix).collect(&:key)
 
     if photo_gallery_images == []
-      binding.pry
+      
       photo_gallery_images = s3.buckets['lufthouseawsbucket'].objects.with_prefix(default_prefix).collect(&:key)
     end
     
