@@ -40,6 +40,8 @@ class BeaconsController < ApplicationController
   end
 
   def update
+    # @beacon = Beacon.find(params[:beacon_id])
+    # 3.times { @beacon.content_images.build }
     respond_to do |format|
       if @beacon.update(beacon_params)
         format.html { redirect_to beacon_path, notice: 'Beacon was successfully updated.' }

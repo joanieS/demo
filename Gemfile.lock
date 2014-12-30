@@ -275,6 +275,7 @@ DEPENDENCIES
   gmaps4rails
   httparty
   jbuilder (~> 2.0)
+  jquery-fileupload-rails
   jquery-rails (~> 2.3.0)
   jquery-ui-rails
   launchy

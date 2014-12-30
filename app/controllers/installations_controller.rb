@@ -109,18 +109,17 @@ class InstallationsController < ApplicationController
     prefix = "beacons/content_images/000/000/" + "#{@current_beacon_id}" + "/original"
     default_prefix = "installations/images/000/000/" + "#{aws_installation_id}" + "/original/"
 
-
-    photo_gallery_images = s3.buckets['lufthouseawsbucket'].objects.with_prefix(prefix).collect(&:key)
+    photo_gallery_images = s3.buckets['lufthouse-dev'].objects.with_prefix(prefix).collect(&:key)
 
     if photo_gallery_images == []
       
-      photo_gallery_images = s3.buckets['lufthouseawsbucket'].objects.with_prefix(default_prefix).collect(&:key)
+      photo_gallery_images = s3.buckets['lufthouse-dev'].objects.with_prefix(default_prefix).collect(&:key)
     end
     
     photo_gallery_images_URLs = Array.new
 
       photo_gallery_images.each do |f|
-        photo_gallery_images_URLs << "https://s3.amazonaws.com/lufthouseawsbucket/" + f
+        photo_gallery_images_URLs << "https://s3.amazonaws.com/lufthouse-dev/" + f
       end
 
       if photo_gallery_images_URLs == []
