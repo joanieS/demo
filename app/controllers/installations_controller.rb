@@ -112,7 +112,6 @@ class InstallationsController < ApplicationController
     prefix = "beacons/content_images/000/000/" + "#{@current_beacon_id}" + "/original"
     default_prefix = "installations/images/000/000/" + "#{aws_installation_id}" + "/original/"
 
-
     photo_gallery_images = s3.buckets['lufthouse-dev'].objects.with_prefix(prefix).collect(&:key)
 
     if photo_gallery_images == []
