@@ -7,6 +7,7 @@ class InstallationsController < ApplicationController
   before_action :set_installation, only: [:show, :edit, :update, :destroy]
 
   def index
+    puts ENV['S3_BUCKET_NAME']
     @installations = Installation.where(:customer_id => @customer.id)
     @active_installations = Installation.where(:customer_id => @customer.id, :active => true)
   end
@@ -42,6 +43,7 @@ class InstallationsController < ApplicationController
   end
 
   def create
+    puts "Bucket is " + ENV['S3_BUCKET_NAME']
     @installation = Installation.new(installation_params)
     set_customer_id
     respond_to do |format|
@@ -148,6 +150,7 @@ class InstallationsController < ApplicationController
     def set_image_url
       if @installation.image_file_name != nil
         @installation.image_url = @installation.image.url
+        @installation.save
       end
     end
 
