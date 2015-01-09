@@ -23,6 +23,9 @@ class InstallationsController < ApplicationController
           @current_beacon_id = "%03d" % beacon.id
           beacon.content = get_photo_gallery
         end
+        if beacon.content_type == "image"
+          beacon.content = beacon.content_image.url
+        end
         if beacon.audio_file_name != nil && beacon.audio_file_name != "/audios/original/missing.png"
           beacon.audio_url = beacon.audio.url
         end
@@ -110,22 +113,22 @@ class InstallationsController < ApplicationController
     default_prefix = "installations/images/000/000/" + "#{aws_installation_id}" + "/original/"
 
 
-    photo_gallery_images = s3.buckets['lufthouseawsbucket'].objects.with_prefix(prefix).collect(&:key)
+    photo_gallery_images = s3.buckets['lufthouse-dev'].objects.with_prefix(prefix).collect(&:key)
 
     if photo_gallery_images == []
       
-      photo_gallery_images = s3.buckets['lufthouseawsbucket'].objects.with_prefix(default_prefix).collect(&:key)
+      photo_gallery_images = s3.buckets['lufthouse-dev'].objects.with_prefix(default_prefix).collect(&:key)
     end
     
     photo_gallery_images_URLs = Array.new
 
       photo_gallery_images.each do |f|
-        photo_gallery_images_URLs << "https://s3.amazonaws.com/lufthouseawsbucket/" + f
+        photo_gallery_images_URLs << "https://s3.amazonaws.com/lufthouse-dev/" + f
       end
 
-      if photo_gallery_images_URLs == []
-        photo_gallery_images_URLs = ["#{@installation.image_url}"]
-      end
+      # if photo_gallery_images_URLs == []
+      #   photo_gallery_images_URLs = ["#{@installation.image_url}"]
+      # end
       
       return photo_gallery_images_URLs
 

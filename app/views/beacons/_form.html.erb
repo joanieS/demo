@@ -55,17 +55,14 @@
           <%= f.label :content_type, "Content Type" %><br>
           <%= f.select :content_type, options_for_select([["Image","image"], ["Video","local-video"], ["Website", "web"], ["Online video","web-video"], ["Photo gallery","photo-gallery"], ["Listen to memories", "memories"], ["Record a memory", "record-audio"], ["Photo booth", "photobooth"]]) %>
         </div>
-<!--         <div class="content-type-field" id="InputsWrapper">
-          <input type="text" name="mytext[]" class="photo-gallery" id="photo_'+ FieldCount +'"/><a href="#" class="removeclass">&times;</a><a href="#" class="addclass"> + </a>
-        </div> -->
+
         <div class="field content-type-field" id="content-file-field">
           <%= f.label :content_image, "File" %><br>
           <%= f.file_field :content_image %>
         </div>
         <div class="field content-type-field" id="content-file-field-multiple">
           <%= f.label :content_image, "Gallery images" %><br>
-<!--           <%= f.file_field :content_image %>
- -->          <%= f.file_field :content_image, multiple: true %>
+          <%= f.file_field :content_image %>
         </div>
         <div class="field content-type-field" id="content-url-field"> 
           <%= f.label :content, "Link" %><br>
