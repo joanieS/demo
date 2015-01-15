@@ -1,2 +1,2 @@
-class PhotosController < InheritedResources::Base
+class PhotosController < ApplicationController
 end
