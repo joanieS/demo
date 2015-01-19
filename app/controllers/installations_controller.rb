@@ -7,9 +7,7 @@ class InstallationsController < ApplicationController
   before_action :set_installation, only: [:show, :edit, :update, :destroy]
 
   def index
-    puts ENV['S3_BUCKET_NAME']
-    @installations = Installation.where(:customer_id => @customer.id)
-    @active_installations = Installation.where(:customer_id => @customer.id, :active => true)
+    set_installations
   end
 
   def show
@@ -158,6 +156,11 @@ class InstallationsController < ApplicationController
       params.require(:installation).permit(
         :name, :group, :customer_id, :active, :image_url, :image
         )
+    end
+
+    def set_installations
+      @installations = Installation.where(:customer_id => @customer.id)
+      @active_installations = Installation.where(:customer_id => @customer.id, :active => true)
     end
 
     # Paths
