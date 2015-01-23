@@ -14,7 +14,7 @@ gem 'bootstrap-sass'
 
 gem 'jquery-ui-rails'
 
-gem 'faker'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # File storage gems
@@ -37,6 +37,8 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers'
+  gem 'faker'
 end
 
 group :production, :staging do

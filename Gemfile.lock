@@ -220,6 +220,8 @@ GEM
       multi_json (~> 1.0)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
+    shoulda-matchers (2.7.0)
+      activesupport (>= 3.0.0)
     slop (3.6.0)
     sprockets (2.11.0)
       hike (~> 1.2)
@@ -293,6 +295,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   selenium-webdriver
+  shoulda-matchers
   turbolinks
   tzinfo
   tzinfo-data

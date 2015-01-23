@@ -6,6 +6,7 @@ require 'rspec/autorun'
 require 'devise'
 
 RSpec.configure do |config|
+  
   config.include Devise::TestHelpers, :type => :controller
   # config.extend ControllerMacros, :type => :controller
 end
@@ -47,4 +48,8 @@ RSpec.configure do |config|
 
   # Include Factory Girl syntax to simplify calls to factories
   config.include FactoryGirl::Syntax::Methods
+
+  def login(user)
+    post user_session_path, 'user[email]' => user.email, 'user[password]' => user.password
+  end
 end
