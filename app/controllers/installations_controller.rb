@@ -154,7 +154,7 @@ class InstallationsController < ApplicationController
     def installation_params
       params.require(:installation).permit(
         :name, :group, :customer_id, :active, :image_url, :image
-        )
+        ) if params[:installation]
     end
 
     def set_installations

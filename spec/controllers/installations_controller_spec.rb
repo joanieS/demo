@@ -63,13 +63,13 @@ RSpec.describe InstallationsController, :type => :controller do
 	end
 
 
-	# describe "GET new" do
-	#   it "assigns a new installation as @installation" do
-	#   	sign_in
-	#     get :new, {}
-	#     assigns(:installation).should be_a_new(Installation)
-	#   end
-	# end
+	describe "GET new" do
+	  it "assigns a new installation as @installation" do
+	  	sign_in
+	    get :new, id: @installation, customer_id: @customer.id
+	    assigns(:installation).should be_a_new(Installation)
+	  end
+	end
 
 	describe 'POST #create' do
 
@@ -98,8 +98,87 @@ RSpec.describe InstallationsController, :type => :controller do
 			end
 		end
 
+		context 'with invalid attributes' do
+
+			it 'does not save the new installation in the database' do
+				invalid_installation = Installation.create(:customer_id => @customer.id, :active => true, :image_url => "http://lufthouseawsbucket.s3.amazonaws.com/beacons/content_images/000/000/178/original/final_scavenger_hunt_6.png?1422037076")
+				expect{
+					post :create, :customer_id => @user.customer_id, :installation => invalid_installation
+				}.to_not change(Installation, :count)
+			end
+
+			it 're-renders the :new template' do
+				invalid_installation = Installation.create(:customer_id => @customer.id, :active => true, :image_url => "http://lufthouseawsbucket.s3.amazonaws.com/beacons/content_images/000/000/178/original/final_scavenger_hunt_6.png?1422037076")
+
+				post :create, :customer_id => @user.customer_id, :installation => invalid_installation
+			end
+
+		end
+
 	
 	end
 
+	describe 'PATCH #update' do
+		context 'valid attributes' do
+			it 'located the requested @installation' do
+				sign_in
+				patch :update, id: @installation.id, customer_id: @installation.customer_id, installation: @installation_attributes
+				expect(assigns(:installation)).to eq(@installation)
+			end
+
+			it 'changes @installation attributes' do
+				sign_in
+				patch :update, id: @installation.id, customer_id: @installation.customer_id, installation: attributes_for(:installation, name: "Updated Installation")
+				@installation.reload
+				expect(@installation.name).to eq("Updated Installation")				
+			end
+
+			it 'redirects to the updated contact' do
+				sign_in
+				patch :update, id: @installation, customer_id: @installation.customer_id, installation: @installation_attributes
+				expect(response).to redirect_to customer_installation_path(:customer_id => @customer.id, :id => @installation.id)
+			end
+		end
+
+		context 'invalid attributes' do
+			it 'does not change the installation attributes' do
+				sign_in
+				installation = Installation.create(:customer_id => @customer.id, :name => "Installation", :active => true, :image_url => "http://lufthouseawsbucket.s3.amazonaws.com/beacons/content_images/000/000/178/original/final_scavenger_hunt_6.png?1422037076")
+				patch :update, id: @installation, customer_id: installation.customer_id, installation: attributes_for(:installation, name: nil, image_url: "http://lufthouseawsbucket.s3.amazonaws.com/beacons/content_images/000/000/170/original/final_scavenger_hunt_6.png?1422037076")
+				@installation.reload
+
+				expect(installation.image_url).to_not eq("http://lufthouseawsbucket.s3.amazonaws.com/beacons/content_images/000/000/170/original/final_scavenger_hunt_6.png?1422037076")
+				expect(installation.name).to eq("Installation")
+			end
+
+			it 're-renders the edit template' do
+				sign_in
+				installation = Installation.create(:customer_id => @customer.id, :name => "Installation", :active => true, :image_url => "http://lufthouseawsbucket.s3.amazonaws.com/beacons/content_images/000/000/178/original/final_scavenger_hunt_6.png?1422037076")
+				patch :update, id: @installation.id, customer_id: @user.customer_id, installation: attributes_for(:installation, name: nil)
+				expect(response).to render_template :edit 
+			end
+		end
+	end 
+
+	describe 'DELETE destroy' do
+		before :each do 
+			@delete_installation = FactoryGirl.create(:installation, customer: @customer)
+			sign_in
+		end
+
+		it 'deletes the installation' do
+		
+			expect{
+				delete :destroy, id: @delete_installation, customer_id: @user.customer_id
+			}.to change(Installation,:count).by(-1)
+
+		end
+
+		it 'redirects to installations#index' do
+			delete :destroy, id: @delete_installation, customer_id: @user.customer_id
+			expect(response).to redirect_to customer_installations_path(:customer_id => @customer.id)
+		end
+
+	end
 
 end
