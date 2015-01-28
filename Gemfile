@@ -91,3 +91,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
 # Jquery file upload for Rails to enable multi-uploads
 gem 'jquery-fileupload-rails'
+
+# Configures code climate for test coverage
+gem "codeclimate-test-reporter", group: :test, require: nil
+
