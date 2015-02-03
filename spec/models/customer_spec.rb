@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Customer, :type => :model do
+  before :each do 
+    @customer = FactoryGirl.create(:customer)
+    @customer.installations << FactoryGirl.create_list(:installation, 5, customer: @customer)
+
+  end
 
   it "has a valid factory" do
     expect(create(:customer)).to be_valid
@@ -20,13 +25,11 @@ RSpec.describe Customer, :type => :model do
 	end
 
   it "provides a latitude based on address" do
-    customer = create(:customer)
-  	expect(customer.latitude).to_not be_nil
+  	expect(@customer.latitude).to_not be_nil
   end
 
   it "provides a longitude based on address" do
-  	customer = create(:customer)
-  	expect(customer.longitude).to_not be_nil
+  	expect(@customer.longitude).to_not be_nil
   end
 
 end

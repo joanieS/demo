@@ -1,31 +1,3 @@
-# == Schema Information
-#
-# t.integer  "minor_id"
-# t.string   "content_type"
-# t.integer  "installation_id"
-# t.datetime "created_at"
-# t.datetime "updated_at"
-# t.string   "content_image_file_name"
-# t.string   "content_image_content_type"
-# t.integer  "content_image_file_size"
-# t.datetime "content_image_updated_at"
-# t.float    "latitude"
-# t.float    "longitude"
-# t.integer  "major_id"
-# t.string   "uuid"
-# t.boolean  "active",                     default: false
-# t.text     "location"
-# t.string   "audio_file_name"
-# t.string   "audio_content_type"
-# t.integer  "audio_file_size"
-# t.datetime "audio_updated_at"
-# t.string   "content_file_name"
-# t.string   "content_content_type"
-# t.integer  "content_file_size"
-# t.datetime "content_updated_at"
-# t.text     "content"
-# t.string   "audio_url"
-
 class Beacon < ActiveRecord::Base
 
 	belongs_to :installation
@@ -62,6 +34,34 @@ class Beacon < ActiveRecord::Base
     end
   end
 
+  def self.get_audio_clips(beacon)
+    s3 = AWS::S3.new(
+      :access_key_id => Rails.application.secrets.AWS_ACCESS_KEY_ID,
+      :secret_access_key => Rails.application.secrets.AWS_SECRET_ACCESS_KEY)
+
+    record_beacon_id = Beacon.where(:installation_id => beacon.installation.id).where(:content_type => 'record-audio').first.id
+
+    prefix = "#{beacon.installation.customer.id}" + '/' + "#{beacon.installation.id}" + '/' + "#{record_beacon_id}"
+
+    audio_clips = s3.buckets['lufthouse-memories'].objects.with_prefix(prefix).collect(&:key)
+
+    audio_clip_URLs = Array.new
+
+    unless audio_clips == []
+      audio_clips.each do |f|
+        audio_clip_URLs << "https://s3.amazonaws.com/lufthouse-memories/" + f
+      end
+    end
+
+    beacon.content = audio_clip_URLs.shuffle
+  
+  end
+
+
+  def self.set_beacon_audio(beacon)
+    beacon.audio_url = beacon.audio.url
+    beacon.save!
+  end
   #has_attached_file :content
 
 end

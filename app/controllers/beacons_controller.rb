@@ -9,7 +9,7 @@ class BeaconsController < ApplicationController
 
 
   def show
-    set_beacon_audio
+    Beacon.set_beacon_audio(@beacon)
     if request.format.json?
       format.json { render :show, status: :ok, location: beacon_path }
     end
@@ -40,8 +40,6 @@ class BeaconsController < ApplicationController
   end
 
   def update
-    # @beacon = Beacon.find(params[:beacon_id])
-    # 3.times { @beacon.content_images.build }
     respond_to do |format|
       if @beacon.update(beacon_params)
         format.html { redirect_to beacon_path, notice: 'Beacon was successfully updated.' }
@@ -62,69 +60,6 @@ class BeaconsController < ApplicationController
   end
 
   private
-
-  def get_audio_clips
-    s3 = AWS::S3.new(
-      :access_key_id => Rails.application.secrets.AWS_ACCESS_KEY_ID,
-      :secret_access_key => Rails.application.secrets.AWS_SECRET_ACCESS_KEY)
-
-    record_beacon_id = Beacon.where(:installation_id => @installation.id).where(:content_type => 'record-audio').first.id
-
-    prefix = "#{@customer.id}" + '/' + "#{@installation.id}" + '/' + "#{record_beacon_id}"
-
-    audio_clips = s3.buckets['lufthouse-memories'].objects.with_prefix(prefix).collect(&:key)
-
-    audio_clip_URLs = Array.new
-
-    unless audio_clips == []
-      audio_clips.each do |f|
-        audio_clip_URLs << "https://s3.amazonaws.com/lufthouse-memories/" + f
-      end
-    end
-
-    return audio_clip_URLs.shuffle
-  
-  end
-  
-  # def get_audio_clips
-  #   s3 = AWS::S3.new(
-  #     :access_key_id => Rails.application.secrets.AWS_ACCESS_KEY_ID,
-  #     :secret_access_key => Rails.application.secrets.AWS_SECRET_ACCESS_KEY)
-     
-  #   audio_clips = s3.buckets['lufthouse-memories']
-
-  #   audio_clip_URLs = Array.new
-
-  #   audio_clips.objects.each do |f|
-  #     audio_clip_URLs << "https://s3.amazonaws.com/lufthouse-memories/" + f.key
-  #   end
-
-  #   return audio_clip_URLs.shuffle
-  # end
-
-  def set_beacon_audio
-    @beacon.audio_url = @beacon.audio.url
-  end
-
-  def get_photo_gallery
-    s3 = AWS::S3.new(
-      :access_key_id => Rails.application.secrets.AWS_ACCESS_KEY_ID,
-      :secret_access_key => Rails.application.secrets.AWS_SECRET_ACCESS_KEY)
-      
-    # bucket_name = "Photo-Gallery-" + installation_id.to_s + "-" + minor_id.to_s
-    
-    prefix = "beacons/content_images/000/000/" + "#{@beacon.id}" + '/' + "original"
-
-    photo_gallery_images = s3.buckets['lufthouseawsbucket'].objects.with_prefix(prefix).collect(&:key)
-
-    photo_gallery_images_URLs = Array.new
-
-    photo_gallery_images.objects.each do |f|
-      photo_gallery_images_URLs << "https://s3.amazonaws.com/lufthouseawsbucket" + f
-    end
-
-    return photo_gallery_images_URLs
-  end
 
   def set_customer_and_installation
     @customer = Customer.find(params[:customer_id])
