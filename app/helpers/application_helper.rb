@@ -78,6 +78,17 @@ module ApplicationHelper
     object.longitude > 0 ? raw("#{object.longitude}&deg; E") : raw("#{object.longitude.abs}&deg; W")
   end
 
+  def set_s3
+
+    @s3 = AWS::S3.new(
+      :access_key_id => Rails.application.secrets.AWS_ACCESS_KEY_ID,
+      :secret_access_key => Rails.application.secrets.AWS_SECRET_ACCESS_KEY)
+  end
+
+  def current_installation(beacon)
+    @installation = Installation.find(beacon.installation_id)
+  end
+
   # Paths
 
     # Installation paths

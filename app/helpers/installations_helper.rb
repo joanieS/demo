@@ -1,4 +1,5 @@
 module InstallationsHelper
+  include ApplicationHelper
 
   def count_beacons(installation)
     installation.beacons.count
@@ -25,27 +26,38 @@ module InstallationsHelper
   end
 
   def get_photo_gallery(current_beacon_id, beacon)
-    s3 = AWS::S3.new(
-      :access_key_id => Rails.application.secrets.AWS_ACCESS_KEY_ID,
-      :secret_access_key => Rails.application.secrets.AWS_SECRET_ACCESS_KEY)
+    set_s3
 
-    installation = Installation.find(beacon.installation_id)
+    set_aws_installation_id(beacon)
+    @prefix = "beacons/content_images/000/000/" + "#{current_beacon_id}" + "/original"
+    @default_prefix = "installations/images/000/000/" + "#{@aws_installation_id}" + "/original/"
 
-    aws_installation_id = "%03d" % installation.id
-    prefix = "beacons/content_images/000/000/" + "#{current_beacon_id}" + "/original"
-    default_prefix = "installations/images/000/000/" + "#{aws_installation_id}" + "/original/"
+    check_for_photos(@prefix)
 
-    photo_gallery_images = s3.buckets['lufthouseawsbucket'].objects.with_prefix(prefix).collect(&:key)
+    build_photo_gallery(@photo_gallery_images)
+  end
 
-    if photo_gallery_images == []
+  def set_aws_installation_id(beacon)
+    @aws_installation_id = "%03d" % @installation.id
+  end
+
+  def check_for_photos(prefix)
+
+    @photo_gallery_images = @s3.buckets['lufthouse-dev'].objects.with_prefix(@prefix).collect(&:key)
+
+    if @photo_gallery_images == []
       
-      photo_gallery_images = s3.buckets['lufthouseawsbucket'].objects.with_prefix(default_prefix).collect(&:key)
+      @photo_gallery_images = @s3.buckets['lufthouse-dev'].objects.with_prefix(@default_prefix).collect(&:key)
     end
-    
+
+  end
+
+  def build_photo_gallery(photo_gallery_images)
+
     photo_gallery_images_URLs = Array.new
 
       photo_gallery_images.each do |f|
-        photo_gallery_images_URLs << "https://s3.amazonaws.com/lufthouseawsbucket/" + f
+        photo_gallery_images_URLs << "https://s3.amazonaws.com/lufthouse-dev/" + f
       end
 
       return photo_gallery_images_URLs
@@ -76,18 +88,18 @@ module InstallationsHelper
   end
 
   def get_audio_clips(beacon)
-    s3 = AWS::S3.new(
-      :access_key_id => Rails.application.secrets.AWS_ACCESS_KEY_ID,
-      :secret_access_key => Rails.application.secrets.AWS_SECRET_ACCESS_KEY)
+    set_s3
 
-    installation = Installation.find(beacon.installation_id)
-    customer = Customer.find(installation.customer_id)
+    find_record_beacon(@installation)
 
-    record_beacon_id = Beacon.where(:installation_id => installation.id).where(:content_type => 'record-audio').first.id
+    prefix = "#{@customer.id}" + '/' + "#{@installation.id}" + '/' + "#{@record_beacon_id}"
 
-    prefix = "#{customer.id}" + '/' + "#{installation.id}" + '/' + "#{record_beacon_id}"
+    collect_audio_clips(prefix)
+  end
 
-    audio_clips = s3.buckets['lufthouse-memories'].objects.with_prefix(prefix).collect(&:key)
+  def collect_audio_clips(prefix)
+
+    audio_clips = @s3.buckets['lufthouse-memories'].objects.with_prefix(prefix).collect(&:key)
 
     audio_clip_URLs = Array.new
 
@@ -98,7 +110,10 @@ module InstallationsHelper
     end
 
     return audio_clip_URLs.shuffle
+  end
 
+  def find_record_beacon(installation)
+    @record_beacon_id = Beacon.where(:installation_id => installation.id).where(:content_type => 'record-audio').first.id
   end
 
   def set_customer
