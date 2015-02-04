@@ -13,22 +13,7 @@ class InstallationsController < ApplicationController
   def show
     set_image_url
     if request.format.json?
-      @installation.beacons.each do |beacon|
-
-        if beacon.content_type == "memories"
-          beacon.content = get_audio_clips
-        end
-        if beacon.content_type == "photo-gallery"
-          @current_beacon_id = "%03d" % beacon.id
-          beacon.content = get_photo_gallery
-        end
-        if beacon.content_type == "image"
-          beacon.content = beacon.content_image.url
-        end
-        if beacon.audio_file_name != nil && beacon.audio_file_name != "/audios/original/missing.png"
-          beacon.audio_url = beacon.audio.url
-        end
-      end
+      Installation.select_show(@installation)
       render action: "show"
     else
       authenticate_user!
@@ -76,61 +61,7 @@ class InstallationsController < ApplicationController
     end
   end
 
-
-
   private
-
-  def get_audio_clips
-    s3 = AWS::S3.new(
-      :access_key_id => Rails.application.secrets.AWS_ACCESS_KEY_ID,
-      :secret_access_key => Rails.application.secrets.AWS_SECRET_ACCESS_KEY)
-
-    record_beacon_id = Beacon.where(:installation_id => @installation.id).where(:content_type => 'record-audio').first.id
-
-    prefix = "#{@customer.id}" + '/' + "#{@installation.id}" + '/' + "#{record_beacon_id}"
-
-    audio_clips = s3.buckets['lufthouse-memories'].objects.with_prefix(prefix).collect(&:key)
-
-    audio_clip_URLs = Array.new
-
-    unless audio_clips == []
-      audio_clips.each do |f|
-        audio_clip_URLs << "https://s3.amazonaws.com/lufthouse-memories/" + f
-      end
-    end
-
-    return audio_clip_URLs.shuffle
-
-  end
-
-  def get_photo_gallery
-    s3 = AWS::S3.new(
-      :access_key_id => Rails.application.secrets.AWS_ACCESS_KEY_ID,
-      :secret_access_key => Rails.application.secrets.AWS_SECRET_ACCESS_KEY)
-    aws_installation_id = "%03d" % @installation.id
-    prefix = "beacons/content_images/000/000/" + "#{@current_beacon_id}" + "/original"
-    default_prefix = "installations/images/000/000/" + "#{aws_installation_id}" + "/original/"
-
-    photo_gallery_images = s3.buckets['lufthouseawsbucket'].objects.with_prefix(prefix).collect(&:key)
-
-    if photo_gallery_images == []
-      
-      photo_gallery_images = s3.buckets['lufthouseawsbucket'].objects.with_prefix(default_prefix).collect(&:key)
-    end
-    
-    photo_gallery_images_URLs = Array.new
-
-      photo_gallery_images.each do |f|
-        photo_gallery_images_URLs << "https://s3.amazonaws.com/lufthouseawsbucket/" + f
-      end
-
-      # if photo_gallery_images_URLs == []
-      #   photo_gallery_images_URLs = ["#{@installation.image_url}"]
-      # end
-      
-      return photo_gallery_images_URLs
-
-  end
 
     def set_customer
       @customer = Customer.find(params[:customer_id])

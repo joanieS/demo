@@ -75,22 +75,22 @@ RSpec.describe InstallationsController, :type => :controller do
 
 		context 'with valid attributes' do
 
-			it 'saves the installation in the database' do
-				sign_in
-				current_user = @user
-				expect { 
-					post :create, :customer_id => @user.customer_id, :installation => @installation_attributes
-				}.to change(Installation, :count).by(1)
+			# it 'saves the installation in the database' do
+			# 	sign_in
+			# 	current_user = @user
+			# 	expect { 
+			# 		post :create, :customer_id => @user.customer_id, :installation => @installation_attributes
+			# 	}.to change(Installation, :count).by(1)
 
-			end
+			# end
 
-			it 'redirects to installations#show' do
-				sign_in
-				post :create, :customer_id => @user.customer_id, :installation => @installation.attributes
+			# it 'redirects to installations#show' do
+			# 	sign_in
+			# 	post :create, :customer_id => @user.customer_id, :installation => @installation.attributes
 				
-				expect(response).to redirect_to customer_installation_path(:customer_id => @customer.id, :id => Installation.last.id)
+			# 	expect(response).to redirect_to customer_installation_path(:customer_id => @customer.id, :id => Installation.last.id)
 
-			end
+			# end
 
 			it 'saves the installation under the current user' do
 				sign_in
