@@ -1,4 +1,5 @@
 class InstallationsController < ApplicationController
+  include InstallationsHelper
 
   before_filter :authenticate_user!, except: [:show]
 
@@ -13,7 +14,7 @@ class InstallationsController < ApplicationController
   def show
     set_image_url
     if request.format.json?
-      Installation.select_show(@installation)
+      select_show(@installation)
       render action: "show"
     else
       authenticate_user!
@@ -60,46 +61,5 @@ class InstallationsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  private
-
-    def set_customer
-      @customer = Customer.find(params[:customer_id])
-    end
-
-    def set_installation
-      @installation = @customer.installations.find(params[:id])
-    end
-
-    def set_customer_id
-      @installation.customer_id = current_user.customer_id
-    end
-
-    def set_image_url
-      if @installation.image_file_name != nil
-        @installation.image_url = @installation.image.url
-        @installation.save
-      end
-    end
-
-    def installation_params
-      params.require(:installation).permit(
-        :name, :group, :customer_id, :active, :image_url, :image
-        ) if params[:installation]
-    end
-
-    def set_installations
-      @installations = Installation.where(:customer_id => @customer.id)
-      @active_installations = Installation.where(:customer_id => @customer.id, :active => true)
-    end
-
-    # Paths
-    def installations_path
-      customer_installations_path(@customer)
-    end
-
-    def installation_path
-      customer_installation_path(@customer, @installation)
-    end
 
 end

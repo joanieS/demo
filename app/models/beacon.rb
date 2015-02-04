@@ -28,40 +28,9 @@ class Beacon < ActiveRecord::Base
     'audio/mpg', 'audio/x-mpg', 'audio/x-mpegaudio', 'audio/wav'
   ]
 
-  def content_image_array=(array)
-    array.each do |file|
-      content_images.build(:content_image => file)
-    end
-  end
-
-  def self.get_audio_clips(beacon)
-    s3 = AWS::S3.new(
-      :access_key_id => Rails.application.secrets.AWS_ACCESS_KEY_ID,
-      :secret_access_key => Rails.application.secrets.AWS_SECRET_ACCESS_KEY)
-
-    record_beacon_id = Beacon.where(:installation_id => beacon.installation.id).where(:content_type => 'record-audio').first.id
-
-    prefix = "#{beacon.installation.customer.id}" + '/' + "#{beacon.installation.id}" + '/' + "#{record_beacon_id}"
-
-    audio_clips = s3.buckets['lufthouse-memories'].objects.with_prefix(prefix).collect(&:key)
-
-    audio_clip_URLs = Array.new
-
-    unless audio_clips == []
-      audio_clips.each do |f|
-        audio_clip_URLs << "https://s3.amazonaws.com/lufthouse-memories/" + f
-      end
-    end
-
-    beacon.content = audio_clip_URLs.shuffle
-  
-  end
-
-
   def self.set_beacon_audio(beacon)
     beacon.audio_url = beacon.audio.url
     beacon.save!
   end
-  #has_attached_file :content
 
 end
