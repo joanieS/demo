@@ -36,16 +36,7 @@ class CustomersController < ApplicationController
   def create
     @customer = Customer.new(customer_params)
     @customer.activation_code = SecureRandom.hex
-    respond_to do |format|
-      if @customer.save
-        current_user.update(customer_id: @customer.id)
-        format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
-        format.json { render :show, status: :created, location: @customer }
-      else
-        format.html { render :new }
-        format.json { render json: @customer.errors, status: :unprocessable_entity }
-      end
-    end
+    respond_to_create(@customer, "customer")
   end
 
   def edit; end
@@ -56,10 +47,7 @@ class CustomersController < ApplicationController
 
   def destroy
     @customer.destroy
-    respond_to do |format|
-      format.html { redirect_to customers_url, notice: 'Customer was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    respond_to_destroy(@customer, "customer")
   end
 
   private
@@ -72,10 +60,5 @@ class CustomersController < ApplicationController
       params.require(:customer).permit(:name, :category, :activation_code, :latitude, :longitude, :address)
     end
 
-
-
-    # def self.active_installations(id)
-    #   Installation.where(:customer_id => id, :active => true)
-    # end
 
 end

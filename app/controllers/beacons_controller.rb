@@ -28,15 +28,7 @@ class BeaconsController < ApplicationController
     set_beacon_installation_id_and_uuid
     set_beacon_lat_and_long
 
-    respond_to do |format|
-      if @beacon.save
-        format.html { redirect_to beacon_path, notice: 'Beacon was successfully created.' }
-        format.json { render :show, status: :created, location: beacon_path }
-      else
-        format.html { render :new }
-        format.json { render json: @beacon.errors, status: :unprocessable_entity }
-      end
-    end
+    respond_to_create(@beacon, "beacon")
   end
 
   def update
@@ -45,10 +37,7 @@ class BeaconsController < ApplicationController
 
   def destroy
     @beacon.destroy
-    respond_to do |format|
-      format.html { redirect_to installation_path, notice: 'Customer was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    respond_to_destroy(@beacon, "beacon")
   end
 
 

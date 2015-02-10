@@ -89,24 +89,37 @@ module ApplicationHelper
     @installation = Installation.find(beacon.installation_id)
   end
 
-  def respond_to_update(model, name)
-
-    case name
-    when "customer"
-      params_name = customer_params
-      url = @customer
-    when "installation"
-      params_name = installation_params
-      url = installation_path
-    when "beacon"
-      params_name = beacon_params
-      url = beacon_path
+  def respond_to_destroy(model, name)
+    define_by_name(model, name)
+    respond_to do |format|
+      format.html { redirect_to @destroy_url, notice: "#{name}"+" was successfully destroyed."  }
+      format.json { head :no_content }
     end
+  end
+
+  def respond_to_create(model, name)
+
+    define_by_name(model, name)
 
     respond_to do |format|
-      if model.update(params_name)
-        format.html { redirect_to url, notice: "#{name}"+" was successfully updated." }
-        format.json { render :show, status: :ok, location: model }
+      if model.save
+        format.html { redirect_to @url, notice: "#{name}"+" was successfully created." }
+        format.json { render :show, status: :created, location: @url }
+      else
+        format.html { render :new }
+        format.json { render json: model.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def respond_to_update(model, name)
+
+  define_by_name(model, name)
+
+    respond_to do |format|
+      if model.update(@params_name)
+        format.html { redirect_to @url, notice: "#{name}"+" was successfully updated." }
+        format.json { render :show, status: :ok, location: @url }
       else
         format.html { render :edit }
         format.json { render json: model.errors, status: :unprocessable_entity }
@@ -114,6 +127,23 @@ module ApplicationHelper
     
     end
 
+  end
+
+  def define_by_name(model, name)
+    case name
+    when "customer"
+      @params_name = customer_params
+      @url = @customer
+      @destroy_url = customers_url
+    when "installation"
+      @params_name = installation_params
+      @url = installation_path
+      @destroy_url = installations_path
+    when "beacon"
+      @params_name = beacon_params
+      @url = beacon_path
+      @destroy_url = installation_path
+    end
   end
 
   # Paths

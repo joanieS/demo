@@ -29,15 +29,7 @@ class InstallationsController < ApplicationController
   def create
     @installation = Installation.new(installation_params)
     set_customer_id
-    respond_to do |format|
-      if @installation.save
-        format.html { redirect_to installation_path, notice: "Installation was successfully created." }
-        format.json { render :show, status: :created, location: installation_path }
-      else
-        format.html { render :new }
-        format.json { render json: @installation.errors, status: :unprocessable_entity }
-      end
-    end
+    respond_to_create(@installation, "installation")
   end
 
   def edit; end
@@ -48,10 +40,7 @@ class InstallationsController < ApplicationController
 
   def destroy
     @installation.destroy
-    respond_to do |format|
-      format.html { redirect_to installations_path, notice: "Installation was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    respond_to_destroy(@installation, "installation")
   end
 
 end
