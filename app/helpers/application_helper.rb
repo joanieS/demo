@@ -143,6 +143,10 @@ module ApplicationHelper
       @params_name = beacon_params
       @url = beacon_path
       @destroy_url = installation_path
+    when "user"
+      @params_name = user_params
+      @url = users_path
+      @destroy_url = root_path
     end
   end
 
