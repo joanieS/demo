@@ -43,15 +43,7 @@ class InstallationsController < ApplicationController
   def edit; end
 
   def update
-    respond_to do |format|
-      if @installation.update(installation_params)
-        format.html { redirect_to installation_path, notice: "Installation was successfully updated." }
-        format.json { render :show, status: :ok, location: installation_path }
-      else
-        format.html { render :edit }
-        format.json { render json: @installation.errors, status: :unprocessable_entity }
-      end
-    end
+    respond_to_update(@installation, "installation")
   end
 
   def destroy

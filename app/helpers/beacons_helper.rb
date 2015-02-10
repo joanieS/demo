@@ -1,4 +1,5 @@
 module BeaconsHelper
+  include ApplicationHelper
 
   def beacon_form_title(request)
     if request.path_info =~ /edit/

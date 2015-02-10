@@ -28,9 +28,4 @@ class Beacon < ActiveRecord::Base
     'audio/mpg', 'audio/x-mpg', 'audio/x-mpegaudio', 'audio/wav'
   ]
 
-  def self.set_beacon_audio(beacon)
-    beacon.audio_url = beacon.audio.url
-    beacon.save!
-  end
-
 end

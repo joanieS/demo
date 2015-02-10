@@ -1,4 +1,5 @@
 module CustomersHelper
+  include ApplicationHelper
 
   def customer_form_title(request)
     if request.path_info =~ /edit/

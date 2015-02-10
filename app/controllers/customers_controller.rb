@@ -1,6 +1,7 @@
 require 'securerandom'
 
 class CustomersController < ApplicationController
+  include CustomersHelper
   
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
   
@@ -50,15 +51,7 @@ class CustomersController < ApplicationController
   def edit; end
 
   def update
-    respond_to do |format|
-      if @customer.update(customer_params)
-        format.html { redirect_to @customer, notice: 'Customer was successfully updated.' }
-        format.json { render :show, status: :ok, location: @customer }
-      else
-        format.html { render :edit }
-        format.json { render json: @customer.errors, status: :unprocessable_entity }
-      end
-    end
+    respond_to_update(@customer, "customer")
   end
 
   def destroy

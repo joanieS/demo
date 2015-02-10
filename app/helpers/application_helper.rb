@@ -89,6 +89,33 @@ module ApplicationHelper
     @installation = Installation.find(beacon.installation_id)
   end
 
+  def respond_to_update(model, name)
+
+    case name
+    when "customer"
+      params_name = customer_params
+      url = @customer
+    when "installation"
+      params_name = installation_params
+      url = installation_path
+    when "beacon"
+      params_name = beacon_params
+      url = beacon_path
+    end
+
+    respond_to do |format|
+      if model.update(params_name)
+        format.html { redirect_to url, notice: "#{name}"+" was successfully updated." }
+        format.json { render :show, status: :ok, location: model }
+      else
+        format.html { render :edit }
+        format.json { render json: model.errors, status: :unprocessable_entity }
+      end
+    
+    end
+
+  end
+
   # Paths
 
     # Installation paths

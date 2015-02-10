@@ -40,15 +40,7 @@ class BeaconsController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @beacon.update(beacon_params)
-        format.html { redirect_to beacon_path, notice: 'Beacon was successfully updated.' }
-        format.json { render :show, status: :ok, location: beacon_path }
-      else
-        format.html { render :edit }
-        format.json { render json: @beacon.errors, status: :unprocessable_entity }
-      end
-    end
+    respond_to_update(@beacon, "beacon")
   end
 
   def destroy

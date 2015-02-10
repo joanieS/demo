@@ -42,4 +42,11 @@ RSpec.describe CustomersController, :type => :controller do
 	
 	end
 
+	describe 'GET #update' do
+		it "located the requested @customer" do 
+			put :update, id: @customer, customer: FactoryGirl.attributes_for(:customer) 
+			assigns(:customer).should eq(@customer) 
+		end 
+	end
+
 end
