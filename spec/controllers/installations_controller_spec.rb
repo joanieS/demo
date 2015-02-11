@@ -75,22 +75,23 @@ RSpec.describe InstallationsController, :type => :controller do
 
 		context 'with valid attributes' do
 
-			# it 'saves the installation in the database' do
-			# 	sign_in
-			# 	current_user = @user
-			# 	expect { 
-			# 		post :create, :customer_id => @user.customer_id, :installation => @installation_attributes
-			# 	}.to change(Installation, :count).by(1)
+			it 'saves the installation in the database' do
+				sign_in(user = @user)
 
-			# end
+				expect { 
+					post :create, :customer_id => @user.customer_id, :installation => FactoryGirl.attributes_for(:installation, customer_id: @user.customer_id)
+				}.to change(Installation, :count).by(1)
 
-			# it 'redirects to installations#show' do
-			# 	sign_in
-			# 	post :create, :customer_id => @user.customer_id, :installation => @installation.attributes
-				
-			# 	expect(response).to redirect_to customer_installation_path(:customer_id => @customer.id, :id => Installation.last.id)
+			end
 
-			# end
+			it 'redirects to installations#show' do
+				sign_in(user = @user)
+
+				post :create, :customer_id => @user.customer_id, :installation => FactoryGirl.attributes_for(:installation, customer_id: @user.customer_id)
+	
+				expect(response).to redirect_to customer_installation_path(:customer_id => @customer.id, :id => Installation.last.id)
+
+			end
 
 			it 'saves the installation under the current user' do
 				sign_in
@@ -133,7 +134,7 @@ RSpec.describe InstallationsController, :type => :controller do
 				expect(@installation.name).to eq("Updated Installation")				
 			end
 
-			it 'redirects to the updated contact' do
+			it 'redirects to the updated installation' do
 				sign_in
 				patch :update, id: @installation, customer_id: @installation.customer_id, installation: @installation_attributes
 				expect(response).to redirect_to customer_installation_path(:customer_id => @customer.id, :id => @installation.id)

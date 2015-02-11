@@ -100,7 +100,6 @@ module ApplicationHelper
   def respond_to_create(model, name)
 
     define_by_name(model, name)
-
     respond_to do |format|
       if model.save
         format.html { redirect_to @url, notice: "#{name}"+" was successfully created." }
@@ -134,7 +133,7 @@ module ApplicationHelper
     when "customer"
       @params_name = customer_params
       @url = @customer
-      @destroy_url = customers_url
+      @destroy_url = root_path
     when "installation"
       @params_name = installation_params
       @url = installation_path

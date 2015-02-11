@@ -26,12 +26,27 @@ class InstallationsController < ApplicationController
     @installation = Installation.new
   end
 
+  # def create
+  #   @installation = Installation.new(installation_params)
+  #   set_customer_id
+  #   respond_to_create(@installation, "installation")
+  # end
+
   def create
     @installation = Installation.new(installation_params)
     set_customer_id
-    respond_to_create(@installation, "installation")
+    # set_image_url
+    respond_to do |format|
+      if @installation.save
+        format.html { redirect_to installation_path, notice: "Installation was successfully created." }
+        format.json { render :show, status: :created, location: installation_path }
+      else
+        format.html { render :new }
+        format.json { render json: @installation.errors, status: :unprocessable_entity }
+      end
+    end
   end
-
+  
   def edit; end
 
   def update
