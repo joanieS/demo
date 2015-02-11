@@ -30,8 +30,7 @@ class UsersController < ApplicationController
           format.html { redirect_to customer_path(current_user.customer_id), notice: "User was successfully updated." }
           format.json { render :index, status: :ok, location: users_path }
         else
-          format.html { render :edit }
-          format.json { render json: @user.errors, status: :unprocessable_entity }
+          unprocessable(@user.errors)
         end
       end
     else # Link user account with activation_code.
@@ -41,8 +40,7 @@ class UsersController < ApplicationController
           format.html { redirect_to root_path, notice: "User account was successfully linked to company account." }
           format.json { render :index, status: :ok, location: users_path }
         else
-          format.html { render :edit }
-          format.json { render json: @user.errors, status: :unprocessable_entity }
+          unprocessable(@user.errors)
         end
       end
     end

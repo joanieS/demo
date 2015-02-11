@@ -40,8 +40,9 @@ class BeaconsController < ApplicationController
         format.html { redirect_to beacon_path, notice: 'Beacon was successfully created.' }
         format.json { render :show, status: :created, location: beacon_path }
       else
-        format.html { render :new }
-        format.json { render json: @beacon.errors, status: :unprocessable_entity }
+        # format.html { render :new }
+        # format.json { render json: @beacon.errors, status: :unprocessable_entity }
+        unprocessable(@beacon.errors)
       end
     end
   end

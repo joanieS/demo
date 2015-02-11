@@ -136,17 +136,28 @@ module ApplicationHelper
       @destroy_url = root_path
     when "installation"
       @params_name = installation_params
-      @url = installation_path
-      @destroy_url = installations_path
+      @url = customer_installation_path(@customer, @installation)
+      @destroy_url = customer_installations_path(@customer)
     when "beacon"
       @params_name = beacon_params
       @url = beacon_path
-      @destroy_url = installation_path
+      @destroy_url = customer_installation_path(@installation, @customer)
     when "user"
       @params_name = user_params
       @url = users_path
       @destroy_url = root_path
     end
+  end
+
+  def unprocessable(model_errors)
+    format.html { render :new }
+    format.json { render json: model_errors, status: :unprocessable_entity }
+  end
+
+  def success_message(model, name, action)
+    define_by_name(model, name)
+    format.html { redirect_to @url, notice: "#{name}" +" was successfully #{action}." }
+    format.json { render :show, status: :created, location: @url }
   end
 
   # Paths
@@ -185,5 +196,5 @@ module ApplicationHelper
     def audio_clip_path(audio_clip)
       customer_installation_beacon_path(@customer, @installation, @beacon, audio_clip)
     end
-    
+
 end
