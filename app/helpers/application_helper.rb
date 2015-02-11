@@ -185,4 +185,5 @@ module ApplicationHelper
     def audio_clip_path(audio_clip)
       customer_installation_beacon_path(@customer, @installation, @beacon, audio_clip)
     end
+    
 end
