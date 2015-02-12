@@ -44,9 +44,13 @@ RSpec.describe BeaconsController, :type => :controller do
 
 			it 'redirects to beacon#show' do
 
-				expect{
-					post :create, customer_id: @customer.id, installation_id: @installation, beacon: FactoryGirl.attributes_for(:beacon)
-				}.to change(Beacon, :count).by(1)
+				# beacon = FactoryGirl.attributes_for(:beacon, installation_id: @installation.id)
+
+				post :create, customer_id: @customer.id, installation_id: @installation.id, beacon: FactoryGirl.attributes_for(:beacon, installation_id: @installation.id)
+				
+				expect(response).to redirect_to customer_installation_beacon_path(:customer_id => @customer.id, :installation_id => @installation.id, :id => Beacon.last.id) 
+
+				# expect(response).to redirect_to customer_installation_path(:customer_id => @customer.id, :id => Installation.last.id)
 			end
 
 		end

@@ -23,28 +23,12 @@ class BeaconsController < ApplicationController
     @beacon = Beacon.new
   end
 
-  # def create
-  #   @beacon = Beacon.new(beacon_params)
-  #   set_beacon_installation_id_and_uuid
-  #   set_beacon_lat_and_long
-
-  #   respond_to_create(@beacon, "beacon")
-  # end
-
   def create
     @beacon = Beacon.new(beacon_params)
     set_beacon_installation_id_and_uuid
     set_beacon_lat_and_long
-    respond_to do |format|
-      if @beacon.save
-        format.html { redirect_to beacon_path, notice: 'Beacon was successfully created.' }
-        format.json { render :show, status: :created, location: beacon_path }
-      else
-        # format.html { render :new }
-        # format.json { render json: @beacon.errors, status: :unprocessable_entity }
-        unprocessable(@beacon.errors)
-      end
-    end
+
+    respond_to_create(@beacon, "beacon")
   end
 
   def update

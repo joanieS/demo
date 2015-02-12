@@ -98,10 +98,10 @@ module ApplicationHelper
   end
 
   def respond_to_create(model, name)
-
-    define_by_name(model, name)
+    
     respond_to do |format|
       if model.save
+        define_by_name(model, name)
         format.html { redirect_to @url, notice: "#{name}"+" was successfully created." }
         format.json { render :show, status: :created, location: @url }
       else
@@ -140,7 +140,8 @@ module ApplicationHelper
       @destroy_url = customer_installations_path(@customer)
     when "beacon"
       @params_name = beacon_params
-      @url = beacon_path
+      # binding.pry
+      @url = customer_installation_beacon_path(@customer, @installation, model)
       @destroy_url = customer_installation_path(@installation, @customer)
     when "user"
       @params_name = user_params
@@ -149,10 +150,10 @@ module ApplicationHelper
     end
   end
 
-  def unprocessable(model_errors)
-    format.html { render :new }
-    format.json { render json: model_errors, status: :unprocessable_entity }
-  end
+  # def unprocessable(model_errors, action)
+  #   format.html { render action }
+  #   format.json { render json: model_errors, status: :unprocessable_entity }
+  # end
 
   def success_message(model, name, action)
     define_by_name(model, name)
