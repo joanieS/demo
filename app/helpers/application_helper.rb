@@ -101,12 +101,9 @@ module ApplicationHelper
     
     respond_to do |format|
       if model.save
-        define_by_name(model, name)
-        format.html { redirect_to @url, notice: "#{name}"+" was successfully created." }
-        format.json { render :show, status: :created, location: @url }
+        successful(model, name, "create", format)
       else
-        format.html { render :new }
-        format.json { render json: model.errors, status: :unprocessable_entity }
+        unprocessable(model, :new, format)
       end
     end
   end
@@ -117,11 +114,9 @@ module ApplicationHelper
 
     respond_to do |format|
       if model.update(@params_name)
-        format.html { redirect_to @url, notice: "#{name}"+" was successfully updated." }
-        format.json { render :show, status: :ok, location: @url }
+        successful(model, name, "update", format)
       else
-        format.html { render :edit }
-        format.json { render json: model.errors, status: :unprocessable_entity }
+        unprocessable(model, :edit, format)
       end
     
     end
@@ -150,14 +145,14 @@ module ApplicationHelper
     end
   end
 
-  # def unprocessable(model_errors, action)
-  #   format.html { render action }
-  #   format.json { render json: model_errors, status: :unprocessable_entity }
-  # end
+  def unprocessable(model, action, format)
+    format.html { render action }
+    format.json { render json: model.errors, status: :unprocessable_entity }
+  end
 
-  def success_message(model, name, action)
+  def successful(model, name, result, format)
     define_by_name(model, name)
-    format.html { redirect_to @url, notice: "#{name}" +" was successfully #{action}." }
+    format.html { redirect_to @url, notice: "#{name}" +" was successfully " +"#{result}"+"ed." }
     format.json { render :show, status: :created, location: @url }
   end
 
