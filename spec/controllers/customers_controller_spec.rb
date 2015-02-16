@@ -52,6 +52,12 @@ RSpec.describe CustomersController, :type => :controller do
 	end
 
 	describe 'POST #create' do
+		before :each do
+			@new_user = FactoryGirl.create(:user, customer: nil)
+			current_user = @new_user
+			sign_in(user = @new_user)
+		end
+
 		context 'with valid attributes' do
 
 			it 'creates a new customer' do
@@ -60,13 +66,12 @@ RSpec.describe CustomersController, :type => :controller do
 			end
 
 			it 'redirects to the customer#show page on save' do
-				sign_in
+
 				post :create, customer: FactoryGirl.attributes_for(:customer)
 				expect(response).to redirect_to customer_path(id: Customer.last.id)
 			end
 
 			it 'saves the customer in the database' do
-				sign_in(user = FactoryGirl.create(:user, customer: nil))
 
 				expect {
 					post :create, :customer => FactoryGirl.attributes_for(:customer)
@@ -137,7 +142,7 @@ RSpec.describe CustomersController, :type => :controller do
 
 		it 'redirects to customers#index' do
 			delete :destroy, id: @delete_customer
-			expect(response).to redirect_to customers_url
+			expect(response).to redirect_to root_path
 		end
 
 	end

@@ -111,6 +111,7 @@ module ApplicationHelper
   def respond_to_update(model, name)
 
   define_by_name(model, name)
+  set_params(name)
 
     respond_to do |format|
       if model.update(@params_name)
@@ -126,22 +127,34 @@ module ApplicationHelper
   def define_by_name(model, name)
     case name
     when "customer"
-      @params_name = customer_params
+      # @params_name = customer_params
       @url = @customer
       @destroy_url = root_path
     when "installation"
-      @params_name = installation_params
+      # @params_name = installation_params
       @url = customer_installation_path(@customer, @installation)
       @destroy_url = customer_installations_path(@customer)
     when "beacon"
-      @params_name = beacon_params
-      # binding.pry
+      # @params_name = beacon_params
       @url = customer_installation_beacon_path(@customer, @installation, model)
       @destroy_url = customer_installation_path(@installation, @customer)
     when "user"
-      @params_name = user_params
+      # @params_name = user_params
       @url = users_path
       @destroy_url = root_path
+    end
+  end
+
+  def set_params(name)
+    case name
+    when "customer"
+      @params_name = customer_params
+    when "installation"
+      @params_name = installation_params
+    when "beacon"
+      @params_name = beacon_params
+    when "user"
+      @params_name = user_params
     end
   end
 
@@ -152,6 +165,10 @@ module ApplicationHelper
 
   def successful(model, name, result, format)
     define_by_name(model, name)
+    set_params(name)
+    if result == "create" && model == @customer
+      current_user.update(customer_id: @customer.id)
+    end
     format.html { redirect_to @url, notice: "#{name}" +" was successfully " +"#{result}"+"ed." }
     format.json { render :show, status: :created, location: @url }
   end

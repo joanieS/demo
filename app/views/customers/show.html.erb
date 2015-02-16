@@ -24,7 +24,8 @@
         <span class="info-label">Category:</span> <%= customer_category(@customer) %>
       </li></br>
       <li>
-        <%= link_to "Total Installations: #{total_installations(@customer)}", installations_path(@customer), id: "account-installations-link", class: "link" %>
+      <%#= binding.pry %>
+        <%= link_to "Total Installations: #{total_installations(@customer)}", installations_path, id: "account-installations-link", class: "link" %>
       </li>
       <li>
         <span class="info-label">Total Beacons:</span> <%= total_beacons(@customer) %>

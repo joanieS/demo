@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  include UsersHelper
 
   before_action :authenticate_user!
 
@@ -27,10 +28,9 @@ class UsersController < ApplicationController
     if @user.customer_id
       respond_to do |format|
         if @user.update(user_params)
-          format.html { redirect_to customer_path(current_user.customer_id), notice: "User was successfully updated." }
-          format.json { render :index, status: :ok, location: users_path }
+          update_successful(format)
         else
-          unprocessable(@user.errors)
+          unprocessable(@user, :edit, format)
         end
       end
     else # Link user account with activation_code.
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
           format.html { redirect_to root_path, notice: "User account was successfully linked to company account." }
           format.json { render :index, status: :ok, location: users_path }
         else
-          unprocessable(@user.errors)
+          unprocessable(@user, :edit, format)
         end
       end
     end

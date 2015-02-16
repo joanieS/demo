@@ -39,6 +39,7 @@ class CustomersController < ApplicationController
     respond_to_create(@customer, "customer")
   end
 
+
   def edit; end
 
   def update
@@ -48,7 +49,7 @@ class CustomersController < ApplicationController
   def destroy
     @customer.destroy
     respond_to do |format|
-      format.html { redirect_to customers_url, notice: 'Customer was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'Customer was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
