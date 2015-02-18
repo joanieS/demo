@@ -43,58 +43,10 @@ describe "GET #index" do
 		end
 
 
-		# it 'displays other users on the current user account' do
-
-		# 	users = FactoryGirl.create_list(:user, 5, customer: @customer)
-		# 	binding.pry
-		# 	get :index, :format => :json
-		# 	expect(response.body).to include(users.first.id)
-
-		# end
-
 	end
 
 end
 
-# describe "GET #new" do
-
-# 	it 'assigns a new user to @user' do
-
-# 		get :new
-
-# 		expect(assigns(:customer)).to be_a_new(User)
-
-# 	end
-
-# 	it 'renders the new template' do
-# 	end
-	
-# end
-
-# describe "POST #create" do
-
-# 	context 'with valid attributes' do
-
-# 		it 'creates a new user' do
-# 		end
-
-# 		it 'redirects to the user_path on save' do
-# 		end
-
-# 		it 'saves the new user in the database' do
-# 		end
-		
-# 	end
-
-# 	context 'with invalid attributes' do
-
-# 		it 'does not save the user in the database' do
-# 		end
-
-
-# 	end
-
-# end
 
 describe "GET #edit" do
 
