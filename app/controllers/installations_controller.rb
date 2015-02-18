@@ -40,8 +40,8 @@ class InstallationsController < ApplicationController
     set_image_url
     respond_to do |format|
       if @installation.save
-        format.html { redirect_to installation_path, notice: "Installation was successfully created." }
-        format.json { render :show, status: :created, location: installation_path }
+        format.html { redirect_to installation_path(@installation), notice: "Installation was successfully created." }
+        format.json { render :show, status: :created, location: installation_path(@installation) }
       else
         format.html { render :new }
         format.json { render json: @installation.errors, status: :unprocessable_entity }     
