@@ -69,8 +69,8 @@ module BeaconsHelper
     customer_installation_path(@customer, @installation)
   end
 
-  def beacon_path
-    customer_installation_beacon_path(@customer, @installation, @beacon)
+  def beacon_path(beacon)
+    customer_installation_beacon_path(@customer, @installation, beacon)
   end
 
 end

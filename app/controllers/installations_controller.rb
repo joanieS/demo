@@ -15,6 +15,8 @@ class InstallationsController < ApplicationController
     set_image_url
     if request.format.json?
       select_show(@installation)
+      binding.pry
+      # select_audio_file()
       render action: "show"
     else
       authenticate_user!
@@ -26,10 +28,24 @@ class InstallationsController < ApplicationController
     @installation = Installation.new
   end
 
+  # def create
+  #   @installation = Installation.new(installation_params)
+  #   set_customer_id
+  #   respond_to_create(@installation, "installation")
+  # end
+
   def create
     @installation = Installation.new(installation_params)
     set_customer_id
-    respond_to_create(@installation, "installation")
+    set_image_url
+    respond_to do |format|
+      if @installation.save
+        format.html { redirect_to installation_path, notice: "Installation was successfully created." }
+        format.json { render :show, status: :created, location: installation_path }
+      else
+        unprocessable(@installation.errors)
+      end
+    end
   end
   
   def edit; end

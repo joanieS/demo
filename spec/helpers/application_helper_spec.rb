@@ -93,7 +93,16 @@ end
 		end
 	end
 
+	describe '#current_installation(beacon)' do
+		it 'finds the installation given a beacon id' do 
+			installation = FactoryGirl.create(:installation)
+			beacon = FactoryGirl.create(:beacon, :installation_id => installation.id)
 
+			current_installation(beacon)
+
+			expect(@installation.id).to eq (installation.id)
+		end
+	end
 
 
 end
