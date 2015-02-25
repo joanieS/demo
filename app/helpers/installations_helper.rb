@@ -162,9 +162,14 @@ module InstallationsHelper
   end
 
   # Paths
-  def installations_path(customer)
-    customer_installations_path(customer)
+
+  def installations_path
+    customer_installations_path(@customer)
   end
+
+  # def installations_path(customer)
+  #   customer_installations_path(customer)
+  # end
 
   def installation_path(installation)
     customer_installation_path(@customer, installation)

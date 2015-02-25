@@ -15,7 +15,7 @@ class InstallationsController < ApplicationController
     set_image_url
     if request.format.json?
       select_show(@installation)
-      binding.pry
+      # binding.pry
       # select_audio_file()
       render action: "show"
     else

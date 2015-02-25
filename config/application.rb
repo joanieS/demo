@@ -48,5 +48,7 @@ module Demo
 
     config.action_dispatch.rescue_responses["CustomersController::Forbidden"] = :forbidden
     config.assets.initialize_on_precompile = false
+
+    config.exceptions_app = self.routes
   end
 end
