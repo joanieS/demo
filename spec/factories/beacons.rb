@@ -5,17 +5,9 @@ FactoryGirl.define do
 	factory :beacon do
 		association :installation 
 		minor_id { Faker::Number.positive }
+		content_type { "Web"}
 		active {"true"}
-
-		trait :web_content do
-			content_type { "Web"}
-			content { Faker::Internet.url }
-		end
-
-		trait :image_content do
-			
-		end
-
+		content { Faker::Internet.url }
 	end
 
 end
