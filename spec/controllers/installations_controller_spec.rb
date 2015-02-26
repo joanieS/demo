@@ -55,6 +55,7 @@ RSpec.describe InstallationsController, :type => :controller do
 				sign_in
 
 				get :show, id: @installation, customer_id: @customer.id
+		
 
 				expect(response).to render_template :show
 

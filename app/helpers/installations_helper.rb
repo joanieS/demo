@@ -43,13 +43,23 @@ module InstallationsHelper
 
   def check_for_photos(prefix)
 
-    @photo_gallery_images = @s3.buckets['lufthouse-dev'].objects.with_prefix(@prefix).collect(&:key)
+    prefix_photos == [] ? @photo_gallery_images = default_prefix_photos : @photo_gallery_images = prefix_photos
 
-    if @photo_gallery_images == []
+    # @photo_gallery_images = @s3.buckets['lufthouse-dev'].objects.with_prefix(@prefix).collect(&:key)
+
+    # if @photo_gallery_images == []
       
-      @photo_gallery_images = @s3.buckets['lufthouse-dev'].objects.with_prefix(@default_prefix).collect(&:key)
-    end
+    #   @photo_gallery_images = @s3.buckets['lufthouse-dev'].objects.with_prefix(@default_prefix).collect(&:key)
+    # end
 
+  end
+
+  def prefix_photos
+    @s3.buckets['lufthouse-dev'].objects.with_prefix(@prefix).collect(&:key)
+  end
+
+  def default_prefix_photos
+    @s3.buckets['lufthouse-dev'].objects.with_prefix(@default_prefix).collect(&:key)
   end
 
   def build_photo_gallery(photo_gallery_images)
@@ -67,25 +77,30 @@ module InstallationsHelper
   def select_show(installation)
     
     @installation.beacons.each do |beacon|
-
-      if beacon.content_type == "memories"
+      case beacon.content_type
+      when "memories"
         beacon.content = get_audio_clips(beacon)
-      end
-
-      if beacon.content_type == "photo-gallery"
-        @current_beacon_id = "%03d" % beacon.id
-        beacon.content = get_photo_gallery(@current_beacon_id, beacon)
-      end
-
-      if beacon.content_type == "image"
+      when "photo-gallery"
+        set_photo_gallery_content(beacon)
+      when "image"
         beacon.content = beacon.content_image.url
       end
 
-      if beacon.audio_file_name != nil && beacon.audio_file_name != "/audios/original/missing.png"
-        beacon.audio_url = beacon.audio.url
-      end
+      set_audio_file_name(beacon)
     end
   end
+
+  def set_photo_gallery_content(beacon)
+    @current_beacon_id = "%03d" % beacon.id
+    beacon.content = get_photo_gallery(@current_beacon_id, beacon)
+  end
+
+  def set_audio_file_name(beacon)
+    if beacon.audio_file_name != nil && beacon.audio_file_name != "/audios/original/missing.png"
+      beacon.audio_url = beacon.audio.url
+    end
+  end
+
 
   def get_audio_clips(beacon)
     set_s3
@@ -147,12 +162,17 @@ module InstallationsHelper
   end
 
   # Paths
+
   def installations_path
     customer_installations_path(@customer)
   end
 
-  def installation_path
-    customer_installation_path(@customer, @installation)
+  # def installations_path(customer)
+  #   customer_installations_path(customer)
+  # end
+
+  def installation_path(installation)
+    customer_installation_path(@customer, installation)
   end
 
   def installation_path(installation)

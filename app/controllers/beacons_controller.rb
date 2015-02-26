@@ -11,7 +11,7 @@ class BeaconsController < ApplicationController
   def show
     set_beacon_audio(@beacon)
     if request.format.json?
-      format.json { render :show, status: :ok, location: beacon_path }
+      format.json { render :show, status: :ok, location: beacon_path(@beacon) }
     end
     @hash = Gmaps4rails.build_markers(@beacon) do |beacon, marker|
       marker.lat beacon.latitude

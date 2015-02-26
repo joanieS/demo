@@ -155,8 +155,8 @@ module Api
         end
 
         # Paths
-        def installations_path
-          customer_installations_path(@customer)
+        def installations_path(customer)
+          customer_installations_path(customer)
         end
 
         def installation_path
