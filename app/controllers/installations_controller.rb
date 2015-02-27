@@ -1,5 +1,3 @@
-require 'pry-remote'
-
 class InstallationsController < ApplicationController
   include InstallationsHelper
 
@@ -17,8 +15,6 @@ class InstallationsController < ApplicationController
     set_image_url
     if request.format.json?
       select_show(@installation)
-      # binding.pry
-      # select_audio_file()
       render action: "show"
     else
       authenticate_user!
@@ -29,13 +25,7 @@ class InstallationsController < ApplicationController
   def new
     @installation = Installation.new
   end
-
-  # def create
-  #   @installation = Installation.new(installation_params)
-  #   set_customer_id
-  #   respond_to_create(@installation, "installation")
-  # end
-
+  
   def create
     @installation = Installation.new(installation_params)
     set_customer_id
