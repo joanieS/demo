@@ -1,3 +1,5 @@
+require 'pry-remote'
+
 class InstallationsController < ApplicationController
   include InstallationsHelper
 
@@ -37,7 +39,6 @@ class InstallationsController < ApplicationController
   def create
     @installation = Installation.new(installation_params)
     set_customer_id
-    set_image_url
     respond_to do |format|
       if @installation.save
         format.html { redirect_to installation_path(@installation), notice: "Installation was successfully created." }

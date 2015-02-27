@@ -172,9 +172,13 @@ module ApplicationHelper
     def installation_path(installation)
       customer_installation_path(@customer, installation)
     end
+    
+    def installations_path
+      customer_installations_path(@customer)
+    end
 
     def installations_path(customer)
-      customer_installations_path(@customer)
+      customer_installations_path(customer)
     end
 
     def new_installation_path
