@@ -155,9 +155,6 @@ GEM
       win32console (~> 1.3)
     pry-rails (0.3.2)
       pry (>= 0.9.10)
-    pry-remote (0.1.8)
-      pry (~> 0.9)
-      slop (~> 3.0)
     quiet_assets (1.0.3)
       railties (>= 3.1, < 5.0)
     rack (1.5.2)
@@ -272,7 +269,7 @@ PLATFORMS
 DEPENDENCIES
   annotate (>= 2.6.0)
   awesome_print
-  aws-sdk
+  aws-sdk (< 2.0)
   better_errors
   binding_of_caller
   bootstrap-sass
@@ -297,7 +294,6 @@ DEPENDENCIES
   pg
   pry
   pry-rails
-  pry-remote
   quiet_assets
   rails (= 4.1.5)
   rails_12factor

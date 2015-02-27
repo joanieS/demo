@@ -19,7 +19,7 @@ gem 'jquery-ui-rails'
 gem 'sass-rails', '~> 4.0.3'
 # File storage gems
 gem 'paperclip', '3.5.4'
-gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
 gem 's3_direct_upload'
 gem 'httparty'
 
@@ -30,7 +30,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'rspec-collection_matchers'
   gem 'factory_girl_rails', '~> 4.4.1'
-  gem 'pry-remote'
 end
 
 group :test do
