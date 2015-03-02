@@ -1,4 +1,5 @@
 # Lufthouse-CMS
+<a href="https://codeclimate.com/github/joanieS/CMS"><img src="https://codeclimate.com/github/joanieS/CMS/badges/gpa.svg" /></a>
 
 ## Rails version
 4.1.1
