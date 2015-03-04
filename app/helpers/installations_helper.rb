@@ -26,7 +26,6 @@ module InstallationsHelper
   end
 
   def get_photo_gallery(current_beacon_id, beacon)
-    binding.pry
     set_s3
 
     set_aws_installation_id(beacon)
