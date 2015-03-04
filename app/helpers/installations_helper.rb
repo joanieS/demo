@@ -26,6 +26,7 @@ module InstallationsHelper
   end
 
   def get_photo_gallery(current_beacon_id, beacon)
+    binding.pry
     set_s3
 
     set_aws_installation_id(beacon)
@@ -45,21 +46,16 @@ module InstallationsHelper
 
     prefix_photos == [] ? @photo_gallery_images = default_prefix_photos : @photo_gallery_images = prefix_photos
 
-    # @photo_gallery_images = @s3.buckets['lufthouse-dev'].objects.with_prefix(@prefix).collect(&:key)
-
-    # if @photo_gallery_images == []
-      
-    #   @photo_gallery_images = @s3.buckets['lufthouse-dev'].objects.with_prefix(@default_prefix).collect(&:key)
-    # end
-
   end
 
+
   def prefix_photos
-    @s3.buckets['lufthouse-dev'].objects.with_prefix(@prefix).collect(&:key)
+
+    @s3.buckets[ENV['S3_BUCKET_NAME']].objects.with_prefix(@prefix).collect(&:key)
   end
 
   def default_prefix_photos
-    @s3.buckets['lufthouse-dev'].objects.with_prefix(@default_prefix).collect(&:key)
+    @s3.buckets[ENV['S3_BUCKET_NAME']].objects.with_prefix(@default_prefix).collect(&:key)
   end
 
   def build_photo_gallery(photo_gallery_images)
@@ -67,7 +63,7 @@ module InstallationsHelper
     photo_gallery_images_URLs = Array.new
 
       photo_gallery_images.each do |f|
-        photo_gallery_images_URLs << "https://s3.amazonaws.com/lufthouse-dev/" + f
+        photo_gallery_images_URLs << "https://s3.amazonaws.com/"+ ENV['S3_BUCKET_NAME'] + "/" + f
       end
 
       return photo_gallery_images_URLs

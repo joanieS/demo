@@ -74,8 +74,8 @@ module ApplicationHelper
   def set_s3
 
     @s3 = AWS::S3.new(
-      :access_key_id => Rails.application.secrets.AWS_ACCESS_KEY_ID,
-      :secret_access_key => Rails.application.secrets.AWS_SECRET_ACCESS_KEY)
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY'])
   end
 
   def current_installation(beacon)
