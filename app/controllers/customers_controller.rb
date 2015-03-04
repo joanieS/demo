@@ -5,12 +5,6 @@ class CustomersController < ApplicationController
   
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
   
-  # @active_installations = Installation.where(:customer_id => @customer.id, :active => true)  
-
-  # def self.active_installations
-  #   @active_installations
-  # end
-
   def show
     @users = User.where(customer_id: current_user.customer_id)
     @hash = Gmaps4rails.build_markers(@customer) do |customer, marker|
